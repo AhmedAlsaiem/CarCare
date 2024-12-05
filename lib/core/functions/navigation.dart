@@ -10,7 +10,7 @@ abstract class NavigatorManager {
   }) {
     Navigator.pushNamed(context, route);
   }
-
+//data
 //? navigation with delay time
   void navigationdelay({
     required BuildContext context,
