@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 //! Colors Manager
 abstract class ColorsManager {
-  static const Color rum = Color(0xff756a8f);
-  static const Color trout = Color(0xff484855);
+  static const Color balck = Color(0xff000000);
   static const Color white = Color(0xffffffff);
+
+//?
+
+  static const Color trout = Color(0xff484855);
   static const Color black = Color(0xff000000);
   static const Color purple = Color(0xffC372F2);
   static const Color seaMist = Color(0xffCDE9D4);

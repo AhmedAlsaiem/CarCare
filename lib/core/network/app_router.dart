@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/feature/onboarding/presentation/view/onboarding.dart';
+import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 
 class AppRouter {
   static Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.onboardingView:
         return MaterialPageRoute(
-          builder: (_) => const Onboarding(),
+          builder: (_) => const OnboardingView(),
         );
       // case AppRoutes.forGetPassword:
       //   return MaterialPageRoute(
