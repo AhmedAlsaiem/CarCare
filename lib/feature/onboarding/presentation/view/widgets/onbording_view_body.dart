@@ -7,6 +7,7 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 
+import 'custom_onboarding_image.dart';
 import 'custom_onboarding_text.dart';
 
 class OnboardingViewBody extends StatelessWidget {
@@ -61,23 +62,5 @@ class OnboardingViewBody extends StatelessWidget {
         ],
       ),
     ));
-  }
-}
-
-class CustomOnboardingImage extends StatelessWidget {
-  const CustomOnboardingImage({
-    super.key,
-    required this.image,
-  });
-  final String image;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-        height: 600,
-        child: Center(
-            child: Image.asset(
-          image,
-          alignment: Alignment.center,
-        )));
   }
 }

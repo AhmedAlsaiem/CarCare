@@ -8,6 +8,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),
         );
+        case AppRoutes.loginView:
+        return MaterialPageRoute(
+          builder: (_) => const OnboardingView(),
+        );
       // case AppRoutes.forGetPassword:
       //   return MaterialPageRoute(
       //     builder: (_) => const ForgetpasswordView(),
