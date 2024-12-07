@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class VerfyAcountView extends StatelessWidget {
-  const VerfyAcountView({super.key});
+class VerifyAcountView extends StatelessWidget {
+  const VerifyAcountView({super.key});
 
   @override
   Widget build(BuildContext context) {
