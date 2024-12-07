@@ -35,6 +35,8 @@ abstract class AppSize {
   static const double s110 = 110.0;
   static const double s200 = 200.0;
   static const double s300 = 300.0;
+  static const double s480 = 480.0;
+  static const double infinty = double.infinity;
 }
 
 abstract class AppHeight {
@@ -91,4 +93,32 @@ abstract class Appwidth {
   static const double w46 = 46.0;
   static const double w48 = 48.0;
   static const double w50 = 50.0;
+}
+
+abstract class NumberManager {
+  static const int n2 = 2;
+  static const int n4 = 4;
+  static const int n6 = 6;
+  static const int n8 = 8;
+  static const int n10 = 10;
+  static const int n12 = 12;
+  static const int n14 = 14;
+  static const int n16 = 16;
+  static const int n18 = 18;
+  static const int n20 = 20;
+  static const int n22 = 22;
+  static const int n24 = 24;
+  static const int n26 = 26;
+  static const int n28 = 28;
+  static const int n30 = 30;
+  static const int n32 = 32;
+  static const int n34 = 34;
+  static const int n36 = 36;
+  static const int n38 = 38;
+  static const int n40 = 40;
+  static const int n42 = 42;
+  static const int n44 = 44;
+  static const int n46 = 46;
+  static const int n48 = 48;
+  static const int n50 = 50;
 }
