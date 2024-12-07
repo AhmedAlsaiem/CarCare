@@ -2,8 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
 
-
 abstract class StylesManager {
+  static TextStyle textStyleExtraBold32 = TextStyle(
+    fontSize: 32,
+    color: ColorsManager.darkBlue,
+    fontWeight: AppFontWieght.extraBold,
+  );
+  static TextStyle textStyleMedium18 = TextStyle(
+    fontSize: 18,
+    color: ColorsManager.blueGrey,
+    fontWeight: AppFontWieght.medium,
+  );
+
+  static TextStyle textStyleSemiBold18 = TextStyle(
+    fontWeight: AppFontWieght.semiBold,
+    fontSize: FontSize.s16,
+    color: ColorsManager.mainColor,
+  );
+
+  //////////////////////////////////////////////
   static TextStyle textStyleBold49 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s49,
@@ -74,19 +91,9 @@ abstract class StylesManager {
     fontSize: FontSize.s17,
     color: ColorsManager.white,
   );
-  static TextStyle textStyleRegular14 = TextStyle(
-    fontWeight: AppFontWieght.regular,
-    fontSize: FontSize.s14,
-    color: ColorsManager.white,
-  );
   static TextStyle textStyleMedium32 = TextStyle(
     fontWeight: AppFontWieght.medium,
     fontSize: FontSize.s32,
-    color: ColorsManager.white,
-  );
-  static TextStyle textStyleMedium18 = TextStyle(
-    fontWeight: AppFontWieght.medium,
-    fontSize: FontSize.s18,
     color: ColorsManager.white,
   );
 }

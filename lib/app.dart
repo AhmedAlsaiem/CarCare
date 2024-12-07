@@ -7,10 +7,12 @@ class CarCareApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
       theme: themData(),
+      
+    
     );
   }
-
 }
