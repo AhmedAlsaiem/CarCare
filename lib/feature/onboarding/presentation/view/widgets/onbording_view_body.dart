@@ -21,6 +21,8 @@ class OnboardingViewBody extends StatelessWidget {
       width: AppSize.infinty,
       color: ColorsManager.white,
       child: OnBoardingSlider(
+        onFinish: () {},
+        trailingFunction: () {},
         controllerColor: ColorsManager.mainColor,
         centerBackground: true,
         pageBackgroundColor: ColorsManager.white,

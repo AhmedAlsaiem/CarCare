@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
 
+
 abstract class StylesManager {
   static TextStyle textStyleExtraBold32 = TextStyle(
     fontSize: 32,
