@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
+import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/functions/system_overlay_status_bar_color.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
@@ -21,8 +23,14 @@ class OnboardingViewBody extends StatelessWidget {
       width: AppSize.infinty,
       color: ColorsManager.white,
       child: OnBoardingSlider(
-        onFinish: () {},
-        trailingFunction: () {},
+        onFinish: () {
+          NavigatorManager.pushWithReplacement(
+              context: context, route: AppRoutes.signUpView);
+        },
+        trailingFunction: () {
+          NavigatorManager.pushWithReplacement(
+              context: context, route: AppRoutes.loginView);
+        },
         controllerColor: ColorsManager.mainColor,
         centerBackground: true,
         pageBackgroundColor: ColorsManager.white,
