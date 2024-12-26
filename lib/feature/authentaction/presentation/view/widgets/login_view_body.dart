@@ -12,6 +12,7 @@ class LoginViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const CustomLogoAuth(title: StringsManager.login),
         const SizedBox(height: AppSize.s40),
@@ -49,7 +50,9 @@ class LoginViewBody extends StatelessWidget {
                   style: StylesManager.textStyleBold24,
                 ),
               ),
+              const SizedBox(height: AppSize.s10),
               Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     StringsManager.dontHaveAcount,
@@ -57,12 +60,16 @@ class LoginViewBody extends StatelessWidget {
                       color: ColorsManager.black,
                     ),
                   ),
-                  Text(
-                    StringsManager.dontHaveAcount,
-                    style: StylesManager.textStyleRegular17.copyWith(
-                      color: ColorsManager.mainColor,
+                  TextButton(
+                    style:const ButtonStyle(
+                        padding: WidgetStatePropertyAll(EdgeInsets.all(6))),
+                    onPressed: () {},
+                    child: Text(
+                      StringsManager.signUp,
+                      style: StylesManager.textStyleBold17
+                          .copyWith(color: ColorsManager.mainColor),
                     ),
-                  ),
+                  )
                 ],
               )
             ],

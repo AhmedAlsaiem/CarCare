@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
+import 'package:splash_app/core/utils/string_manager.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField(
@@ -25,8 +26,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       keyboardType: widget.textInputType,
       style: TextStyle(
           color: ColorsManager.balck,
-          fontWeight: AppFontWieght.medium,
-          fontSize: 18),
+          fontWeight: AppFontWieght.regular,
+          fontSize: FontSize.s22),
       cursorColor: ColorsManager.mainColor,
       onChanged: widget.onchange,
       obscureText: obscureTextMethod(),
@@ -38,10 +39,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         errorStyle: const TextStyle(color: ColorsManager.red),
         contentPadding: const EdgeInsets.all(20),
         labelText: widget.label,
-        labelStyle: const TextStyle(
+        labelStyle: TextStyle(
           color: ColorsManager.balck,
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
+          fontWeight: AppFontWieght.medium,
+          fontSize: FontSize.s20,
         ),
         suffixIconColor: ColorsManager.mainColor,
         prefixIconColor: ColorsManager.mainColor,
@@ -60,23 +61,23 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   String? validtorMethod(String? value) {
     if (value!.isEmpty) {
-      return '${widget.label} is required';
+      return '${widget.label} ${StringsManager.isRequired} ';
     } else {
-      if (value.length <= 10 && widget.label == 'Email') {
-        return 'this ${widget.label} is not correct fromat';
-      } else if (widget.label == 'Email') {
-        if (value.substring(value.length - 10, value.length) != '@gmail.com') {
-          return 'this ${widget.label} is not correct fromat';
+      if (value.length <= 10 && widget.label == StringsManager.email) {
+        return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
+      } else if (widget.label == StringsManager.email) {
+        if (value.substring(value.length - 10, value.length) != StringsManager.gmailcom) {
+          return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
         } else {
           return null;
         }
       } else if (value.length <= 6 &&
-          (widget.label == 'Password' ||
-              widget.label == 'New password' ||
-              widget.label == 'Confirm Password')) {
-        return 'this Password is very short';
-      } else if ((widget.label == 'Email') && value.length <= 10) {
-        return 'this ${widget.label} is not correct email';
+          (widget.label == StringsManager.password ||
+              widget.label == StringsManager.newPassword ||
+              widget.label == StringsManager.confirmPassword)) {
+        return StringsManager.passwordShort;
+      } else if ((widget.label == StringsManager.email) && value.length <= 10) {
+        return '${StringsManager.wThis} ${widget.label} ${StringsManager.notCorrectEmail}';
       } else {
         return null;
       }
@@ -93,9 +94,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   }
 
   bool obscureTextMethod() {
-    if (widget.label == 'Password' ||
-        widget.label == 'New password' ||
-        widget.label == 'Confirm Password') {
+    if (widget.label == StringsManager.password||
+        widget.label == StringsManager.newPassword ||
+        widget.label == StringsManager.confirmPassword) {
       return visible;
     } else {
       return false;
@@ -103,9 +104,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   }
 
   Widget? suffixIconMethod() {
-    if (widget.label == 'Password' ||
-        widget.label == 'New password' ||
-        widget.label == 'Confirm Password') {
+    if (widget.label == StringsManager.password ||
+        widget.label == StringsManager.newPassword ||
+        widget.label == StringsManager.confirmPassword) {
       return IconButton(
         onPressed: () {
           if (visible == true) {
