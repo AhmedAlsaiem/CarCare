@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/core/utils/font_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
+import 'package:splash_app/core/utils/styles_manager.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField(
@@ -24,10 +25,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: widget.textInputType,
-      style: TextStyle(
-          color: ColorsManager.balck,
-          fontWeight: AppFontWieght.regular,
-          fontSize: FontSize.s22),
+      style: StylesManager.textStyleRegular22.copyWith(
+        color: ColorsManager.balck,
+      ),
       cursorColor: ColorsManager.mainColor,
       onChanged: widget.onchange,
       obscureText: obscureTextMethod(),
@@ -35,15 +35,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       // widget.label == 'Password' ? visible : false,
       decoration: InputDecoration(
         filled: true,
-        fillColor: ColorsManager.grey.withOpacity(0.2),
+        fillColor: ColorsManager.grey.withOpacity(AppSize.s02),
         errorStyle: const TextStyle(color: ColorsManager.red),
-        contentPadding: const EdgeInsets.all(20),
+        contentPadding: const EdgeInsets.all(AppSize.s20),
         labelText: widget.label,
-        labelStyle: TextStyle(
-          color: ColorsManager.balck,
-          fontWeight: AppFontWieght.medium,
-          fontSize: FontSize.s20,
-        ),
+        labelStyle: StylesManager.textStyleMedium20
+            .copyWith(color: ColorsManager.balck),
         suffixIconColor: ColorsManager.mainColor,
         prefixIconColor: ColorsManager.mainColor,
         suffixIcon: suffixIconMethod(),
@@ -66,7 +63,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       if (value.length <= 10 && widget.label == StringsManager.email) {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (widget.label == StringsManager.email) {
-        if (value.substring(value.length - 10, value.length) != StringsManager.gmailcom) {
+        if (value.substring(value.length - 10, value.length) !=
+            StringsManager.gmailcom) {
           return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
         } else {
           return null;
@@ -94,7 +92,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   }
 
   bool obscureTextMethod() {
-    if (widget.label == StringsManager.password||
+    if (widget.label == StringsManager.password ||
         widget.label == StringsManager.newPassword ||
         widget.label == StringsManager.confirmPassword) {
       return visible;
