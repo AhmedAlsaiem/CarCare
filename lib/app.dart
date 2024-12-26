@@ -10,8 +10,7 @@ class CarCareApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      theme: themData(),
-      
+      theme: themData(),      
     
     );
   }

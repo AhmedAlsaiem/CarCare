@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
 
-
 abstract class StylesManager {
   static TextStyle textStyleExtraBold32 = TextStyle(
     fontSize: 32,
@@ -65,7 +64,7 @@ abstract class StylesManager {
   static TextStyle textStyleBold15 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s15,
-    color: ColorsManager.white,
+    color: ColorsManager.balck,
   );
   static TextStyle textStyleSemiBold28 = TextStyle(
     fontWeight: AppFontWieght.semiBold,

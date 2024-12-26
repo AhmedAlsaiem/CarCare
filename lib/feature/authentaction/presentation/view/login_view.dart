@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/widgets/login_view_body.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -7,6 +8,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      body:const LoginViewBody(),
     );
   }
 }
