@@ -15,7 +15,7 @@ abstract class StylesManager {
   );
   static TextStyle textStyleMedium20 = TextStyle(
     fontSize: FontSize.s20,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
     fontWeight: AppFontWieght.medium,
   );
 
@@ -28,42 +28,42 @@ abstract class StylesManager {
   static TextStyle textStyleBold49 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s49,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold34 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s34,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold32 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s32,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold24 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s24,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold20 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s20,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold22 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s22,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold17 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s17,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold16 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s16,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold15 = TextStyle(
     fontWeight: AppFontWieght.bold,
@@ -73,31 +73,31 @@ abstract class StylesManager {
   static TextStyle textStyleSemiBold28 = TextStyle(
     fontWeight: AppFontWieght.semiBold,
     fontSize: FontSize.s28,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleRegular22 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s22,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleRegular18 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s18,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleRegular32 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s32,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleRegular17 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s17,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleMedium32 = TextStyle(
     fontWeight: AppFontWieght.medium,
     fontSize: FontSize.s32,
-    color: ColorsManager.black,
+    color: ColorsManager.white,
   );
 }
