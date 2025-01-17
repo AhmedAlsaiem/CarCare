@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/helper/extentions.dart';
-import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_logo_auth.dart';
 
-class SignUpView extends StatelessWidget {
-  const SignUpView({super.key});
+class ChooseAcountType extends StatelessWidget {
+  const ChooseAcountType({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class SignUpView extends StatelessWidget {
             title: 'Choose Type',
             height: context.screenHeight * 0.2,
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
             width: double.infinity,
           ),

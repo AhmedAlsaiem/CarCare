@@ -8,7 +8,6 @@ import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-
 import 'custom_onboarding_image.dart';
 import 'custom_onboarding_text.dart';
 
