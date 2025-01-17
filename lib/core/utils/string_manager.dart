@@ -23,4 +23,5 @@ static const String onboardingSubtitle1 =
       'learn appliaction is the best application for road side assestacne tat help people to save you ';
   static const String onboardingSubtitle3 =
       'learn appliaction is the best application for road side assestacne tat help people to save you ';
+      
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/signup_view.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 
@@ -22,7 +22,7 @@ class AppRouter {
         );
       case AppRoutes.signUpView:
         return MaterialPageRoute(
-          builder: (_) => const SignUpView(),
+          builder: (_) => const ChooseAcountType(),
         );
       case AppRoutes.verifyAcount:
         return MaterialPageRoute(
@@ -39,7 +39,7 @@ class AppRouter {
 abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String loginView = '/loginView';
-  static const String signUpView = '/signUpView';
+  static const String signUpView = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
   static const String verifyAcount = '/verifyAcount';
 }
