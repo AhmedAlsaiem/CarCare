@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/app_size.dart';
+import 'package:splash_app/core/helper/extentions.dart';
+
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
@@ -15,7 +17,10 @@ class LoginViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const CustomLogoAuth(title: StringsManager.login),
+          CustomLogoAuth(
+            title: StringsManager.login,
+            height: context.screenHeight * AppSize.s03,
+          ),
           const SizedBox(height: AppSize.s40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppSize.s20),

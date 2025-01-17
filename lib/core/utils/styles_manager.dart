@@ -18,7 +18,11 @@ abstract class StylesManager {
     color: ColorsManager.white,
     fontWeight: AppFontWieght.medium,
   );
-
+static TextStyle textStyleMedium26 = TextStyle(
+    fontSize: FontSize.s26,
+    color: ColorsManager.white,
+    fontWeight: AppFontWieght.medium,
+  );
   static TextStyle textStyleSemiBold18 = TextStyle(
     fontWeight: AppFontWieght.semiBold,
     fontSize: FontSize.s16,
