@@ -10,7 +10,6 @@ class CustomOnboardingText extends StatelessWidget {
     required this.title,
     required this.subTitle,
   });
-
   @override
   Widget build(BuildContext context) {
     return Container(

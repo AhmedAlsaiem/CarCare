@@ -1,5 +1,14 @@
 abstract class AppSize {
   static const double s0 = 0.0;
+  static const double s01 = 0.1;
+  static const double s02 = 0.2;
+  static const double s03 = 0.3;
+  static const double s04 = 0.4;
+  static const double s05 = 0.5;
+  static const double s06 = 0.6;
+  static const double s07 = 0.7;
+  static const double s08 = 0.8;
+  static const double s09 = 0.9;
   static const double s1 = 1.0;
   static const double s2 = 2.0;
   static const double s4 = 4.0;
@@ -33,6 +42,8 @@ abstract class AppSize {
   static const double s70 = 70.0;
   static const double s100 = 100.0;
   static const double s110 = 110.0;
+  static const double s150 = 150.0;
+
   static const double s200 = 200.0;
   static const double s300 = 300.0;
   static const double s480 = 480.0;

@@ -4,13 +4,18 @@ import 'package:splash_app/core/utils/font_manager.dart';
 
 abstract class StylesManager {
   static TextStyle textStyleExtraBold32 = TextStyle(
-    fontSize: 32,
+    fontSize: FontSize.s32,
     color: ColorsManager.darkBlue,
     fontWeight: AppFontWieght.extraBold,
   );
   static TextStyle textStyleMedium18 = TextStyle(
-    fontSize: 18,
+    fontSize: FontSize.s18,
     color: ColorsManager.blueGrey,
+    fontWeight: AppFontWieght.medium,
+  );
+  static TextStyle textStyleMedium20 = TextStyle(
+    fontSize: FontSize.s20,
+    color: ColorsManager.white,
     fontWeight: AppFontWieght.medium,
   );
 
@@ -20,7 +25,6 @@ abstract class StylesManager {
     color: ColorsManager.mainColor,
   );
 
-  //////////////////////////////////////////////
   static TextStyle textStyleBold49 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s49,
@@ -64,7 +68,7 @@ abstract class StylesManager {
   static TextStyle textStyleBold15 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s15,
-    color: ColorsManager.white,
+    color: ColorsManager.balck,
   );
   static TextStyle textStyleSemiBold28 = TextStyle(
     fontWeight: AppFontWieght.semiBold,
