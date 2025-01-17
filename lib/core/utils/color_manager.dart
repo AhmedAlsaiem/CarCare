@@ -10,7 +10,7 @@ abstract class ColorsManager {
   static const Color red = Colors.red;
   static const Color grey = Colors.grey;
 
-//?
+//? not use color
 
   static const Color trout = Color(0xff484855);
   static const Color black = Color(0xff000000);
