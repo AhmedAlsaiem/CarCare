@@ -24,7 +24,7 @@ class OnboardingViewBody extends StatelessWidget {
       child: OnBoardingSlider(
         onFinish: () {
           NavigatorManager.pushWithReplacement(
-              context: context, route: AppRoutes.signUpView);
+              context: context, route: AppRoutes.chooseAcountType);
         },
         trailingFunction: () {
           NavigatorManager.pushWithReplacement(

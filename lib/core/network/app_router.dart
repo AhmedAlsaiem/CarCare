@@ -20,7 +20,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const LoginView(),
         );
-      case AppRoutes.signUpView:
+      case AppRoutes.chooseAcountType:
         return MaterialPageRoute(
           builder: (_) => const ChooseAcountType(),
         );
@@ -38,7 +38,7 @@ class AppRouter {
 abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String loginView = '/loginView';
-  static const String signUpView = '/chooseAcountType';
+  static const String chooseAcountType = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
   static const String verifyAcount = '/verifyAcount';
 }

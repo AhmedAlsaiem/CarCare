@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/helper/extentions.dart';
-
-import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/widgets/login_text_form_field_section.dart';
 import 'custom_logo_auth.dart';
+import 'custom_text_button.dart';
 
 class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
-
+  LoginViewBody({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -24,62 +24,19 @@ class LoginViewBody extends StatelessWidget {
           const SizedBox(height: AppSize.s40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppSize.s20),
-            child: Column(
-              children: [
-                CustomTextFormField(
-                    textInputType: TextInputType.number,
-                    label: StringsManager.login,
-                    icon: const Icon(Icons.phone_android_rounded),
-                    onchange: (value) {}),
-                const SizedBox(
-                  height: AppSize.s20,
-                ),
-                CustomTextFormField(
-                    label: StringsManager.password,
-                    icon: const Icon(Icons.password),
-                    onchange: (value) {}),
-                const SizedBox(
-                  height: AppSize.s150,
-                ),
-                TextButton(
-                  onPressed: () {},
-                  style: const ButtonStyle(
-                      minimumSize: WidgetStatePropertyAll(
-                          Size(double.infinity, AppSize.s70)),
-                      backgroundColor:
-                          WidgetStatePropertyAll(ColorsManager.mainColor),
-                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(AppSize.s12))))),
-                  child: Text(
-                    StringsManager.login,
-                    style: StylesManager.textStyleBold24,
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      StringsManager.dontHaveAcount,
-                      style: StylesManager.textStyleRegular17.copyWith(
-                        color: ColorsManager.black,
-                      ),
-                    ),
-                    TextButton(
-                      style: const ButtonStyle(
-                          padding: WidgetStatePropertyAll(EdgeInsets.all(6))),
-                      onPressed: () {},
-                      child: Text(
-                        StringsManager.signUp,
-                        style: StylesManager.textStyleBold17
-                            .copyWith(color: ColorsManager.mainColor),
-                      ),
-                    )
-                  ],
-                )
-              ],
+            child: Form(
+              key: formKey,
+              child: LoginTextFromFieldSection(formKey: formKey),
             ),
-          )
+          ),
+          CustomTextBotton(
+            title1: StringsManager.dontHaveAcount,
+            title2: StringsManager.signUp,
+            onPress: () {
+              NavigatorManager.pushWithReplacement(
+                  context: context, route: AppRoutes.chooseAcountType);
+            },
+          ),
         ],
       ),
     );

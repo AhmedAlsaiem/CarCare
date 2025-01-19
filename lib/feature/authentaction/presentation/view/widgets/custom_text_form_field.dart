@@ -33,26 +33,31 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: obscureTextMethod(),
 
       // widget.label == 'Password' ? visible : false,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: ColorsManager.grey.withOpacity(AppSize.s02),
-        errorStyle: const TextStyle(color: ColorsManager.red),
-        contentPadding: const EdgeInsets.all(AppSize.s20),
-        labelText: widget.label,
-        labelStyle: StylesManager.textStyleMedium20
-            .copyWith(color: ColorsManager.balck),
-        suffixIconColor: ColorsManager.mainColor,
-        prefixIconColor: ColorsManager.mainColor,
-        suffixIcon: suffixIconMethod(),
-        prefixIcon: widget.icon,
-        disabledBorder: customOutlineInputBorder(color: ColorsManager.black),
-        border: customOutlineInputBorder(color: ColorsManager.balck),
-        errorBorder: customOutlineInputBorder(color: ColorsManager.red),
-        enabledBorder: customOutlineInputBorder(color: ColorsManager.black),
-        focusedBorder: customOutlineInputBorder(color: ColorsManager.balck),
-        focusedErrorBorder: customOutlineInputBorder(color: ColorsManager.red),
-      ),
+      decoration: customInputDecorcationFunction(),
       validator: validtorMethod,
+    );
+  }
+
+  InputDecoration customInputDecorcationFunction() {
+    return InputDecoration(
+      filled: true,
+      fillColor: ColorsManager.grey.withOpacity(AppSize.s02),
+      errorStyle: const TextStyle(color: ColorsManager.mainColor),
+      contentPadding: const EdgeInsets.all(AppSize.s20),
+      labelText: widget.label,
+      labelStyle:
+          StylesManager.textStyleMedium20.copyWith(color: ColorsManager.balck),
+      suffixIconColor: ColorsManager.mainColor,
+      prefixIconColor: ColorsManager.mainColor,
+      suffixIcon: suffixIconMethod(),
+      prefixIcon: widget.icon,
+      disabledBorder: customOutlineInputBorder(color: ColorsManager.black),
+      border: customOutlineInputBorder(color: ColorsManager.balck),
+      errorBorder: customOutlineInputBorder(color: ColorsManager.mainColor),
+      enabledBorder: customOutlineInputBorder(color: ColorsManager.black),
+      focusedBorder: customOutlineInputBorder(color: ColorsManager.balck),
+      focusedErrorBorder:
+          customOutlineInputBorder(color: ColorsManager.mainColor),
     );
   }
 
@@ -60,11 +65,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     if (value!.isEmpty) {
       return '${widget.label} ${StringsManager.isRequired} ';
     } else {
-      if (value.length <= 10 && widget.label == StringsManager.email) {
+      if (value.length != 11 && widget.label == StringsManager.phoneNumber) {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
-      } else if (widget.label == StringsManager.email) {
-        if (value.substring(value.length - 10, value.length) !=
-            StringsManager.gmailcom) {
+      } else if (widget.label == StringsManager.phoneNumber) {
+        if (value.substring(0, 2) != StringsManager.zeroOne) {
+          print(value.substring(0, 2));
           return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
         } else {
           return null;

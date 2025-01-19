@@ -98,6 +98,10 @@ static TextStyle textStyleMedium26 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s17,
     color: ColorsManager.white,
+  ); static TextStyle textStyleRegular14 = TextStyle(
+    fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s14,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleMedium32 = TextStyle(
     fontWeight: AppFontWieght.medium,
