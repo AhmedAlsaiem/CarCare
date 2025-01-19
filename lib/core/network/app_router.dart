@@ -35,8 +35,6 @@ class AppRouter {
     }
   }
 }
-///asldasldaldfaldalald
-//aalsfalfalflaflafl
 abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String loginView = '/loginView';
