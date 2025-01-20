@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
@@ -6,8 +5,8 @@ import '../utils/app_size.dart';
 import '../utils/string_manager.dart';
 import '../utils/styles_manager.dart';
 
-class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     required this.onPressed,
   });

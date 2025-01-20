@@ -30,8 +30,6 @@ class LoginViewBody extends StatelessWidget {
             ),
           ),
           CustomTextBotton(
-            title1: StringsManager.dontHaveAcount,
-            title2: StringsManager.signUp,
             onPress: () {
               NavigatorManager.pushWithReplacement(
                   context: context, route: AppRoutes.chooseAcountType);

@@ -10,13 +10,12 @@ abstract class StringsManager {
   static const String isNotCorrectFormat = 'is not correct format';
   static const String gmailcom = '@gmail.com';
   static const String newPassword = 'New Password';
-    static const String forgetPassword = 'Forget Password';
-
+  static const String forgetPassword = 'Forget Password';
+  static const String remmberMy = 'Remember Me';
   static const String confirmPassword = 'Confirm Password';
   static const String startNow = 'Start now!';
   static const String zeroOne = '01';
   static const String emptyString = '';
-
   static const String phoneNumber = ' Phone Number';
   static const String passwordShort = 'this password is Very Short';
   static const String password = ' Password';

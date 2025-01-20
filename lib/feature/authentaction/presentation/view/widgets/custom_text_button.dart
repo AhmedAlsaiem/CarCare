@@ -6,15 +6,11 @@ import '../../../../../core/utils/color_manager.dart';
 
 // ignore: must_be_immutable
 class CustomTextBotton extends StatelessWidget {
-  CustomTextBotton({
+ const CustomTextBotton({
     super.key,
     required this.onPress,
-    required this.title1,
-    required this.title2,
   });
   final void Function()? onPress;
-  String? title1;
-  final String title2;
 
   @override
   Widget build(BuildContext context) {

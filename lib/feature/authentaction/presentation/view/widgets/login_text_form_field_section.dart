@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/functions/navigation.dart';
-import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/widgets/custom_text_button.dart';
-
 import '../../../../../core/utils/string_manager.dart';
-import 'custom_text_button.dart';
+import 'cusom_forget_password_triger_page.dart';
 import 'custom_text_form_field.dart';
 
 class LoginTextFromFieldSection extends StatelessWidget {
@@ -32,20 +29,11 @@ class LoginTextFromFieldSection extends StatelessWidget {
             label: StringsManager.password,
             icon: const Icon(Icons.password),
             onchange: (value) {}),
-        CustomTextBotton(
-          title1: StringsManager.emptyString,
-          title2: StringsManager.forgetPassword,
-          onPress: () {
-            NavigatorManager.pushWithReplacement(
-              context: context,
-              route: AppRoutes.chooseAcountType,
-            );
-          },
-        ),
+        const CustomForgetPasswordTrigrePage(),
         const SizedBox(
           height: AppSize.s100,
         ),
-        CustomTextButton(
+        CustomButton(
           onPressed: () {
             if (formKey.currentState?.validate() == true) {}
           },
