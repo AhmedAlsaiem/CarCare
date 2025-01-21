@@ -18,27 +18,26 @@ class ServiceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin:  const EdgeInsets.symmetric(horizontal: Appwidth.w16),
+      margin:  EdgeInsets.symmetric(horizontal: Appwidth.w16),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSize.s12),
       ),
       elevation: 2,
+
       //color: ColorsManager.grey.withOpacity(.5),
       child: Padding(
         padding: const EdgeInsets.all(AppSize.s8),
-        
         child: SizedBox(
           // height: 200,
           // width: 200,
-          
+
           height: context.screenHeight * 0.45,
           width: context.screenWidth * 0.4,
           child: Column(
             //   mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
-            
+
             children: [
-              
               Image.asset(
                 imagePath,
                 height: Appwidth.w80,
@@ -47,7 +46,7 @@ class ServiceItem extends StatelessWidget {
               ),
               //   const SizedBox(height: 16),
               Text(title, style: StylesManager.textStyleBold26MainColor),
-               const SizedBox(height: AppHeight.h8),
+               SizedBox(height: AppHeight.h8),
               SizedBox(
                 width: context.screenWidth * 0.35,
                 child: Text(
@@ -55,7 +54,7 @@ class ServiceItem extends StatelessWidget {
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   // textAlign: TextAlign.center,
-                  style:    const TextStyle(
+                  style:  TextStyle(
                     fontSize: FontSize.s14,
                   ),
                 ),

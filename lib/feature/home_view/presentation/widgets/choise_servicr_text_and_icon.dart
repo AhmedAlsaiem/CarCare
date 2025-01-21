@@ -14,7 +14,7 @@ class ChoiseServiceTextAndIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Appwidth.w16),
+      padding:  EdgeInsets.symmetric(horizontal: Appwidth.w16),
       child: Row(
         children: [
           const FaIcon(
@@ -22,7 +22,7 @@ class ChoiseServiceTextAndIcon extends StatelessWidget {
             color: ColorsManager.mainColor,
             size: AppSize.s26,
           ),
-          const SizedBox(
+           SizedBox(
             width: Appwidth.w6,
           ),
           Text(

@@ -19,13 +19,13 @@ class IndicatorHome extends StatelessWidget {
     return DotsIndicator(
       dotsCount: items.length,
       position: currentIndex,
-      decorator: const DotsDecorator(
+      decorator:  DotsDecorator(
         color: ColorsManager.grey, // Inactive dot color
         activeColor: ColorsManager.mainColor, // Active dot color
         size: Size(Appwidth.w8, AppHeight.h8), // Dot size
         activeSize: Size(Appwidth.w10, AppHeight.h10), // Active dot size
         spacing:
-            EdgeInsets.symmetric(horizontal: Appwidth.w4), // Space between dots
+             EdgeInsets.symmetric(horizontal: Appwidth.w4), // Space between dots
       ),
     );
   }

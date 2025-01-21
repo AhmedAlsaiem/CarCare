@@ -84,7 +84,7 @@ abstract class StylesManager {
     fontSize: FontSize.s14,
     color: ColorsManager.white,
   );
-  static TextStyle textStyle16 = const TextStyle(
+  static TextStyle textStyle16 =  TextStyle(
     //fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s16,
    // color: ColorsManager.white,

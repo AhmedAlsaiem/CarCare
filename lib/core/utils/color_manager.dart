@@ -5,7 +5,7 @@ abstract class ColorsManager {
   static const Color balck = Color(0xff000000);
   static const Color white = Color(0xffffffff);
   static const Color mainColor = Color(0xff2352a1);
-  static const Color grey = Color(0xffD3D3D3);
+  static const Color grey= Color(0xffD3D3D3);
 
   static const Color darkBlue = Color.fromARGB(255, 22, 49, 97);
   static const Color blueGrey = Color.fromARGB(202, 38, 66, 81);

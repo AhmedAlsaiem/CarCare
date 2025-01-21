@@ -5,13 +5,11 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 
 class ProductHorizantal extends StatelessWidget {
-  
   final String title;
   final String subTitle;
   final String pathImage;
   const ProductHorizantal({
     super.key,
-   
     required this.title,
     required this.subTitle,
     required this.pathImage,
@@ -20,10 +18,15 @@ class ProductHorizantal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Appwidth.w10),
+      padding:  EdgeInsets.symmetric(horizontal: Appwidth.w10),
       child: Card(
+        elevation: 2,
         // color: ColorsManager.mainColor,
-        color: ColorsManager.grey.withOpacity(.8),
+        //color: ColorsManager.grey.withValues(alpha: (0.3 * 255),),
+        color: ColorsManager.white.withValues(
+          alpha: (0.1 * 255),
+        ),
+
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.s16)),
         child: SizedBox(
@@ -43,8 +46,7 @@ class ProductHorizantal extends StatelessWidget {
                         child: Text(
                           title,
                           maxLines: 1,
-                          style: StylesManager.textStyleBold24maincolor
-                             ,
+                          style: StylesManager.textStyleBold24maincolor,
                         ),
                       ),
                       Text(

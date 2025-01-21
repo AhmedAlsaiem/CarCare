@@ -18,18 +18,20 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   
 
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
+      
       child: Column(
         children: [
-          AppbarHome(),
+          const AppbarHome(),
+        
           SizedBox(height: AppHeight.h6),
-          ProductOfHorizntalAndInductor(),
+          const ProductOfHorizntalAndInductor(),
           SizedBox(
             height: AppHeight.h20,
           ),
-          ChoiseServiceTextAndIcon(),
+          const ChoiseServiceTextAndIcon(),
           SizedBox(height: AppHeight.h8,),
-          ServicesHomeView(),
+          const ServicesHomeView(),
           //   ServiceItem(),
         ],
       ),

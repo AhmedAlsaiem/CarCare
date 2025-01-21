@@ -61,6 +61,7 @@ class _ProductOfHorizntalAndInductorState
               initialPage: 0,
               padEnds: false,
               enableInfiniteScroll: true,
+              
               reverse: false,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
@@ -77,7 +78,7 @@ class _ProductOfHorizntalAndInductorState
             ),
           ),
         ),
-        const SizedBox(height: AppHeight.h16),
+         SizedBox(height: AppHeight.h16),
         IndicatorHome(items: items, currentIndex: currentIndex)
       ],
     );

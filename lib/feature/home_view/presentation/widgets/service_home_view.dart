@@ -64,6 +64,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
           childAspectRatio: .8, // Adjust aspect ratio as needed
         ),
         itemCount: itemsSevice.length,
+        
         itemBuilder: (context, index) {
           return itemsSevice[index];
         },

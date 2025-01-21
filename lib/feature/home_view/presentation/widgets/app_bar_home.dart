@@ -12,18 +12,20 @@ class AppbarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(Appwidth.w16),
+      padding:  EdgeInsets.all(Appwidth.w16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
+            // (MediaQuery.of(context).size.height.toString()),
+
             StringsManager.home,
             style: StylesManager.textStyleBold20black,
           ),
           CircleAvatar(
             radius: AppSize.s16,
             backgroundColor: ColorsManager.grey.withValues(),
-            child:const  Icon(Icons.person),
+            child: const Icon(Icons.person),
           )
         ],
       ),
