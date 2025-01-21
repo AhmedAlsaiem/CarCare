@@ -29,6 +29,11 @@ abstract class StylesManager {
     fontSize: FontSize.s20,
     color: ColorsManager.white,
   );
+  static TextStyle textStyleBold20black = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s20,
+    color: ColorsManager.black,
+  );
   static TextStyle textStyleBold22 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s22,
@@ -79,9 +84,31 @@ abstract class StylesManager {
     fontSize: FontSize.s14,
     color: ColorsManager.white,
   );
+  static TextStyle textStyle16 = const TextStyle(
+    //fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s16,
+   // color: ColorsManager.white,
+  );
+  
+
+  static TextStyle textStyleBold24maincolor = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s24,
+    color: ColorsManager.mainColor,
+  );
+  static TextStyle textStyleBold26MainColor = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s26,
+    color: ColorsManager.mainColor,
+  );
   static TextStyle textStyleMedium32 = TextStyle(
     fontWeight: AppFontWieght.medium,
     fontSize: FontSize.s32,
+    color: ColorsManager.white,
+  );
+  static TextStyle textStyleMedium26 = TextStyle(
+    fontWeight: AppFontWieght.medium,
+    fontSize: FontSize.s26,
     color: ColorsManager.white,
   );
   static TextStyle textStyleMedium18 = TextStyle(
