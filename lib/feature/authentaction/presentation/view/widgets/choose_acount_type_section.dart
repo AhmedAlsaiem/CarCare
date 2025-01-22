@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -49,7 +49,17 @@ class _ChooseAcountTypeSectionState extends State<ChooseAcountTypeSection> {
           const SizedBox(
             height: 40,
           ),
-          CustomButton(onPressed: () {}, bottonName: StringsManager.signUp)
+          CustomButton(
+              onPressed: () {
+                if (value == false) {
+                  NavigatorManager.pushWithReplacement(
+                      context: context, route: AppRoutes.userSginUpView);
+                } else {
+                  NavigatorManager.pushWithReplacement(
+                      context: context, route: AppRoutes.adminSignUpView);
+                }
+              },
+              bottonName: StringsManager.signUp)
         ],
       ),
     );
