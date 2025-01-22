@@ -21,7 +21,7 @@ class ForgetPasswordBody extends StatelessWidget {
             height: context.screenHeight * AppSize.s03,
           ),
           const SizedBox(height: AppSize.s40),
-          CustomFrogetPasswordTextFromFieldSection(formKey: formKey)
+          CustomFrogetPasswordTextFromFieldSection(formKey: formKey),
         ],
       ),
     );

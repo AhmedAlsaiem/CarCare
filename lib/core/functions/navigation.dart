@@ -25,4 +25,9 @@ static void pushWithReplacement({
       Navigator.pushNamed(context, route);
     });
   }
+  static void pop({
+    required BuildContext context,
+  }) {
+    Navigator.pop(context);
+  }
 }

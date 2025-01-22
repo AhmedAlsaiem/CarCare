@@ -3,7 +3,7 @@ abstract class StringsManager {
   static const String register = 'Register';
   static const String skip = 'Skip';
   static const String login = 'LogIn';
-  static const String signUp = 'SignUp';
+  static const String signUp = 'Sign Up';
   static const String email = 'Email';
   static const String wThis = 'this';
   static const String isRequired = 'is required';
@@ -14,6 +14,9 @@ abstract class StringsManager {
   static const String remmberMy = 'Remember Me';
   static const String confirmPassword = 'Confirm Password';
   static const String startNow = 'Start now!';
+  static const String user = 'User';
+  static const String technical = 'Technical';
+  static const String chooseType = 'Choose Type';
   static const String submmit = 'Submmit';
   static const String zeroOne = '01';
   static const String emptyString = '';
