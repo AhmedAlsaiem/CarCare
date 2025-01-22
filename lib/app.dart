@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screenutil_module/main.dart';
+import 'package:splash_app/feature/add_car/add_car.dart';
 import 'package:splash_app/feature/home_view/home_view.dart';
 
 class CarCareApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class CarCareApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         
-        home:HomeView(),
+        home:AddCar(),
         //onGenerateRoute: AppRouter.generateRoute,
         //theme: themData(),
       ),

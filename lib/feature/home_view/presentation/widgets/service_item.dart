@@ -17,49 +17,54 @@ class ServiceItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin:  EdgeInsets.symmetric(horizontal: Appwidth.w16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSize.s12),
-      ),
-      elevation: 2,
+    return GestureDetector(
+      onTap: () {
+        print('object');
+      },
+      child: Card(
+        margin: EdgeInsets.symmetric(horizontal: Appwidth.w16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSize.s12),
+        ),
+        elevation: 2,
 
-      //color: ColorsManager.grey.withOpacity(.5),
-      child: Padding(
-        padding: const EdgeInsets.all(AppSize.s8),
-        child: SizedBox(
-          // height: 200,
-          // width: 200,
+        //color: ColorsManager.grey.withOpacity(.5),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSize.s8),
+          child: SizedBox(
+            // height: 200,
+            // width: 200,
 
-          height: context.screenHeight * 0.45,
-          width: context.screenWidth * 0.4,
-          child: Column(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            height: context.screenHeight * 0.45,
+            width: context.screenWidth * 0.4,
+            child: Column(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
 
-            children: [
-              Image.asset(
-                imagePath,
-                height: Appwidth.w80,
-                width: AppHeight.h80,
-                fit: BoxFit.cover,
-              ),
-              //   const SizedBox(height: 16),
-              Text(title, style: StylesManager.textStyleBold26MainColor),
-               SizedBox(height: AppHeight.h8),
-              SizedBox(
-                width: context.screenWidth * 0.35,
-                child: Text(
-                  subTitle,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  // textAlign: TextAlign.center,
-                  style:  TextStyle(
-                    fontSize: FontSize.s14,
+              children: [
+                Image.asset(
+                  imagePath,
+                  height: Appwidth.w80,
+                  width: AppHeight.h80,
+                  fit: BoxFit.cover,
+                ),
+                //   const SizedBox(height: 16),
+                Text(title, style: StylesManager.textStyleBold26MainColor),
+                SizedBox(height: AppHeight.h8),
+                SizedBox(
+                  width: context.screenWidth * 0.35,
+                  child: Text(
+                    subTitle,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    // textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: FontSize.s14,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

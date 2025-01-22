@@ -8,5 +8,6 @@ void main() {
 }
 
 
-// begin 
 
+
+//void main() => runApp(MaterialApp(home: EgyptianCarPlateWithFocus()));

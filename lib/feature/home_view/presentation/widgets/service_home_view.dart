@@ -44,7 +44,8 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
     const ServiceItem(
       title: StringsManager.washing,
       subTitle: StringsManager.describationOfWashing,
-      imagePath:AssetsManager.washing,
+     imagePath:AssetsManager.washing,
+     //imagePath: 'assets/images/test.png',
     ),
     const ServiceItem(
       title: StringsManager.parking,

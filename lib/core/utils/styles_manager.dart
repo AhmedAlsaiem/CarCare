@@ -39,6 +39,11 @@ abstract class StylesManager {
     fontSize: FontSize.s22,
     color: ColorsManager.white,
   );
+  static TextStyle textStyleBold22black = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s22,
+    color: ColorsManager.black,
+  );
   static TextStyle textStyleBold17 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s17,
@@ -83,6 +88,16 @@ abstract class StylesManager {
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s14,
     color: ColorsManager.white,
+  );
+  static TextStyle textStyleRegular14grey = TextStyle(
+    fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s14,
+    color: ColorsManager.grey,
+  );
+  static TextStyle textStyleRegular16grey = TextStyle(
+    fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s14,
+    color: ColorsManager.grey,
   );
   static TextStyle textStyle16 =  TextStyle(
     //fontWeight: AppFontWieght.regular,

@@ -13,7 +13,7 @@ abstract class AssetsManager {
   static const String battery = 'assets/images/battery.png';
   static const String parking = 'assets/images/parking.png';
   static const String oil = 'assets/images/oil_change.png';
-  static const String washing = 'assets/images/washing_car.png';
+  static const String washing = 'assets/images/washin_car.png';
 
 
 

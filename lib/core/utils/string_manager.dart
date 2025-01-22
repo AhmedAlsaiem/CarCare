@@ -47,6 +47,37 @@ abstract class StringsManager {
   static const String emergency = 'EMERGENC';
   static const String describationOfEmergency = 'To report risk';
   static const String choiseAservice = 'Choose a Service';
+  static const String add = 'ADD';
+  static const String addYourCar = 'Add Your Car';
+  static const String addYourVehicleDetails  = 'Add Your vehicle details so we can';
+  static const String assistyouQuickly  = 'assist you quickly and simply';
+  static const String modelNamelabel  = 'Enter model name';
+  static const String modelNameHint  = 'KIA...';
+  static const String modelNameValaidText  = 'Please enter the model name';
+  static const String modelColorlabel  = 'Color of your car';
+  static const String modelColorHint  = 'Red..';
+  static const String modeColorValaidText  = 'Please enter the color';
+  static const String modelYearlabel  = 'Year of your car';
+  static const String modelYearHint  = '2020...';
+  static const String modelYearValaidText  = 'Please enter the year';
+  static const String modelVinlabel  = 'Year of your car';
+  static const String modelVinHint  = '2020...';
+  static const String modelVinValaidText  = 'Please enter the year';
+  static const String addYourCarsVin  = "Add Your car's  vin";
+  static const String enterShassis  = 'Enter the chassis number as seen in your ';
+  static const String vehicleWithoutAnySpace  = 'vehicle without any space';
+  static const String addYourCarIsPlate = "Add your car's plate";
+  static const String egyptEnglish = "Egypt";
+  static const String egyptArbic = "مصر";
+
+
+
+
+
+
+
+
+
 
 
 

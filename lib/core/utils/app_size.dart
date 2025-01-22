@@ -65,6 +65,8 @@ abstract class AppHeight {
   static  double h46 = 46.0.h;
   static  double h48 = 48.0.h;
   static  double h50 = 50.0.h;
+  static  double h60 = 60.0.h;
+
   static  double h80 = 80.0.h;
   static  double h400 = 400.0.h;
 
