@@ -69,7 +69,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (widget.label == StringsManager.phoneNumber) {
         if (value.substring(0, 2) != StringsManager.zeroOne) {
-          print(value.substring(0, 2));
           return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
         } else {
           return null;

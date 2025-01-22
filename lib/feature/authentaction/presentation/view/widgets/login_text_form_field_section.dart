@@ -34,6 +34,7 @@ class LoginTextFromFieldSection extends StatelessWidget {
           height: AppSize.s100,
         ),
         CustomButton(
+          bottonName: StringsManager.login,
           onPressed: () {
             if (formKey.currentState?.validate() == true) {}
           },

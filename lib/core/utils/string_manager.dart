@@ -14,6 +14,7 @@ abstract class StringsManager {
   static const String remmberMy = 'Remember Me';
   static const String confirmPassword = 'Confirm Password';
   static const String startNow = 'Start now!';
+  static const String submmit = 'Submmit';
   static const String zeroOne = '01';
   static const String emptyString = '';
   static const String phoneNumber = ' Phone Number';
