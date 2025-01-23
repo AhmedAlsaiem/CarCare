@@ -19,7 +19,6 @@ class ServiceItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('object');
       },
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: Appwidth.w16),
