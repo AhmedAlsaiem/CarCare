@@ -7,17 +7,18 @@ class CarCareApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return  const ScreenUtilInit(
       designSize: Size(360, 800),
       minTextAdapt:true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         
-        home:AddCarBody(),
-        //onGenerateRoute: AppRouter.generateRoute,
-        //theme: themData(),
+//         home:AddCarBody(),
+        onGenerateRoute: AppRouter.generateRoute,
+        theme: themData(),
       ),
+
     );
   }
-
 }

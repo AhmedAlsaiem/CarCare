@@ -2,8 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
 
-
 abstract class StylesManager {
+  static TextStyle textStyleExtraBold32 = TextStyle(
+    fontSize: FontSize.s32,
+    color: ColorsManager.darkBlue,
+    fontWeight: AppFontWieght.extraBold,
+  );
+  static TextStyle textStyleMedium18 = TextStyle(
+    fontSize: FontSize.s18,
+    color: ColorsManager.blueGrey,
+    fontWeight: AppFontWieght.medium,
+  );
+  static TextStyle textStyleMedium20 = TextStyle(
+    fontSize: FontSize.s20,
+    color: ColorsManager.white,
+    fontWeight: AppFontWieght.medium,
+  );
+static TextStyle textStyleMedium26 = TextStyle(
+    fontSize: FontSize.s26,
+    color: ColorsManager.white,
+    fontWeight: AppFontWieght.medium,
+  );
+  static TextStyle textStyleSemiBold18 = TextStyle(
+    fontWeight: AppFontWieght.semiBold,
+    fontSize: FontSize.s16,
+    color: ColorsManager.mainColor,
+  );
+
   static TextStyle textStyleBold49 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s49,
@@ -22,6 +47,10 @@ abstract class StylesManager {
   static TextStyle textStyleBold24 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s24,
+    color: ColorsManager.white,
+  );  static TextStyle textStyleBold28 = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s28,
     color: ColorsManager.white,
   );
   static TextStyle textStyleBold20 = TextStyle(
@@ -57,7 +86,7 @@ abstract class StylesManager {
   static TextStyle textStyleBold15 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s15,
-    color: ColorsManager.white,
+    color: ColorsManager.balck,
   );
   static TextStyle textStyleSemiBold28 = TextStyle(
     fontWeight: AppFontWieght.semiBold,
@@ -83,8 +112,7 @@ abstract class StylesManager {
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s17,
     color: ColorsManager.white,
-  );
-  static TextStyle textStyleRegular14 = TextStyle(
+  ); static TextStyle textStyleRegular14 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s14,
     color: ColorsManager.white,
@@ -121,6 +149,7 @@ abstract class StylesManager {
     fontSize: FontSize.s32,
     color: ColorsManager.white,
   );
+
   static TextStyle textStyleMedium26 = TextStyle(
     fontWeight: AppFontWieght.medium,
     fontSize: FontSize.s26,
@@ -131,4 +160,6 @@ abstract class StylesManager {
     fontSize: FontSize.s18,
     color: ColorsManager.white,
   );
+=======
+
 }

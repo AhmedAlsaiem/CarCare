@@ -2,6 +2,15 @@ import 'package:screenutil_module/main.dart';
 
 abstract class AppSize {
   static const double s0 = 0.0;
+  static const double s01 = 0.1;
+  static const double s02 = 0.2;
+  static const double s03 = 0.3;
+  static const double s04 = 0.4;
+  static const double s05 = 0.5;
+  static const double s06 = 0.6;
+  static const double s07 = 0.7;
+  static const double s08 = 0.8;
+  static const double s09 = 0.9;
   static const double s1 = 1.0;
   static const double s2 = 2.0;
   static const double s4 = 4.0;
@@ -35,8 +44,11 @@ abstract class AppSize {
   static const double s70 = 70.0;
   static const double s100 = 100.0;
   static const double s110 = 110.0;
+  static const double s150 = 150.0;
   static const double s200 = 200.0;
   static const double s300 = 300.0;
+  static const double s480 = 480.0;
+  static const double infinty = double.infinity;
 }
 
 abstract class AppHeight {
@@ -101,4 +113,32 @@ abstract class Appwidth {
   static  double w50 = 50.0.w;
   static  double w80 = 80.0.w;
 
+}
+
+abstract class NumberManager {
+  static const int n2 = 2;
+  static const int n4 = 4;
+  static const int n6 = 6;
+  static const int n8 = 8;
+  static const int n10 = 10;
+  static const int n12 = 12;
+  static const int n14 = 14;
+  static const int n16 = 16;
+  static const int n18 = 18;
+  static const int n20 = 20;
+  static const int n22 = 22;
+  static const int n24 = 24;
+  static const int n26 = 26;
+  static const int n28 = 28;
+  static const int n30 = 30;
+  static const int n32 = 32;
+  static const int n34 = 34;
+  static const int n36 = 36;
+  static const int n38 = 38;
+  static const int n40 = 40;
+  static const int n42 = 42;
+  static const int n44 = 44;
+  static const int n46 = 46;
+  static const int n48 = 48;
+  static const int n50 = 50;
 }
