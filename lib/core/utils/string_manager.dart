@@ -60,15 +60,17 @@ abstract class StringsManager {
   static const String modelYearlabel  = 'Year of your car';
   static const String modelYearHint  = '2020...';
   static const String modelYearValaidText  = 'Please enter the year';
-  static const String modelVinlabel  = 'Year of your car';
-  static const String modelVinHint  = '2020...';
-  static const String modelVinValaidText  = 'Please enter the year';
+  static const String modelVinlabel  = 'Vin number';
+  static const String modelVinHint  = '125849594194649';
+  static const String modelVinValaidText  = 'Please enter the chassis number';
   static const String addYourCarsVin  = "Add Your car's  vin";
   static const String enterShassis  = 'Enter the chassis number as seen in your ';
   static const String vehicleWithoutAnySpace  = 'vehicle without any space';
   static const String addYourCarIsPlate = "Add your car's plate";
   static const String egyptEnglish = "Egypt";
   static const String egyptArbic = "مصر";
+  static const String pleaseEnterAllPlates = "please enter all plates";
+
 
 
 

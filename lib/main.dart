@@ -7,7 +7,3 @@ void main() {
   runApp(const CarCareApp());
 }
 
-
-
-
-//void main() => runApp(MaterialApp(home: EgyptianCarPlateWithFocus()));

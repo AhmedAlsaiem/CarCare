@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 import 'package:screenutil_module/main.dart';
 
 abstract class AppFontWieght {

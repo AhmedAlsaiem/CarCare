@@ -16,7 +16,7 @@ class EnterInfoCar extends StatelessWidget {
     return Card(
       color: ColorsManager.white.withValues(),
       margin: EdgeInsets.only(
-          left: Appwidth.w22, right: Appwidth.w22, top: Appwidth.w12),
+          left: Appwidth.w22, right: Appwidth.w22),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSize.s12.r),
       ),

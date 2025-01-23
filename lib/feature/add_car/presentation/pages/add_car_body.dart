@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/utils/app_size.dart';
-import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/add_car/presentation/widgets/car_vin.dart';
+import 'package:splash_app/feature/add_car/presentation/widgets/customize_location_floatactionbutton.dart';
 import 'package:splash_app/feature/add_car/presentation/widgets/enter_info_car.dart';
+import 'package:splash_app/feature/add_car/presentation/widgets/float_action_button_widget.dart';
 import 'package:splash_app/feature/add_car/presentation/widgets/plate_car.dart';
-import 'package:splash_app/feature/add_car/presentation/widgets/text_form_details.dart';
 
 class AddCarBody extends StatefulWidget {
   const AddCarBody({super.key});
@@ -20,24 +18,31 @@ class _AddCarBodyState extends State<AddCarBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Center(
-        child: Form(
-          key: _formKey,
-          child: const SingleChildScrollView(
-            child:  Column(
-              children: [
-                EnterInfoCar(),
-                // SizedBox(
-                //   height: AppHeight.h10,
-                // ),
-                CarVin(),
+      child: Form(
+        key: _formKey,
+        child: Scaffold(
+          body: const Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  EnterInfoCar(),
+                  // SizedBox(
+                  //   height: AppHeight.h10,
+                  // ),
+                  CarVin(),
 
-                EgyptianCarPlateWithFocus(),
-              ],
+                  EgyptianCarPlateWithFocus(),
+                ],
+              ),
             ),
           ),
+          floatingActionButtonLocation: CustomFABLocation(.85, .05),
+          floatingActionButton: FloatActionButtonWidget(formKey: _formKey),
+
+          // floatingActionButton:  FloatActionButtonWidget(formKey: _formKey,),
         ),
       ),
     );
   }
 }
+

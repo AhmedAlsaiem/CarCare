@@ -80,16 +80,21 @@ class EgyptianCarPlateWithFocusState extends State<EgyptianCarPlateWithFocus> {
                             hintText: "5",
                             focusNode: _focusNodes[0],
                             nextFocusNode: _focusNodes[1],
+                            keyboardType: TextInputType.number,
                           ),
                           InteractivePlateCell(
                             hintText: "7",
                             focusNode: _focusNodes[1],
                             nextFocusNode: _focusNodes[2],
+                            keyboardType: TextInputType.number,
+
                           ),
                           InteractivePlateCell(
                             hintText: "9",
                             focusNode: _focusNodes[2],
                             nextFocusNode: _focusNodes[3],
+                            keyboardType: TextInputType.number,
+
                           ),
                         ],
                       ),
@@ -104,15 +109,20 @@ class EgyptianCarPlateWithFocusState extends State<EgyptianCarPlateWithFocus> {
                             hintText: "د",
                             focusNode: _focusNodes[3],
                             nextFocusNode: _focusNodes[4],
+                            keyboardType: TextInputType.text,
+
                           ),
                           InteractivePlateCell(
                             hintText: "ل",
                             focusNode: _focusNodes[4],
+                            keyboardType: TextInputType.text,
                             nextFocusNode: _focusNodes[5],
                           ),
                           InteractivePlateCell(
                             hintText: "ع",
                             focusNode: _focusNodes[5],
+                            keyboardType: TextInputType.text,
+
                           ),
                         ],
                       ),
