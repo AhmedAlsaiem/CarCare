@@ -22,25 +22,27 @@ abstract class AssetsManager {
 
 //! Assets Icons
   static const String deleteIcon = '';
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
   static const String user = 'assets/images/user.png';
   static const String technical = 'assets/images/service_provider.png';
 
 //! Assets Icons
-  static const String deleteIcon = '';
+ // static const String deleteIcon = '';
+
+
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

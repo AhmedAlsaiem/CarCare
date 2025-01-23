@@ -12,11 +12,11 @@ abstract class ColorsManager {
   static const Color blueGrey = Color.fromARGB(202, 38, 66, 81);
 
 //?
-=======
-  static const Color darkBlue = Color.fromARGB(255, 22, 49, 97);
-  static const Color blueGrey = Color.fromARGB(202, 38, 66, 81);
-  static const Color red = Colors.red;
-  static const Color grey = Colors.grey;
+
+//  static const Color darkBlue = Color.fromARGB(255, 22, 49, 97);
+//   static const Color blueGrey = Color.fromARGB(202, 38, 66, 81);
+//   static const Color red = Colors.red;
+//   static const Color grey = Colors.grey;
 
 //? not use color
 
