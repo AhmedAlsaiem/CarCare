@@ -1,3 +1,5 @@
+
+=======
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
@@ -26,3 +28,4 @@ class ChooseAcountType extends StatelessWidget {
     );
   }
 }
+
