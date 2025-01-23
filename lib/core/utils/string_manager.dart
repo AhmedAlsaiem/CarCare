@@ -5,6 +5,8 @@ abstract class StringsManager {
   static const String login = 'LogIn';
   static const String signUp = 'Sign Up';
   static const String email = 'Email';
+  static const String userName = 'User Name';
+
   static const String wThis = 'this';
   static const String isRequired = 'is required';
   static const String isNotCorrectFormat = 'is not correct format';

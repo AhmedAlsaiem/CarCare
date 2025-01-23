@@ -6,12 +6,12 @@ import '../../../../../core/utils/color_manager.dart';
 
 // ignore: must_be_immutable
 class CustomTextBotton extends StatelessWidget {
- const CustomTextBotton({
+  const CustomTextBotton({
     super.key,
-    required this.onPress,
+    required this.onPress, required this.title,
   });
   final void Function()? onPress;
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,7 +28,7 @@ class CustomTextBotton extends StatelessWidget {
               padding: WidgetStatePropertyAll(EdgeInsets.all(6))),
           onPressed: onPress,
           child: Text(
-            StringsManager.signUp,
+            title,
             style: StylesManager.textStyleBold17
                 .copyWith(color: ColorsManager.mainColor),
           ),

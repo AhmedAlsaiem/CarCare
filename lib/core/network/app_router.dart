@@ -3,6 +3,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/admin_signup.
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_verification.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
@@ -32,11 +33,14 @@ class AppRouter {
         );
       case AppRoutes.userSginUpView:
         return MaterialPageRoute(
-          builder: (_) => const UserSignup(),
+          builder: (_) => const UserSignUPView(),
         );
       case AppRoutes.adminSignUpView:
         return MaterialPageRoute(
           builder: (_) => const AdminSignup(),
+        ); case AppRoutes.otpAcoutVerification:
+        return MaterialPageRoute(
+          builder: (_) => const OtpAcountVerification(),
         );
       default:
         return MaterialPageRoute(
@@ -53,5 +57,7 @@ abstract class AppRoutes {
   static const String adminSignUpView = '/adminSignUPView';
   static const String chooseAcountType = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
+    static const String otpAcoutVerification = '/otpAcountVerification';
+
   static const String verifyAcount = '/verifyAcount';
 }
