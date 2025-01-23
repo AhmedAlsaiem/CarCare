@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/admin_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_verification.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 
@@ -20,13 +23,24 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const LoginView(),
         );
-      case AppRoutes.signUpView:
+      case AppRoutes.chooseAcountType:
         return MaterialPageRoute(
           builder: (_) => const ChooseAcountType(),
         );
       case AppRoutes.verifyAcount:
         return MaterialPageRoute(
           builder: (_) => const VerifyAcountView(),
+        );
+      case AppRoutes.userSginUpView:
+        return MaterialPageRoute(
+          builder: (_) => const UserSignUPView(),
+        );
+      case AppRoutes.adminSignUpView:
+        return MaterialPageRoute(
+          builder: (_) => const AdminSignup(),
+        ); case AppRoutes.otpAcoutVerification:
+        return MaterialPageRoute(
+          builder: (_) => const OtpAcountVerification(),
         );
       default:
         return MaterialPageRoute(
@@ -35,12 +49,15 @@ class AppRouter {
     }
   }
 }
-///asldasldaldfaldalald
-//aalsfalfalflaflafl
+
 abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String loginView = '/loginView';
-  static const String signUpView = '/chooseAcountType';
+  static const String userSginUpView = '/userSignUpView';
+  static const String adminSignUpView = '/adminSignUPView';
+  static const String chooseAcountType = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
+    static const String otpAcoutVerification = '/otpAcountVerification';
+
   static const String verifyAcount = '/verifyAcount';
 }

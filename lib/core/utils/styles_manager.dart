@@ -48,6 +48,10 @@ static TextStyle textStyleMedium26 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s24,
     color: ColorsManager.white,
+  );  static TextStyle textStyleBold28 = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s28,
+    color: ColorsManager.white,
   );
   static TextStyle textStyleBold20 = TextStyle(
     fontWeight: AppFontWieght.bold,
@@ -97,6 +101,10 @@ static TextStyle textStyleMedium26 = TextStyle(
   static TextStyle textStyleRegular17 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s17,
+    color: ColorsManager.white,
+  ); static TextStyle textStyleRegular14 = TextStyle(
+    fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s14,
     color: ColorsManager.white,
   );
   static TextStyle textStyleMedium32 = TextStyle(
