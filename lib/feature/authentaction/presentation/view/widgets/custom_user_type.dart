@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 
@@ -23,8 +23,8 @@ class CustomUserType extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 200,
-        width: 300,
+        height: context.screenHeight * .24,
+        width: context.screenWidth * .6,
         decoration: BoxDecoration(
             color: value
                 ? const Color.fromARGB(49, 99, 110, 129)

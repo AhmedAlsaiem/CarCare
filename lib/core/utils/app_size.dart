@@ -81,6 +81,9 @@ abstract class AppHeight {
 
   static  double h80 = 80.0.h;
   static  double h400 = 400.0.h;
+  static  double h300 = 300.0.h;
+  static  double h200 = 200.0.h;
+
 
 
 }
