@@ -150,16 +150,7 @@ static TextStyle textStyleMedium26 = TextStyle(
     color: ColorsManager.white,
   );
 
-  static TextStyle textStyleMedium26 = TextStyle(
-    fontWeight: AppFontWieght.medium,
-    fontSize: FontSize.s26,
-    color: ColorsManager.white,
-  );
-  static TextStyle textStyleMedium18 = TextStyle(
-    fontWeight: AppFontWieght.medium,
-    fontSize: FontSize.s18,
-    color: ColorsManager.white,
-  );
-=======
+  
+
 
 }
