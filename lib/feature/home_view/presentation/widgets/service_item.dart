@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
@@ -9,17 +10,24 @@ class ServiceItem extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.imagePath,
+    required this.pageNavigate,
+
+    
     super.key,
   });
   final String title;
   final String subTitle;
   final String imagePath;
+  final String? pageNavigate;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('object');
+        NavigatorManager.pushName(
+            context: context, route: pageNavigate!);
+        // NavigatorManager.pushName(context: context, route: AppRouter.)
+        // print('object');
       },
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: Appwidth.w16),

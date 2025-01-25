@@ -27,6 +27,7 @@ class TextFormDetails extends StatelessWidget {
           height: AppHeight.h6,
         ),
         TextFormField(
+          
           cursorColor: ColorsManager.mainColor,
           decoration: InputDecoration(
              focusedBorder: OutlineInputBorder(

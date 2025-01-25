@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/widgets/service_item.dart';
@@ -6,7 +7,7 @@ import 'package:splash_app/feature/home_view/presentation/widgets/service_item.d
 class ServicesHomeView extends StatefulWidget {
   const ServicesHomeView({
     super.key,
-    // required this.itemsSevice,
+  
   });
 
   @override
@@ -20,37 +21,45 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       title: StringsManager.winch,
       subTitle: StringsManager.describationOfWinch,
       imagePath: AssetsManager.winsh,
+      pageNavigate: AppRoutes.wichCarView,
     ),
     const ServiceItem(
       title: StringsManager.tires,
       subTitle: StringsManager.describationOfTires,
       imagePath: AssetsManager.tair,
+      pageNavigate: AppRoutes.tireCarView,
     ),
     const ServiceItem(
       title: StringsManager.fuel,
       subTitle: StringsManager.describationOfFuel,
       imagePath: AssetsManager.fuel,
+      pageNavigate: AppRoutes.fuelCarView,
     ),
     const ServiceItem(
       title: StringsManager.batteries,
       subTitle: StringsManager.describationOfBatteries,
       imagePath: AssetsManager.battery,
+      pageNavigate: AppRoutes.batteriesCarView,
     ),
     const ServiceItem(
       title: StringsManager.oil,
       subTitle: StringsManager.describationOfOil,
-      imagePath:AssetsManager.oil,
+      imagePath: AssetsManager.oil,
+      pageNavigate: AppRoutes.oilCarView,
     ),
     const ServiceItem(
       title: StringsManager.washing,
       subTitle: StringsManager.describationOfWashing,
-     imagePath:AssetsManager.washing,
-     //imagePath: 'assets/images/test.png',
+      imagePath: AssetsManager.washing,
+      pageNavigate: AppRoutes.washingCarView,
+
+      //imagePath: 'assets/images/test.png',
     ),
     const ServiceItem(
       title: StringsManager.parking,
       subTitle: StringsManager.describationOfParking,
       imagePath: AssetsManager.parking,
+      pageNavigate: AppRoutes.parkingCarView,
     ),
   ];
 
@@ -65,7 +74,6 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
           childAspectRatio: .8, // Adjust aspect ratio as needed
         ),
         itemCount: itemsSevice.length,
-        
         itemBuilder: (context, index) {
           return itemsSevice[index];
         },

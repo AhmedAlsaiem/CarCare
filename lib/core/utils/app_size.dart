@@ -115,6 +115,8 @@ abstract class Appwidth {
   static  double w48 = 48.0.w;
   static  double w50 = 50.0.w;
   static  double w80 = 80.0.w;
+  static  double w100 = 100.0.w;
+
 
 }
 
