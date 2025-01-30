@@ -6,8 +6,8 @@ import 'package:splash_app/core/widgets/custom_text_button.dart';
 import '../../../../../core/utils/string_manager.dart';
 import 'custom_text_form_field.dart';
 
-class UserSignupTextFormFieldSection extends StatelessWidget {
-  const UserSignupTextFormFieldSection({
+class ServiceProviderSignUpTextFromFieldSection extends StatelessWidget {
+  const ServiceProviderSignUpTextFromFieldSection({
     super.key,
     required this.formKey,
   });
@@ -31,6 +31,12 @@ class UserSignupTextFormFieldSection extends StatelessWidget {
         const SizedBox(height: AppSize.s14),
         CustomTextFormField(
             label: StringsManager.userName,
+            icon: const Icon(Icons.person_3_outlined),
+            onchange: (value) {}),
+        const SizedBox(height: AppSize.s14),
+        CustomTextFormField(
+            textInputType: TextInputType.number,
+            label: StringsManager.id,
             icon: const Icon(Icons.person_3_outlined),
             onchange: (value) {}),
         const SizedBox(height: AppSize.s14),

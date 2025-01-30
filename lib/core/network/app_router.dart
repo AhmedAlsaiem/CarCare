@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/admin_signup.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
@@ -35,10 +35,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const UserSignUPView(),
         );
-      case AppRoutes.adminSignUpView:
+      case AppRoutes.serviceProviderSignUpView:
         return MaterialPageRoute(
-          builder: (_) => const AdminSignup(),
-        ); case AppRoutes.otpAcoutVerification:
+          builder: (_) => const ServiceProviderSignUpView(),
+        );
+      case AppRoutes.otpAcoutVerification:
         return MaterialPageRoute(
           builder: (_) => const OtpAcountVerification(),
         );
@@ -54,10 +55,10 @@ abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String loginView = '/loginView';
   static const String userSginUpView = '/userSignUpView';
-  static const String adminSignUpView = '/adminSignUPView';
+  static const String serviceProviderSignUpView = '/adminSignUPView';
   static const String chooseAcountType = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
-    static const String otpAcoutVerification = '/otpAcountVerification';
+  static const String otpAcoutVerification = '/otpAcountVerification';
 
   static const String verifyAcount = '/verifyAcount';
 }

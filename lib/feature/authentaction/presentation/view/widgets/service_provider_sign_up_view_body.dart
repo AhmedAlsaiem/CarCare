@@ -4,14 +4,14 @@ import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_logo_auth.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_text_button.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/widgets/user_signup_text_form_field_section.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/widgets/service_provider_sign_up_text_from_field_section.dart';
 
-// ignore: must_be_immutable
-class UserSignUPViewBody extends StatelessWidget {
-  UserSignUPViewBody({super.key});
-  GlobalKey<FormState> formKey = GlobalKey();
+import 'custom_logo_auth.dart';
+import 'custom_text_button.dart';
+
+class ServiceProviderSignUpViewBody extends StatelessWidget {
+  ServiceProviderSignUpViewBody({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,14 +20,15 @@ class UserSignUPViewBody extends StatelessWidget {
         children: [
           CustomLogoAuth(
             title: StringsManager.signUp,
-            height: context.screenHeight * 0.22,
+            height: context.screenHeight * 0.20,
           ),
           const SizedBox(height: AppSize.s30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppSize.s20),
             child: Form(
               key: formKey,
-              child: UserSignupTextFormFieldSection(formKey: formKey),
+              child:
+                  ServiceProviderSignUpTextFromFieldSection(formKey: formKey),
             ),
           ),
           CustomTextBotton(

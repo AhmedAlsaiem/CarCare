@@ -23,15 +23,18 @@ class LoginTextFromFieldSection extends StatelessWidget {
             icon: const Icon(Icons.phone_android_rounded),
             onchange: (value) {}),
         const SizedBox(
-          height: AppSize.s20,
+          height: AppSize.s16,
         ),
         CustomTextFormField(
             label: StringsManager.password,
             icon: const Icon(Icons.password),
             onchange: (value) {}),
+        const SizedBox(
+          height: AppSize.s10,
+        ),
         const CustomForgetPasswordTrigrePage(),
         const SizedBox(
-          height: AppSize.s100,
+          height: AppSize.s70,
         ),
         CustomButton(
           bottonName: StringsManager.login,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -23,8 +22,7 @@ class CustomFrogetPasswordTextFromFieldSection extends StatelessWidget {
           child: Column(
             children: [
               CustomTextFormField(
-                  textInputType: TextInputType.number,
-                  label: StringsManager.phoneNumber,
+                  label: StringsManager.email,
                   icon: const Icon(Icons.phone_android_rounded),
                   onchange: (value) {}),
               const SizedBox(

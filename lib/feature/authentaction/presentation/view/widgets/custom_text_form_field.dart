@@ -25,7 +25,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: widget.textInputType,
-      style: StylesManager.textStyleRegular22.copyWith(
+      style: StylesManager.textStyleRegular18.copyWith(
         color: ColorsManager.balck,
       ),
       cursorColor: ColorsManager.mainColor,
@@ -41,12 +41,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   InputDecoration customInputDecorcationFunction() {
     return InputDecoration(
       filled: true,
-      fillColor: ColorsManager.grey.withAlpha(150),
+      fillColor: ColorsManager.grey.withAlpha(AppSize.s100.toInt()),
       errorStyle: const TextStyle(color: ColorsManager.mainColor),
-      contentPadding: const EdgeInsets.all(AppSize.s20),
+      contentPadding: const EdgeInsets.symmetric(
+          horizontal: AppSize.s20, vertical: AppSize.s18),
       labelText: widget.label,
       labelStyle:
-          StylesManager.textStyleMedium20.copyWith(color: ColorsManager.balck),
+          StylesManager.textStyleMedium18.copyWith(color: ColorsManager.balck),
       suffixIconColor: ColorsManager.mainColor,
       prefixIconColor: ColorsManager.mainColor,
       suffixIcon: suffixIconMethod(),
@@ -66,6 +67,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       return '${widget.label} ${StringsManager.isRequired} ';
     } else {
       if (value.length != 11 && widget.label == StringsManager.phoneNumber) {
+        return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
+      } else if (value.length >= 11 &&
+          widget.label == StringsManager.email &&
+          value.substring(value.length - 11) == StringsManager.gmailcom) {
+        return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
+      } else if (value.length != 14 && widget.label == StringsManager.id) {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (widget.label == StringsManager.phoneNumber) {
         if (value.substring(0, 2) != StringsManager.zeroOne) {

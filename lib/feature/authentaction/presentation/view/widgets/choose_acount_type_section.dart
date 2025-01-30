@@ -56,7 +56,8 @@ class _ChooseAcountTypeSectionState extends State<ChooseAcountTypeSection> {
                       context: context, route: AppRoutes.userSginUpView);
                 } else {
                   NavigatorManager.pushWithReplacement(
-                      context: context, route: AppRoutes.adminSignUpView);
+                      context: context,
+                      route: AppRoutes.serviceProviderSignUpView);
                 }
               },
               bottonName: StringsManager.signUp)
