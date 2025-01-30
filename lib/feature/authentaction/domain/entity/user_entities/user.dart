@@ -4,15 +4,19 @@ class UserEntity extends Equatable {
   final String phoneNumber;
   final String email;
   final String userName;
-  final String password;
-  final int type;
+  final String type;
   final String id;
+  final String token;
+  final String refreshToken;
+  final String refreshTokenExpirationDate;
 
   const UserEntity({
+    required this.token,
+    required this.refreshToken,
+    required this.refreshTokenExpirationDate,
     required this.phoneNumber,
     required this.email,
     required this.userName,
-    required this.password,
     required this.type,
     required this.id,
   });
@@ -22,8 +26,10 @@ class UserEntity extends Equatable {
         phoneNumber,
         email,
         userName,
-        password,
         type,
         id,
+        token,
+        refreshTokenExpirationDate,
+        refreshToken
       ];
 }

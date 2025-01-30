@@ -1,7 +1,23 @@
 class EndPoint {
-  static String baseUrl = "https://food-api-omega.vercel.app/api/v1/";
-  static String signIn = "user/signin";
-  static String signUp = "user/signup";
+  //! user authentication End Point
+  static String baseUrl = "https://carcareapp.runasp.net/api/";
+  static String acount = "account/";
+  static String login = "${acount}login";
+  static String registerUser = "${acount}register/user";
+  static String registerTechnical = "${acount}register/Technical";
+  static String getCurrentUser = "${acount}GetCurrentUser";
+  static String getCurrentTechnical = "${acount}GetCurrentTechnical";
+  static String changePassword = "${acount}Change-Password";
+  static String getRefreshToken = "${acount}Get-Refresh-Token";
+  static String revokeRefreshToken = "${acount}Revoke-Refresh-Token";
+  static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
+  static String verfiyCodeEmail = "${acount}VerfiyCodeEmail";
+  static String resetPassword = "${acount}ResetPasswordEmail";
+  static String confirmationCodeEmail = "${acount}ConfirmationCodeEmail";
+  static String confirmEmail = "${acount}ConfirmEmail";
+  static String updateUser = "${acount}UpdateUser";
+  static String updateTechical = "${acount}UpdateTech";
+
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
@@ -9,15 +25,16 @@ class EndPoint {
 
 class ApiKey {
   static String status = "status";
-  static String errorMessage = "ErrorMessage";
-  static String email = "email";
-  static String password = "password";
+  static String statusCode = "statusCode";
+  static String refreshTokenExpirationDate = "refreshTokenExpirationDate";
+  static String refreshToken = "refreshToken";
+  static String phoneNumber = "phoneNumber";
   static String token = "token";
-  static String message = "message";
+  static String email = "email";
   static String id = "id";
-  static String name = "name";
-  static String phone = "phone";
-  static String confirmPassword = "confirmPassword";
-  static String location = "location";
+  static String fullName = "fullName";
+  static String type = "type";
+  static String errorMessage = "message";
+  static String password = "password";
   static String profilePic = "profilePic";
 }
