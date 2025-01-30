@@ -42,6 +42,8 @@ class CarVin extends StatelessWidget {
               labalText: StringsManager.modelVinlabel,
               hintText: StringsManager.modelVinHint,
               valaidText: StringsManager.modelVinValaidText,
+                keyboardType: TextInputType.number,
+
             ),
           ],
         ),

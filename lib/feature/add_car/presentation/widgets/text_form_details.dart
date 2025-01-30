@@ -9,11 +9,14 @@ class TextFormDetails extends StatelessWidget {
     required this.labalText,
     required this.hintText,
     required this.valaidText,
+    required this.keyboardType,
+
 
   });
   final String labalText;
   final String hintText;
   final String valaidText;
+  final TextInputType keyboardType ;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class TextFormDetails extends StatelessWidget {
           height: AppHeight.h6,
         ),
         TextFormField(
-          
+          keyboardType:keyboardType ,
           cursorColor: ColorsManager.mainColor,
           decoration: InputDecoration(
              focusedBorder: OutlineInputBorder(

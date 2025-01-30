@@ -16,17 +16,18 @@ class WinchCarViewBody extends StatefulWidget {
 
 class _WinchCarViewBodyState extends State<WinchCarViewBody> {
   String? selectedOption;
-  
+
   final List<Map<String, String>> options = [
     {
       'title': ' Electric',
-      'description': ' Common for smaller vehicles and occasional use'
+      'description': ' Common for smaller vehicles and occasional use',
+      'price': '500'
     },
     {
       'title': ' Hydraulic',
-      'description': ' Better for heavy-duty or frequent use.'
+      'description': ' Better for heavy-duty or frequent use.',
+      'price': '1000'
     },
-  
   ];
 
   @override
@@ -40,7 +41,8 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
             height: AppHeight.h16,
           ),
           Padding(
-            padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
+            padding: EdgeInsets.only(
+                right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
               StringsManager.choosehewinchtype,
@@ -51,7 +53,6 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
             child: ListView(
               children: options.map((option) {
                 return RadioListTile<String>(
-                   
                   activeColor: ColorsManager.mainColor,
                   title: Text(
                     option['title']!,
@@ -63,6 +64,9 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
                           ? FontWeight.bold
                           : FontWeight.normal,
                     ),
+                  ),
+                  secondary: Text(
+                   '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
                     option['description']!,
@@ -82,9 +86,8 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
           SizedBox(
             height: context.screenHeight * .2,
           ),
-           RequesButton(
-        
-            selectedOption: selectedOption??' ',
+          RequesButton(
+            selectedOption: selectedOption ?? ' ',
           ),
           SizedBox(
             height: AppHeight.h30,
@@ -94,4 +97,3 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
     );
   }
 }
-

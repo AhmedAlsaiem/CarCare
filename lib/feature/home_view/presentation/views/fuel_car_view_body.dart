@@ -21,19 +21,26 @@ class _FuelCarViewBodyState extends State<FuelCarViewBody> {
   final List<Map<String, String>> options = [
     {
       'title': ' Regular benzine',
-      'description': '  vehicles with low to mid-performance .'
+      'description': '  vehicles with low to mid-performance .',
+      'price' : '16'
     },
     {
       'title': ' Mid-Grade benzine',
-      'description': '  fuel with a higher octane'
+      'description': '  fuel with a higher octane',
+      'price' : '17'
+
     },
     {
       'title': 'Premium Gasoline benzine',
-      'description': ' High-performance or luxury cars'
+      'description': ' High-performance or luxury cars',
+      'price' : '20'
+
     },
     {
       'title': ' Gas',
-      'description': ' Retrofitted passenger cars'
+      'description': ' Retrofitted passenger cars',
+      'price' : '14'
+
     },
   ];
 
@@ -71,6 +78,9 @@ class _FuelCarViewBodyState extends State<FuelCarViewBody> {
                           ? FontWeight.bold
                           : FontWeight.normal,
                     ),
+                  ),
+                  secondary: Text(
+                   '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
                     option['description']!,

@@ -21,19 +21,26 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
   final List<Map<String, String>> options = [
     {
       'title': ' Engine Oil',
-      'description': '  The primary type of oil used in cars.'
+      'description': '  The primary type of oil used in cars.',
+      'price' : '1000'
     },
     {
       'title': ' Synthetic Oil',
-      'description': '  Chemically engineered for better performance'
+      'description': '  Chemically engineered for better performance',
+      'price' : '300'
+
     },
     {
-      'title': 'Synthetic Blend Oi',
-      'description': ' A mix of synthetic and conventional oil.'
+      'title': 'Synthetic Blend Oil',
+      'description': ' A mix of synthetic and conventional oil.',
+      'price' : '1200'
+
     },
     {
       'title': ' High-Mileage Oil',
-      'description': ' Designed for cars with over 75,000 miles'
+      'description': ' Designed for cars with over 75,000 miles',
+      'price' : '650'
+
     },
   ];
 
@@ -71,6 +78,9 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
                           ? FontWeight.bold
                           : FontWeight.normal,
                     ),
+                  ),
+                     secondary: Text(
+                   '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
                     option['description']!,

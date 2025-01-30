@@ -17,7 +17,7 @@ class WashingCarViewBody extends StatefulWidget {
 
 class _WashingCarViewBodyState extends State<WashingCarViewBody> {
   String? selectedOption;
-  
+
   final List<Map<String, String>> options = [
     {
       'title': ' Hand Wash',
@@ -25,19 +25,23 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
     },
     {
       'title': ' Automatic Car Wash',
-      'description': '  A drive-through machine washes your car using rotating brushes'
+      'description':
+          '  A drive-through machine washes your car using rotating brushes'
     },
     {
       'title': ' Touchless Car Wash',
-      'description': ' Uses high-pressure water jets and chemicals without physical'
+      'description':
+          ' Uses high-pressure water jets and chemicals without physical'
     },
     {
       'title': ' Self-Service Car Wash',
-      'description': ' You use a self-service car wash station with high-pressure hoses'
+      'description':
+          ' You use a self-service car wash station with high-pressure hoses'
     },
     {
       'title': ' Waterless Car Wash',
-      'description': ' Uses specialized cleaning products that don’t require water.'
+      'description':
+          ' Uses specialized cleaning products that don’t require water.'
     },
   ];
 
@@ -52,7 +56,8 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
             height: AppHeight.h16,
           ),
           Padding(
-            padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
+            padding: EdgeInsets.only(
+                right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
               StringsManager.choosehewashingtype,
@@ -63,7 +68,6 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
             child: ListView(
               children: options.map((option) {
                 return RadioListTile<String>(
-                   
                   activeColor: ColorsManager.mainColor,
                   title: Text(
                     option['title']!,
@@ -90,13 +94,12 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
               }).toList(),
             ),
           ),
-          const ChoiseAmount(),
+          // const ChoiseAmount(),
           SizedBox(
             height: context.screenHeight * .2,
           ),
-           RequesButton(
-        
-            selectedOption: selectedOption??' ',
+          RequesButton(
+            selectedOption: selectedOption ?? ' ',
           ),
           SizedBox(
             height: AppHeight.h30,
@@ -106,4 +109,3 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
     );
   }
 }
-

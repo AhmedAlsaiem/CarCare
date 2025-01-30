@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/feature/add_car/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/admin_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
@@ -14,14 +15,17 @@ import 'package:splash_app/feature/home_view/presentation/views/recomndation_vie
 import 'package:splash_app/feature/home_view/presentation/views/tire_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/winch_car_view.dart';
-import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 
 class AppRouter {
   static Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.onboardingView:
+      // case AppRoutes.onboardingView:
+      //   return MaterialPageRoute(
+      //     builder: (_) => const OnboardingView(),
+      //   );
+      case AppRoutes.addcar:
         return MaterialPageRoute(
-          builder: (_) => const OnboardingView(),
+          builder: (_) => const AddCar(),
         );
       case AppRoutes.forGetPassword:
         return MaterialPageRoute(
@@ -46,39 +50,40 @@ class AppRouter {
       case AppRoutes.adminSignUpView:
         return MaterialPageRoute(
           builder: (_) => const AdminSignup(),
-        ); case AppRoutes.otpAcoutVerification:
+        );
+      case AppRoutes.otpAcoutVerification:
         return MaterialPageRoute(
           builder: (_) => const OtpAcountVerification(),
         );
-         case AppRoutes.tireCarView:
+      case AppRoutes.tireCarView:
         return MaterialPageRoute(
           builder: (_) => const TireCarView(),
         );
-         case AppRoutes.fuelCarView:
+      case AppRoutes.fuelCarView:
         return MaterialPageRoute(
           builder: (_) => const FuelCarView(),
         );
-         case AppRoutes.batteriesCarView:
+      case AppRoutes.batteriesCarView:
         return MaterialPageRoute(
           builder: (_) => const BatteriesCarView(),
         );
-         case AppRoutes.wichCarView:
+      case AppRoutes.wichCarView:
         return MaterialPageRoute(
           builder: (_) => const WinchCarView(),
         );
-         case AppRoutes.oilCarView:
+      case AppRoutes.oilCarView:
         return MaterialPageRoute(
           builder: (_) => const OilCarView(),
         );
-         case AppRoutes.washingCarView:
+      case AppRoutes.washingCarView:
         return MaterialPageRoute(
           builder: (_) => const WashingCarView(),
         );
-         case AppRoutes.parkingCarView:
+      case AppRoutes.parkingCarView:
         return MaterialPageRoute(
           builder: (_) => const ParkingCarView(),
         );
-         case AppRoutes.recomendation:
+      case AppRoutes.recomendation:
         return MaterialPageRoute(
           builder: (_) => const RecomndationView(),
         );
@@ -91,7 +96,8 @@ class AppRouter {
 }
 
 abstract class AppRoutes {
-  static const String onboardingView = '/';
+  static const String addcar = '/';
+  // static const String onboardingView = '/';
   static const String loginView = '/loginView';
   static const String userSginUpView = '/userSignUpView';
   static const String adminSignUpView = '/adminSignUPView';
@@ -106,14 +112,5 @@ abstract class AppRoutes {
   static const String oilCarView = '/oilCarView';
   static const String washingCarView = '/washingCarView';
   static const String parkingCarView = '/parkingCarView';
-
-
-
-
-
-
   static const String recomendation = '/recomendation';
-
-
-  
 }

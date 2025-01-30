@@ -21,19 +21,26 @@ class _BatteriesCarViewBodyState extends State<BatteriesCarViewBody> {
   final List<Map<String, String>> options = [
     {
       'title': ' Flooded',
-      'description': ' Affordable and widely available'
+      'description': ' Affordable and widely available',
+      'price' : '1000'
     },
     {
       'title': ' AGM',
-      'description': ' Provides better performance and durabilit'
+      'description': ' Provides better performance and durabilit',
+      'price' : '12000'
+
     },
     {
       'title': ' EFB',
-      'description': ' Handles frequent charging and discharging cycle'
+      'description': ' Handles frequent charging and discharging cycle',
+      'price' : '4500'
+
     },
     {
       'title': ' Gel Cell',
-      'description': ' Resistant to vibration and deep discharge'
+      'description': ' Resistant to vibration and deep discharge',
+      'price' : '16000'
+
     },
   ];
 
@@ -71,6 +78,9 @@ class _BatteriesCarViewBodyState extends State<BatteriesCarViewBody> {
                           ? FontWeight.bold
                           : FontWeight.normal,
                     ),
+                  ),
+                     secondary: Text(
+                   '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
                     option['description']!,

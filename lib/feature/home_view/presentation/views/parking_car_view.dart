@@ -4,6 +4,7 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/views/parking_car_view_body.dart';
+import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
 
 class ParkingCarView extends StatelessWidget {
   const ParkingCarView({super.key});
@@ -23,7 +24,7 @@ class ParkingCarView extends StatelessWidget {
           iconTheme: const IconThemeData(
               size: AppSize.s34, color: ColorsManager.balck),
         ),
-        body: const ParkingCarViewBody(),
+        body:const  RecomndationView(),
       ),
     );
   }

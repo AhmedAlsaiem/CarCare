@@ -21,19 +21,26 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
   final List<Map<String, String>> options = [
     {
       'title': 'Small Cars',
-      'description': ' 13 to 16 inches (e.g., 185/65R15)'
+      'description': ' 13 to 16 inches (e.g., 185/65R15)', 
+      'price' :'2500'
     },
     {
       'title': 'Sedans and Hatchbacks',
-      'description': ' 15 to 18 inches (e.g., 205/55R16)'
+      'description': ' 15 to 18 inches (e.g., 205/55R16)',
+      'price' :'3000'
+
     },
     {
       'title': 'SUVs and Trucks',
-      'description': ' 17 to 22 inches (e.g., 265/70R17)'
+      'description': ' 17 to 22 inches (e.g., 265/70R17)',
+      'price' :'6000'
+
     },
     {
       'title': 'Sports Cars',
-      'description': ' 18 to 20 inches with low-profile tires (e.g., 225/40R18)'
+      'description': ' 18 to 20 inches with low-profile tires (e.g., 225/40R18)',
+      'price' :'4500'
+
     },
   ];
 
@@ -71,6 +78,9 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
                           ? FontWeight.bold
                           : FontWeight.normal,
                     ),
+                  ),
+                     secondary: Text(
+                   '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
                     option['description']!,

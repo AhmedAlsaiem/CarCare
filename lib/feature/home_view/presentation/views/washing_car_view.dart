@@ -3,6 +3,7 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view_body.dart';
 
 class WashingCarView extends StatelessWidget {
@@ -23,7 +24,7 @@ class WashingCarView extends StatelessWidget {
           iconTheme: const IconThemeData(
               size: AppSize.s34, color: ColorsManager.balck),
         ),
-        body: const WashingCarViewBody(),
+        body: const RecomndationView(),
       ),
     );
   }
