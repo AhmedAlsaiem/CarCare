@@ -2,50 +2,50 @@ import 'package:splash_app/feature/authentaction/domain/entity/user_entities/use
 
 abstract class UserRepo {
   Future<UserEntity> signUp({
-    final String phoneNumber,
-    final String email,
-    final String userName,
-    final String password,
-    final int type,
+    required String phoneNumber,
+    required String email,
+    required String userName,
+    required String password,
+    required int type,
   });
   Future<UserEntity> login({
-    final String phoneNumber,
-    final String password,
+    required String phoneNumber,
+    required String password,
   });
   Future<UserEntity> getCurrentUser();
-  void changePassword({
-    final String newPassword,
-    currentPassword,
+  Future<void> changePassword({
+    required String newPassword,
+    required String currentPassword,
   });
-  void confirmEmail({
-    final String email,
-    confirmationCode,
+  Future<void> confirmEmail({
+    required String email,
+    required int confirmationCode,
   });
-  void getRefreskToken({
-    final String token,
-    final String refreshToken,
+  Future<void> getRefreskToken({
+    required String token,
+    required String refreshToken,
   });
-  void revokeRefreshToken({
-    final String token,
-    final String refreshToken,
+  Future<void> revokeRefreshToken({
+    required String token,
+    required String refreshToken,
   });
-  void forgetPassword({
-    final String email,
+  Future<void> forgetPassword({
+    required String email,
   });
-  void verifyCode({
-    final String email,
-    final int resetcode,
+  Future<void> verifyCode({
+    required String email,
+    required int resetcode,
   });
-  void resetPassword(
-    final String email,
-    newPassword,
-  );
-  void confirmationCode({
-    final String email,
+  Future<void> resetPassword({
+    required String email,
+    required String newPassword,
   });
-  void updateUser({
-    final String email,
-    final String userName,
-    final String phoneNumber,
+  Future<void> confirmationCode({
+    required String email,
+  });
+  Future<UserEntity> updateUser({
+    required String email,
+    required String userName,
+    required String phoneNumber,
   });
 }

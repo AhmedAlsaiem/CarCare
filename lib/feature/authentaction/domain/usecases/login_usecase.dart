@@ -1,0 +1,14 @@
+import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user.dart';
+import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
+
+class LoginUsecase {
+  UserRepo user;
+  LoginUsecase(this.user);
+  Future<UserEntity> excute(
+      {required String phoneNumber, required String password})async {
+    return  await user.login(
+      phoneNumber: phoneNumber,
+      password: password,
+    );
+  }
+}
