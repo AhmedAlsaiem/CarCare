@@ -29,12 +29,17 @@ class ApiKey {
   static String refreshTokenExpirationDate = "refreshTokenExpirationDate";
   static String refreshToken = "refreshToken";
   static String phoneNumber = "phoneNumber";
+    static String resetCode = "resetCode";
+
   static String token = "token";
   static String email = "email";
   static String id = "id";
   static String fullName = "fullName";
   static String type = "type";
-  static String errorMessage = "message";
+  static String message = "message";
   static String password = "password";
+    static String newPassword = "newPassword";
+
   static String profilePic = "profilePic";
+  static String confimationCode = "confirmationCode";
 }

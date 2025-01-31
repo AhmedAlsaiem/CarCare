@@ -7,7 +7,7 @@ class UserEntity extends Equatable {
   final String type;
   final String id;
   final String token;
-  final String refreshToken;
+  final String? refreshToken;
   final String refreshTokenExpirationDate;
 
   const UserEntity({
