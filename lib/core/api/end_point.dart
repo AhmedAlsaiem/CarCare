@@ -30,6 +30,7 @@ class ApiKey {
   static String refreshToken = "refreshToken";
   static String phoneNumber = "phoneNumber";
     static String resetCode = "resetCode";
+    static String nationalId = "nationalId";
 
   static String token = "token";
   static String email = "email";

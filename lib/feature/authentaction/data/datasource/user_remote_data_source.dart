@@ -1,6 +1,8 @@
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/end_point.dart';
+import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/core/error/exception.dart';
+import 'package:splash_app/core/functions/save_user_data.dart';
 import 'package:splash_app/feature/authentaction/data/model/response_model.dart';
 import 'package:splash_app/feature/authentaction/data/model/user_model.dart';
 
@@ -35,7 +37,7 @@ abstract class BaseUserRemoteDataSource {
   Future<ResponseModel> forgetPassword({
     required String email,
   });
-  Future<void> verifyCode({
+  Future<ResponseModel> verifyCode({
     required String email,
     required int resetcode,
   });
@@ -72,10 +74,15 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.phoneNumber: phoneNumber,
         ApiKey.type: 1,
       });
+
       user = UserModel.fromJson(response);
+      saveUserData(acount: user);
       return user;
     } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
+      throw ServerException(
+          errModel: ErrorModel(
+              statusCode: e.errModel.statusCode,
+              errorMessage: e.errModel.errorMessage));
     }
   }
 
@@ -89,6 +96,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.phoneNumber: phoneNumber,
       });
       user = UserModel.fromJson(response);
+      saveUserData(acount: user);
       return user;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
@@ -191,6 +199,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
       {required String token, required String refreshToken}) {
     throw UnimplementedError();
   }
+
   @override
   Future<void> changePassword(
       {required String newPassword, required String currentPassword}) {
@@ -199,8 +208,8 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
 
   @override
   Future<UserModel> resetPassword(
-      {required String email, required String newPassword}) async{
-          UserModel user;
+      {required String email, required String newPassword}) async {
+    UserModel user;
     try {
       dynamic response = await api.put(EndPoint.registerUser, data: {
         ApiKey.email: email,

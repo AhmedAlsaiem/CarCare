@@ -4,11 +4,16 @@ abstract class StringsManager {
   static const String skip = 'Skip';
   static const String login = 'LogIn';
   static const String userName = 'User Name';
-  static const String id = 'National Id';
-
+  static const String nationalId = 'National Id';
+  static const String verifyYourAcount = 'Verify Your Acount';
   static const String signUp = 'SignUp';
   static const String email = 'Email';
   static const String wThis = 'this';
+  static const String appState = 'userState';
+  static const String star = '*****';
+  static const String verificationCode = 'Verification Code ';
+  static const String weHaveSendVerification =
+      'We have send verification code to ';
   static const String isRequired = 'is required';
   static const String isNotCorrectFormat = 'is not correct format';
   static const String gmailcom = '@gmail.com';

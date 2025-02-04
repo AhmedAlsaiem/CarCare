@@ -8,6 +8,7 @@ class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField(
       {super.key,
       required this.label,
+      required this.controller,
       required this.icon,
       required this.onchange,
       this.textInputType});
@@ -15,6 +16,7 @@ class CustomTextFormField extends StatefulWidget {
   final Icon icon;
   final void Function(String) onchange;
   final TextInputType? textInputType;
+  final TextEditingController controller;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -24,6 +26,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       keyboardType: widget.textInputType,
       style: StylesManager.textStyleRegular18.copyWith(
         color: ColorsManager.balck,
@@ -70,9 +73,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (value.length >= 11 &&
           widget.label == StringsManager.email &&
-          value.substring(value.length - 11) == StringsManager.gmailcom) {
+          value.substring(value.length - 10, value.length) !=
+              StringsManager.gmailcom) {
+        print("-----------------------------");
+        print(value.substring(value.length - 10));
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
-      } else if (value.length != 14 && widget.label == StringsManager.id) {
+      } else if (value.length != 14 &&
+          widget.label == StringsManager.nationalId) {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (widget.label == StringsManager.phoneNumber) {
         if (value.substring(0, 2) != StringsManager.zeroOne) {

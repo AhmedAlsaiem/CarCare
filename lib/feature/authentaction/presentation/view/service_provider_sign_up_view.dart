@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/widgets/custom_app_bar.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/service_provider_sign_up_view_body.dart';
 
 class ServiceProviderSignUpView extends StatelessWidget {
@@ -7,8 +8,8 @@ class ServiceProviderSignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body:  ServiceProviderSignUpViewBody(),
+      appBar:customAppBar(),
+      body: ServiceProviderSignUpViewBody(),
     );
   }
 }

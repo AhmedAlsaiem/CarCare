@@ -21,26 +21,22 @@ class _ProductOfHorizntalAndInductorState
 
   final List<ProductHorizantal> items = [
     const ProductHorizantal(
-     
       title: StringsManager.rOODMAP,
       subTitle: StringsManager.describationOfROODMAP,
       pathImage: AssetsManager.roodMapHome,
     ),
-     const ProductHorizantal(
-  
-      title:StringsManager.package ,
+    const ProductHorizantal(
+      title: StringsManager.package,
       subTitle: StringsManager.describationOfPACKAGE,
       pathImage: AssetsManager.onboarding2,
     ),
     const ProductHorizantal(
-     
       title: StringsManager.emergency,
       subTitle: StringsManager.describationOfEmergency,
       pathImage: AssetsManager.emergencyHome,
     ),
     const ProductHorizantal(
-      
-      title:StringsManager.offers,
+      title: StringsManager.offers,
       subTitle: StringsManager.describationOfOFFES,
       pathImage: AssetsManager.offersHome,
     ),
@@ -51,7 +47,7 @@ class _ProductOfHorizntalAndInductorState
     return Column(
       children: [
         SizedBox(
-          height: context.screenHeight * .15,
+          height: context.screenHeight * .17,
           child: CarouselSlider(
             items: items.map((item) => item).toList(),
             options: CarouselOptions(
@@ -61,7 +57,6 @@ class _ProductOfHorizntalAndInductorState
               initialPage: 0,
               padEnds: false,
               enableInfiniteScroll: true,
-              
               reverse: false,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
@@ -78,7 +73,7 @@ class _ProductOfHorizntalAndInductorState
             ),
           ),
         ),
-         SizedBox(height: AppHeight.h16),
+        SizedBox(height: AppHeight.h16),
         IndicatorHome(items: items, currentIndex: currentIndex)
       ],
     );

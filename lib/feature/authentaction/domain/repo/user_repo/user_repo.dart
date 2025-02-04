@@ -1,18 +1,21 @@
+import 'package:dartz/dartz.dart';
+import 'package:splash_app/core/error/error_model.dart';
+import 'package:splash_app/feature/authentaction/data/model/response_model.dart';
 import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user.dart';
 
 abstract class UserRepo {
-  Future<UserEntity> signUp({
+  Future<Either<ErrorModel, UserEntity>> signUp({
     required String phoneNumber,
     required String email,
     required String userName,
     required String password,
     required int type,
   });
-  Future<UserEntity> login({
+  Future<Either<ErrorModel, UserEntity>> login({
     required String phoneNumber,
     required String password,
   });
-  Future<UserEntity> getCurrentUser();
+  Future<Either<ErrorModel, UserEntity>> getCurrentUser();
   Future<void> changePassword({
     required String newPassword,
     required String currentPassword,
@@ -32,7 +35,7 @@ abstract class UserRepo {
   Future<void> forgetPassword({
     required String email,
   });
-  Future<void> verifyCode({
+   Future<Either<ErrorModel,ResponseModel>> verifyCode({
     required String email,
     required int resetcode,
   });
@@ -43,7 +46,7 @@ abstract class UserRepo {
   Future<void> confirmationCode({
     required String email,
   });
-  Future<UserEntity> updateUser({
+  Future<Either<ErrorModel, UserEntity>> updateUser({
     required String email,
     required String userName,
     required String phoneNumber,

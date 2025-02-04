@@ -1,10 +1,13 @@
+import 'package:dartz/dartz.dart';
 import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user.dart';
 import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
+
+import '../../../../core/error/error_model.dart';
 
 class SignupUsecase {
   UserRepo user;
   SignupUsecase(this.user);
-  Future<UserEntity> excute ({
+ Future< Either<ErrorModel, UserEntity>>excute ({
     required String email,
     required String password,
     required String userName,

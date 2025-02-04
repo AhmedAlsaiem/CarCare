@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/widgets/custom_text_button.dart';
+import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
 import '../../../../../core/utils/string_manager.dart';
 import 'cusom_forget_password_triger_page.dart';
 import 'custom_text_form_field.dart';
@@ -18,6 +20,7 @@ class LoginTextFromFieldSection extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormField(
+            controller: context.read<UserCubit>().loginPhoneNumber,
             textInputType: TextInputType.number,
             label: StringsManager.phoneNumber,
             icon: const Icon(Icons.phone_android_rounded),
@@ -26,6 +29,7 @@ class LoginTextFromFieldSection extends StatelessWidget {
           height: AppSize.s16,
         ),
         CustomTextFormField(
+            controller: context.read<UserCubit>().loginPassword,
             label: StringsManager.password,
             icon: const Icon(Icons.password),
             onchange: (value) {}),
@@ -39,7 +43,9 @@ class LoginTextFromFieldSection extends StatelessWidget {
         CustomButton(
           bottonName: StringsManager.login,
           onPressed: () {
-            if (formKey.currentState?.validate() == true) {}
+            if (formKey.currentState?.validate() == true) {
+              BlocProvider.of<UserCubit>(context).login();
+            }
           },
         ),
       ],

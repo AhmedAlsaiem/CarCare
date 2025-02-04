@@ -3,5 +3,6 @@ import 'package:splash_app/core/utils/color_manager.dart';
 
 ThemeData themData() {
   return ThemeData(
-      appBarTheme: const AppBarTheme(backgroundColor: ColorsManager.mainColor));
+    
+      appBarTheme: const AppBarTheme(backgroundColor: ColorsManager.mainColor,));
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/widgets/custom_text_button.dart';
+import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
 
 import 'custom_text_form_field.dart';
 
@@ -22,6 +24,7 @@ class CustomFrogetPasswordTextFromFieldSection extends StatelessWidget {
           child: Column(
             children: [
               CustomTextFormField(
+                  controller: context.read<UserCubit>().forgetPasswrdEmail,
                   label: StringsManager.email,
                   icon: const Icon(Icons.phone_android_rounded),
                   onchange: (value) {}),
@@ -29,6 +32,7 @@ class CustomFrogetPasswordTextFromFieldSection extends StatelessWidget {
                 height: AppSize.s20,
               ),
               CustomTextFormField(
+                  controller: context.read<UserCubit>().forgetPasswrdNewPassword,
                   label: StringsManager.newPassword,
                   icon: const Icon(Icons.password),
                   onchange: (value) {}),
