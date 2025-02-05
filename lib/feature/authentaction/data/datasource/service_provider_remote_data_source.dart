@@ -1,6 +1,7 @@
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/error/exception.dart';
 import 'package:splash_app/core/functions/save_user_data.dart';
+import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/feature/authentaction/data/model/service_provider_model.dart';
 
 import '../../../../core/api/end_point.dart';
@@ -20,7 +21,7 @@ class ServiceProviderRemoteDataSource
   ApiConsumer api;
 
   ServiceProviderRemoteDataSource({required this.api});
-
+  int? serviceId = CacheHelper.sharedPreferences.getInt(ApiKey.serviceId);
   @override
   Future<ServiceProviderModel> serviceProviderSignUP({
     required String phoneNumber,
@@ -38,6 +39,7 @@ class ServiceProviderRemoteDataSource
         ApiKey.phoneNumber: phoneNumber,
         ApiKey.nationalId: nationalId,
         ApiKey.type: 0,
+        ApiKey.serviceId: serviceId,
       });
       serviceProvider = ServiceProviderModel.fromJson(response);
       saveServiceProviderData(acount: serviceProvider);

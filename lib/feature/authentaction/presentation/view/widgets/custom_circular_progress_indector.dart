@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
@@ -10,8 +8,10 @@ class CustomCircularProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CircularProgressIndicator.adaptive(
-      backgroundColor: ColorsManager.darkBlue,
+    return const Center(
+      child: CircularProgressIndicator(
+        backgroundColor: ColorsManager.mainColor,
+      ),
     );
   }
 }

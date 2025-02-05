@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
+import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_Provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
@@ -80,7 +81,10 @@ class AppRouter {
         );
       case AppRoutes.serviceTypeView:
         return MaterialPageRoute(
-          builder: (_) => const ServiceTypeView(),
+          builder: (_) => BlocProvider(
+            create: (context) => GetAllServicesCubit(),
+            child: const ServiceTypeView(),
+          ),
         );
       default:
         return MaterialPageRoute(

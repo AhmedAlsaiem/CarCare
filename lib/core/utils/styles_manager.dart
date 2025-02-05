@@ -8,6 +8,11 @@ abstract class StylesManager {
     color: ColorsManager.darkBlue,
     fontWeight: AppFontWieght.extraBold,
   );
+  static TextStyle textStyleExtraBold24 = TextStyle(
+    fontSize: FontSize.s24,
+    color: ColorsManager.mainColor,
+    fontWeight: AppFontWieght.extraBold,
+  );
   static TextStyle textStyleMedium18 = TextStyle(
     fontSize: FontSize.s18,
     color: ColorsManager.blueGrey,
@@ -18,7 +23,7 @@ abstract class StylesManager {
     color: ColorsManager.white,
     fontWeight: AppFontWieght.medium,
   );
-static TextStyle textStyleMedium26 = TextStyle(
+  static TextStyle textStyleMedium26 = TextStyle(
     fontSize: FontSize.s26,
     color: ColorsManager.white,
     fontWeight: AppFontWieght.medium,
@@ -48,7 +53,8 @@ static TextStyle textStyleMedium26 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s24,
     color: ColorsManager.white,
-  );  static TextStyle textStyleBold28 = TextStyle(
+  );
+  static TextStyle textStyleBold28 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s28,
     color: ColorsManager.white,
@@ -112,7 +118,8 @@ static TextStyle textStyleMedium26 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s17,
     color: ColorsManager.white,
-  ); static TextStyle textStyleRegular14 = TextStyle(
+  );
+  static TextStyle textStyleRegular14 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s14,
     color: ColorsManager.white,
@@ -127,12 +134,11 @@ static TextStyle textStyleMedium26 = TextStyle(
     fontSize: FontSize.s14,
     color: ColorsManager.grey,
   );
-  static TextStyle textStyle16 =  TextStyle(
+  static TextStyle textStyle16 = TextStyle(
     //fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s16,
-   // color: ColorsManager.white,
+    // color: ColorsManager.white,
   );
-  
 
   static TextStyle textStyleBold24maincolor = TextStyle(
     fontWeight: AppFontWieght.bold,
@@ -149,8 +155,4 @@ static TextStyle textStyleMedium26 = TextStyle(
     fontSize: FontSize.s32,
     color: ColorsManager.white,
   );
-
-  
-
-
 }

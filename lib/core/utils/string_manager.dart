@@ -89,7 +89,7 @@ abstract class StringsManager {
 
   static const String forgetPassword = 'Forget Password';
   static const String remmberMe = 'Remember Me';
-
+  static const String selectService = 'Select Service';
   static const String user = 'User';
   static const String technical = 'Technical';
   static const String chooseType = 'Choose Type';

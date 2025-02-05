@@ -1,8 +1,7 @@
-
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 AppBar customAppBar() {
-    return AppBar(
-      leading: Container(),
-    );
-  }
+  return AppBar(
+    leading: Container(),
+  );
+}

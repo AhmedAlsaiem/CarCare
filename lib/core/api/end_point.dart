@@ -17,6 +17,7 @@ class EndPoint {
   static String confirmEmail = "${acount}ConfirmEmail";
   static String updateUser = "${acount}UpdateUser";
   static String updateTechical = "${acount}UpdateTech";
+  static String getAllServices = "ServiceTypes/GetAll";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
@@ -29,8 +30,8 @@ class ApiKey {
   static String refreshTokenExpirationDate = "refreshTokenExpirationDate";
   static String refreshToken = "refreshToken";
   static String phoneNumber = "phoneNumber";
-    static String resetCode = "resetCode";
-    static String nationalId = "nationalId";
+  static String resetCode = "resetCode";
+  static String nationalId = "nationalId";
 
   static String token = "token";
   static String email = "email";
@@ -39,8 +40,12 @@ class ApiKey {
   static String type = "type";
   static String message = "message";
   static String password = "password";
-    static String newPassword = "newPassword";
+  static String newPassword = "newPassword";
 
   static String profilePic = "profilePic";
   static String confimationCode = "confirmationCode";
+  static String serviceName = "name";
+  static String serviceDescription = "description";
+  static String imageUrl = "pictureUrl";
+  static String serviceId = "serviceId";
 }

@@ -25,7 +25,9 @@ class LoginViewBody extends StatelessWidget {
         } else if (state is FaliureUserState) {
           customShowSnackBar(context, state.errorMessage);
         } else if (state is SuccessUserState) {
-          customShowSnackBar(context, state.successMessage!);
+          //  customShowSnackBar(context, state.successMessage!);
+          NavigatorManager.pushWithReplacement(
+              context: context, route: AppRoutes.homeView);
         }
       },
       builder: (context, state) {
