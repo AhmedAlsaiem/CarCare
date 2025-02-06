@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
@@ -10,25 +9,33 @@ class ServiceItem extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.imagePath,
-    required this.pageNavigate,
-
-    
+    //required this.pageNavigate,
+    required this.ontap,
     super.key,
   });
   final String title;
   final String subTitle;
   final String imagePath;
-  final String? pageNavigate;
+  //final String? pageNavigate;
+  final void Function()? ontap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        NavigatorManager.pushName(
-            context: context, route: pageNavigate!);
-        // NavigatorManager.pushName(context: context, route: AppRouter.)
-        // print('object');
-      },
+      onTap: ontap,
+      // onTap: () {
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder:
+        //             (context) =>const MapViewScrean(nameOfServce: 'fuel')));
+      //   NavigatorManager.pushName(
+      //     context: context,
+      //     route: pageNavigate!,
+      //   );
+      //   // NavigatorManager.pushName(context: context, route: AppRouter.)
+      //   // print('object');
+      // },
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: Appwidth.w16),
         shape: RoundedRectangleBorder(

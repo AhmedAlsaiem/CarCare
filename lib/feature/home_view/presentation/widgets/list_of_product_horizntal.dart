@@ -1,6 +1,7 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/helper/extentions.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -25,24 +26,31 @@ class _ProductOfHorizntalAndInductorState
       title: StringsManager.rOODMAP,
       subTitle: StringsManager.describationOfROODMAP,
       pathImage: AssetsManager.roodMapHome,
-    ),
-     const ProductHorizantal(
-  
-      title:StringsManager.package ,
-      subTitle: StringsManager.describationOfPACKAGE,
-      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
     ),
     const ProductHorizantal(
-     
+  
+      title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+
+    ),
+    const ProductHorizantal(
+   
       title: StringsManager.emergency,
       subTitle: StringsManager.describationOfEmergency,
       pathImage: AssetsManager.emergencyHome,
+      navigatePage: AppRoutes.currentLocation,
+
     ),
     const ProductHorizantal(
-      
-      title:StringsManager.offers,
+  
+      title: StringsManager.offers,
       subTitle: StringsManager.describationOfOFFES,
       pathImage: AssetsManager.offersHome,
+      navigatePage: AppRoutes.currentLocation,
+
     ),
   ];
 
@@ -61,7 +69,6 @@ class _ProductOfHorizntalAndInductorState
               initialPage: 0,
               padEnds: false,
               enableInfiniteScroll: true,
-              
               reverse: false,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
@@ -78,7 +85,7 @@ class _ProductOfHorizntalAndInductorState
             ),
           ),
         ),
-         SizedBox(height: AppHeight.h16),
+        SizedBox(height: AppHeight.h16),
         IndicatorHome(items: items, currentIndex: currentIndex)
       ],
     );

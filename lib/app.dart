@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:screenutil_module/main.dart';
 import 'package:splash_app/core/functions/theme_data.dart';
 import 'package:splash_app/core/network/app_router.dart';
-import 'package:splash_app/feature/home_view/home_view.dart';
+
 
 
 class CarCareApp extends StatelessWidget {

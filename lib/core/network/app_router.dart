@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:splash_app/feature/add_car/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/admin_signup.dart';
@@ -9,6 +10,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/user_signup.d
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/fuel_car_view.dart';
+import 'package:splash_app/feature/home_view/presentation/views/mechnical_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/oil_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
@@ -83,10 +85,15 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const ParkingCarView(),
         );
+      case AppRoutes.mechanicCarView:
+        return MaterialPageRoute(
+          builder: (_) => const MechnicalCarView(),
+        );
       case AppRoutes.recomendation:
         return MaterialPageRoute(
           builder: (_) => const RecomndationView(),
         );
+      
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(),
@@ -112,5 +119,12 @@ abstract class AppRoutes {
   static const String oilCarView = '/oilCarView';
   static const String washingCarView = '/washingCarView';
   static const String parkingCarView = '/parkingCarView';
+  static const String mechanicCarView = '/mechanicCarView';
+
   static const String recomendation = '/recomendation';
+  static const String currentLocation = '/currentLocation';
+  static const String mapView = '/mapView';
+
+
+
 }

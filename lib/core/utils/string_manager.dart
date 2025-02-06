@@ -46,6 +46,9 @@ abstract class StringsManager {
   static const String parking = 'Parking';
   static const String describationOfParking =
       'We can provide the nearest parking and reserve a place for you';
+  static const String mechanic = 'Mechanic';
+  static const String describationOfMechanic =
+      'Highly qualified mechanics can be provided';
   static const String rOODMAP = 'ROOD MAP';
   static const String describationOfROODMAP = 'Know the road details';
   static const String offers = 'OFFERS';
@@ -113,4 +116,11 @@ abstract class StringsManager {
   static const String youshouldchoiseanyopation =
       'You should choise any opation ';
   static const String thisfieldisrequired = 'this field is required ';
+    static const String apiKey = '5b3ce3597851110001cf624858461a871946480d96231063698c9bb4';
+  static const String routeBaseUrl = 'https://api.openrouteservice.org/v2/directions/driving-car';
+ //static const String apiKey = 'AIzaSyAjg0_F0NcXyg12GIeBw5cu4EW-q4Ch_P8';
+  //static const String apiKey = 'AIzaSyDhhXoAJDKWWSp0c2R0PYPXLu1Dnw3cfoU';
+
+
+
 }

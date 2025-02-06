@@ -5,8 +5,8 @@ import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
 
-class ParkingCarView extends StatelessWidget {
-  const ParkingCarView({super.key});
+class MechnicalCarView extends StatelessWidget {
+  const MechnicalCarView({super.key});
 
   @override
   Widget build(BuildContext context) {
