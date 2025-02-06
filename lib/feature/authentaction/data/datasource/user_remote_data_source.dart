@@ -34,7 +34,7 @@ abstract class BaseUserRemoteDataSource {
     required String token,
     required String refreshToken,
   });
-  Future<ResponseModel> forgetPassword({
+  Future<ResponseModel> forgetPasswordByEmail({
     required String email,
   });
   Future<ResponseModel> verifyCode({
@@ -134,7 +134,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   }
 
   @override
-  Future<ResponseModel> forgetPassword({required String email}) async {
+  Future<ResponseModel> forgetPasswordByEmail({required String email}) async {
     ResponseModel apiResponse;
     try {
       dynamic response = await api.post(EndPoint.forgetPasswordEmail, data: {
@@ -216,6 +216,12 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.newPassword: newPassword,
       });
       user = UserModel.fromJson(response);
+      print('user email ${user.email}');
+      print('user id ${user.id}');
+      print('user token ${user.token}');
+      print('user type ${user.type}');
+
+      saveUserData(acount: user);
       return user;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);

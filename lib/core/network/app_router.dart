@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
-import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_Provider_cubit.dart';
+import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
@@ -15,6 +15,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/user_signup.d
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/home_view/home_view.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
+import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -86,6 +87,13 @@ class AppRouter {
             child: const ServiceTypeView(),
           ),
         );
+      case AppRoutes.serviceProviderHomeView:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => GetAllServicesCubit(),
+            child: const ServiceProviderHomeView(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(),
@@ -103,6 +111,8 @@ abstract class AppRoutes {
   static const String forGetPassword = '/forGetPassword';
   static const String otpAcoutVerification = '/otpAcountVerification';
   static const String serviceTypeView = '/serviceTypeView';
+  static const String serviceProviderHomeView = '/serviceProviderHomeView';
+
   static const String verifyAcount = '/verifyAcount';
   static const String homeView = '/homeView';
 }

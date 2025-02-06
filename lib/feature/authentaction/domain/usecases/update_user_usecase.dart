@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:splash_app/core/error/error_model.dart';
-import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user.dart';
+import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user_entities.dart';
 
 import '../repo/user_repo/user_repo.dart';
 

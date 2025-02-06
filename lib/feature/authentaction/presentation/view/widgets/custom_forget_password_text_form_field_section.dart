@@ -32,7 +32,8 @@ class CustomFrogetPasswordTextFromFieldSection extends StatelessWidget {
                 height: AppSize.s20,
               ),
               CustomTextFormField(
-                  controller: context.read<UserCubit>().forgetPasswrdNewPassword,
+                  controller:
+                      context.read<UserCubit>().forgetPasswrdNewPassword,
                   label: StringsManager.newPassword,
                   icon: const Icon(Icons.password),
                   onchange: (value) {}),
@@ -42,7 +43,9 @@ class CustomFrogetPasswordTextFromFieldSection extends StatelessWidget {
               CustomButton(
                 bottonName: StringsManager.submmit,
                 onPressed: () {
-                  if (formKey.currentState?.validate() == true) {}
+                  if (formKey.currentState?.validate() == true) {
+                    BlocProvider.of<UserCubit>(context).frogetPasswordByEmail();
+                  }
                 },
               ),
             ],

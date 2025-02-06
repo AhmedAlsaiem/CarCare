@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/widgets/custom_text_button.dart';
-import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_Provider_cubit.dart';
+import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import '../../../../../core/utils/string_manager.dart';
 import 'custom_text_form_field.dart';
 

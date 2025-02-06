@@ -75,8 +75,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           widget.label == StringsManager.email &&
           value.substring(value.length - 10, value.length) !=
               StringsManager.gmailcom) {
-        print("-----------------------------");
-        print(value.substring(value.length - 10));
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (value.length != 14 &&
           widget.label == StringsManager.nationalId) {

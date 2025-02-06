@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_otp_field.dart';
@@ -17,12 +16,12 @@ class OtpVerifcationCodeFormFields extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(),
-          CustomOtpfield(controller: context.read<UserCubit>().otp1),
-          CustomOtpfield(controller: context.read<UserCubit>().otp2),
-          CustomOtpfield(controller: context.read<UserCubit>().otp3),
-          CustomOtpfield(controller: context.read<UserCubit>().otp4),
-          SizedBox(),
+       const   SizedBox(),
+          CustomOtpfield(controller: context.read<UserCubit>().otpSignUp1),
+          CustomOtpfield(controller: context.read<UserCubit>().otpSignUp2),
+          CustomOtpfield(controller: context.read<UserCubit>().otpSignUp3),
+          CustomOtpfield(controller: context.read<UserCubit>().otpSignUp4),
+      const    SizedBox(),
         ],
       ),
     );

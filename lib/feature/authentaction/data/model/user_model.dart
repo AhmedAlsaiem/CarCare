@@ -1,5 +1,5 @@
 import 'package:splash_app/core/api/end_point.dart';
-import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user.dart';
+import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user_entities.dart';
 
 class UserModel extends UserEntity {
   const UserModel({

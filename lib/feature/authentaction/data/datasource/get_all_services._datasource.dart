@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/error/exception.dart';

@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/dio_api.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -12,7 +12,7 @@ import 'package:splash_app/feature/authentaction/presentation/manager/service_pr
 
 class ServiceProviderCubit extends Cubit<ServiceProviderState> {
   ServiceProviderCubit() : super(ServiceProviderState());
-  // Keys
+  
 
 //? controllers
   TextEditingController signUpPhoneNumber = TextEditingController();
@@ -34,6 +34,7 @@ class ServiceProviderCubit extends Cubit<ServiceProviderState> {
     respone.fold(
         (errorModel) => emit(
             FaliureServiceProviderState(errorMessage: errorModel.errorMessage)),
+            
         (userModel) {
       return emit(SuccessServiceProviderState(StringsManager.verifyYourAcount));
     });

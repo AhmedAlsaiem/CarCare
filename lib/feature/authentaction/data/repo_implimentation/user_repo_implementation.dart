@@ -4,7 +4,7 @@ import 'package:splash_app/core/error/exception.dart';
 import 'package:splash_app/feature/authentaction/data/datasource/user_remote_data_source.dart';
 import 'package:splash_app/feature/authentaction/data/model/response_model.dart';
 import 'package:splash_app/feature/authentaction/data/model/user_model.dart';
-import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user.dart';
+import 'package:splash_app/feature/authentaction/domain/entity/user_entities/user_entities.dart';
 import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
 
 class UserRepoImplementation extends UserRepo {
@@ -13,39 +13,41 @@ class UserRepoImplementation extends UserRepo {
   @override
   Future<void> changePassword(
       {required String newPassword, required String currentPassword}) {
-    // TODO: implement changePassword
     throw UnimplementedError();
   }
 
   @override
   Future<void> confirmEmail(
       {required String email, required int confirmationCode}) {
-    // TODO: implement confirmEmail
     throw UnimplementedError();
   }
 
   @override
   Future<void> confirmationCode({required String email}) {
-    // TODO: implement confirmationCode
     throw UnimplementedError();
   }
 
   @override
-  Future<void> forgetPassword({required String email}) {
-    // TODO: implement forgetPassword
-    throw UnimplementedError();
+  Future<Either<ErrorModel, ResponseModel>> forgetPasswordByEmail(
+      {required String email}) async {
+    try {
+      ResponseModel response;
+      response =
+          await baseUserRemoteDataSource.forgetPasswordByEmail(email: email);
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel);
+    }
   }
 
   @override
   Future<Either<ErrorModel, UserEntity>> getCurrentUser() {
-    // TODO: implement getCurrentUser
     throw UnimplementedError();
   }
 
   @override
   Future<void> getRefreskToken(
       {required String token, required String refreshToken}) {
-    // TODO: implement getRefreskToken
     throw UnimplementedError();
   }
 
@@ -64,16 +66,20 @@ class UserRepoImplementation extends UserRepo {
   }
 
   @override
-  Future<void> resetPassword(
-      {required String email, required String newPassword}) {
-    // TODO: implement resetPassword
-    throw UnimplementedError();
+  Future<Either<ErrorModel, UserEntity>> resetPassword(
+      {required String email, required String newPassword}) async {
+    try {
+      UserEntity user = await baseUserRemoteDataSource.resetPassword(
+          email: email, newPassword: newPassword);
+      return right(user);
+    } on ServerException catch (e) {
+      return left(e.errModel);
+    }
   }
 
   @override
   Future<void> revokeRefreshToken(
       {required String token, required String refreshToken}) {
-    // TODO: implement revokeRefreshToken
     throw UnimplementedError();
   }
 
@@ -85,7 +91,7 @@ class UserRepoImplementation extends UserRepo {
       required String password,
       required int type}) async {
     try {
-      dynamic userModel = await baseUserRemoteDataSource.userSignUp(
+      UserModel userModel = await baseUserRemoteDataSource.userSignUp(
           phoneNumber: phoneNumber,
           email: email,
           userName: userName,
@@ -105,7 +111,6 @@ class UserRepoImplementation extends UserRepo {
       {required String email,
       required String userName,
       required String phoneNumber}) {
-    // TODO: implement updateUser
     throw UnimplementedError();
   }
 
@@ -125,4 +130,3 @@ class UserRepoImplementation extends UserRepo {
     }
   }
 }
-

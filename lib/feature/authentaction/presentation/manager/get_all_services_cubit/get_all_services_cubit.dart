@@ -5,6 +5,7 @@ import 'package:splash_app/core/api/dio_api.dart';
 import 'package:splash_app/feature/authentaction/data/datasource/get_all_services._datasource.dart';
 import 'package:splash_app/feature/authentaction/data/repo_implimentation/get_all_services_repo_implementation.dart';
 import 'package:splash_app/feature/authentaction/domain/repo/get_all_services_repo/get_all_services_repo.dart';
+import 'package:splash_app/feature/authentaction/domain/usecases/get_all_services_usecase.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_state.dart';
 
 class GetAllServicesCubit extends Cubit<GetAllServicesState> {
@@ -16,7 +17,7 @@ class GetAllServicesCubit extends Cubit<GetAllServicesState> {
         GetAllServicesRemoteDataSource(api: api);
     GetAllServicesRepo repo = GetAllServicesRepoImplementation(
         baseGetAllSErvicesRemoteDataSource: remoteDataSource);
-    dynamic response = await repo.getAllSErvices();
+    dynamic response = await GetAllServicesUsecase(repo: repo).excute();
     response.fold(
         (errorModel) => emit(
               GetAllServicesFaildState(erorrMessage: errorModel.errorMessage),

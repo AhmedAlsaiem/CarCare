@@ -10,14 +10,17 @@ import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/authentaction/data/datasource/user_remote_data_source.dart';
 import 'package:splash_app/feature/authentaction/data/repo_implimentation/user_repo_implementation.dart';
 import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
+import 'package:splash_app/feature/authentaction/domain/usecases/forget_password_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/login_usecase.dart';
+import 'package:splash_app/feature/authentaction/domain/usecases/reset_password_usecases.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/signup_usecase.dart';
+import 'package:splash_app/feature/authentaction/domain/usecases/verfiy_code_usecase.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserState());
   // Keys
-      GlobalKey<FormState> verifcationCodeKey = GlobalKey();
+  GlobalKey<FormState> verifcationCodeKey = GlobalKey();
 
 //? controllers
   TextEditingController forgetPasswrdEmail = TextEditingController();
@@ -28,10 +31,14 @@ class UserCubit extends Cubit<UserState> {
   TextEditingController signUpEmail = TextEditingController();
   TextEditingController signUpUserName = TextEditingController();
   TextEditingController signUpPassword = TextEditingController();
-  TextEditingController otp1 = TextEditingController();
-  TextEditingController otp2 = TextEditingController();
-  TextEditingController otp3 = TextEditingController();
-  TextEditingController otp4 = TextEditingController();
+  // TextEditingController otpFrogetPassword1 = TextEditingController();
+  // TextEditingController otpFrogetPassword2 = TextEditingController();
+  // TextEditingController otpFrogetPassword3 = TextEditingController();
+  // TextEditingController otpFrogetPassword4 = TextEditingController();
+  TextEditingController otpSignUp1 = TextEditingController();
+  TextEditingController otpSignUp2 = TextEditingController();
+  TextEditingController otpSignUp3 = TextEditingController();
+  TextEditingController otpSignUp4 = TextEditingController();
   //!
   void userSignUp() async {
     emit(IsLoadingUserState());
@@ -66,23 +73,55 @@ class UserCubit extends Cubit<UserState> {
   void verfiyEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     int restCode = convertStringNumbersToOneIntNumber(
-      n1: otp1.text,
-      n2: otp2.text,
-      n3: otp3.text,
-      n4: otp4.text,
+      n1: otpSignUp1.text,
+      n2: otpSignUp2.text,
+      n3: otpSignUp3.text,
+      n4: otpSignUp4.text,
     );
     UserRepo repo = triggerRepo();
     emit(IsLoadingUserState());
-    dynamic response =
-        await repo.verifyCode(email: email!, resetcode: restCode);
+    dynamic response = await VerfiyCodeUsecase(repo)
+        .excute(email: email!, resetCode: restCode);
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (responseModel) {
-      return emit(SuccessUserState(responseModel.message));
+      return emit(SuccessUserState(responseModel.masseage));
+    });
+  }
+
+  void frogetPasswordByEmail() async {
+    emit(IsLoadingUserState());
+    UserRepo repo = triggerRepo();
+    //CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail);
+
+    dynamic response = await ForgetPasswordUsecase(repo).excute(
+      email: forgetPasswrdEmail.text,
+    );
+    response.fold(
+        (errorModel) =>
+            emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
+        (responseModel) {
+      CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
+      return emit(SuccessUserState(StringsManager.verifyYourAcount));
+    });
+  }
+
+  void resetPassword() async {
+    UserRepo repo = triggerRepo();
+    emit(IsLoadingUserState());
+    dynamic respone = await ResetPasswordUsecases(repo: repo).excute(
+        newPassword: forgetPasswrdNewPassword.text,
+        email: forgetPasswrdEmail.text);
+    respone.fold(
+        (errorModel) =>
+            emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
+        (userModel) {
+      return emit(SuccessUserState(userModel.type));
     });
   }
 }
+
 //! this code for trigger repos and contract between layers
 UserRepo triggerRepo() {
   ApiConsumer api = DioConsumer(dio: Dio());
