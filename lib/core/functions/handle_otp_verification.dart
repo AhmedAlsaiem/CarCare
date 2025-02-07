@@ -29,19 +29,16 @@ void handleOtpVerification(
       NavigatorManager.pushWithReplacement(
           context: context, route: AppRoutes.serviceProviderHomeView);
     } else {
-      print('____________ 3_________________');
 
       customShowSnackBar(context, state.successMessage!);
       BlocProvider.of<UserCubit>(context).resetPassword();
       String? newType = CacheHelper().getData(key: ApiKey.type);
       print(newType);
       if (newType == 'User') {
-        print('____________4_________________');
 
         customShowSnackBar(context, state.successMessage!);
         NavigatorManager.pushName(context: context, route: AppRoutes.homeView);
       } else if (newType == 'Technical') {
-        print('____________5_________________');
 
         //! ToDo: navigate to service provider home view
         customShowSnackBar(context, state.successMessage!);

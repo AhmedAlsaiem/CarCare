@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/api/end_point.dart';
+import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -36,15 +38,13 @@ class OtpverifactionCodeSection extends StatelessWidget {
               SizedBox(height: context.screenHeight * 0.3),
               CustomButton(
                   onPressed: () {
-                    // if (context
-                    //     .read<UserCubit>()
-                    //     .verifcationCodeKey
-                    //     .currentState!
-                    //     .validate()) {
-                    //   print('object');
-
-                    BlocProvider.of<UserCubit>(context).verfiyEmail();
-                    // }
+                    String? confirmation = CacheHelper.sharedPreferences
+                        .getString(ApiKey.confimationCode);
+                    if (confirmation == null) {
+                      BlocProvider.of<UserCubit>(context).confirmEmail();
+                    } else {
+                      BlocProvider.of<UserCubit>(context).verfiyEmail();
+                    }
                   },
                   bottonName: StringsManager.submmit),
             ],

@@ -64,6 +64,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
     required String email,
     required String userName,
     required String password,
+    
   }) async {
     UserModel user;
     try {
@@ -73,6 +74,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.fullName: userName,
         ApiKey.phoneNumber: phoneNumber,
         ApiKey.type: 1,
+        
       });
 
       user = UserModel.fromJson(response);

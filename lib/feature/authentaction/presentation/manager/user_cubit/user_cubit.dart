@@ -10,6 +10,7 @@ import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/authentaction/data/datasource/user_remote_data_source.dart';
 import 'package:splash_app/feature/authentaction/data/repo_implimentation/user_repo_implementation.dart';
 import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
+import 'package:splash_app/feature/authentaction/domain/usecases/confirm_email_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/forget_password_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/login_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/reset_password_usecases.dart';
@@ -82,6 +83,29 @@ class UserCubit extends Cubit<UserState> {
     emit(IsLoadingUserState());
     dynamic response = await VerfiyCodeUsecase(repo)
         .excute(email: email!, resetCode: restCode);
+    response.fold(
+        (errorModel) =>
+            emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
+        (responseModel) {
+      return emit(SuccessUserState(responseModel.masseage));
+    });
+  }
+
+  void confirmEmail() async {
+    String? email = CacheHelper().getDataString(key: ApiKey.email);
+    CacheHelper()
+        .saveData(key: ApiKey.confimationCode, value: ApiKey.confimationCode);
+
+    int confirmactionCode = convertStringNumbersToOneIntNumber(
+      n1: otpSignUp1.text,
+      n2: otpSignUp2.text,
+      n3: otpSignUp3.text,
+      n4: otpSignUp4.text,
+    );
+    UserRepo repo = triggerRepo();
+    emit(IsLoadingUserState());
+    dynamic response = await ConfirmEmailUsecase(repo)
+        .excute(email: email!, confirmationCode: confirmactionCode);
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),

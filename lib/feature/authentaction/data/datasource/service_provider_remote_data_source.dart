@@ -1,4 +1,5 @@
 import 'package:splash_app/core/api/api_consumer.dart';
+import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/core/error/exception.dart';
 import 'package:splash_app/core/functions/save_user_data.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
@@ -45,7 +46,12 @@ class ServiceProviderRemoteDataSource
       saveServiceProviderData(acount: serviceProvider);
       return serviceProvider;
     } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
+      throw ServerException(
+        errModel: ErrorModel(
+          statusCode: e.errModel.statusCode,
+          errorMessage: e.errModel.errorMessage,
+        ),
+      );
     }
   }
 }

@@ -20,7 +20,7 @@ abstract class UserRepo {
     required String newPassword,
     required String currentPassword,
   });
-  Future<void> confirmEmail({
+   Future<Either<ErrorModel,ResponseModel>> confirmEmail({
     required String email,
     required int confirmationCode,
   });

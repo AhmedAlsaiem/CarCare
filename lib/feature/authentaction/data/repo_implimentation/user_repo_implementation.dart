@@ -17,9 +17,19 @@ class UserRepoImplementation extends UserRepo {
   }
 
   @override
-  Future<void> confirmEmail(
-      {required String email, required int confirmationCode}) {
-    throw UnimplementedError();
+  Future<Either<ErrorModel, ResponseModel>> confirmEmail(
+      {required String email, required int confirmationCode}) async {
+    try {
+      dynamic response = await baseUserRemoteDataSource.confirmEmail(
+          email: email, confirmationCode: confirmationCode);
+      return right(response);
+    } on ServerException catch (e) {
+      return left(
+        ErrorModel(
+            statusCode: e.errModel.statusCode,
+            errorMessage: e.errModel.errorMessage),
+      );
+    }
   }
 
   @override
