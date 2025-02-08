@@ -44,3 +44,4 @@ class RestaurantList extends StatelessWidget {
     );
   }
 }
+

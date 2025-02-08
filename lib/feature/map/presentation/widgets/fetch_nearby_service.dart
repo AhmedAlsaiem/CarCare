@@ -16,16 +16,32 @@ class FeatchService {
       LatLng userLocation, String serviceName) async {
     final overpassQuery = '[out:json][timeout:25];'
         '('
-        'node[amenity=$serviceName](around:15000,${userLocation.latitude},${userLocation.longitude});'
-        'way[amenity=$serviceName](around:15000,${userLocation.latitude},${userLocation.longitude});'
-        'relation[amenity=$serviceName](around:15000,${userLocation.latitude},${userLocation.longitude});'
-        'node["shop"=$serviceName](around:15000,${userLocation.latitude},${userLocation.longitude});'
-        'way["shop"=$serviceName](around:15000,${userLocation.latitude},${userLocation.longitude});'
-        'relation["shop"=$serviceName](around:15000,${userLocation.latitude},${userLocation.longitude});'
+        'node[amenity=$serviceName](around:10000,${userLocation.latitude},${userLocation.longitude});'
+        'way[amenity=$serviceName](around:10000,${userLocation.latitude},${userLocation.longitude});'
+        'relation[amenity=$serviceName](around:10000,${userLocation.latitude},${userLocation.longitude});'
+         'node["shop"=$serviceName](around:10000,${userLocation.latitude},${userLocation.longitude});'
+        'way["shop"=$serviceName](around:10000,${userLocation.latitude},${userLocation.longitude});'
+         'relation["shop"=$serviceName](around:10000,${userLocation.latitude},${userLocation.longitude});'
         ');'
         'out center qt 15;';
+    
+    // if (serviceName == 'fuel') {
+    //   final url =
+    //       'https://overpass-api.de/api/interpreter?data=[out:json][timeout:20];(node[amenity=$serviceName](around:2000,${userLocation.latitude},${userLocation.longitude});way[amenity=$serviceName](around:2000,${userLocation.latitude},${userLocation.longitude});relation[amenity=$serviceName](around:2000,${userLocation.latitude},${userLocation.longitude}););out center qt 15;';
+    // } else if (serviceName == 'car_wash') {
+    //   final url =
+    //       'https://overpass-api.de/api/interpreter?data=[out:json][timeout:20];(node[amenity=$serviceName](around:3000,${userLocation.latitude},${userLocation.longitude});way[amenity=$serviceName](around:3000,${userLocation.latitude},${userLocation.longitude});relation[amenity=$serviceName](around:3000,${userLocation.latitude},${userLocation.longitude}););out center qt 15;';
+    // } else if (serviceName == 'parking') {
+    // final url= 'https://overpass-api.de/api/interpreter?data=[out:json][timeout:20];(node[amenity=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude});way[amenity=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude});relation[amenity=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude}););out center qt 15;';
+
+    // }else{
+    // final url= 'https://overpass-api.de/api/interpreter?data=[out:json][timeout:20];(node["shop"=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude});way["shop"=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude});relation["shop"=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude}););out center qt 15;';
+
+    // }
 
     final url = '$overpassUrlBase$overpassQuery';
+    // final url =
+    //     'https://overpass-api.de/api/interpreter?data=[out:json][timeout:20];(node[amenity=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude});way[amenity=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude});relation[amenity=$serviceName](around:5000,${userLocation.latitude},${userLocation.longitude}););out center qt 15;';
 
     try {
       final response = await http.get(Uri.parse(url));
