@@ -90,7 +90,7 @@ class UserCubit extends Cubit<UserState> {
       return emit(SuccessUserState(responseModel.masseage));
     });
   }
-
+//update all data
   void confirmEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     CacheHelper()
