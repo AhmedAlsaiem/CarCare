@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(AppSize.s12))))),
       child: Text(
         bottonName,
-        style: StylesManager.textStyleBold24,
+        style: StylesManager.textStyleRegular22,
       ),
     );
   }

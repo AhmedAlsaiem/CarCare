@@ -8,6 +8,7 @@ class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField(
       {super.key,
       required this.label,
+      required this.controller,
       required this.icon,
       required this.onchange,
       this.textInputType});
@@ -15,6 +16,7 @@ class CustomTextFormField extends StatefulWidget {
   final Icon icon;
   final void Function(String) onchange;
   final TextInputType? textInputType;
+  final TextEditingController controller;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -24,8 +26,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       keyboardType: widget.textInputType,
-      style: StylesManager.textStyleRegular22.copyWith(
+      style: StylesManager.textStyleRegular18.copyWith(
         color: ColorsManager.balck,
       ),
       cursorColor: ColorsManager.mainColor,
@@ -41,12 +44,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   InputDecoration customInputDecorcationFunction() {
     return InputDecoration(
       filled: true,
-      fillColor: ColorsManager.grey.withAlpha(150),
+      fillColor: ColorsManager.grey.withAlpha(AppSize.s100.toInt()),
       errorStyle: const TextStyle(color: ColorsManager.mainColor),
-      contentPadding: const EdgeInsets.all(AppSize.s20),
+      contentPadding: const EdgeInsets.symmetric(
+          horizontal: AppSize.s20, vertical: AppSize.s18),
       labelText: widget.label,
       labelStyle:
-          StylesManager.textStyleMedium20.copyWith(color: ColorsManager.balck),
+          StylesManager.textStyleMedium18.copyWith(color: ColorsManager.balck),
       suffixIconColor: ColorsManager.mainColor,
       prefixIconColor: ColorsManager.mainColor,
       suffixIcon: suffixIconMethod(),
@@ -66,6 +70,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       return '${widget.label} ${StringsManager.isRequired} ';
     } else {
       if (value.length != 11 && widget.label == StringsManager.phoneNumber) {
+        return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
+      } else if (value.length >= 11 &&
+          widget.label == StringsManager.email &&
+          value.substring(value.length - 10, value.length) !=
+              StringsManager.gmailcom) {
+        return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
+      } else if (value.length != 14 &&
+          widget.label == StringsManager.nationalId) {
         return '${StringsManager.wThis} ${widget.label} ${StringsManager.isNotCorrectFormat}';
       } else if (widget.label == StringsManager.phoneNumber) {
         if (value.substring(0, 2) != StringsManager.zeroOne) {

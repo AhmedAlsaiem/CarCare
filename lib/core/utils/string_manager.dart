@@ -3,11 +3,18 @@ abstract class StringsManager {
   static const String register = 'Register';
   static const String skip = 'Skip';
   static const String login = 'LogIn';
-  static const String userName = 'LogIn';
+  static const String userName = 'User Name';
+  static const String nationalId = 'National Id';
+  static const String verifyYourAcount = 'Verify Your Acount';
 
   static const String signUp = 'SignUp';
   static const String email = 'Email';
   static const String wThis = 'this';
+  static const String appState = 'userState';
+  static const String star = '*****';
+  static const String verificationCode = 'Verification Code ';
+  static const String weHaveSendVerification =
+      'We have send verification code to ';
   static const String isRequired = 'is required';
   static const String isNotCorrectFormat = 'is not correct format';
   static const String gmailcom = '@gmail.com';
@@ -85,8 +92,8 @@ abstract class StringsManager {
   static const String pleaseEnterAllPlates = "please enter all plates";
 
   static const String forgetPassword = 'Forget Password';
-  static const String remmberMy = 'Remember Me';
-
+  static const String remmberMe = 'Remember Me';
+  static const String selectService = 'Select Service';
   static const String user = 'User';
   static const String technical = 'Technical';
   static const String chooseType = 'Choose Type';
@@ -118,8 +125,6 @@ abstract class StringsManager {
   static const String thisfieldisrequired = 'this field is required ';
     static const String apiKey = '5b3ce3597851110001cf624858461a871946480d96231063698c9bb4';
   static const String routeBaseUrl = 'https://api.openrouteservice.org/v2/directions/driving-car';
- //static const String apiKey = 'AIzaSyAjg0_F0NcXyg12GIeBw5cu4EW-q4Ch_P8';
-  //static const String apiKey = 'AIzaSyDhhXoAJDKWWSp0c2R0PYPXLu1Dnw3cfoU';
 
 
 

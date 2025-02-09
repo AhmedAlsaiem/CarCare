@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/utils/color_manager.dart';
+import 'package:splash_app/core/widgets/custom_app_bar.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/otp_verification_body.dart';
 
 class OtpAcountVerification extends StatelessWidget {
@@ -8,14 +8,7 @@ class OtpAcountVerification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: ColorsManager.white,
-            )),
-      ),
+      appBar: customAppBar(),
       body: const OtpAcountVerificationBody(),
     );
   }

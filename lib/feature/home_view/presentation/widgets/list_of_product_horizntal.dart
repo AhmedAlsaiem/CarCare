@@ -22,10 +22,23 @@ class _ProductOfHorizntalAndInductorState
 
   final List<ProductHorizantal> items = [
     const ProductHorizantal(
-     
-      title: StringsManager.rOODMAP,
-      subTitle: StringsManager.describationOfROODMAP,
-      pathImage: AssetsManager.roodMapHome,
+     title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+
+    ),
+    const ProductHorizantal(
+ title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+
+    ),
+    const ProductHorizantal(
+ title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
       navigatePage: AppRoutes.currentLocation,
     ),
     const ProductHorizantal(
@@ -59,7 +72,7 @@ class _ProductOfHorizntalAndInductorState
     return Column(
       children: [
         SizedBox(
-          height: context.screenHeight * .15,
+          height: context.screenHeight * .17,
           child: CarouselSlider(
             items: items.map((item) => item).toList(),
             options: CarouselOptions(
