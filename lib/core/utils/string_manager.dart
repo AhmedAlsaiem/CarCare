@@ -6,6 +6,7 @@ abstract class StringsManager {
   static const String userName = 'User Name';
   static const String nationalId = 'National Id';
   static const String verifyYourAcount = 'Verify Your Acount';
+
   static const String signUp = 'SignUp';
   static const String email = 'Email';
   static const String wThis = 'this';
@@ -52,6 +53,9 @@ abstract class StringsManager {
   static const String parking = 'Parking';
   static const String describationOfParking =
       'We can provide the nearest parking and reserve a place for you';
+  static const String mechanic = 'Mechanic';
+  static const String describationOfMechanic =
+      'Highly qualified mechanics can be provided';
   static const String rOODMAP = 'ROOD MAP';
   static const String describationOfROODMAP = 'Know the road details';
   static const String offers = 'OFFERS';
@@ -96,4 +100,32 @@ abstract class StringsManager {
   static const String submmit = 'Submmit';
   static const String zeroOne = '01';
   static const String emptyString = '';
+  static const String choosehebatteriestype = 'Choose the batteries type ';
+  static const String batteriesType = 'Batteries type ';
+  static const String choosehefueltype = 'Choose the fuel type  ';
+  static const String fuelType = 'Fuel type ';
+  static const String chooseheoiltype = 'Choose the oil type  ';
+  static const String oilType = 'Oil type ';
+  static const String lengthofcar = 'Length of car ';
+  static const String widthofcar = 'Width of car';
+  static const String howtime = 'How time';
+  static const String formisvalid = 'Form is valid!';
+  static const String request = 'Request';
+  static const String parkingType = 'Parking type ';
+  static const String recomendation = 'Recomendation ';
+  static const String tiresize = 'tire size ';
+  static const String choosehetiretype = 'Choose the tire size  ';
+  static const String washingtype = 'Washing type ';
+  static const String choosehewashingtype = 'Choose the washing type ';
+  static const String winchtype = 'winch type ';
+  static const String choosehewinchtype = 'Choose the winch type ';
+  static const String howmuch = 'How much ';
+  static const String youshouldchoiseanyopation =
+      'You should choise any opation ';
+  static const String thisfieldisrequired = 'this field is required ';
+    static const String apiKey = '5b3ce3597851110001cf624858461a871946480d96231063698c9bb4';
+  static const String routeBaseUrl = 'https://api.openrouteservice.org/v2/directions/driving-car';
+
+
+
 }

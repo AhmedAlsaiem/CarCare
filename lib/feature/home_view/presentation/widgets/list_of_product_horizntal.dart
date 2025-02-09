@@ -1,6 +1,7 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/helper/extentions.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -21,24 +22,48 @@ class _ProductOfHorizntalAndInductorState
 
   final List<ProductHorizantal> items = [
     const ProductHorizantal(
-      title: StringsManager.rOODMAP,
-      subTitle: StringsManager.describationOfROODMAP,
-      pathImage: AssetsManager.roodMapHome,
+     title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+
     ),
     const ProductHorizantal(
+ title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+
+    ),
+    const ProductHorizantal(
+ title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+    ),
+    const ProductHorizantal(
+  
       title: StringsManager.package,
       subTitle: StringsManager.describationOfPACKAGE,
       pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+
     ),
     const ProductHorizantal(
+   
       title: StringsManager.emergency,
       subTitle: StringsManager.describationOfEmergency,
       pathImage: AssetsManager.emergencyHome,
+      navigatePage: AppRoutes.currentLocation,
+
     ),
     const ProductHorizantal(
+  
       title: StringsManager.offers,
       subTitle: StringsManager.describationOfOFFES,
       pathImage: AssetsManager.offersHome,
+      navigatePage: AppRoutes.currentLocation,
+
     ),
   ];
 

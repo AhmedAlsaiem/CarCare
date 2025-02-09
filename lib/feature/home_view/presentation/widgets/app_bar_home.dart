@@ -22,10 +22,16 @@ class AppbarHome extends StatelessWidget {
             StringsManager.home,
             style: StylesManager.textStyleBold20black,
           ),
-          CircleAvatar(
-            radius: AppSize.s16,
-            backgroundColor: ColorsManager.grey.withValues(),
-            child: const Icon(Icons.person),
+          GestureDetector(
+            onTap: (){
+                Scaffold.of(context)
+                  .openEndDrawer();
+            },
+            child: CircleAvatar(
+              radius: AppSize.s16,
+              backgroundColor: ColorsManager.grey.withValues(),
+              child: const Icon(Icons.person),
+            ),
           )
         ],
       ),

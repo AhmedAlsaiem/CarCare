@@ -6,9 +6,14 @@ import 'package:splash_app/feature/home_view/presentation/widgets/choise_servicr
 import 'package:splash_app/feature/home_view/presentation/widgets/list_of_product_horizntal.dart';
 import 'package:splash_app/feature/home_view/presentation/widgets/service_home_view.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,9 +23,13 @@ class HomeViewBody extends StatelessWidget {
 
           SizedBox(height: AppHeight.h6),
           const ProductOfHorizntalAndInductor(),
-          SizedBox(height: AppHeight.h20),
+          SizedBox(
+            height: AppHeight.h20,
+          ),
           const ChoiseServiceTextAndIcon(),
-          SizedBox(height: AppHeight.h8),
+          SizedBox(
+            height: AppHeight.h8,
+          ),
           const ServicesHomeView(),
           //   ServiceItem(),
         ],

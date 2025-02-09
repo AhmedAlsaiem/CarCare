@@ -15,10 +15,9 @@ abstract class AssetsManager {
   static const String parking = 'assets/images/parking.png';
   static const String oil = 'assets/images/oil_change.png';
   static const String washing = 'assets/images/washin_car.png';
+  static const String mechanic = 'assets/images/Mechanic.png';
 
-
-
-
+  ///atic const String mechanic = 'assets/images/777png';
 
 //! Assets Icons
   static const String deleteIcon = '';
@@ -27,22 +26,5 @@ abstract class AssetsManager {
   static const String technical = 'assets/images/service_provider.png';
 
 //! Assets Icons
- // static const String deleteIcon = '';
-
-
+  // static const String deleteIcon = '';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
