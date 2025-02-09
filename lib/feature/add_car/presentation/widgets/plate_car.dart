@@ -44,7 +44,7 @@ class EgyptianCarPlateWithFocusState extends State<EgyptianCarPlateWithFocus> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
-            children: [
+            children: <Widget>[
                const Text(
                 StringsManager.addYourCarIsPlate,
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
@@ -117,6 +117,7 @@ class EgyptianCarPlateWithFocusState extends State<EgyptianCarPlateWithFocus> {
                             focusNode: _focusNodes[4],
                             keyboardType: TextInputType.text,
                             nextFocusNode: _focusNodes[5],
+                            
                           ),
                           InteractivePlateCell(
                             hintText: "ع",

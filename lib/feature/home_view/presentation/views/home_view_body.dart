@@ -15,27 +15,25 @@ class HomeViewBody extends StatefulWidget {
 
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
-  
-
   Widget build(BuildContext context) {
     return SafeArea(
-      
       child: Column(
         children: [
           const AppbarHome(),
-        
+
           SizedBox(height: AppHeight.h6),
           const ProductOfHorizntalAndInductor(),
           SizedBox(
             height: AppHeight.h20,
           ),
           const ChoiseServiceTextAndIcon(),
-          SizedBox(height: AppHeight.h8,),
-        const   ServicesHomeView(),
+          SizedBox(
+            height: AppHeight.h8,
+          ),
+          const ServicesHomeView(),
           //   ServiceItem(),
         ],
       ),
     );
   }
 }
-
