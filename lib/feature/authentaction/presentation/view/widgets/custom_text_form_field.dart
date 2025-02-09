@@ -41,7 +41,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   InputDecoration customInputDecorcationFunction() {
     return InputDecoration(
       filled: true,
-      fillColor: ColorsManager.grey.withOpacity(AppSize.s02),
+      fillColor: ColorsManager.grey.withAlpha(150),
       errorStyle: const TextStyle(color: ColorsManager.mainColor),
       contentPadding: const EdgeInsets.all(AppSize.s20),
       labelText: widget.label,

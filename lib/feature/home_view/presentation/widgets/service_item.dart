@@ -22,6 +22,7 @@ class ServiceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+
       onTap: ontap,
       // onTap: () {
         // Navigator.push(
@@ -36,6 +37,10 @@ class ServiceItem extends StatelessWidget {
       //   // NavigatorManager.pushName(context: context, route: AppRouter.)
       //   // print('object');
       // },
+
+//       onTap: () {
+//       },
+
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: Appwidth.w16),
         shape: RoundedRectangleBorder(
