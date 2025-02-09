@@ -53,14 +53,19 @@ class EnterInfoCar extends StatelessWidget {
             const TextFormDetails(
                 labalText: StringsManager.modelNamelabel,
                 hintText: StringsManager.modelNameHint,
-                valaidText: StringsManager.modelNameValaidText),
+                valaidText: StringsManager.modelNameValaidText ,
+                keyboardType: TextInputType.text,
+                ),
             SizedBox(
               height: AppHeight.h18,
             ),
             const TextFormDetails(
                 labalText: StringsManager.modelColorlabel,
                 hintText: StringsManager.modelColorHint,
-                valaidText:StringsManager.modeColorValaidText),
+                valaidText:StringsManager.modeColorValaidText,
+                keyboardType: TextInputType.text,
+
+                ),
             SizedBox(
               height: AppHeight.h18,
             ),
@@ -68,6 +73,8 @@ class EnterInfoCar extends StatelessWidget {
                 labalText: StringsManager.modelYearlabel,
                 hintText: StringsManager.modelYearHint,
                 valaidText: StringsManager.modelYearValaidText,
+                keyboardType: TextInputType.number,
+
                 ),
           ],
         ),

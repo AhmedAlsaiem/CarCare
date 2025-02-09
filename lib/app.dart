@@ -3,6 +3,8 @@ import 'package:screenutil_module/main.dart';
 import 'package:splash_app/core/functions/theme_data.dart';
 import 'package:splash_app/core/network/app_router.dart';
 
+
+
 class CarCareApp extends StatelessWidget {
   const CarCareApp({super.key});
 
@@ -13,9 +15,10 @@ class CarCareApp extends StatelessWidget {
       designSize:const Size(360, 800),
       minTextAdapt:true,
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        
-//         home:AddCarBody(),
+         debugShowCheckedModeBanner: false,
+        // home: HomeView(),
+        // // debugShowCheckedModeBanner: false,
+         
         onGenerateRoute: AppRouter.generateRoute,
         theme: themData(),
       ),

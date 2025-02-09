@@ -1,8 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'app.dart';
+import 'package:splash_app/app.dart';
 
-void main() {
-  
-  runApp(const CarCareApp());
-}
-
+void main() => runApp(const CarCareApp());

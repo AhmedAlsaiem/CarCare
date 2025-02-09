@@ -31,7 +31,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ),
           const ChoiseServiceTextAndIcon(),
           SizedBox(height: AppHeight.h8,),
-          const ServicesHomeView(),
+        const   ServicesHomeView(),
           //   ServiceItem(),
         ],
       ),
