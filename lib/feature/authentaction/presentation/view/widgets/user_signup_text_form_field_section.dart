@@ -50,8 +50,6 @@ class UserSignupTextFormFieldSection extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState?.validate() == true) {
               BlocProvider.of<UserCubit>(context).userSignUp();
-              //   NavigatorManager.pushName(
-              //       context: context, route: AppRoutes.otpAcoutVerification);
             }
           },
         ),

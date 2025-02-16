@@ -6,7 +6,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/widgets/custo
 
 import 'navigation.dart';
 
-void handleOtpVerification(
+void handleForgetPassowrdOtpVerification(
     UserState state, BuildContext context, String? type) {
   if (state is IsLoadingUserState) {
     const CustomCircularProgressIndicator();
@@ -15,14 +15,8 @@ void handleOtpVerification(
   } else if (state is SuccessUserState) {
     customShowSnackBar(context, state.successMessage!);
 
-    if (type == 'User') {
-      NavigatorManager.pushName(context: context, route: AppRoutes.addcar);
-    } else if (type == 'Technical') {
-
-      NavigatorManager.pushWithReplacement(
-          context: context, route: AppRoutes.serviceProviderHomeView);
-    } else {
-      customShowSnackBar(context, state.successMessage!);
-    }
+    NavigatorManager.pushWithReplacement(
+        context: context, route: AppRoutes.loginView);
+    customShowSnackBar(context, state.successMessage!);
   }
 }

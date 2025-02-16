@@ -40,8 +40,9 @@ class AppRouter {
           builder: (_) => const OnboardingView(),
         );
       case AppRoutes.addcar:
+
         return MaterialPageRoute(
-          builder: (_) => const AddCar(),
+          builder: (_) => const OnboardingView(),
         );
       case AppRoutes.seting:
         return MaterialPageRoute(
@@ -54,6 +55,10 @@ class AppRouter {
             create: (context) => UserCubit(),
             child: const ForgetPasswordView(),
           ),
+        );
+      case AppRoutes.addcar:
+        return MaterialPageRoute(
+          builder: (_) => const AddCar(),
         );
       case AppRoutes.loginView:
         return MaterialPageRoute(
@@ -68,7 +73,10 @@ class AppRouter {
         );
       case AppRoutes.verifyAcount:
         return MaterialPageRoute(
-          builder: (_) => const VerifyAcountView(),
+          builder: (_) => BlocProvider(
+            create: (context) => UserCubit(),
+            child: const VerifyAcountView(),
+          ),
         );
       case AppRoutes.userSginUpView:
         return MaterialPageRoute(
@@ -160,6 +168,7 @@ class AppRouter {
           builder: (_) => const RatingView(),
         );
 
+
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(),
@@ -173,6 +182,7 @@ abstract class AppRoutes {
   static const String homeView = '/homeView';
 
   static const String addcar = '/addcar';
+  static const String addcar = '/addCard';
   static const String loginView = '/loginView';
   static const String ratingView = '/ratingView';
   static const String seting = '/setting';

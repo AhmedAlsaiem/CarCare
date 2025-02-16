@@ -3,6 +3,8 @@ import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/core/error/exception.dart';
 import 'package:splash_app/core/functions/save_user_data.dart';
+import 'package:splash_app/core/helper/cache_helper.dart';
+import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/authentaction/data/model/response_model.dart';
 import 'package:splash_app/feature/authentaction/data/model/user_model.dart';
 
@@ -64,7 +66,6 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
     required String email,
     required String userName,
     required String password,
-    
   }) async {
     UserModel user;
     try {
@@ -74,7 +75,6 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.fullName: userName,
         ApiKey.phoneNumber: phoneNumber,
         ApiKey.type: 1,
-        
       });
 
       user = UserModel.fromJson(response);
@@ -129,9 +129,15 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.email: email,
       });
       apiResponse = ResponseModel.fromJson(response);
+      CacheHelper().saveData(key: StringsManager.verifyYourAcount, value: true);
+
       return apiResponse;
     } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
+      throw ServerException(
+        errModel: ErrorModel(
+            statusCode: e.errModel.statusCode,
+            errorMessage: e.errModel.errorMessage),
+      );
     }
   }
 

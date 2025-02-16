@@ -10,7 +10,7 @@ class CustomServiceItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.screenHeight * 0.71,
+      height: context.screenHeight * 0.7,
       child: ListView.builder(
           physics: const BouncingScrollPhysics(),
           itemCount: servicesList.length,
