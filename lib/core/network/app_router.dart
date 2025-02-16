@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
@@ -16,6 +15,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/service_type.
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/home_view/home_view.dart';
+import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/fuel_car_view.dart';
@@ -32,20 +32,21 @@ class AppRouter {
       CacheHelper.sharedPreferences.getBool(StringsManager.appState);
   static Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // case AppRoutes.onboardingView:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const OnboardingView(),
-      //   );
-      case AppRoutes.addcar:
+      case AppRoutes.onboardingView:
         return MaterialPageRoute(
-          builder: (_) => const AddCar(),
+          builder: (_) => const OnboardingView(),
         );
+
       case AppRoutes.forGetPassword:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => UserCubit(),
             child: const ForgetPasswordView(),
           ),
+        );
+      case AppRoutes.addcar:
+        return MaterialPageRoute(
+          builder: (_) => const AddCar(),
         );
       case AppRoutes.loginView:
         return MaterialPageRoute(
@@ -60,7 +61,10 @@ class AppRouter {
         );
       case AppRoutes.verifyAcount:
         return MaterialPageRoute(
-          builder: (_) => const VerifyAcountView(),
+          builder: (_) => BlocProvider(
+            create: (context) => UserCubit(),
+            child: const VerifyAcountView(),
+          ),
         );
       case AppRoutes.userSginUpView:
         return MaterialPageRoute(
@@ -144,7 +148,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const RecomndationView(),
         );
-      
+
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(),
@@ -154,8 +158,8 @@ class AppRouter {
 }
 
 abstract class AppRoutes {
-  static const String addcar = '/';
-   static const String onboardingView = '/';
+  static const String onboardingView = '/';
+  static const String addcar = '/addCard';
   static const String loginView = '/loginView';
   static const String userSginUpView = '/userSignUpView';
   static const String serviceProviderSignUpView = '/adminSignUPView';
@@ -180,7 +184,4 @@ abstract class AppRoutes {
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
   static const String mapView = '/mapView';
-
-
-
 }

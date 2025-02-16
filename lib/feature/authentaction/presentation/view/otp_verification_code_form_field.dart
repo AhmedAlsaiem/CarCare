@@ -16,12 +16,12 @@ class OtpVerifcationCodeFormFields extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-       const   SizedBox(),
+          const SizedBox(),
           CustomOtpfield(controller: context.read<UserCubit>().otpSignUp1),
           CustomOtpfield(controller: context.read<UserCubit>().otpSignUp2),
           CustomOtpfield(controller: context.read<UserCubit>().otpSignUp3),
           CustomOtpfield(controller: context.read<UserCubit>().otpSignUp4),
-      const    SizedBox(),
+          const SizedBox(),
         ],
       ),
     );
