@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
+import 'package:splash_app/feature/add_car/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
-import 'package:splash_app/feature/add_car/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
@@ -15,6 +15,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/service_type.
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/home_view/home_view.dart';
+import 'package:splash_app/feature/home_view/presentation/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
@@ -26,6 +27,8 @@ import 'package:splash_app/feature/home_view/presentation/views/recomndation_vie
 import 'package:splash_app/feature/home_view/presentation/views/tire_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/winch_car_view.dart';
+import 'package:splash_app/feature/setting/presentation/views/rating_view.dart';
+import 'package:splash_app/feature/setting/setting_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -35,6 +38,15 @@ class AppRouter {
       case AppRoutes.onboardingView:
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),
+        );
+      case AppRoutes.addcar:
+
+        return MaterialPageRoute(
+          builder: (_) => const OnboardingView(),
+        );
+      case AppRoutes.seting:
+        return MaterialPageRoute(
+          builder: (_) => const SettingView(),
         );
 
       case AppRoutes.forGetPassword:
@@ -96,7 +108,10 @@ class AppRouter {
         );
       case AppRoutes.homeView:
         return MaterialPageRoute(
-          builder: (_) => const HomeView(),
+           builder: (_) => BlocProvider(
+            create: (context) => BottomNavigationIndeCubit(),
+            child: const HomeView(),
+          ),
         );
       case AppRoutes.serviceTypeView:
         return MaterialPageRoute(
@@ -148,6 +163,11 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const RecomndationView(),
         );
+      case AppRoutes.ratingView:
+        return MaterialPageRoute(
+          builder: (_) => const RatingView(),
+        );
+
 
       default:
         return MaterialPageRoute(
@@ -159,8 +179,14 @@ class AppRouter {
 
 abstract class AppRoutes {
   static const String onboardingView = '/';
+  static const String homeView = '/homeView';
+
+  static const String addcar = '/addcar';
   static const String addcar = '/addCard';
   static const String loginView = '/loginView';
+  static const String ratingView = '/ratingView';
+  static const String seting = '/setting';
+
   static const String userSginUpView = '/userSignUpView';
   static const String serviceProviderSignUpView = '/adminSignUPView';
   static const String chooseAcountType = '/chooseAcountType';
@@ -171,7 +197,6 @@ abstract class AppRoutes {
   static const String serviceProviderHomeView = '/serviceProviderHomeView';
 
   static const String verifyAcount = '/verifyAcount';
-  static const String homeView = '/homeView';
   static const String tireCarView = '/tireCarView';
   static const String fuelCarView = '/fuelCarView';
   static const String batteriesCarView = '/batteriesCarView';
