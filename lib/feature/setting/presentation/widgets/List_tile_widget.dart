@@ -19,7 +19,7 @@ class ListTileWidget extends StatelessWidget {
       height: 84,
       child: Card(
         margin: const EdgeInsets.only(left: 8, right: 8, bottom: 16),
-        color: Colors.grey[320],
+        color: Colors.grey[100],
         elevation: 5,
         child: Center(
           child: ListTile(

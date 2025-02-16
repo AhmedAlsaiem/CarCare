@@ -21,8 +21,9 @@ class _SettingViewBodyState extends State<SettingViewBody> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      
       children: [
-        SizedBox(height: AppHeight.h10),
+        SizedBox(height: AppHeight.h50),
 
         // Notifications Switch
         SwitchListTileWidget(
@@ -44,7 +45,6 @@ class _SettingViewBodyState extends State<SettingViewBody> {
         SwitchListTileWidget(
           title: 'Dark Mode',
           value: darkMode,
-          // value: themeProvider.themeMode == ThemeMode.dark,
           onChanged: (value) {
             setState(() {
               darkMode = value;

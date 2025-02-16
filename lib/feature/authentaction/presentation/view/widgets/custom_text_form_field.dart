@@ -85,7 +85,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         } else {
           return null;
         }
-      } else if (value.length <= 6 &&
+      } else if (value.length <= 1 &&
           (widget.label == StringsManager.password ||
               widget.label == StringsManager.newPassword ||
               widget.label == StringsManager.confirmPassword)) {

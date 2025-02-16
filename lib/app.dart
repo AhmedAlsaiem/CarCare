@@ -14,7 +14,7 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: initalRoute(),
+        initialRoute: AppRoutes.loginView,
         onGenerateRoute: AppRouter.generateRoute,
         theme: themData(),
       ),
