@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/feature/add_car/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
@@ -40,7 +39,6 @@ class AppRouter {
           builder: (_) => const OnboardingView(),
         );
       case AppRoutes.addcar:
-
         return MaterialPageRoute(
           builder: (_) => const OnboardingView(),
         );
@@ -56,10 +54,7 @@ class AppRouter {
             child: const ForgetPasswordView(),
           ),
         );
-      case AppRoutes.addcar:
-        return MaterialPageRoute(
-          builder: (_) => const AddCar(),
-        );
+
       case AppRoutes.loginView:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -108,7 +103,7 @@ class AppRouter {
         );
       case AppRoutes.homeView:
         return MaterialPageRoute(
-           builder: (_) => BlocProvider(
+          builder: (_) => BlocProvider(
             create: (context) => BottomNavigationIndeCubit(),
             child: const HomeView(),
           ),
@@ -168,7 +163,6 @@ class AppRouter {
           builder: (_) => const RatingView(),
         );
 
-
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(),
@@ -182,7 +176,6 @@ abstract class AppRoutes {
   static const String homeView = '/homeView';
 
   static const String addcar = '/addcar';
-  static const String addcar = '/addCard';
   static const String loginView = '/loginView';
   static const String ratingView = '/ratingView';
   static const String seting = '/setting';

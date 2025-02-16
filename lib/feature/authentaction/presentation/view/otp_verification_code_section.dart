@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:splash_app/core/api/end_point.dart';
-import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';

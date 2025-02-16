@@ -4,7 +4,7 @@ import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
-import 'package:splash_app/feature/setting/presentation/widgets/List_tile_widget.dart';
+import 'package:splash_app/feature/setting/presentation/widgets/list_tile_widget.dart';
 import 'package:splash_app/feature/setting/presentation/widgets/dialog_widget.dart';
 import 'package:splash_app/feature/setting/presentation/widgets/switch_tile_widget.dart';
 

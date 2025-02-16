@@ -224,10 +224,6 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.newPassword: newPassword,
       });
       user = UserModel.fromJson(response);
-      print('user email ${user.email}');
-      print('user id ${user.id}');
-      print('user token ${user.token}');
-      print('user type ${user.type}');
 
       saveUserData(acount: user);
       return user;

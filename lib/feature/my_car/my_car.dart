@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/feature/my_car/presebtation/view/myCar_view_body.dart';
+import 'package:splash_app/feature/my_car/presebtation/view/my_car_view_body.dart';
 
 class MyCarsView extends StatelessWidget {
   const MyCarsView({super.key});
