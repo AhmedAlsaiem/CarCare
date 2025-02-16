@@ -16,6 +16,9 @@ abstract class AssetsManager {
   static const String oil = 'assets/images/oil_change.png';
   static const String washing = 'assets/images/washin_car.png';
   static const String mechanic = 'assets/images/Mechanic.png';
+  static const String rating = 'assets/images/rating.jpeg';
+  static const String googlePlay = 'assets/images/google_play.png';
+
 
   ///atic const String mechanic = 'assets/images/777png';
 

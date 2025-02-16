@@ -5,6 +5,7 @@ abstract class ColorsManager {
   static const Color balck = Color(0xff000000);
   static const Color white = Color(0xffffffff);
   static const Color mainColor = Color(0xff2352a1);
+    static const Color red = Color(0xFFFF0000);
 
   static const Color grey= Color(0xffD3D3D3);
 
