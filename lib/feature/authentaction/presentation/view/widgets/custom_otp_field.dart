@@ -39,7 +39,7 @@ class CustomOtpfield extends StatelessWidget {
           focusedErrorBorder: outLineInputBorderDecoration(),
           errorBorder: outLineInputBorderDecoration(),
           enabledBorder: outLineInputBorderDecoration(),
-          hintText: "1",
+          hintText: "-",
           hintStyle: StylesManager.textStyleRegular22
               .copyWith(color: const Color.fromARGB(187, 35, 81, 161)),
           border: const OutlineInputBorder(

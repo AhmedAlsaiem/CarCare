@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/dio_api.dart';
 import 'package:splash_app/core/api/end_point.dart';
@@ -32,10 +33,10 @@ class UserCubit extends Cubit<UserState> {
   TextEditingController signUpEmail = TextEditingController();
   TextEditingController signUpUserName = TextEditingController();
   TextEditingController signUpPassword = TextEditingController();
-  // TextEditingController otpFrogetPassword1 = TextEditingController();
-  // TextEditingController otpFrogetPassword2 = TextEditingController();
-  // TextEditingController otpFrogetPassword3 = TextEditingController();
-  // TextEditingController otpFrogetPassword4 = TextEditingController();
+  TextEditingController otpFrogetPassword1 = TextEditingController();
+  TextEditingController otpFrogetPassword2 = TextEditingController();
+  TextEditingController otpFrogetPassword3 = TextEditingController();
+  TextEditingController otpFrogetPassword4 = TextEditingController();
   TextEditingController otpSignUp1 = TextEditingController();
   TextEditingController otpSignUp2 = TextEditingController();
   TextEditingController otpSignUp3 = TextEditingController();
@@ -44,6 +45,7 @@ class UserCubit extends Cubit<UserState> {
   void userSignUp() async {
     emit(IsLoadingUserState());
     UserRepo repo = triggerRepo();
+
     dynamic respone = await SignupUsecase(repo).excute(
         email: signUpEmail.text,
         password: signUpPassword.text,
@@ -90,6 +92,7 @@ class UserCubit extends Cubit<UserState> {
       return emit(SuccessUserState(responseModel.masseage));
     });
   }
+
 //update all data
   void confirmEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
@@ -97,10 +100,9 @@ class UserCubit extends Cubit<UserState> {
         .saveData(key: ApiKey.confimationCode, value: ApiKey.confimationCode);
 
     int confirmactionCode = convertStringNumbersToOneIntNumber(
-      n1: otpSignUp1.text,
-      n2: otpSignUp2.text,
-      n3: otpSignUp3.text,
-      n4: otpSignUp4.text,
+      n1: otpFrogetPassword1.text,
+      n2: otpFrogetPassword2.text,
+      n3: otpFrogetPassword3.text,      n4: otpFrogetPassword4.text,
     );
     UserRepo repo = triggerRepo();
     emit(IsLoadingUserState());
@@ -126,7 +128,10 @@ class UserCubit extends Cubit<UserState> {
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (responseModel) {
+      UserCubit().resetPassword();
+
       CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
+
       return emit(SuccessUserState(StringsManager.verifyYourAcount));
     });
   }
@@ -141,7 +146,7 @@ class UserCubit extends Cubit<UserState> {
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (userModel) {
-      return emit(SuccessUserState(userModel.type));
+      return emit(SuccessUserState(StringsManager.sucess));
     });
   }
 }

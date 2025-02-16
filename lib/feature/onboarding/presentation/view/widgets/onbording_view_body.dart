@@ -36,6 +36,7 @@ class OnboardingViewBody extends StatelessWidget {
         },
         controllerColor: ColorsManager.mainColor,
         centerBackground: true,
+        leading: Container(color: Colors.white),
         pageBackgroundColor: ColorsManager.white,
         headerBackgroundColor: ColorsManager.white,
         finishButtonText: StringsManager.register,
