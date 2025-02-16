@@ -83,6 +83,8 @@ abstract class AppHeight {
   static double h48 = 48.0.h;
   static double h50 = 50.0.h;
   static double h60 = 60.0.h;
+  static double h74 = 74.0.h;
+
 
   static double h80 = 80.0.h;
   static double h400 = 400.0.h;
@@ -119,6 +121,8 @@ abstract class Appwidth {
   static double w80 = 80.0.w;
  
   static  double w100 = 100.0.w;
+  static  double w230 = 230.0.w;
+
 
 
 }
