@@ -130,7 +130,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
       });
       apiResponse = ResponseModel.fromJson(response);
       CacheHelper().saveData(key: StringsManager.verifyYourAcount, value: true);
-
+//data
       return apiResponse;
     } on ServerException catch (e) {
       throw ServerException(
@@ -149,6 +149,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.email: email,
       });
       apiResponse = ResponseModel.fromJson(response);
+
       return apiResponse;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
@@ -219,15 +220,11 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
       {required String email, required String newPassword}) async {
     UserModel user;
     try {
-      dynamic response = await api.put(EndPoint.registerUser, data: {
+      dynamic response = await api.put(EndPoint.resetPassword, data: {
         ApiKey.email: email,
         ApiKey.newPassword: newPassword,
       });
       user = UserModel.fromJson(response);
-      print('user email ${user.email}');
-      print('user id ${user.id}');
-      print('user token ${user.token}');
-      print('user type ${user.type}');
 
       saveUserData(acount: user);
       return user;

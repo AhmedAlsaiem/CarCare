@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/home_view_body.dart';
 import 'package:splash_app/feature/home_view/presentation/views/messages.dart';
@@ -53,7 +53,7 @@ class HomeView extends StatelessWidget {
                 label: 'Settings',
               ),
             ],
-            selectedItemColor: Colors.blue,
+            selectedItemColor: ColorsManager.mainColor,
             unselectedItemColor: Colors.grey,
           );
         },

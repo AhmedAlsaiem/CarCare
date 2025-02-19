@@ -10,16 +10,19 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsManager.white,
       appBar: AppBar(
         elevation: 0,
         leading: const Icon(
-          Icons.arrow_back,
+          Icons.arrow_back_ios_new,
           size: AppSize.s30,
+          color: ColorsManager.mainColor,
         ),
-        backgroundColor: ColorsManager.mainColor,
+        backgroundColor: ColorsManager.white,
         title: Text(
           'Setting',
-          style: StylesManager.textStyleBold22black,
+          style: StylesManager.textStyleBold22
+              .copyWith(color: ColorsManager.mainColor),
         ),
         centerTitle: true,
       ),

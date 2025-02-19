@@ -10,6 +10,9 @@ abstract class StringsManager {
   static const String signUp = 'SignUp';
   static const String email = 'Email';
   static const String wThis = 'this';
+  static const String enterNetConnection =
+      'there are  an error in internat connection';
+
   static const String appState = 'userState';
   static const String star = '*****';
   static const String verificationCode = 'Verification Code ';

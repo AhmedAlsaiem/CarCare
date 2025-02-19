@@ -7,10 +7,10 @@ String initalRoute() {
   bool? appState = CacheHelper().getData(key: StringsManager.appState);
   String? token = CacheHelper().getDataString(key: ApiKey.token);
   String? type = CacheHelper().getDataString(key: ApiKey.type);
-    String? verify = CacheHelper().getDataString(key: StringsManager.verifyYourAcount);
+  String? verify =
+      CacheHelper().getDataString(key: StringsManager.verifyYourAcount);
 
-
-  if (appState == true && token != null&&verify!=null) {
+  if (appState == true && token != null || verify != null) {
     if (type == StringsManager.technical) {
       return AppRoutes.serviceProviderHomeView;
     } else {
