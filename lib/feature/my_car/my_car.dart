@@ -28,7 +28,7 @@ class MyCarsView extends StatelessWidget {
           ), // Set to true for a smaller FAB
         ),
         appBar: AppBar(
-          leading: Icon(
+          leading:const Icon(
             Icons.arrow_back_ios_new,
             color: ColorsManager.mainColor,
             weight: 2,

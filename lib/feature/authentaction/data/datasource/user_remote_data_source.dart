@@ -149,6 +149,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.email: email,
       });
       apiResponse = ResponseModel.fromJson(response);
+
       return apiResponse;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
@@ -219,7 +220,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
       {required String email, required String newPassword}) async {
     UserModel user;
     try {
-      dynamic response = await api.put(EndPoint.registerUser, data: {
+      dynamic response = await api.put(EndPoint.resetPassword, data: {
         ApiKey.email: email,
         ApiKey.newPassword: newPassword,
       });

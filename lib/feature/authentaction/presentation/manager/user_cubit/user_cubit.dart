@@ -76,10 +76,10 @@ class UserCubit extends Cubit<UserState> {
   void verfiyEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     int restCode = convertStringNumbersToOneIntNumber(
-      n1: forgetPasswrdEmail.text,
-      n2: forgetPasswrdEmail.text,
-      n3: forgetPasswrdEmail.text,
-      n4: forgetPasswrdEmail.text,
+      n1: otpFrogetPassword1.text,
+      n2: otpFrogetPassword2.text,
+      n3: otpFrogetPassword3.text,
+      n4: otpFrogetPassword4.text,
     );
     UserRepo repo = triggerRepo();
     emit(IsLoadingUserState());
@@ -88,7 +88,11 @@ class UserCubit extends Cubit<UserState> {
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
-        (responseModel) {
+        (responseModel) async {
+      await ResetPasswordUsecases(repo: repo).excute(
+          newPassword: forgetPasswrdNewPassword.text,
+          email: forgetPasswrdEmail.text);
+
       return emit(SuccessUserState(responseModel.masseage));
     });
   }
@@ -120,7 +124,7 @@ class UserCubit extends Cubit<UserState> {
   void frogetPasswordByEmail() async {
     emit(IsLoadingUserState());
     UserRepo repo = triggerRepo();
-    //CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail);
+    CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
 
     dynamic response = await ForgetPasswordUsecase(repo).excute(
       email: forgetPasswrdEmail.text,
@@ -129,27 +133,13 @@ class UserCubit extends Cubit<UserState> {
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (responseModel) {
-      UserCubit().resetPassword();
-
       CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
 
       return emit(SuccessUserState(StringsManager.verifyYourAcount));
     });
   }
 
-  void resetPassword() async {
-    UserRepo repo = triggerRepo();
-    emit(IsLoadingUserState());
-    dynamic respone = await ResetPasswordUsecases(repo: repo).excute(
-        newPassword: forgetPasswrdNewPassword.text,
-        email: forgetPasswrdEmail.text);
-    respone.fold(
-        (errorModel) =>
-            emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
-        (userModel) {
-      return emit(SuccessUserState(StringsManager.sucess));
-    });
-  }
+//
 }
 
 //! this code for trigger repos and contract between layers
