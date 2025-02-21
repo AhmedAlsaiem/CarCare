@@ -21,26 +21,7 @@ class _ProductOfHorizntalAndInductorState
   int currentIndex = 0; // Track the current index of the carousel
 
   final List<ProductHorizantal> items = [
-    const ProductHorizantal(
-     title: StringsManager.package,
-      subTitle: StringsManager.describationOfPACKAGE,
-      pathImage: AssetsManager.onboarding2,
-      navigatePage: AppRoutes.currentLocation,
-
-    ),
-    const ProductHorizantal(
- title: StringsManager.package,
-      subTitle: StringsManager.describationOfPACKAGE,
-      pathImage: AssetsManager.onboarding2,
-      navigatePage: AppRoutes.currentLocation,
-
-    ),
-    const ProductHorizantal(
- title: StringsManager.package,
-      subTitle: StringsManager.describationOfPACKAGE,
-      pathImage: AssetsManager.onboarding2,
-      navigatePage: AppRoutes.currentLocation,
-    ),
+   
     const ProductHorizantal(
   
       title: StringsManager.package,
@@ -62,6 +43,14 @@ class _ProductOfHorizntalAndInductorState
       title: StringsManager.offers,
       subTitle: StringsManager.describationOfOFFES,
       pathImage: AssetsManager.offersHome,
+      navigatePage: AppRoutes.currentLocation,
+
+    ),
+    const ProductHorizantal(
+  
+      title: StringsManager.rOODMAP,
+      subTitle: StringsManager.describationOfROODMAP,
+      pathImage: AssetsManager.roodMapHome,
       navigatePage: AppRoutes.currentLocation,
 
     ),
