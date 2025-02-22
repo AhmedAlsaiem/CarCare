@@ -106,7 +106,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => BottomNavigationIndeCubit(),
-            child: const HomeView(),
+            child:const  ZommDrawerCalss(),
           ),
         );
       case AppRoutes.serviceTypeView:
