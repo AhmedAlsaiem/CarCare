@@ -19,9 +19,8 @@ class OtpAcountVerificationBody extends StatelessWidget {
     String? type = CacheHelper().getData(key: ApiKey.type);
 
     String? email = CacheHelper().getData(key: ApiKey.email);
-    print('___________object______');
     String secemail;
-    secemail = secureEmail(email: 'email'!);
+    secemail = secureEmail(email: email!);
 
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {

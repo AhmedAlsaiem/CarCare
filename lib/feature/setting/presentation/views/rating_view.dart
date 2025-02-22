@@ -123,7 +123,6 @@ class _RatingViewState extends State<RatingView> {
               ),
               onPressed: () {
                 // Handle the submit action
-                print('Rating: $_rating');
               },
               child: Text(
                 'Submit',

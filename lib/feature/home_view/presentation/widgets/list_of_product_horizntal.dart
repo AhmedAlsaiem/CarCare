@@ -23,28 +23,40 @@ class _ProductOfHorizntalAndInductorState
   final List<ProductHorizantal> items = [
    
     const ProductHorizantal(
-  
+      title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.winsh,
+      navigatePage: AppRoutes.currentLocation,
+    ),
+    const ProductHorizantal(
       title: StringsManager.package,
       subTitle: StringsManager.describationOfPACKAGE,
       pathImage: AssetsManager.onboarding2,
       navigatePage: AppRoutes.currentLocation,
-
     ),
     const ProductHorizantal(
-   
+      title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+    ),
+    const ProductHorizantal(
+      title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
+      navigatePage: AppRoutes.currentLocation,
+    ),
+    const ProductHorizantal(
       title: StringsManager.emergency,
       subTitle: StringsManager.describationOfEmergency,
       pathImage: AssetsManager.emergencyHome,
       navigatePage: AppRoutes.currentLocation,
-
     ),
     const ProductHorizantal(
-  
-      title: StringsManager.offers,
-      subTitle: StringsManager.describationOfOFFES,
-      pathImage: AssetsManager.offersHome,
+      title: StringsManager.package,
+      subTitle: StringsManager.describationOfPACKAGE,
+      pathImage: AssetsManager.onboarding2,
       navigatePage: AppRoutes.currentLocation,
-
     ),
     const ProductHorizantal(
   
@@ -70,7 +82,7 @@ class _ProductOfHorizntalAndInductorState
               viewportFraction: .85,
               initialPage: 0,
               padEnds: false,
-              enableInfiniteScroll: true,
+              enableInfiniteScroll: false,
               reverse: false,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
@@ -80,8 +92,11 @@ class _ProductOfHorizntalAndInductorState
               scrollDirection: Axis.horizontal,
               onPageChanged: (index, reason) {
                 setState(() {
-                  currentIndex =
-                      index; // Update the current index on page change
+                  // Update the current index on page change
+                  if (index == 5) {
+                    index = 0;
+                  }
+                  currentIndex = index;
                 });
               },
             ),

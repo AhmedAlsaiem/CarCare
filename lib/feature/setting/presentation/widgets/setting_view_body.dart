@@ -4,7 +4,7 @@ import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
-import 'package:splash_app/feature/setting/presentation/widgets/List_tile_widget.dart';
+import 'package:splash_app/feature/setting/presentation/widgets/list_tile_widget.dart';
 import 'package:splash_app/feature/setting/presentation/widgets/dialog_widget.dart';
 import 'package:splash_app/feature/setting/presentation/widgets/switch_tile_widget.dart';
 
@@ -21,8 +21,9 @@ class _SettingViewBodyState extends State<SettingViewBody> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      
       children: [
-        SizedBox(height: AppHeight.h10),
+        SizedBox(height: AppHeight.h50),
 
         // Notifications Switch
         SwitchListTileWidget(
@@ -44,7 +45,6 @@ class _SettingViewBodyState extends State<SettingViewBody> {
         SwitchListTileWidget(
           title: 'Dark Mode',
           value: darkMode,
-          // value: themeProvider.themeMode == ThemeMode.dark,
           onChanged: (value) {
             setState(() {
               darkMode = value;

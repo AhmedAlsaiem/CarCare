@@ -25,21 +25,22 @@ class SwitchListTileWidget extends StatelessWidget {
     return SizedBox(
       height: 84,
       child: Card(
-        margin: const EdgeInsets.only(left: 8 , right: 8  , bottom: 16),
-        color: Colors.grey[320], 
+        margin: const EdgeInsets.only(left: 8, right: 8, bottom: 16),
+        color: Colors.grey[100],
         elevation: 5,
         child: Center(
           child: ListTile(
-            
-            title: Text(
-              title,
-              style: StylesManager.textStyleBold20.copyWith(color: ColorsManager.mainColor)
-            ),
+            title: Text(title,
+                style: StylesManager.textStyleBold20
+                    .copyWith(color: ColorsManager.mainColor)),
             trailing: Switch(
+              inactiveTrackColor: ColorsManager.white,
+              hoverColor: Colors.white,
+              inactiveThumbColor: ColorsManager.mainColor,
+              focusColor: Colors.red,
               onChanged: onChanged,
               value: value,
               activeTrackColor: activeColor,
-              
             ),
             leading: Icon(
               size: 30,

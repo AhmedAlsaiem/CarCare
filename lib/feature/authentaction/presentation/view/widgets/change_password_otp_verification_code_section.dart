@@ -37,7 +37,7 @@ class ChangePasswordOtpVerificationCodeSection extends StatelessWidget {
               SizedBox(height: context.screenHeight * 0.3),
               CustomButton(
                   onPressed: () {
-                      BlocProvider.of<UserCubit>(context).confirmEmail();
+                      BlocProvider.of<UserCubit>(context).verfiyEmail();
                     
                   },
                   bottonName: StringsManager.submmit),

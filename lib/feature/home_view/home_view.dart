@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:splash_app/core/utils/app_size.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/home_view_body.dart';
@@ -109,3 +111,30 @@ class HomeView extends StatelessWidget {
   }
 }
 
+            type: BottomNavigationBarType.fixed,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.car_rental_outlined),
+                label: 'My Cars',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.message),
+                label: 'Messages',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+              ),
+            ],
+            selectedItemColor: ColorsManager.mainColor,
+            unselectedItemColor: Colors.grey,
+          );
+        },
+      ),
+    );
+  }
+}
