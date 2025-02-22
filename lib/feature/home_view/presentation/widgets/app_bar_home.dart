@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -24,8 +25,9 @@ class AppbarHome extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-                Scaffold.of(context)
-                  .openEndDrawer();
+                ZoomDrawer.of(context)!.toggle();
+                // Scaffold.of(context)
+                //   .openEndDrawer();
             },
             child: CircleAvatar(
               radius: AppSize.s16,
