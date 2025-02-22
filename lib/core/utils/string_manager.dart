@@ -70,11 +70,11 @@ abstract class StringsManager {
   static const String emergency = 'EMERGENC';
   static const String describationOfEmergency = 'To report risk';
   static const String choiseAservice = 'Choose a Service';
-  static const String add = 'ADD';
+  static const String addACar = 'Add a Car';
   static const String addYourCar = 'Add Your Car';
+
   static const String addYourVehicleDetails =
-      'Add Your vehicle details so we can';
-  static const String assistyouQuickly = 'assist you quickly and simply';
+      'Add Your vehicle details so we can assist you quickly and simply';
   static const String modelNamelabel = 'Enter model name';
   static const String modelNameHint = 'KIA...';
   static const String modelNameValaidText = 'Please enter the model name';
@@ -89,9 +89,9 @@ abstract class StringsManager {
   static const String modelVinValaidText = 'Please enter the chassis number';
   static const String addYourCarsVin = "Add Your car's  vin";
   static const String enterShassis =
-      'Enter the chassis number as seen in your ';
+      'Enter the chassis number without any space ';
   static const String vehicleWithoutAnySpace = 'vehicle without any space';
-  static const String addYourCarIsPlate = "Add your car's plate";
+  static const String addYourCarIsPlate = "   Add your car's plate";
   static const String egyptEnglish = "Egypt";
   static const String egyptArbic = "مصر";
   static const String pleaseEnterAllPlates = "please enter all plates";

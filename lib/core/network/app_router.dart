@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/feature/add_car/add_car.dart';
+import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
+import 'package:splash_app/feature/add_car/presentation/view/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
@@ -41,7 +42,10 @@ class AppRouter {
         );
       case AppRoutes.addcar:
         return MaterialPageRoute(
-          builder: (_) => const AddCar(),
+          builder: (_) => BlocProvider(
+            create: (context) => CarCubit(),
+            child: const AddCar(),
+          ),
         );
       case AppRoutes.seting:
         return MaterialPageRoute(
