@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screenutil_module/main.dart';
+import 'package:splash_app/core/functions/manage_inital_routing.dart';
 import 'package:splash_app/core/functions/theme_data.dart';
 import 'package:splash_app/core/network/app_router.dart';
 
@@ -13,7 +14,7 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.addcar,
+        initialRoute: initalRoute(),
         onGenerateRoute: AppRouter.generateRoute,
         theme: themData(),
       ),
