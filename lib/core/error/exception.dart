@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 
 import 'error_model.dart';

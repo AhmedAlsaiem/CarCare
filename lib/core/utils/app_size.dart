@@ -42,14 +42,13 @@ abstract class AppSize {
   static const double s56 = 56.0;
   static const double s64 = 64.0;
   static const double s68 = 68.0;
-
   static const double s80 = 80.0;
   static const double s70 = 70.0;
   static const double s100 = 100.0;
   static const double s110 = 110.0;
   static const double s150 = 150.0;
-    static const double s160 = 160.0;
-
+  static const double s140 = 140.0;
+  static const double s160 = 160.0;
   static const double s200 = 200.0;
   static const double s300 = 300.0;
   static const double s480 = 480.0;
@@ -85,7 +84,6 @@ abstract class AppHeight {
   static double h60 = 60.0.h;
   static double h74 = 74.0.h;
 
-
   static double h80 = 80.0.h;
   static double h400 = 400.0.h;
   static double h300 = 300.0.h;
@@ -119,12 +117,9 @@ abstract class Appwidth {
   static double w48 = 48.0.w;
   static double w50 = 50.0.w;
   static double w80 = 80.0.w;
- 
-  static  double w100 = 100.0.w;
-  static  double w230 = 230.0.w;
 
-
-
+  static double w100 = 100.0.w;
+  static double w230 = 230.0.w;
 }
 
 abstract class NumberManager {

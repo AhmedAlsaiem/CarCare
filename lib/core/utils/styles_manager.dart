@@ -93,6 +93,10 @@ abstract class StylesManager {
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s15,
     color: ColorsManager.balck,
+  );static TextStyle textStyleBold12 = TextStyle(
+    fontWeight: AppFontWieght.bold,
+    fontSize: FontSize.s12,
+    color: ColorsManager.balck,
   );
   static TextStyle textStyleSemiBold28 = TextStyle(
     fontWeight: AppFontWieght.semiBold,
