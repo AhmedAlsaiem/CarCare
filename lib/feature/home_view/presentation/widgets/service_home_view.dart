@@ -22,7 +22,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.winch,
         subTitle: StringsManager.describationOfWinch,
-        imagePath: AssetsManager.winsh,
+        imagePath: 'assets/images/test4.png',
         ontap: () {
           NavigatorManager.pushName(
             context: context,
@@ -33,7 +33,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.tires,
         subTitle: StringsManager.describationOfTires,
-        imagePath: AssetsManager.tair,
+        imagePath: 'assets/images/test3.png',
         ontap: () {
           NavigatorManager.pushName(
             context: context,
@@ -44,7 +44,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.fuel,
         subTitle: StringsManager.describationOfFuel,
-        imagePath: AssetsManager.fuel,
+        imagePath: 'assets/images/test2.png',
         ontap: () {
           Navigator.push(
               context,
@@ -55,7 +55,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.batteries,
         subTitle: StringsManager.describationOfBatteries,
-        imagePath: AssetsManager.battery,
+        imagePath: 'assets/images/test1.png',
         ontap: () {
           NavigatorManager.pushName(
             context: context,
@@ -66,7 +66,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.oil,
         subTitle: StringsManager.describationOfOil,
-        imagePath: AssetsManager.oil,
+        imagePath: 'assets/images/test5.png',
         ontap: () {
           NavigatorManager.pushName(
             context: context,
@@ -77,7 +77,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.washing,
         subTitle: StringsManager.describationOfWashing,
-        imagePath: AssetsManager.washing,
+        imagePath: 'assets/images/test4.png',
         ontap: () {
           Navigator.push(
               context,
@@ -101,7 +101,7 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       ServiceItem(
         title: StringsManager.mechanic,
         subTitle: StringsManager.describationOfMechanic,
-        imagePath: AssetsManager.mechanic,
+        imagePath: 'assets/images/test6.png',
         ontap: () {
           Navigator.push(
               context,
@@ -116,9 +116,9 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
       child: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Two columns
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 0,
-          childAspectRatio: .8, // Adjust aspect ratio as needed
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 2,
+          childAspectRatio: 0.88, // Adjust aspect ratio as needed
         ),
         itemCount: itemsSevice.length,
         itemBuilder: (context, index) {

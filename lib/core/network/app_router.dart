@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/functions/transitions/page_route_builder_method.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
@@ -37,140 +38,154 @@ class AppRouter {
   static Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.onboardingView:
-        return MaterialPageRoute(
-          builder: (_) => const OnboardingView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const OnboardingView(),
         );
       case AppRoutes.addcar:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => CarCubit(),
             child: const AddCar(),
           ),
         );
-      case AppRoutes.seting:
-        return MaterialPageRoute(
-          builder: (_) => const SettingView(),
+      case AppRoutes.setting:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const SettingView(),
         );
-
       case AppRoutes.forGetPassword:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+            pageBuilder: (context, animation, secondaryAnimation) {
+          return BlocProvider(
             create: (context) => UserCubit(),
             child: const ForgetPasswordView(),
-          ),
-        );
+          );
+        });
 
       case AppRoutes.loginView:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => UserCubit(),
             child: const LoginView(),
           ),
         );
       case AppRoutes.chooseAcountType:
-        return MaterialPageRoute(
-          builder: (_) => const ChooseAcountType(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const ChooseAcountType(),
         );
       case AppRoutes.verifyAcount:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => UserCubit(),
             child: const VerifyAcountView(),
           ),
         );
+
       case AppRoutes.userSginUpView:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => UserCubit(),
             child: const UserSignUPView(),
           ),
         );
       case AppRoutes.serviceProviderSignUpView:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => ServiceProviderCubit(),
             child: const ServiceProviderSignUpView(),
           ),
         );
       case AppRoutes.otpAcoutVerification:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(
             providers: [
               BlocProvider(
                 create: (context) => UserCubit(),
               ),
-              // BlocProvider(
-              //   create: (context) => SubjectBloc(),
-              // ),
             ],
             child: const OtpAcountVerification(),
           ),
         );
       case AppRoutes.homeView:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => BottomNavigationIndeCubit(),
-            child:const  ZommDrawerCalss(),
-          ),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(providers: [
+            BlocProvider(create: (context) => BottomNavigationIndeCubit()),
+            BlocProvider(create: (context) => CarCubit())
+          ], child: const ZommDrawerCalss()),
         );
       case AppRoutes.serviceTypeView:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => GetAllServicesCubit(),
             child: const ServiceTypeView(),
           ),
         );
       case AppRoutes.serviceProviderHomeView:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) => BlocProvider(
             create: (context) => GetAllServicesCubit(),
             child: const ServiceProviderHomeView(),
           ),
         );
       case AppRoutes.tireCarView:
-        return MaterialPageRoute(
-          builder: (_) => const TireCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const TireCarView(),
         );
       case AppRoutes.fuelCarView:
-        return MaterialPageRoute(
-          builder: (_) => const FuelCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const FuelCarView(),
         );
       case AppRoutes.batteriesCarView:
-        return MaterialPageRoute(
-          builder: (_) => const BatteriesCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const BatteriesCarView(),
         );
       case AppRoutes.wichCarView:
-        return MaterialPageRoute(
-          builder: (_) => const WinchCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const WinchCarView(),
         );
       case AppRoutes.oilCarView:
-        return MaterialPageRoute(
-          builder: (_) => const OilCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const OilCarView(),
         );
       case AppRoutes.washingCarView:
-        return MaterialPageRoute(
-          builder: (_) => const WashingCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const WashingCarView(),
         );
       case AppRoutes.parkingCarView:
-        return MaterialPageRoute(
-          builder: (_) => const ParkingCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const ParkingCarView(),
         );
       case AppRoutes.mechanicCarView:
-        return MaterialPageRoute(
-          builder: (_) => const MechnicalCarView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const MechnicalCarView(),
         );
       case AppRoutes.recomendation:
-        return MaterialPageRoute(
-          builder: (_) => const RecomndationView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const RecomndationView(),
         );
       case AppRoutes.ratingView:
-        return MaterialPageRoute(
-          builder: (_) => const RatingView(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const RatingView(),
         );
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(),
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const Scaffold(),
         );
     }
   }
@@ -183,7 +198,7 @@ abstract class AppRoutes {
   static const String addcar = '/addcar';
   static const String loginView = '/loginView';
   static const String ratingView = '/ratingView';
-  static const String seting = '/setting';
+  static const String setting = '/setting';
 
   static const String userSginUpView = '/userSignUpView';
   static const String serviceProviderSignUpView = '/adminSignUPView';

@@ -16,15 +16,13 @@ class ProductHorizantal extends StatelessWidget {
     required this.subTitle,
     required this.pathImage,
     required this.navigatePage,
-
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        NavigatorManager.pushName(
-            context: context, route: navigatePage);
+        NavigatorManager.pushName(context: context, route: navigatePage);
       },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: Appwidth.w10),
@@ -55,7 +53,8 @@ class ProductHorizantal extends StatelessWidget {
                           child: Text(
                             title,
                             maxLines: 1,
-                            style: StylesManager.textStyleBold24maincolor,
+                            style: StylesManager.textStyleBold24
+                                .copyWith(color: ColorsManager.blue),
                           ),
                         ),
                         Text(

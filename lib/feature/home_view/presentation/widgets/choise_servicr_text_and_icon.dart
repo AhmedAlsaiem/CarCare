@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:splash_app/core/utils/app_size.dart';
@@ -14,7 +13,7 @@ class ChoiseServiceTextAndIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: Appwidth.w16),
+      padding: EdgeInsets.symmetric(horizontal: Appwidth.w16),
       child: Row(
         children: [
           const FaIcon(
@@ -22,12 +21,14 @@ class ChoiseServiceTextAndIcon extends StatelessWidget {
             color: ColorsManager.mainColor,
             size: AppSize.s26,
           ),
-           SizedBox(
+          SizedBox(
             width: Appwidth.w6,
           ),
           Text(
             StringsManager.choiseAservice,
-            style: StylesManager.textStyleBold26MainColor,
+            style: StylesManager.textStyleBold26MainColor.copyWith(
+              color: ColorsManager.darkBlue,
+            ),
           )
           //Icon(FontAwesomeIcons.se)
         ],

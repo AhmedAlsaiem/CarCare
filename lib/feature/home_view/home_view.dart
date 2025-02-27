@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:splash_app/core/utils/app_size.dart';
@@ -37,6 +38,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      systemNavigationBarColor: ColorsManager.darkgreen,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ));
     final List<Widget> screens = [
       const HomeViewBody(),
       const MyCarsView(),
@@ -45,6 +50,7 @@ class HomeView extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: BlocBuilder<BottomNavigationIndeCubit, int>(
         builder: (context, currentIndex) {
           return screens[currentIndex];
@@ -52,31 +58,33 @@ class HomeView extends StatelessWidget {
       ),
       bottomNavigationBar: BlocBuilder<BottomNavigationIndeCubit, int>(
         builder: (context, currentIndex) {
-          return CurvedNavigationBar(
-            index: currentIndex,
-            height: 60,
-            items: const <Widget>[
-              Icon(Icons.home, size: AppSize.s30, color: ColorsManager.white),
-              Icon(Icons.car_rental_outlined,
-                  size: AppSize.s30, color: ColorsManager.white),
-              Icon(Icons.message,
-                  size: AppSize.s30, color: ColorsManager.white),
-              Icon(Icons.settings,
-                  size: AppSize.s30, color: ColorsManager.white),
-            ],
-            color: ColorsManager.mainColor,
-            buttonBackgroundColor: ColorsManager.mainColor,
-            backgroundColor: ColorsManager.white,
-            animationCurve: Curves.easeInOut,
-            animationDuration: const Duration(milliseconds: 300),
-            onTap: (index) {
-              context.read<BottomNavigationIndeCubit>().updateIndex(index);
-            },
-            letIndexChange: (index) => true,
+          return SizedBox(
+            width: double.maxFinite,
+            child: CurvedNavigationBar(
+              index: currentIndex,
+              height: 60,
+              items: const <Widget>[
+                Icon(Icons.home, size: AppSize.s30, color: ColorsManager.white),
+                Icon(Icons.car_rental_outlined,
+                    size: AppSize.s30, color: ColorsManager.white),
+                Icon(Icons.message,
+                    size: AppSize.s30, color: ColorsManager.white),
+                Icon(Icons.settings,
+                    size: AppSize.s30, color: ColorsManager.white),
+              ],
+              color: ColorsManager.darkgreen,
+              buttonBackgroundColor: ColorsManager.darkgreen,
+              backgroundColor: ColorsManager.white,
+              animationCurve: Curves.easeInQuint,
+              animationDuration: const Duration(milliseconds: 200),
+              onTap: (index) {
+                context.read<BottomNavigationIndeCubit>().updateIndex(index);
+              },
+              letIndexChange: (index) => true,
+            ),
           );
         },
       ),
     );
-
   }
 }

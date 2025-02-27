@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {
@@ -9,8 +11,9 @@ class CustomCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: CircularProgressIndicator(
-        backgroundColor: ColorsManager.mainColor,
+      child: SpinKitFadingCircle(
+        color: ColorsManager.darkgreen,
+        size: AppSize.s50,
       ),
     );
   }

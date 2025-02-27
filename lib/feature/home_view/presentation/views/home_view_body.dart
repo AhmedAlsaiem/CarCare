@@ -20,16 +20,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       child: Column(
         children: [
           const AppbarHome(),
-
           SizedBox(height: AppHeight.h6),
           const ProductOfHorizntalAndInductor(),
-          SizedBox(
-            height: AppHeight.h20,
-          ),
+          SizedBox(height: AppHeight.h20),
           const ChoiseServiceTextAndIcon(),
-          SizedBox(
-            height: AppHeight.h8,
-          ),
+          SizedBox(height: AppHeight.h8),
           const ServicesHomeView(),
           //   ServiceItem(),
         ],
