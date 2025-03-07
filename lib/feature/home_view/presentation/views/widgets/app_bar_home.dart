@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:splash_app/core/utils/app_size.dart';
+import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
@@ -13,7 +14,7 @@ class AppbarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(Appwidth.w16),
+      padding: EdgeInsets.all(Appwidth.w16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -24,15 +25,19 @@ class AppbarHome extends StatelessWidget {
             style: StylesManager.textStyleBold20black,
           ),
           GestureDetector(
-            onTap: (){
-                ZoomDrawer.of(context)!.toggle();
-                // Scaffold.of(context)
-                //   .openEndDrawer();
-            },
+            onTap: () {},
             child: CircleAvatar(
-              radius: AppSize.s16,
-              backgroundColor: ColorsManager.grey.withValues(),
-              child: const Icon(Icons.person),
+              radius: AppSize.s20,
+              backgroundColor: ColorsManager.brightGrey,
+              child: SvgPicture.asset(
+                alignment: Alignment.center,
+                fit: BoxFit.cover,
+                AssetsManager.user,
+                colorFilter: const ColorFilter.mode(
+                  ColorsManager.darkgreen,
+                  BlendMode.srcIn,
+                ),
+              ),
             ),
           )
         ],

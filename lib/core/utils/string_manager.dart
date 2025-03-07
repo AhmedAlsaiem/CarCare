@@ -9,6 +9,15 @@ abstract class StringsManager {
   static const String error = 'please try again';
   static const String signUp = 'SignUp';
   static const String email = 'Email';
+  static const String myCar = 'My Car';
+  static const String myOrder = 'My Order';
+  static const String done = 'Done';
+  static const String inProgress = 'In Progress';
+  static const String pending = 'pending';
+
+  static const String orderStatus = 'Order Status';
+  static const String rate = 'Rate';
+
   static const String wThis = 'this';
   static const String enterNetConnection =
       'there are  an error in internat connection';

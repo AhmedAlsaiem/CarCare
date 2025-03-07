@@ -5,8 +5,8 @@ import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/indictor_home_view.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/product_horizantal.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/indictor_home_view.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/product_horizantal.dart';
 
 class ProductOfHorizntalAndInductor extends StatefulWidget {
   const ProductOfHorizntalAndInductor({super.key});

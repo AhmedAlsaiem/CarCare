@@ -10,7 +10,7 @@ class CarCareApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
-      minTextAdapt: true,
+      minTextAdapt: false,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.homeView,

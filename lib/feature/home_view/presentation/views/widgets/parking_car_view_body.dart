@@ -8,7 +8,8 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/text_form_in_parking_view.dart';
+
+import 'text_form_in_parking_view.dart';
 
 class ParkingCarViewBody extends StatefulWidget {
   const ParkingCarViewBody({super.key});

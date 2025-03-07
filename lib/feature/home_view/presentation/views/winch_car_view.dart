@@ -3,7 +3,7 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/winch_car_view_body.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/winch_car_view_body.dart';
 
 class WinchCarView extends StatelessWidget {
   const WinchCarView({super.key});

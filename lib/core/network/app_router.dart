@@ -16,8 +16,8 @@ import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_ve
 import 'package:splash_app/feature/authentaction/presentation/view/service_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
-import 'package:splash_app/feature/home_view/home_view.dart';
-import 'package:splash_app/feature/home_view/presentation/cubits/bottom_navigation_bar_cubit.dart';
+import 'package:splash_app/feature/home_view/presentation/views/home_view.dart';
+import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
@@ -114,8 +114,9 @@ class AppRouter {
           pageBuilder: (context, animation, secondaryAnimation) =>
               MultiBlocProvider(providers: [
             BlocProvider(create: (context) => BottomNavigationIndeCubit()),
+            BlocProvider(create: (context) => GetAllServicesCubit()),
             BlocProvider(create: (context) => CarCubit())
-          ], child: const ZommDrawerCalss()),
+          ], child: const HomeView()),
         );
       case AppRoutes.serviceTypeView:
         return pageRouteBuilderMethod(

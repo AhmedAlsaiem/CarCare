@@ -3,7 +3,7 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/oil_car_view_body.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/oil_car_view_body.dart';
 
 class OilCarView extends StatelessWidget {
   const OilCarView({super.key});

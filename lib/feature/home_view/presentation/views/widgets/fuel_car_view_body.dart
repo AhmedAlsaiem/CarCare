@@ -4,42 +4,43 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/choise_amount.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/request_button.dart';
 
-class BatteriesCarViewBody extends StatefulWidget {
-  const BatteriesCarViewBody({super.key});
+import 'choise_amount.dart';
+import 'request_button.dart';
+
+class FuelCarViewBody extends StatefulWidget {
+  const FuelCarViewBody({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _BatteriesCarViewBodyState createState() => _BatteriesCarViewBodyState();
+  _FuelCarViewBodyState createState() => _FuelCarViewBodyState();
 }
 
-class _BatteriesCarViewBodyState extends State<BatteriesCarViewBody> {
+class _FuelCarViewBodyState extends State<FuelCarViewBody> {
   String? selectedOption;
   
   final List<Map<String, String>> options = [
     {
-      'title': ' Flooded',
-      'description': ' Affordable and widely available',
-      'price' : '1000'
+      'title': ' Regular benzine',
+      'description': '  vehicles with low to mid-performance .',
+      'price' : '16'
     },
     {
-      'title': ' AGM',
-      'description': ' Provides better performance and durabilit',
-      'price' : '12000'
+      'title': ' Mid-Grade benzine',
+      'description': '  fuel with a higher octane',
+      'price' : '17'
 
     },
     {
-      'title': ' EFB',
-      'description': ' Handles frequent charging and discharging cycle',
-      'price' : '4500'
+      'title': 'Premium Gasoline benzine',
+      'description': ' High-performance or luxury cars',
+      'price' : '20'
 
     },
     {
-      'title': ' Gel Cell',
-      'description': ' Resistant to vibration and deep discharge',
-      'price' : '16000'
+      'title': ' Gas',
+      'description': ' Retrofitted passenger cars',
+      'price' : '14'
 
     },
   ];
@@ -58,7 +59,7 @@ class _BatteriesCarViewBodyState extends State<BatteriesCarViewBody> {
             padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
-             StringsManager.choosehebatteriestype,
+              StringsManager.choosehefueltype,
               style: StylesManager.textStyleBold20black,
             ),
           ),
@@ -79,7 +80,7 @@ class _BatteriesCarViewBodyState extends State<BatteriesCarViewBody> {
                           : FontWeight.normal,
                     ),
                   ),
-                     secondary: Text(
+                  secondary: Text(
                    '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(

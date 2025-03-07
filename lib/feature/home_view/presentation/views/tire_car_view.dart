@@ -3,7 +3,7 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/tair_car_body_view.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/tair_view_body.dart';
 
 class TireCarView extends StatelessWidget {
   const TireCarView({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/darwer_chane_item.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/darwer_chane_item.dart';
 
 class HomeEndDrawer extends StatelessWidget {
   const HomeEndDrawer({super.key});

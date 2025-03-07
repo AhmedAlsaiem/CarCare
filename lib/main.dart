@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'app.dart';
@@ -6,5 +7,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await CacheHelper().init();
-  runApp(const CarCareApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const CarCareApp(),
+    ),
+  );
 }

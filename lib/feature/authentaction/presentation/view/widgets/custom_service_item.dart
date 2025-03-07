@@ -42,6 +42,7 @@ class CustomServiceItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.network(
+                    color: ColorsManager.darkgreen,
                     service.imageUrl,
                     height: context.screenHeight * 0.1,
                     width: context.screenHeight * 0.15,

@@ -54,7 +54,7 @@ class ProductHorizantal extends StatelessWidget {
                             title,
                             maxLines: 1,
                             style: StylesManager.textStyleBold24
-                                .copyWith(color: ColorsManager.blue),
+                                .copyWith(color: ColorsManager.mainColor),
                           ),
                         ),
                         Text(

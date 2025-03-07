@@ -4,43 +4,30 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/choise_amount.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/request_button.dart';
 
-class OilCarViewBody extends StatefulWidget {
-  const OilCarViewBody({super.key});
+import 'request_button.dart';
+
+class WinchCarViewBody extends StatefulWidget {
+  const WinchCarViewBody({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _OilCarViewBodyState createState() => _OilCarViewBodyState();
+  _WinchCarViewBodyState createState() => _WinchCarViewBodyState();
 }
 
-class _OilCarViewBodyState extends State<OilCarViewBody> {
+class _WinchCarViewBodyState extends State<WinchCarViewBody> {
   String? selectedOption;
-  
+
   final List<Map<String, String>> options = [
     {
-      'title': ' Engine Oil',
-      'description': '  The primary type of oil used in cars.',
-      'price' : '1000'
+      'title': ' Electric',
+      'description': ' Common for smaller vehicles and occasional use',
+      'price': '500'
     },
     {
-      'title': ' Synthetic Oil',
-      'description': '  Chemically engineered for better performance',
-      'price' : '300'
-
-    },
-    {
-      'title': 'Synthetic Blend Oil',
-      'description': ' A mix of synthetic and conventional oil.',
-      'price' : '1200'
-
-    },
-    {
-      'title': ' High-Mileage Oil',
-      'description': ' Designed for cars with over 75,000 miles',
-      'price' : '650'
-
+      'title': ' Hydraulic',
+      'description': ' Better for heavy-duty or frequent use.',
+      'price': '1000'
     },
   ];
 
@@ -55,10 +42,11 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
             height: AppHeight.h16,
           ),
           Padding(
-            padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
+            padding: EdgeInsets.only(
+                right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
-            StringsManager.chooseheoiltype,
+              StringsManager.choosehewinchtype,
               style: StylesManager.textStyleBold20black,
             ),
           ),
@@ -66,7 +54,6 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
             child: ListView(
               children: options.map((option) {
                 return RadioListTile<String>(
-                   
                   activeColor: ColorsManager.mainColor,
                   title: Text(
                     option['title']!,
@@ -79,8 +66,8 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
                           : FontWeight.normal,
                     ),
                   ),
-                     secondary: Text(
-                   '${ option['price']!} EGP' ,
+                  secondary: Text(
+                    '${option['price']!} EGP',
                   ),
                   subtitle: Text(
                     option['description']!,
@@ -96,13 +83,12 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
               }).toList(),
             ),
           ),
-          const ChoiseAmount(),
+          // const ChoiseAmount(),
           SizedBox(
             height: context.screenHeight * .2,
           ),
-           RequesButton(
-        
-            selectedOption: selectedOption??' ',
+          RequesButton(
+            selectedOption: selectedOption ?? ' ',
           ),
           SizedBox(
             height: AppHeight.h30,
@@ -112,4 +98,3 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
     );
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 
 import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/product_horizantal.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/product_horizantal.dart';
 class IndicatorHome extends StatelessWidget {
   const IndicatorHome({
     super.key,

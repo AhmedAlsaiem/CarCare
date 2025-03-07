@@ -4,18 +4,15 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/authentaction/domain/entity/service_entities/service_entitiy.dart';
 
 class ServiceItem extends StatelessWidget {
   const ServiceItem({
-    required this.title,
-    required this.subTitle,
-    required this.imagePath,
     required this.ontap,
+    required this.service,
     super.key,
   });
-  final String title;
-  final String subTitle;
-  final String imagePath;
+  final ServiceEntitiy service;
   final void Function()? ontap;
 
   @override
@@ -36,9 +33,9 @@ class ServiceItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 10),
-                  Image.asset(
-                    color: ColorsManager.secondaryColor,
-                    imagePath,
+                  Image.network(
+                    color: ColorsManager.darkgreen,
+                    service.imageUrl,
                     height: AppSize.s64,
                     width: AppSize.s64,
                     fit: BoxFit.fill,
@@ -49,15 +46,15 @@ class ServiceItem extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title,
+                        Text(service.title,
                             style: StylesManager.textStyleSemiBold18
                                 .copyWith(color: ColorsManager.darkBlue)),
                         SizedBox(height: AppHeight.h4),
                         SizedBox(
                           width: context.screenWidth * 0.35,
                           child: Text(
-                            subTitle,
-                            maxLines: 3,
+                            service.subTitle,
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.start,
                             style: TextStyle(

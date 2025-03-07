@@ -4,42 +4,43 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/choise_amount.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/request_button.dart';
 
-class FuelCarViewBody extends StatefulWidget {
-  const FuelCarViewBody({super.key});
+import 'choise_amount.dart';
+import 'request_button.dart';
+
+class OilCarViewBody extends StatefulWidget {
+  const OilCarViewBody({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _FuelCarViewBodyState createState() => _FuelCarViewBodyState();
+  _OilCarViewBodyState createState() => _OilCarViewBodyState();
 }
 
-class _FuelCarViewBodyState extends State<FuelCarViewBody> {
+class _OilCarViewBodyState extends State<OilCarViewBody> {
   String? selectedOption;
   
   final List<Map<String, String>> options = [
     {
-      'title': ' Regular benzine',
-      'description': '  vehicles with low to mid-performance .',
-      'price' : '16'
+      'title': ' Engine Oil',
+      'description': '  The primary type of oil used in cars.',
+      'price' : '1000'
     },
     {
-      'title': ' Mid-Grade benzine',
-      'description': '  fuel with a higher octane',
-      'price' : '17'
+      'title': ' Synthetic Oil',
+      'description': '  Chemically engineered for better performance',
+      'price' : '300'
 
     },
     {
-      'title': 'Premium Gasoline benzine',
-      'description': ' High-performance or luxury cars',
-      'price' : '20'
+      'title': 'Synthetic Blend Oil',
+      'description': ' A mix of synthetic and conventional oil.',
+      'price' : '1200'
 
     },
     {
-      'title': ' Gas',
-      'description': ' Retrofitted passenger cars',
-      'price' : '14'
+      'title': ' High-Mileage Oil',
+      'description': ' Designed for cars with over 75,000 miles',
+      'price' : '650'
 
     },
   ];
@@ -58,7 +59,7 @@ class _FuelCarViewBodyState extends State<FuelCarViewBody> {
             padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
-              StringsManager.choosehefueltype,
+            StringsManager.chooseheoiltype,
               style: StylesManager.textStyleBold20black,
             ),
           ),
@@ -79,7 +80,7 @@ class _FuelCarViewBodyState extends State<FuelCarViewBody> {
                           : FontWeight.normal,
                     ),
                   ),
-                  secondary: Text(
+                     secondary: Text(
                    '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(

@@ -4,43 +4,45 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/choise_amount.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/request_button.dart';
 
-class TairCarBodyView extends StatefulWidget {
-  const TairCarBodyView({super.key});
+import 'request_button.dart';
+
+
+class WashingCarViewBody extends StatefulWidget {
+  const WashingCarViewBody({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _TairCarBodyViewState createState() => _TairCarBodyViewState();
+  _WashingCarViewBodyState createState() => _WashingCarViewBodyState();
 }
 
-class _TairCarBodyViewState extends State<TairCarBodyView> {
+class _WashingCarViewBodyState extends State<WashingCarViewBody> {
   String? selectedOption;
-  
+
   final List<Map<String, String>> options = [
     {
-      'title': 'Small Cars',
-      'description': ' 13 to 16 inches (e.g., 185/65R15)', 
-      'price' :'2500'
+      'title': ' Hand Wash',
+      'description': ' Washing the car manually using water'
     },
     {
-      'title': 'Sedans and Hatchbacks',
-      'description': ' 15 to 18 inches (e.g., 205/55R16)',
-      'price' :'3000'
-
+      'title': ' Automatic Car Wash',
+      'description':
+          '  A drive-through machine washes your car using rotating brushes'
     },
     {
-      'title': 'SUVs and Trucks',
-      'description': ' 17 to 22 inches (e.g., 265/70R17)',
-      'price' :'6000'
-
+      'title': ' Touchless Car Wash',
+      'description':
+          ' Uses high-pressure water jets and chemicals without physical'
     },
     {
-      'title': 'Sports Cars',
-      'description': ' 18 to 20 inches with low-profile tires (e.g., 225/40R18)',
-      'price' :'4500'
-
+      'title': ' Self-Service Car Wash',
+      'description':
+          ' You use a self-service car wash station with high-pressure hoses'
+    },
+    {
+      'title': ' Waterless Car Wash',
+      'description':
+          ' Uses specialized cleaning products that don’t require water.'
     },
   ];
 
@@ -55,10 +57,11 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
             height: AppHeight.h16,
           ),
           Padding(
-            padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
+            padding: EdgeInsets.only(
+                right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
-              StringsManager.choosehetiretype,
+              StringsManager.choosehewashingtype,
               style: StylesManager.textStyleBold20black,
             ),
           ),
@@ -66,7 +69,6 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
             child: ListView(
               children: options.map((option) {
                 return RadioListTile<String>(
-                   
                   activeColor: ColorsManager.mainColor,
                   title: Text(
                     option['title']!,
@@ -78,9 +80,6 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
                           ? FontWeight.bold
                           : FontWeight.normal,
                     ),
-                  ),
-                     secondary: Text(
-                   '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
                     option['description']!,
@@ -96,13 +95,12 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
               }).toList(),
             ),
           ),
-          const ChoiseAmount(),
+          // const ChoiseAmount(),
           SizedBox(
             height: context.screenHeight * .2,
           ),
-           RequesButton(
-        
-            selectedOption: selectedOption??' ',
+          RequesButton(
+            selectedOption: selectedOption ?? ' ',
           ),
           SizedBox(
             height: AppHeight.h30,
@@ -112,4 +110,3 @@ class _TairCarBodyViewState extends State<TairCarBodyView> {
     );
   }
 }
-

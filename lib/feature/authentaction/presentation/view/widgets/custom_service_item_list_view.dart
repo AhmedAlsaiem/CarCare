@@ -13,7 +13,7 @@ class CustomServiceItemListView extends StatelessWidget {
       height: context.screenHeight * 0.7,
       child: ListView.builder(
           physics: const BouncingScrollPhysics(),
-          itemCount: servicesList.length,
+          itemCount: 6,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(

@@ -4,29 +4,44 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/widgets/request_button.dart';
 
-class WinchCarViewBody extends StatefulWidget {
-  const WinchCarViewBody({super.key});
+import 'choise_amount.dart';
+import 'request_button.dart';
+
+class BatteriesCarViewBody extends StatefulWidget {
+  const BatteriesCarViewBody({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _WinchCarViewBodyState createState() => _WinchCarViewBodyState();
+  _BatteriesCarViewBodyState createState() => _BatteriesCarViewBodyState();
 }
 
-class _WinchCarViewBodyState extends State<WinchCarViewBody> {
+class _BatteriesCarViewBodyState extends State<BatteriesCarViewBody> {
   String? selectedOption;
-
+  
   final List<Map<String, String>> options = [
     {
-      'title': ' Electric',
-      'description': ' Common for smaller vehicles and occasional use',
-      'price': '500'
+      'title': ' Flooded',
+      'description': ' Affordable and widely available',
+      'price' : '1000'
     },
     {
-      'title': ' Hydraulic',
-      'description': ' Better for heavy-duty or frequent use.',
-      'price': '1000'
+      'title': ' AGM',
+      'description': ' Provides better performance and durabilit',
+      'price' : '12000'
+
+    },
+    {
+      'title': ' EFB',
+      'description': ' Handles frequent charging and discharging cycle',
+      'price' : '4500'
+
+    },
+    {
+      'title': ' Gel Cell',
+      'description': ' Resistant to vibration and deep discharge',
+      'price' : '16000'
+
     },
   ];
 
@@ -41,11 +56,10 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
             height: AppHeight.h16,
           ),
           Padding(
-            padding: EdgeInsets.only(
-                right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
+            padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
             child: Text(
               // padd: EdgeInsets.all(20),
-              StringsManager.choosehewinchtype,
+             StringsManager.choosehebatteriestype,
               style: StylesManager.textStyleBold20black,
             ),
           ),
@@ -53,6 +67,7 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
             child: ListView(
               children: options.map((option) {
                 return RadioListTile<String>(
+                   
                   activeColor: ColorsManager.mainColor,
                   title: Text(
                     option['title']!,
@@ -65,7 +80,7 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
                           : FontWeight.normal,
                     ),
                   ),
-                  secondary: Text(
+                     secondary: Text(
                    '${ option['price']!} EGP' ,
                   ),
                   subtitle: Text(
@@ -82,12 +97,13 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
               }).toList(),
             ),
           ),
-          // const ChoiseAmount(),
+          const ChoiseAmount(),
           SizedBox(
             height: context.screenHeight * .2,
           ),
-          RequesButton(
-            selectedOption: selectedOption ?? ' ',
+           RequesButton(
+        
+            selectedOption: selectedOption??' ',
           ),
           SizedBox(
             height: AppHeight.h30,
@@ -97,3 +113,4 @@ class _WinchCarViewBodyState extends State<WinchCarViewBody> {
     );
   }
 }
+

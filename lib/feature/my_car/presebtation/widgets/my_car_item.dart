@@ -43,7 +43,7 @@ class MyCarItem extends StatelessWidget {
                     width: AppSize.s10,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * .61,
+                    width: MediaQuery.of(context).size.width * .60,
                     child: ListTile(
                       title: Text(car.plateNumber,
                           style: StylesManager.textStyleBold20black),

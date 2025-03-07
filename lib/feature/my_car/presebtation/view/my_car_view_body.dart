@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/feature/add_car/domain/entities/car_entity.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_state.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_circular_progress_indector.dart';
 import 'package:splash_app/feature/my_car/presebtation/widgets/my_car_item.dart';
+
+import '../widgets/custom_car_item_skeltonizer_loading.dart';
 
 class MycarViewBody extends StatefulWidget {
   const MycarViewBody({super.key});
@@ -15,7 +16,6 @@ class MycarViewBody extends StatefulWidget {
 
 class _MycarViewBodyState extends State<MycarViewBody> {
   List<CarEntity> carList = [];
-
   @override
   void initState() {
     BlocProvider.of<CarCubit>(context).getAllCarsForSepecificUser();
@@ -37,7 +37,7 @@ class _MycarViewBodyState extends State<MycarViewBody> {
             itemCount: carList.length,
           );
         } else if (state is IsLoadingCarState) {
-          return const CustomCircularProgressIndicator();
+          return const CustomCarItemSkeltonizerLoading();
         } else {
           return Container();
         }
