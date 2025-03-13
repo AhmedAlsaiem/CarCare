@@ -13,15 +13,18 @@ class CustomButton extends StatelessWidget {
   final String bottonName;
   final void Function()? onPressed;
 
-
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       style: const ButtonStyle(
+          maximumSize:
+              WidgetStatePropertyAll(Size(double.infinity, AppSize.s80)),
+          // the background color of the button
+
           // the minimum size of the button
           minimumSize:
-              WidgetStatePropertyAll(Size(double.infinity, AppSize.s70)),
+              WidgetStatePropertyAll(Size(double.infinity, AppSize.s68)),
           // the background color of the button
           backgroundColor: WidgetStatePropertyAll(ColorsManager.mainColor),
           // the shape of the button

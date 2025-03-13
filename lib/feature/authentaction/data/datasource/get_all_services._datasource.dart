@@ -24,5 +24,6 @@ class GetAllServicesRemoteDataSource
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
     }
+
   }
 }

@@ -4,13 +4,20 @@ import 'package:flutter/material.dart';
 abstract class ColorsManager {
   static const Color balck = Color(0xff000000);
   static const Color white = Color(0xffffffff);
-  static const Color mainColor = Color(0xff2352a1);
+  static const Color mainColor = Color.fromARGB(255, 11, 66, 97);
+  // static const Color mainColor = Color(0xff2352a1);
+  static const Color secondaryColor = Color.fromARGB(255, 37, 65, 114);
+  static const Color darkBlue = Color(0xff0c2d48);
+  static const Color blue = Color(0xff2e8bc0);
+  static const Color babyBlue = Color(0xffb1d4e0);
   static const Color red = Color(0xFFFF0000);
   static const Color lightGrey = Color(0xfffafafa);
   static const Color grey = Color(0xffD3D3D3);
-
-  static const Color darkBlue = Color.fromARGB(255, 22, 49, 97);
+  static const darkgreen = Color.fromARGB(255, 11, 66, 97);
   static const Color blueGrey = Color.fromARGB(202, 38, 66, 81);
+  static const Color darkGrey = Color.fromARGB(255, 92, 93, 94);
+  static const Color lightGoold = Color.fromARGB(255, 114, 88, 30);
+  static const Color meduimGrey = Color(0xff909090);
 
 //?
 

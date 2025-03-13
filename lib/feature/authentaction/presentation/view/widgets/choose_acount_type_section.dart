@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
@@ -30,7 +31,7 @@ class _ChooseAcountTypeSectionState extends State<ChooseAcountTypeSection> {
           CustomUserType(
             value: value,
             title: StringsManager.user,
-            imageUrl: AssetsManager.user,
+            imageUrl: AssetsManager.userIcon,
             onTap: () {
               value = false;
               setState(() {});
@@ -40,14 +41,14 @@ class _ChooseAcountTypeSectionState extends State<ChooseAcountTypeSection> {
           CustomUserType(
             value: !value,
             title: StringsManager.technical,
-            imageUrl: AssetsManager.technical,
+            imageUrl: AssetsManager.technicalIcon,
             onTap: () {
               value = true;
               setState(() {});
             },
           ),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            height: context.screenHeight * 0.04,
           ),
           CustomButton(
               onPressed: () {

@@ -18,15 +18,22 @@ abstract class AssetsManager {
   static const String mechanic = 'assets/images/Mechanic.png';
   static const String rating = 'assets/images/rating.jpeg';
   static const String googlePlay = 'assets/images/google_play.png';
-
+  static const String userFuel = 'assets/images/user_fuel.png';
+  static const String userWinch = 'assets/images/user_winch.png';
+  static const String userBatteries = 'assets/images/batter_profile.png';
 
   ///atic const String mechanic = 'assets/images/777png';
 
 //! Assets Icons
-  static const String deleteIcon = '';
+  //static const String usrFuel = '';
 
-  static const String user = 'assets/images/user.png';
-  static const String technical = 'assets/images/service_provider.png';
+  static const String userIcon = 'assets/images/user.png';
+  static const String technicalIcon = 'assets/images/service_provider.png';
+  static const String homIcon = 'assets/icon/home.svg';
+  static const String mycarsIcon = 'assets/icon/car.svg';
+  static const String settingsIcon = 'assets/icon/settings.svg';
+  static const String ordersIcon = 'assets/icon/order.svg';
+  static const String user = 'assets/icon/user.svg';
 
 //! Assets Icons
   // static const String deleteIcon = '';

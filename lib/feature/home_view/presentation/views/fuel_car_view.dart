@@ -3,7 +3,7 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/fuel_car_view_body.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/fuel_car_view_body.dart';
 
 class FuelCarView extends StatelessWidget {
   const FuelCarView({super.key});

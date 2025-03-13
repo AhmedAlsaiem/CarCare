@@ -4,10 +4,10 @@ import 'package:splash_app/feature/add_car/domain/entities/car_entity.dart';
 import 'package:splash_app/feature/add_car/domain/repo/car_repo.dart';
 
 class GetCarForSpecificUserUsecase {
-  CarRepo car;
-  GetCarForSpecificUserUsecase({required this.car});
+  CarRepo repo;
+  GetCarForSpecificUserUsecase({required this.repo});
 
-  Future<Either<ErrorModel, List<CarEntity>>> getCarforSpecificUser() {
-    return car.getCarforSpecificUser();
+  Future<Either<ErrorModel, List<CarEntity>>> excute() {
+    return repo.getCarforSpecificUser();
   }
 }
