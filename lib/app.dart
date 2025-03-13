@@ -13,7 +13,7 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: false,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.homeView,
+        initialRoute: AppRoutes.onboardingView,
         onGenerateRoute: AppRouter.generateRoute,
         theme: themData(),
       ),

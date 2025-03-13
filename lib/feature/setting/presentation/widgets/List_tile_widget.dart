@@ -19,8 +19,8 @@ class ListTileWidget extends StatelessWidget {
       height: 84,
       child: Card(
         margin: const EdgeInsets.only(left: 8, right: 8, bottom: 16),
-        color: Colors.grey[100],
-        elevation: 5,
+        color: ColorsManager.white,
+        // elevation: 5,
         child: Center(
           child: ListTile(
             leading: Icon(
@@ -30,8 +30,8 @@ class ListTileWidget extends StatelessWidget {
             ),
             title: Text(
               title,
-              style: StylesManager.textStyleBold20
-                  .copyWith(color: ColorsManager.mainColor),
+              style: StylesManager.textStyleBold17
+                  .copyWith(color: ColorsManager.black),
             ),
             onTap: onTap,
           ),

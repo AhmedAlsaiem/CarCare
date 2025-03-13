@@ -9,8 +9,8 @@ abstract class StringsManager {
   static const String error = 'please try again';
   static const String signUp = 'SignUp';
   static const String email = 'Email';
-  static const String myCar = 'My Car';
-  static const String myOrder = 'My Order';
+  static const String myCar = 'Cars';
+  static const String myOrder = 'Orders';
   static const String done = 'Done';
   static const String inProgress = 'In Progress';
   static const String pending = 'pending';
@@ -137,8 +137,8 @@ abstract class StringsManager {
   static const String youshouldchoiseanyopation =
       'You should choise any opation ';
   static const String thisfieldisrequired = 'this field is required ';
-  static const String apiKey =
-      '5b3ce3597851110001cf624858461a871946480d96231063698c9bb4';
-  static const String routeBaseUrl =
-      'https://api.openrouteservice.org/v2/directions/driving-car';
+  // static const String apiKey =
+  //     '5b3ce3597851110001cf624858461a871946480d96231063698c9bb4';
+  // static const String routeBaseUrl =
+  //     'https://api.openrouteservice.org/v2/directions/driving-car';
 }
