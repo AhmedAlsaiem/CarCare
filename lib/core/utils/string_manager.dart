@@ -8,6 +8,19 @@ abstract class StringsManager {
   static const String verifyYourAcount = 'Verify Your Acount';
   static const String error = 'please try again';
   static const String signUp = 'SignUp';
+  static const String yes = 'Yes';
+  static const String cancle = 'Cancle';
+  static const String deleteCar = 'Delete Car';
+  static const String areYouSureYouWantToDeleteCar = 'Are you sure you want to Delete Car';
+  static const String deleteSuccessfully = 'Delete Car Successfully!';
+  static const String notification = 'Notifications';
+  static const String darkMode = 'Dark Mode';
+  static const String share = 'Share App';
+  static const String rateApp = 'Rate App';
+  static const String profile = 'Profile';
+  static const String logout = 'Logout';
+  static const String settings = 'Settings';
+
   static const String email = 'Email';
   static const String myCar = 'Cars';
   static const String myOrder = 'Orders';

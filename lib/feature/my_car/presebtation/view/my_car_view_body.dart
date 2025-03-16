@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/feature/add_car/domain/entities/car_entity.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_state.dart';
@@ -24,24 +25,36 @@ class _MycarViewBodyState extends State<MycarViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CarCubit, CarState>(
-      builder: (context, state) {
-        if (state is SuccessCarState) {
-          carList = BlocProvider.of<CarCubit>(context).userCarList;
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              return MyCarItem(
-                car: carList[index],
+    return Container(
+      color: ColorsManager.mainColor,
+      child: Container(
+        decoration: const BoxDecoration(
+          color: ColorsManager.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+        child: BlocBuilder<CarCubit, CarState>(
+          builder: (context, state) {
+            if (state is SuccessCarState) {
+              carList = BlocProvider.of<CarCubit>(context).userCarList;
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  return MyCarItem(
+                    car: carList[index],
+                  );
+                },
+                itemCount: carList.length,
               );
-            },
-            itemCount: carList.length,
-          );
-        } else if (state is IsLoadingCarState) {
-          return const CustomCarItemSkeltonizerLoading();
-        } else {
-          return Container();
-        }
-      },
+            } else if (state is IsLoadingCarState) {
+              return const CustomCarItemSkeltonizerLoading();
+            } else {
+              return Container();
+            }
+          },
+        ),
+      ),
     );
   }
 }

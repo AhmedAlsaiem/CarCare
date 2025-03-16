@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:splash_app/core/functions/handle_signup_service_provider_state.dart';
 import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/functions/roution_functions/handle_signup_service_provider_state.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';

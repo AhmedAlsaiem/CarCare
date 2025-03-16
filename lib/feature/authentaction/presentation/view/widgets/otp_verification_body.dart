@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/api/end_point.dart';
-import 'package:splash_app/core/functions/handle_otp_verification.dart';
+import 'package:splash_app/core/functions/roution_functions/handle_otp_verification.dart';
 import 'package:splash_app/core/functions/secure_email.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/helper/extentions.dart';

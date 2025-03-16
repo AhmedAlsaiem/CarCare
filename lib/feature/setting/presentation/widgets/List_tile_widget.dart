@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/custom_svg_button_navigation_bar_item.dart';
 
 class ListTileWidget extends StatelessWidget {
   const ListTileWidget({
@@ -11,7 +12,7 @@ class ListTileWidget extends StatelessWidget {
   });
 
   final String title;
-  final IconData icon;
+  final String icon;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -23,10 +24,9 @@ class ListTileWidget extends StatelessWidget {
         // elevation: 5,
         child: Center(
           child: ListTile(
-            leading: Icon(
-              icon,
-              size: 30,
+            leading: CustomSvgButtonNavigationBarIcon(
               color: ColorsManager.mainColor,
+              imagePath: icon,
             ),
             title: Text(
               title,

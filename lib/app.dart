@@ -5,7 +5,7 @@ import 'package:splash_app/core/network/app_router.dart';
 
 class CarCareApp extends StatelessWidget {
   const CarCareApp({super.key});
-
+//AL
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -13,7 +13,7 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: false,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.onboardingView,
+        initialRoute: AppRoutes.homeView,
         onGenerateRoute: AppRouter.generateRoute,
         theme: themData(),
       ),

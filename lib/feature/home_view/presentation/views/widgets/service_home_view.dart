@@ -5,6 +5,7 @@ import 'package:splash_app/feature/authentaction/presentation/manager/get_all_se
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_state.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/service_item.dart';
 
+import '../../../../../core/functions/roution_functions/handle_all_service_routing.dart';
 import 'custom_service_shimmer.dart';
 
 class ServicesHomeView extends StatefulWidget {
@@ -17,18 +18,6 @@ class ServicesHomeView extends StatefulWidget {
 }
 
 class _ServicesHomeViewState extends State<ServicesHomeView> {
-  List<void Function()?> ontapList = [
-    () {},
-    () {},
-    () {},
-    () {},
-    () {},
-    () {},
-    () {},
-    () {},
-    () {},
-    () {},
-  ];
   List<ServiceEntitiy>? serviceList;
   @override
   void initState() {
@@ -38,6 +27,8 @@ class _ServicesHomeViewState extends State<ServicesHomeView> {
 
   @override
   Widget build(BuildContext context) {
+    List<void Function()?> ontapList = handleAllServiceRouting(context);
+
     return BlocBuilder<GetAllServicesCubit, GetAllServicesState>(
       builder: (context, state) {
         if (state is GetAllServicesIsLoadingState) {

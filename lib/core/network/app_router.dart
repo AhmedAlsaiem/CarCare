@@ -18,6 +18,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/user_signup.d
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/home_view/presentation/views/home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
+import 'package:splash_app/feature/map/map_view.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
 import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
@@ -30,7 +31,6 @@ import 'package:splash_app/feature/home_view/presentation/views/tire_car_view.da
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/winch_car_view.dart';
 import 'package:splash_app/feature/setting/presentation/views/rating_view.dart';
-import 'package:splash_app/feature/setting/setting_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -49,11 +49,7 @@ class AppRouter {
             child: const AddCar(),
           ),
         );
-      case AppRoutes.setting:
-        return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const SettingView(),
-        );
+
       case AppRoutes.forGetPassword:
         return pageRouteBuilderMethod(
             pageBuilder: (context, animation, secondaryAnimation) {
@@ -181,6 +177,13 @@ class AppRouter {
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const RatingView(),
+        );
+      case AppRoutes.mapView:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const MapView(
+            nameOfServce: 'parking',
+          ),
         );
 
       default:

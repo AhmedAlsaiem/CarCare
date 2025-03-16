@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/feature/map/model/service_location.dart';
 
 class MapService {
@@ -13,7 +14,8 @@ class MapService {
   }
 
   // Function to build the map layer
-  Widget buildMapLayer(LatLng? userLocation, List<ServiceLocation> restaurants, LatLng? selectedRestaurantLocation) {
+  Widget buildMapLayer(LatLng? userLocation, List<ServiceLocation> restaurants,
+      LatLng? selectedRestaurantLocation) {
     return FlutterMap(
       mapController: mapController,
       options: MapOptions(
@@ -51,9 +53,9 @@ class MapService {
                 height: 40.0,
                 point: restaurant.location,
                 child: const Icon(
-                  Icons.podcasts,
+                  Icons.location_pin,
                   size: 30,
-                  color: Colors.red,
+                  color: ColorsManager.blue,
                 ),
               ),
             ),
