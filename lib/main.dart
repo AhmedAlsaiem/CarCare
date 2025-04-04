@@ -9,7 +9,7 @@ void main() async {
   await CacheHelper().init();
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const CarCareApp(),
     ),
   );

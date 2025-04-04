@@ -48,8 +48,6 @@ class _MapViewState extends State<MapView> {
 
     try {
       userLocation = await _locationService.getCurrentLocation();
-      print(' Ahmed Location${userLocation!.latitude}');
-      print(' Ahmed Location${userLocation!.longitude}');
 
       // userLocation = const LatLng(30.0444, 31.2357);
       if (userLocation == null) {
@@ -74,7 +72,7 @@ class _MapViewState extends State<MapView> {
       });
     }
   }
-
+  
   void _onLocationSelected(LatLng destination) async {
     setState(() {
       selectedRestaurantLocation = destination;

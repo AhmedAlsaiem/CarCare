@@ -5,7 +5,6 @@ import 'package:splash_app/core/functions/get_current_location.dart';
 class CurrentLocation {
   Future<LatLng?> getCurrentLocation() async {
     final Position currentLocation = await getCurrentMobileLocations();
-    print(currentLocation);
     return LatLng(currentLocation.latitude, currentLocation.longitude);
   }
 }
