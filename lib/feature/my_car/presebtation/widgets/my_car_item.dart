@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
+import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/add_car/domain/entities/car_entity.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
@@ -58,9 +59,9 @@ class MyCarItem extends StatelessWidget {
                       onPressed: () {
                         showConfirmationDialog(
                           context: context,
-                          title: 'Delete Car',
-                          desc: 'Are you sure you want to Delete Car?',
-                          snackbarText: 'Delete Car successfully!',
+                          title: StringsManager.deleteCar,
+                          desc:StringsManager.areYouSureYouWantToDeleteCar,
+                          snackbarText: StringsManager.deleteSuccessfully,
                           onConfirm: () {
                             BlocProvider.of<CarCubit>(context)
                                 .deleteCarById(id: car.id);
@@ -70,7 +71,7 @@ class MyCarItem extends StatelessWidget {
                       icon: const Icon(
                         Icons.delete,
                         size: 34,
-                        color: ColorsManager.darkgreen,
+                        color: ColorsManager.mainColor,
                       ))
                 ],
               ),

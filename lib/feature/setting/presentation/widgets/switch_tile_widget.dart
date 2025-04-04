@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/custom_svg_button_navigation_bar_item.dart';
 
 class SwitchListTileWidget extends StatelessWidget {
   final String title;
   final bool value;
   final ValueChanged<bool> onChanged;
-  final IconData activeIcon;
-  final IconData inactiveIcon;
+  final String activeIcon;
+  final String inactiveIcon;
   final Color activeColor;
 
   const SwitchListTileWidget({
@@ -42,11 +43,15 @@ class SwitchListTileWidget extends StatelessWidget {
               value: value,
               activeTrackColor: activeColor,
             ),
-            leading: Icon(
-              size: 30,
-              value ? activeIcon : inactiveIcon,
-              color: value ? activeColor : ColorsManager.mainColor,
-            ),
+            leading: value
+                ? CustomSvgButtonNavigationBarIcon(
+                    color: ColorsManager.mainColor,
+                    imagePath:activeIcon,
+                  )
+                : CustomSvgButtonNavigationBarIcon(
+                    color: ColorsManager.mainColor,
+                    imagePath: inactiveIcon,
+                  ),
           ),
         ),
       ),

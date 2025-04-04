@@ -31,10 +31,17 @@ abstract class AssetsManager {
   static const String technicalIcon = 'assets/images/service_provider.png';
   static const String homIcon = 'assets/icon/home.svg';
   static const String mycarsIcon = 'assets/icon/car.svg';
-  static const String settingsIcon = 'assets/icon/settings.svg';
+  static const String settingsIcon = 'assets/icon/settings_icon.svg';
   static const String ordersIcon = 'assets/icon/order.svg';
+  static const String notificationOnIcon = 'assets/icon/notification_on.svg';
+  static const String notificationOffIcon = 'assets/icon/notification_off.svg';
+  static const String lightModeIcon = 'assets/icon/light_mode.svg';
+  static const String darkModeIcon = 'assets/icon/mode-dark.svg';
+  static const String shareIcon = 'assets/icon/share_icon.svg';
   static const String user = 'assets/icon/user.svg';
-
+  static const String rateIcon = 'assets/icon/rate_icon.svg';
+  static const String logoutIcon = 'assets/icon/logout.svg';
+  static const String profile = 'assets/icon/profile.svg';
 //! Assets Icons
   // static const String deleteIcon = '';
 }

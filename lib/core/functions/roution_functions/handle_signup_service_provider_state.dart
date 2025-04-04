@@ -1,11 +1,11 @@
 
   import 'package:flutter/material.dart';
 import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_state.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_circular_progress_indector.dart';
 
-import '../network/app_router.dart';
 
 void serviceProviderHandleState(
       ServiceProviderState state, BuildContext context) {

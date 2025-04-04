@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
+import 'package:splash_app/core/utils/string_manager.dart';
 
 void showConfirmationDialog({
   required BuildContext context,
@@ -17,10 +18,9 @@ void showConfirmationDialog({
     desc: desc,
     btnCancelOnPress: () {},
     btnOkOnPress: onConfirm,
-    btnCancelText: 'Cancel',
-    btnOkText: 'Yes',
+    btnCancelText: StringsManager.cancle,
+    btnOkText: StringsManager.yes,
     barrierColor: Colors.grey.withAlpha(50),
     btnOkColor: ColorsManager.mainColor,
-    btnCancelColor: ColorsManager.darkgreen,
   ).show();
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 
 import 'package:splash_app/feature/map/model/service_location.dart';
 import 'package:splash_app/feature/map/presentation/widgets/current_location.dart';
@@ -35,7 +36,7 @@ class _MapViewState extends State<MapView> {
   @override
   void initState() {
     super.initState();
-     userLocation = const LatLng(30.0444, 31.2357);
+    userLocation = const LatLng(30.0444, 31.2357);
     _initializeLocationAndFetchRestaurants();
   }
 
@@ -47,7 +48,8 @@ class _MapViewState extends State<MapView> {
 
     try {
       userLocation = await _locationService.getCurrentLocation();
-       userLocation = const LatLng(30.0444, 31.2357);
+
+      // userLocation = const LatLng(30.0444, 31.2357);
       if (userLocation == null) {
         throw Exception('Unable to fetch user location.');
       }
@@ -70,7 +72,7 @@ class _MapViewState extends State<MapView> {
       });
     }
   }
-
+  
   void _onLocationSelected(LatLng destination) async {
     setState(() {
       selectedRestaurantLocation = destination;
@@ -93,6 +95,7 @@ class _MapViewState extends State<MapView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: ColorsManager.white,
         title: Text('Nearby ${widget.nameOfServce}'),
       ),
       body: LoadingAndErrorHandler(
@@ -126,4 +129,3 @@ class _MapViewState extends State<MapView> {
     );
   }
 }
-
