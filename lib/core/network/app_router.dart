@@ -6,34 +6,35 @@ import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
 import 'package:splash_app/feature/add_car/presentation/view/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
-import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_verification.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/service_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
-import 'package:splash_app/feature/home_view/presentation/views/home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
+import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/mecanical_view_body.dart';
+import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/map/map_view.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/batteries_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/fuel_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/mechnical_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/oil_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/tire_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/winch_car_view.dart';
 import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/fuel_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/mechnical_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/oil_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/tire_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/winch_car_view.dart';
 import 'package:splash_app/feature/setting/presentation/views/rating_view.dart';
 import 'package:splash_app/feature/user_profile/presentation/manager/cubit/change_profile_ListTile_to_text_form_field_cubit.dart/change_profile_field_cubit.dart';
 import 'package:splash_app/feature/user_profile/presentation/manager/cubit/user_Profile_cubit/user_profile_cubit.dart';
 import 'package:splash_app/feature/user_profile/presentation/view/user_profile_view.dart';
+
+import '../../feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
+import '../../feature/authentaction/presentation/view/verify_acount.dart';
+import '../../feature/home_view/presentation/views/home_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -174,7 +175,7 @@ class AppRouter {
       case AppRoutes.recomendation:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const RecomndationView(),
+              const MecanicalViewBody(),
         );
       case AppRoutes.ratingView:
         return pageRouteBuilderMethod(
