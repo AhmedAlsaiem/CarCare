@@ -11,7 +11,8 @@ abstract class StringsManager {
   static const String yes = 'Yes';
   static const String cancle = 'Cancle';
   static const String deleteCar = 'Delete Car';
-  static const String areYouSureYouWantToDeleteCar = 'Are you sure you want to Delete Car';
+  static const String areYouSureYouWantToDeleteCar =
+      'Are you sure you want to Delete Car';
   static const String deleteSuccessfully = 'Delete Car Successfully!';
   static const String notification = 'Notifications';
   static const String darkMode = 'Dark Mode';
@@ -150,6 +151,7 @@ abstract class StringsManager {
   static const String youshouldchoiseanyopation =
       'You should choise any opation ';
   static const String thisfieldisrequired = 'this field is required ';
+  static const String edit = 'Edit';
   // static const String apiKey =
   //     '5b3ce3597851110001cf624858461a871946480d96231063698c9bb4';
   // static const String routeBaseUrl =

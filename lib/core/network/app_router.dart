@@ -31,6 +31,9 @@ import 'package:splash_app/feature/home_view/presentation/views/tire_car_view.da
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/home_view/presentation/views/winch_car_view.dart';
 import 'package:splash_app/feature/setting/presentation/views/rating_view.dart';
+import 'package:splash_app/feature/user_profile/presentation/manager/cubit/change_profile_ListTile_to_text_form_field_cubit.dart/change_profile_field_cubit.dart';
+import 'package:splash_app/feature/user_profile/presentation/manager/cubit/user_Profile_cubit/user_profile_cubit.dart';
+import 'package:splash_app/feature/user_profile/presentation/view/user_profile_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -178,6 +181,17 @@ class AppRouter {
           pageBuilder: (context, animation, secondaryAnimation) =>
               const RatingView(),
         );
+      case AppRoutes.userPofileView:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ChangeProfileFieldCubit()),
+              BlocProvider(create: (context) => UserProfileCubit()),
+            ],
+            child: const UserProfileView(),
+          ),
+        );
       case AppRoutes.mapView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -198,21 +212,17 @@ class AppRouter {
 abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String homeView = '/homeView';
-
   static const String addcar = '/addcar';
   static const String loginView = '/loginView';
   static const String ratingView = '/ratingView';
   static const String setting = '/setting';
-
   static const String userSginUpView = '/userSignUpView';
   static const String serviceProviderSignUpView = '/adminSignUPView';
   static const String chooseAcountType = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
   static const String otpAcoutVerification = '/otpAcountVerification';
-
   static const String serviceTypeView = '/serviceTypeView';
   static const String serviceProviderHomeView = '/serviceProviderHomeView';
-
   static const String verifyAcount = '/verifyAcount';
   static const String tireCarView = '/tireCarView';
   static const String fuelCarView = '/fuelCarView';
@@ -222,8 +232,8 @@ abstract class AppRoutes {
   static const String washingCarView = '/washingCarView';
   static const String parkingCarView = '/parkingCarView';
   static const String mechanicCarView = '/mechanicCarView';
-
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
   static const String mapView = '/mapView';
+  static const String userPofileView = '/userProfileView';
 }

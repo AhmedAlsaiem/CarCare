@@ -37,7 +37,10 @@ class _SettingViewBodyState extends State<SettingViewBody> {
             ListTileWidget(
               title: StringsManager.profile,
               icon: AssetsManager.profile,
-              onTap: () {},
+              onTap: () {
+                NavigatorManager.pushName(
+                    context: context, route: AppRoutes.userPofileView);
+              },
             ),
 
             SizedBox(height: AppHeight.h14),

@@ -4,7 +4,6 @@ abstract class AssetsManager {
   static const String onboarding1 = 'assets/images/onboarding1.png';
   static const String onboarding2 = 'assets/images/onboarding2.png';
   static const String onboarding3 = 'assets/images/onboarding3.png';
-
   static const String roodMapHome = 'assets/images/rood_map.png';
   static const String emergencyHome = 'assets/images/emergency.png';
   static const String offersHome = 'assets/images/offers.png';
@@ -42,6 +41,11 @@ abstract class AssetsManager {
   static const String rateIcon = 'assets/icon/rate_icon.svg';
   static const String logoutIcon = 'assets/icon/logout.svg';
   static const String profile = 'assets/icon/profile.svg';
+  static const String cameraIcon = 'assets/icon/camera_icon.svg';
+  static const String editProfile = 'assets/icon/edit.svg';
+  static const String emailIcon = 'assets/icon/email_icon.svg';
+  static const String passwordIcon = 'assets/icon/password_icon.svg';
+
 //! Assets Icons
   // static const String deleteIcon = '';
 }

@@ -191,11 +191,16 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
     }
   }
 
-//ToDo this don't complate
   @override
-  Future<UserModel> getCurrentUser() {
-    throw UnimplementedError();
-  }
+  Future<UserModel> getCurrentUser() async{
+ UserModel user;
+    try {
+      dynamic response = await api.get(EndPoint.getCurrentUser);
+      user = UserModel.fromJson(response);
+      return user;
+    } on ServerException catch (e) {
+      throw ServerException(errModel: e.errModel);
+    }  }
 
   @override
   Future<void> getRefreskToken(

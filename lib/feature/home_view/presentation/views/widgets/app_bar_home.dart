@@ -6,8 +6,8 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 
-class AppbarHome extends StatelessWidget {
-  const AppbarHome({
+class HomeAppbar extends StatelessWidget {
+  const HomeAppbar({
     super.key,
   });
 
@@ -19,25 +19,41 @@ class AppbarHome extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            // (MediaQuery.of(context).size.height.toString()),
-
             StringsManager.home,
             style: StylesManager.textStyleBold20black,
           ),
           GestureDetector(
             onTap: () {},
-            child: CircleAvatar(
-              radius: AppSize.s20,
-              backgroundColor: ColorsManager.brightGrey,
-              child: SvgPicture.asset(
-                alignment: Alignment.center,
-                fit: BoxFit.cover,
-                AssetsManager.user,
-                colorFilter: const ColorFilter.mode(
-                  ColorsManager.darkgreen,
-                  BlendMode.srcIn,
+            child: Stack(
+              alignment: Alignment.bottomRight,
+              children: [
+                CircleAvatar(
+                  radius: AppSize.s30,
+                  backgroundColor: ColorsManager.brightGrey,
+                  child: SvgPicture.asset(
+                    alignment: Alignment.center,
+                    fit: BoxFit.cover,
+                    AssetsManager.notificationOnIcon,
+                    colorFilter: const ColorFilter.mode(
+                      ColorsManager.darkgreen,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                 ),
-              ),
+                Positioned(
+                  bottom: AppSize.s2,
+                  right: AppSize.s2,
+                  child: CircleAvatar(
+                    radius: AppSize.s8,
+                    backgroundColor: ColorsManager.mainColor,
+                    child: Text(
+                      '1',
+                      textAlign: TextAlign.center,
+                      style: StylesManager.textStyleRegular10,
+                    ),
+                  ),
+                )
+              ],
             ),
           )
         ],
