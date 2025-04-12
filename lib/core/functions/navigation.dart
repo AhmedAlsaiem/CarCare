@@ -7,8 +7,11 @@ abstract class NavigatorManager {
   static void pushName({
     required BuildContext context,
     required String route,
+    bool rootNavigator = false,
+
   }) {
-    Navigator.pushNamed(context, route);
+   // Navigator.pushNamed(context, route);
+     Navigator.of(context, rootNavigator: rootNavigator).pushNamed(route);
   }
 static void pushWithReplacement({
     required BuildContext context,

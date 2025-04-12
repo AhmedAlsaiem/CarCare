@@ -12,7 +12,7 @@ String initalRoute() {
 
   if (appState == true && token != null || verify != null) {
     if (type == StringsManager.technical) {
-      return AppRoutes.serviceProviderHomeView;
+      return AppRoutes.technicalHomeView;
     } else {
       return AppRoutes.homeView;
     }

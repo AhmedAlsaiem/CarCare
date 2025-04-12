@@ -30,8 +30,8 @@ BlocBuilder<BottomNavigationIndeCubit, int> customBottonNavigationBar(
         context.read<BottomNavigationIndeCubit>().updateIndex(index);
         pageController.animateToPage(
           index,
-          duration: const Duration(milliseconds: 400), // تحديد مدة الانتقال
-          curve: Curves.easeInOut, // تأثير الحركة
+          duration: const Duration(milliseconds: 400), 
+          curve: Curves.easeInOut, 
         );
       },
     );

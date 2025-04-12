@@ -13,8 +13,24 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: false,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.homeView,
+        initialRoute: AppRoutes.loginView,
         onGenerateRoute: AppRouter.generateRoute,
+      //   darkTheme:ThemeData(
+      //     brightness: Brightness.values[0],
+      //   primarySwatch: Colors.blue,
+      //   primaryColor: Colors.white,
+      //   primaryColorLight: Colors.white,
+      //   primaryColorDark: Colors.white,
+      //  // accentColor: Colors.white,
+      //   canvasColor: Colors.white,
+      //   scaffoldBackgroundColor: Colors.grey,
+      //   appBarTheme: AppBarTheme(
+      //    // color: Colors.grey,
+      //     backgroundColor: Colors.grey
+      //   )
+
+     
+    //    )   
         theme: themData(),
       ),
     );

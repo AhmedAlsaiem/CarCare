@@ -18,7 +18,7 @@ void loginViewhandleState(UserState state, BuildContext context) {
   } else if (state is SuccessUserState) {
     if (type == StringsManager.technical) {
       NavigatorManager.pushWithReplacement(
-          context: context, route: AppRoutes.serviceProviderHomeView);
+          context: context, route: AppRoutes.technicalHomeView);
     } else {
       NavigatorManager.pushWithReplacement(
           context: context, route: AppRoutes.homeView);
