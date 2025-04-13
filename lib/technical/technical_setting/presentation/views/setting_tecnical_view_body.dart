@@ -97,7 +97,7 @@ class _SettingTecnicalViewBodyState extends State<SettingTecnicalViewBody> {
             onTap: () {
               NavigatorManager.pushName(
                   context: context,
-                  route: AppRoutes.profileTechnicalView,
+                  route: AppRoutes.messagetecnical,
                   rootNavigator: true);
             }),
 

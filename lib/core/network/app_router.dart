@@ -37,6 +37,8 @@ import 'package:splash_app/feature/feadback_app/presentation/views/get_app_feadb
 import 'package:splash_app/feature/feadback_app/presentation/views/my_feadback.dart';
 import 'package:splash_app/feature/feadback_app/presentation/views/new_feadback.dart';
 import 'package:splash_app/feature/feadback_app/presentation/views/update_feadback.dart';
+import 'package:splash_app/technical/message/presentation/manger/message_cubit.dart';
+import 'package:splash_app/technical/message/presentation/views/message_view.dart';
 
 import 'package:splash_app/technical/technical_home/presentation/manger/order_cubit/order_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/tecnical_state/tecniacl_cubit.dart';
@@ -253,6 +255,13 @@ class AppRouter {
             child: const GetAppFeadback(),
           ),
         );
+      case AppRoutes.messagetecnical:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => MessageCubit(),
+            child: const MessageView(),
+          ),
+        );
       case AppRoutes.updateProfile:
         return MaterialPageRoute(
           builder: (_) =>  MultiBlocProvider(
@@ -340,4 +349,6 @@ abstract class AppRoutes {
   static const String technicalHomeView = '/technicalHomeView';
   static const String profileTechnicalView = '/profileTechnicalView';
   static const String updateProfile = '/updateProfile';
+  static const String messagetecnical = '/messagetecnical';
+
 }

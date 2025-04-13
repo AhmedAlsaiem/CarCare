@@ -62,26 +62,7 @@ height:  AppHeight.h122,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  
-              //     children: [
-                 
-              //       Text(
-              //         '  ${widget.name}',
-              //         maxLines: 1,
-              //         style: StylesManager.textStylewmedium20maincolor,
-              //       ),
-              //       CircleAvatar(
-              //         radius:  30,
-              //         backgroundColor: ColorsManager.white,
-              //         backgroundImage: const AssetImage(AssetsManager.userBatteries),
-              //       )
-              //     ],
-              //   ),
-              // ),
+             
 
                Text(
                       '  ${widget.name}',
@@ -152,7 +133,7 @@ height:  AppHeight.h122,
                             TechnicalHomeViewBodyState>();
                         technicalState?.setSwitchValue(false);
                       });
-
+          
                   customShowSnackBar(context, 'Order Cancal Successfully');
                 },
               ),

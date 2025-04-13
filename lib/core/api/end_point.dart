@@ -45,6 +45,8 @@ class EndPoint {
   static String getcomplateOrder = "${serviceReuest}GetAllRequestsToTechnical?status=2";
   static String getTecnicalPrfile = "Account/GetCurrentUserByRole";
   static String udateProfile = "account/UpdateTech";
+  static String getMessages = "Contact/GetAllMessages";
+
 
   
 
@@ -128,4 +130,12 @@ class ApiKey {
    static String  idUpdate = 'nationalId';
    static String  teccniclSwitch = 'teccniclSwitch';
      static String feadbackid = "feadbackid";
+   static String  messageId = 'id';
+   static String  messages = 'message';
+   static String  createdBys = 'createdBy';
+   static String  createdOns = 'createdOn';
+   static String  lastModifiedBy = 'lastModifiedBy';
+     static String lastModifiedOn = "lastModifiedOn";
+   static String  userIds = 'userId';
+     static String fullNames = "fullName";
 }
