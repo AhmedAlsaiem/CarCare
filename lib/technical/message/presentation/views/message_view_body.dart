@@ -38,7 +38,7 @@ class _MessageViewBodyState extends State<MessageViewBody> {
             return ListView.builder(
                 itemCount: state.messages.length,
                 itemBuilder: (context, index) {
-                  return MessageListViewItem(message: state.messages[ state.messages.length-1-index].message, createdon: state.messages[index].createdOn,);
+                  return MessageListViewItem(message: state.messages[ index].message, createdon: state.messages[index].createdOn,);
                 });
           } else if (state is FaliureMessageState) {
             return const Center(

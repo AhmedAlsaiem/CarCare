@@ -51,9 +51,9 @@ class _OrderDetailsState extends State<OrderDetails> {
     return Column(
       children: [
         Container(
-       //   color:  ColorsManager.red,
-       //  height:160,
-height:  AppHeight.h122,
+          //   color:  ColorsManager.red,
+          //  height:160,
+          height: AppHeight.h122,
           width: context.screenWidth,
           decoration: BoxDecoration(
             color: ColorsManager.orderColor,
@@ -62,35 +62,29 @@ height:  AppHeight.h122,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             
-
-               Text(
-                      '  ${widget.name}',
-                      maxLines: 1,
-                      style: StylesManager.textStylewmedium20maincolor,
-                    ),
               Text(
-                '  ${widget.distance.toStringAsFixed(1)} km ',
-                style: StylesManager.textStylewmedium20maincolor
-                 //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                '  ${widget.name}',
+                maxLines: 1,
+                style: StylesManager.textStylewmedium20maincolor,
               ),
-              Text(
-                '  $formattedDate', // Updated date format
-                style: StylesManager.textStylewmedium20maincolor
-                 //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
+              Text('  ${widget.distance.toStringAsFixed(1)} km ',
+                  style: StylesManager.textStylewmedium20maincolor
+                  //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
+              Text('  $formattedDate', // Updated date format
+                  style: StylesManager.textStylewmedium20maincolor
+                  //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-               
                 Text(
                   '  ${widget.batteryType}${widget.typeOfoil}${widget.tiresize}${widget.typeOfFuel}${widget.winchType}  ',
                   maxLines: 1,
                   style: StylesManager.textStylewmedium20maincolor,
-                )
-                ,
-                 Text(
+                ),
+                Text(
                   '  ${(widget.price * .8).toStringAsFixed(2)} EGP ',
                   style: StylesManager.textStylewmedium20maincolor
-                    .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                      .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
               ]),
             ],
@@ -133,7 +127,7 @@ height:  AppHeight.h122,
                             TechnicalHomeViewBodyState>();
                         technicalState?.setSwitchValue(false);
                       });
-          
+
                   customShowSnackBar(context, 'Order Cancal Successfully');
                 },
               ),

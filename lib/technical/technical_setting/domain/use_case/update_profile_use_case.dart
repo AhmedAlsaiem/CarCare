@@ -7,16 +7,17 @@ class UpdateProfileUseCase {
   UpdateProfileRepo updateProfileRepo;
   UpdateProfileUseCase({required this.updateProfileRepo});
 
-  Future<Either<ErrorModel, UpdateProfileEntity>> excute(
-      {required String email,
-      required String userName,
-      required String phoneNumber,
-      required String nationalId}) async {
+  Future<Either<ErrorModel, UpdateProfileEntity>> excute({
+    required String email,
+    required String userName,
+    required String phoneNumber,
+   required String nationalId,
+  }) async {
     return await updateProfileRepo.updateProfile(
       email: email,
       name: userName,
       phoneNumber: phoneNumber,
-      id: nationalId,
+       id: nationalId,
     );
   }
 }

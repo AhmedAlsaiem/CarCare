@@ -1,12 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
-import 'package:splash_app/feature/feadback_app/presentation/manger/create_feadback_cubit/create_feadback_cubit.dart';
 import 'package:splash_app/feature/feadback_app/presentation/manger/create_feadback_cubit/create_feadback_state.dart';
+import 'package:splash_app/feature/feadback_app/presentation/manger/get_app_feadback/get_app_feadback_cubit.dart';
+import 'package:splash_app/feature/feadback_app/presentation/manger/get_app_feadback/get_app_feadback_state.dart';
 import 'package:splash_app/feature/feadback_app/presentation/widget/rating_bar_animation.dart';
 
 class GetAppFeadbackBody extends StatefulWidget {
@@ -21,34 +21,32 @@ class _GetAppFeadbackBodyState extends State<GetAppFeadbackBody> {
   void initState() {
     super.initState();
     // Fetch app feedback data when the widget is initialized
-    BlocProvider.of<FeadbackCubit>(context).getappFeadback();
+    BlocProvider.of<GetAppFeadbackCubit>(context).getappFeadback();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocListener<FeadbackCubit, FeadbackState>(
+      child: BlocListener<GetAppFeadbackCubit, GetAppFeadbackState>(
         listener: (context, state) {
           // Handle side effects (e.g., showing snackbars) here
-          if (state is FaliureFeadbackState) {
+          if (state is FaliureGetAppFeadbackState) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               customShowSnackBar(context, state.errorMessage);
             });
           }
         },
-        child: BlocBuilder<FeadbackCubit, FeadbackState>(
+        child: BlocBuilder<GetAppFeadbackCubit, GetAppFeadbackState>(
           builder: (context, state) {
-            if (state is IsLoadingFeadbackState) {
+            if (state is IsLoadingGetAppFeadbackState) {
               return const Center(
                 child: CircularProgressIndicator(
                   color: ColorsManager.mainColor,
                 ),
               );
-            } else if (state is SuccessFeadbackState) {
-              final feadback = BlocProvider.of<FeadbackCubit>(context).getappFeadBackEntities;
-              if (feadback == null) {
-                return const Center(child: Text('No feedback data available.'));
-              }
+            } else if (state is SuccessGetAppFeadbackState) {
+              final feadback = state.getappFeadBackEntities;
+      
               return Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: Appwidth.w10),

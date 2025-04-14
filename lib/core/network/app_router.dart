@@ -16,6 +16,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_ve
 import 'package:splash_app/feature/authentaction/presentation/view/service_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
+import 'package:splash_app/feature/feadback_app/presentation/manger/get_app_feadback/get_app_feadback_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/home_view.dart';
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/map/map_view.dart';
@@ -47,6 +48,7 @@ import 'package:splash_app/technical/technical_setting/presentation/manger/tecni
 import 'package:splash_app/technical/technical_setting/presentation/manger/update_profile/update_profile_cubit.dart';
 import 'package:splash_app/technical/technical_setting/presentation/views/profile_tecnical_view.dart';
 import 'package:splash_app/technical/technical_setting/presentation/views/update_profile_view.dart';
+
 class AppRouter {
   bool? appState =
       CacheHelper.sharedPreferences.getBool(StringsManager.appState);
@@ -201,7 +203,7 @@ class AppRouter {
           ),
         );
 
-        case AppRoutes.feadbackView:
+      case AppRoutes.feadbackView:
         return MaterialPageRoute(
           builder: (_) => const FeadbackView(),
         );
@@ -222,18 +224,17 @@ class AppRouter {
         );
       case AppRoutes.profileTechnicalView:
         return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => TecnicalProfileCubit(),
-              ),
-              BlocProvider(
-                create: (context) => UpdateProfileCubit(),
-              ),
-            ],
-            child:const ProfileTecnicalView(),
-          )
-        );
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => TecnicalProfileCubit(),
+                    ),
+                    BlocProvider(
+                      create: (context) => UpdateProfileCubit(),
+                    ),
+                  ],
+                  child: const ProfileTecnicalView(),
+                ));
       case AppRoutes.myFeadback:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -250,8 +251,15 @@ class AppRouter {
         );
       case AppRoutes.getappFeadback:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => FeadbackCubit(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => FeadbackCubit(),
+              ),
+              BlocProvider(
+                create: (context) => GetAppFeadbackCubit(),
+              ),
+            ],
             child: const GetAppFeadback(),
           ),
         );
@@ -264,18 +272,17 @@ class AppRouter {
         );
       case AppRoutes.updateProfile:
         return MaterialPageRoute(
-          builder: (_) =>  MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => UpdateProfileCubit(),
-              ),
-              BlocProvider(
-                create: (context) => TecnicalProfileCubit(),
-              ),
-            ],
-            child:const UpdateProfileView(),
-          )
-        );
+            builder: (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => UpdateProfileCubit(),
+                    ),
+                    BlocProvider(
+                      create: (context) => TecnicalProfileCubit(),
+                    ),
+                  ],
+                  child: const UpdateProfileView(),
+                ));
       case AppRoutes.technicalHomeView:
         return MaterialPageRoute(
             builder: (_) => MultiBlocProvider(
@@ -306,7 +313,6 @@ class AppRouter {
 }
 
 abstract class AppRoutes {
-  
   static const String onboardingView = '/';
   static const String homeView = '/homeView';
 
@@ -339,8 +345,6 @@ abstract class AppRoutes {
   static const String mapView = '/mapView';
   static const String feadbackView = '/feadbackView';
 
-  
-
   static const String newFeadback = '/newFeadback';
   static const String myFeadback = '/myFeadback';
   static const String updateFeadback = '/updateFeadback';
@@ -350,5 +354,4 @@ abstract class AppRoutes {
   static const String profileTechnicalView = '/profileTechnicalView';
   static const String updateProfile = '/updateProfile';
   static const String messagetecnical = '/messagetecnical';
-
 }

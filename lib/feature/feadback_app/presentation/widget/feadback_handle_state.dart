@@ -4,14 +4,13 @@ import 'package:splash_app/feature/authentaction/presentation/view/widgets/custo
 import 'package:splash_app/feature/feadback_app/presentation/manger/create_feadback_cubit/create_feadback_state.dart';
 
 void feadbackHandleState(FeadbackState state, BuildContext context) {
- // String? type = CacheHelper().getDataString(key: ApiKey.type);
+  // String? type = CacheHelper().getDataString(key: ApiKey.type);
 
   if (state is IsLoadingFeadbackState) {
     const CustomCircularProgressIndicator();
   } else if (state is FaliureFeadbackState) {
     customShowSnackBar(context, state.errorMessage);
   } else if (state is SuccessFeadbackState) {
-    customShowSnackBar(context, 'you are rating sucess');
-   
+    customShowSnackBar(context, state.successMessage);
   }
 }

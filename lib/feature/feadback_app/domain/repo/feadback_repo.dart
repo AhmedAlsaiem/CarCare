@@ -7,9 +7,7 @@ abstract class FeadbackRepo {
     required double rating,
     required String comment,
   });
-  Future<Either<ErrorModel, FeadbackEntities>> getFeadBack({
-    required int id,
-  });
+  Future<Either<ErrorModel, FeadbackEntities>> getFeadBack();
   Future<Either<ErrorModel, GetappFeadBackEntities>> getappFeadBack();
   Future<Either<ErrorModel, FeadbackEntities>> updateFeadBack({
     required double rating,

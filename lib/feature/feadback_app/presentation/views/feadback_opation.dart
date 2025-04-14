@@ -15,18 +15,13 @@ class FeadbackOpation extends StatelessWidget {
             text: 'New Rate',
             ontap: () {
               Navigator.pushNamed(context, AppRoutes.newFeadback);
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => const NewFeadback()));
-
-              // NavigatorManager.pushName(
-              //     context: context, route: AppRoutes.newFeadback);
+  
             },
           ),
           RatingTypeWidget(
             text: 'Get My Rate',
             ontap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => const MyFeadback()));
+             
 
               NavigatorManager.pushName(
               context: context,
@@ -37,10 +32,7 @@ class FeadbackOpation extends StatelessWidget {
           RatingTypeWidget(
             text: 'Update My Rate',
             ontap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const UpdateFeadback()));
+      
 
               NavigatorManager.pushName(
                 rootNavigator: true,

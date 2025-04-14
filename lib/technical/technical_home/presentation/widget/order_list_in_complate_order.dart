@@ -34,9 +34,9 @@ class OrderListInComplateOrder extends StatelessWidget {
             }
             return OrderInComplateOrder(orders: orders);
           } else if (state is FaliureOrderState) {
-            return const Center(child: Text('Error loading feedback.'));
+            return const Center(child: Text('Error loading data.'));
           } else {
-            return const Center(child: Text('Waiting for feedback data...'));
+            return const Center(child: Text('Waiting for  data...'));
           }
         },
       ),

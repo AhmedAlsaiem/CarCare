@@ -9,9 +9,7 @@ abstract class BaseFaedbackRemoteDataSource {
     required double rating,
     required String comment,
   });
-  Future<FeadbackModel> getFeadBack({
-    required int id,
-  });
+  Future<FeadbackModel> getFeadBack();
   Future<GetappFeadbackModel> getappFeadBack();
 
   Future<FeadbackModel> updateFeadBack({
@@ -45,10 +43,10 @@ class FeadbackRemoteDataSourse extends BaseFaedbackRemoteDataSource {
   }
 
   @override
-  Future<FeadbackModel> getFeadBack({required int id}) async {
+  Future<FeadbackModel> getFeadBack() async {
     FeadbackModel feadbackModel;
     try {
-      dynamic response = await api.get(EndPoint.getFeedBack + id.toString());
+      dynamic response = await api.get(EndPoint.getFeedBack);
       feadbackModel = FeadbackModel.fromJson(response);
 
       return feadbackModel;

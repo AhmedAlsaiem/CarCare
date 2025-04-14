@@ -30,7 +30,8 @@ class EndPoint {
 
         static String feadback = "FeedBack/";
   static String creatFeadback = "${feadback}CreateFeedBack";
-  static String getFeedBack = "${feadback}GetFeedBack/";
+  //static String getFeedBack = "${feadback}GetFeedBack/";
+  static String getFeedBack = "${feadback}GetFeedBackThatUserAdd";
   static String getappFeedBack = "${feadback}GetAvarageRating";
 
   static String updateFeedBack = "${feadback}UpdateFeedBack/";
@@ -44,7 +45,7 @@ class EndPoint {
   static String completeRequest = "${serviceReuest}CompleteRequest/";
   static String getcomplateOrder = "${serviceReuest}GetAllRequestsToTechnical?status=2";
   static String getTecnicalPrfile = "Account/GetCurrentUserByRole";
-  static String udateProfile = "account/UpdateTech";
+  static String udateProfile = "account/UpdateAppUser";
   static String getMessages = "Contact/GetAllMessages";
 
 

@@ -7,11 +7,7 @@ class UpdateFeadback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  const Scaffold(
-      // appBar: AppBar(
-      //   iconTheme: const IconThemeData(color: ColorsManager.white, size: AppSize.s30),
-      //   title: Text('update your Rating' , style: StylesManager.textStyleBold24.copyWith(color: ColorsManager.white),),
-      //   centerTitle:  true ,
-      // ),
+
       body:UpdateFeadbackViewBody()
     );
   }

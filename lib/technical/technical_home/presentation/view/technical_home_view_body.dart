@@ -27,7 +27,7 @@ class TechnicalHomeViewBodyState extends State<TechnicalHomeViewBody> {
     super.initState();
     // _loadSwitchState();
     switchValue = CacheHelper().getDatabool(key: ApiKey.teccniclSwitch) ?? true;
-    BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
+       BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
   }
 
   void setSwitchValue(bool value) {

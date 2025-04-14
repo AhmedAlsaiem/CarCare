@@ -7,8 +7,8 @@ class GetFeadbackUsecase {
   FeadbackRepo feadbackRepo;
   GetFeadbackUsecase(this.feadbackRepo);
   Future< Either<ErrorModel, FeadbackEntities>> excute(
-      {required int id })async {
-    return  await feadbackRepo.getFeadBack(id:id
+     )async {
+    return  await feadbackRepo.getFeadBack(
     
     );
   }

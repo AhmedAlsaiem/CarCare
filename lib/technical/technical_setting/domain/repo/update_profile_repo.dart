@@ -6,7 +6,7 @@ abstract class UpdateProfileRepo {
   Future<Either<ErrorModel, UpdateProfileEntity>> updateProfile({
     required String name,
     required String email,
-    required String id,
+   required String id,
     required String phoneNumber,
   });
 }

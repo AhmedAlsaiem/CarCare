@@ -9,13 +9,7 @@ class FeadbackView extends StatelessWidget {
   Widget build(  BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   iconTheme: const IconThemeData(color: ColorsManager.white),
-      //   title: const Text(
-      //     'Choise Type Of Rating',
-      //     style: TextStyle(color: ColorsManager.white),
-      //   ),
-      // ),
+
       appBar:  customMyCarAppBar(title: 'Choise Type Of Rating'),
       body:const FeadbackOpation(),
     );

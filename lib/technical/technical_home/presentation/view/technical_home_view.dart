@@ -35,7 +35,7 @@ class _TechnicalHomeViewState extends State<TechnicalHomeView> {
       //padding: const EdgeInsets.only(bottom: 8, top: 8),
       context,
       controller: _controller,
-      screens: _buildScreens(),
+      screens:  _buildScreens(),
       items: _navBarsItems(),
       backgroundColor: Colors.white,
       hideNavigationBarWhenKeyboardAppears: true,
@@ -60,7 +60,7 @@ navBarStyle: NavBarStyle.style10,
     );
   }
 
-  List<Widget> _buildScreens() {
+  List<Widget> _buildScreens()  {
     return [
       _buildTabScreen(
           _tabNavigatorKeys[0], const TechnicalHomeViewBody(), 'Home'),

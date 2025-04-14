@@ -5,6 +5,7 @@ import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/font_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/feadback_app/domain/entity/feadback_entities.dart';
 import 'package:splash_app/feature/feadback_app/presentation/manger/create_feadback_cubit/create_feadback_cubit.dart';
 import 'package:splash_app/feature/feadback_app/presentation/manger/create_feadback_cubit/create_feadback_state.dart';
 import 'package:splash_app/feature/feadback_app/presentation/widget/feadback_handle_state.dart';
@@ -20,6 +21,8 @@ class UpdateFeadbackViewBody extends StatefulWidget {
 class _UpdateFeadbackViewBodyState extends State<UpdateFeadbackViewBody> {
   final GlobalKey<FormState> formKeyFeadbackUpdate = GlobalKey();
 
+  FeadbackEntities? feadback;
+
   //  int ratingg = 0;
 
   void _setRating(double rating, BuildContext context) {
@@ -28,13 +31,33 @@ class _UpdateFeadbackViewBodyState extends State<UpdateFeadbackViewBody> {
     });
   }
 
+@override
+void initState() {
+  super.initState();
+  _initFeadback();
+}
+
+void _initFeadback() async {
+  feadback = await BlocProvider.of<FeadbackCubit>(context).getFeadback();
+
+  
+// setState(() {});
+}
+
+ 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FeadbackCubit, FeadbackState>(
       listener: (context, state) {
-        feadbackHandleState(state, context);
+
+
+        if(state is SuccessFeadbackState || state is FaliureFeadbackState){
+         feadbackHandleState(state, context);
+          
+        }
       },
       builder: (context, state) {
+        
         return SingleChildScrollView(
           child: Form(
             child: Column(
@@ -124,7 +147,7 @@ class _UpdateFeadbackViewBodyState extends State<UpdateFeadbackViewBody> {
                   ),
                   onPressed: () {
               
-                    BlocProvider.of<FeadbackCubit>(context).updateFeadBack();
+                    BlocProvider.of<FeadbackCubit>(context).updateFeadBack(id: feadback!.id);
                     context.read<FeadbackCubit>().commentFeadback.clear();
                     context.read<FeadbackCubit>().rating = 0.0;
                   },

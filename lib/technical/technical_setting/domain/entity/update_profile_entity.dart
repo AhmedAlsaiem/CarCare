@@ -4,7 +4,7 @@ class UpdateProfileEntity extends Equatable {
   final String? name;
   final String phoneNumber;
   final String email;
-  final String id;
+ final String id;
 
   const UpdateProfileEntity({
     required this.name,

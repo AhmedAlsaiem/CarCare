@@ -26,7 +26,7 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
       email: email.text,
       userName: name.text,
       phoneNumber: phoneNumber.text,
-      nationalId: nationalId.text,
+     nationalId: nationalId.text,
     );
 
     return response.fold(

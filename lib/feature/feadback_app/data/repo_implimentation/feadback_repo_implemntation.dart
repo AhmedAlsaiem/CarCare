@@ -26,9 +26,9 @@ class FeadbackRepoImplemntation extends FeadbackRepo {
   
   @override
   Future<Either<ErrorModel, FeadbackEntities>> getFeadBack(
-      {required int id}) async {
+      ) async {
     try {
-      FeadbackModel feadbackModel = await baseFaedbackRemoteDataSource.getFeadBack(id: id);
+      FeadbackModel feadbackModel = await baseFaedbackRemoteDataSource.getFeadBack();
      
       return right(feadbackModel);
     } on ServerException catch (e) {
