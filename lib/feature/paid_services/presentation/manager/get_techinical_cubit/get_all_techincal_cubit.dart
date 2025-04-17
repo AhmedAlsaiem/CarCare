@@ -5,7 +5,7 @@ import 'package:splash_app/core/api/dio_api.dart';
 import 'package:splash_app/feature/paid_services/data/datasource/get_all_techinical_remote_data_source.dart';
 import 'package:splash_app/feature/paid_services/data/repo_implimentation/get_all_technical_repo_implamentation.dart';
 import 'package:splash_app/feature/paid_services/domain/repo/get_all_techinical_for_order_repo.dart';
-import 'package:splash_app/feature/paid_services/domain/usecases/get_all_techinical_ordered_by_rate_and_distance_usecase.dart';
+import 'package:splash_app/feature/paid_services/domain/usecases/get_all_techinical_ordered_by_rate_and_distance_usecase.dart' show GetAllTechinicalOrderedByRateAndDistanceUsecase;
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_state.dart';
 
 class GetAllTechincalCubit extends Cubit<GetAllTechincalState> {
