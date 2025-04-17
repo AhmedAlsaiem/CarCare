@@ -1,8 +1,8 @@
 import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/feature/paid_services/domain/enties/service_request_entity.dart';
 
-class ServiceModel extends ServiceRequestEntity {
-  const ServiceModel({
+class ServiceRequestModel extends ServiceRequestEntity {
+  const ServiceRequestModel({
     required super.id,
     required super.techId,
     required super.techJop,
@@ -25,8 +25,8 @@ class ServiceModel extends ServiceRequestEntity {
     required super.paymentIntentId,
     required super.clientSecret,
   });
-  factory ServiceModel.formJson(Map<String, dynamic> jsonData) {
-    return ServiceModel(
+  factory ServiceRequestModel.formJson(Map<String, dynamic> jsonData) {
+    return ServiceRequestModel(
       id: jsonData[ApiKey.id],
       techId: jsonData[ApiKey.techId],
       techJop: jsonData[ApiKey.techJop],

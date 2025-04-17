@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 
 import 'choise_amount.dart';
 import 'request_button.dart';
@@ -18,97 +20,103 @@ class OilCarViewBody extends StatefulWidget {
 
 class _OilCarViewBodyState extends State<OilCarViewBody> {
   String? selectedOption;
-  
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<ServiceRequestManualCubit>(context).createRequestForOil(
+        serviceTypeId: 5,
+        techId: "25f5bfc2-a1f8-482f-bc15-3a5df77584c7",
+        typeOfOil: 'EngineOil',
+        userLatitude: 42.32,
+        userLongitude: 323.25,
+        servicePrice: 199);
+    print('Ahmed ');
+  }
+
   final List<Map<String, String>> options = [
     {
       'title': ' Engine Oil',
       'description': '  The primary type of oil used in cars.',
-      'price' : '1000'
+      'price': '1000'
     },
     {
       'title': ' Synthetic Oil',
       'description': '  Chemically engineered for better performance',
-      'price' : '300'
-
+      'price': '300'
     },
     {
       'title': 'Synthetic Blend Oil',
       'description': ' A mix of synthetic and conventional oil.',
-      'price' : '1200'
-
+      'price': '1200'
     },
     {
       'title': ' High-Mileage Oil',
       'description': ' Designed for cars with over 75,000 miles',
-      'price' : '650'
-
+      'price': '650'
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: AppHeight.h16,
-          ),
-          Padding(
-            padding:  EdgeInsets.only(right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
-            child: Text(
-              // padd: EdgeInsets.all(20),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: AppHeight.h16,
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+              right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
+          child: Text(
+            // padd: EdgeInsets.all(20),
             StringsManager.chooseheoiltype,
-              style: StylesManager.textStyleBold20black,
-            ),
+            style: StylesManager.textStyleBold20black,
           ),
-          Expanded(
-            child: ListView(
-              children: options.map((option) {
-                return RadioListTile<String>(
-                   
-                  activeColor: ColorsManager.mainColor,
-                  title: Text(
-                    option['title']!,
-                    style: TextStyle(
-                      color: selectedOption == option['title']
-                          ? ColorsManager.mainColor
-                          : ColorsManager.balck,
-                      fontWeight: selectedOption == option['title']
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                    ),
+        ),
+        Expanded(
+          child: ListView(
+            children: options.map((option) {
+              return RadioListTile<String>(
+                activeColor: ColorsManager.mainColor,
+                title: Text(
+                  option['title']!,
+                  style: TextStyle(
+                    color: selectedOption == option['title']
+                        ? ColorsManager.mainColor
+                        : ColorsManager.balck,
+                    fontWeight: selectedOption == option['title']
+                        ? FontWeight.bold
+                        : FontWeight.normal,
                   ),
-                     secondary: Text(
-                   '${ option['price']!} EGP' ,
-                  ),
-                  subtitle: Text(
-                    option['description']!,
-                  ), // Add description here
-                  value: option['title']!,
-                  groupValue: selectedOption,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedOption = value;
-                    });
-                  },
-                );
-              }).toList(),
-            ),
+                ),
+                secondary: Text(
+                  '${option['price']!} EGP',
+                ),
+                subtitle: Text(
+                  option['description']!,
+                ), // Add description here
+                value: option['title']!,
+                groupValue: selectedOption,
+                onChanged: (value) {
+                  setState(() {
+                    selectedOption = value;
+                  });
+                },
+              );
+            }).toList(),
           ),
-          const ChoiseAmount(),
-          SizedBox(
-            height: context.screenHeight * .2,
-          ),
-           RequesButton(
-        
-            selectedOption: selectedOption??' ',
-          ),
-          SizedBox(
-            height: AppHeight.h30,
-          )
-        ],
-    
+        ),
+        const ChoiseAmount(),
+        SizedBox(
+          height: context.screenHeight * .2,
+        ),
+        RequesButton(
+          selectedOption: selectedOption ?? ' ',
+        ),
+        SizedBox(
+          height: AppHeight.h30,
+        )
+      ],
     );
   }
 }
-

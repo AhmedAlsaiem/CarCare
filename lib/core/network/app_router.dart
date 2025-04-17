@@ -17,6 +17,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/user_signup.d
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'package:splash_app/feature/paid_services/presentation/view/select_techinacl_view.dart';
 import 'package:splash_app/feature/paid_services/presentation/view/widgets/mecanical_view_body.dart';
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
@@ -136,29 +137,54 @@ class AppRouter {
         );
       case AppRoutes.tireCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const TireCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (context) => ServiceRequestManualCubit()),
+                  ],
+                  child: const TireCarView(),
+                ));
       case AppRoutes.fuelCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const FuelCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (context) => ServiceRequestManualCubit()),
+                  ],
+                  child: const FuelCarView(),
+                ));
       case AppRoutes.batteriesCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const BatteriesCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (context) => ServiceRequestManualCubit()),
+                  ],
+                  child: const BatteriesCarView(),
+                ));
       case AppRoutes.wichCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const WinchCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (context) => ServiceRequestManualCubit()),
+                  ],
+                  child: const WinchCarView(),
+                ));
       case AppRoutes.oilCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const OilCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                        create: (context) => ServiceRequestManualCubit()),
+                  ],
+                  child: const OilCarView(),
+                ));
       case AppRoutes.washingCarView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -172,7 +198,12 @@ class AppRouter {
       case AppRoutes.mechanicCarView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const MechnicalCarView(),
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ServiceRequestManualCubit()),
+            ],
+            child: const MechnicalCarView(),
+          ),
         );
       case AppRoutes.recomendation:
         return pageRouteBuilderMethod(
@@ -208,6 +239,7 @@ class AppRouter {
               MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => GetAllTechincalCubit()),
+              BlocProvider(create: (context) => ServiceRequestManualCubit()),
             ],
             child: const SelectTechinaclView(),
           ),
@@ -247,7 +279,6 @@ abstract class AppRoutes {
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
   static const String selectTechincalView = '/selectTechinicalView';
-
   static const String mapView = '/mapView';
   static const String userPofileView = '/userProfileView';
 }

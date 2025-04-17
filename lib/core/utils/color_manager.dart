@@ -39,3 +39,7 @@ abstract class ColorsManager {
   static const Color deepCerulean = Color(0xff0788A4);
   static const Color froridaOrange = Color(0xffFDC983);
 }
+//pinding
+//inprogress
+//cancled
+//complated
