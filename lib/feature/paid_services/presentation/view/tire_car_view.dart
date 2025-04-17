@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/custom_paid_service_app_bar.dart' show customPaidServiceAppBar;
 import 'package:splash_app/feature/paid_services/presentation/view/widgets/tair_view_body.dart';
 
 class TireCarView extends StatelessWidget {
@@ -10,21 +9,10 @@ class TireCarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: ColorsManager.mainColor,
-          title: Text(
-            StringsManager.tiresize,
-            style: StylesManager.textStyleBold24
-                .copyWith(color: ColorsManager.balck),
-          ),
-          iconTheme: const IconThemeData(
-              size: AppSize.s34, color: ColorsManager.balck),
-        ),
-        body: const TairCarBodyView(),
-      ),
+    return Scaffold(      backgroundColor: ColorsManager.white,
+
+      appBar:customPaidServiceAppBar(title: StringsManager.tiresize),
+      body: const TairCarBodyView(),
     );
   }
 }

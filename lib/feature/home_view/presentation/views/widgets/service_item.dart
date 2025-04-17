@@ -34,8 +34,8 @@ class ServiceItem extends StatelessWidget {
                 children: [
                   const SizedBox(height: 10),
                   Image.network(
-                    color: ColorsManager.darkgreen,
                     service.imageUrl,
+                    color: ColorsManager.darkgreen,
                     height: AppSize.s64,
                     width: AppSize.s64,
                     fit: BoxFit.fill,

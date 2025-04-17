@@ -21,7 +21,7 @@ class RequesButton extends StatelessWidget {
       onTap: () {
         if (selectedOption != ' ') {
           NavigatorManager.pushName(
-              context: context, route: AppRoutes.recomendation);
+              context: context, route: AppRoutes.selectTechincalView);
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -38,8 +38,7 @@ class RequesButton extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: Appwidth.w24),
-        //    padding: EdgeInsets.symmetric(horizontal: Appwidth.w50),
-        height: AppHeight.h50,
+        height: AppHeight.h60,
         width: context.screenWidth,
         decoration: BoxDecoration(
           shape: BoxShape.rectangle,
@@ -49,8 +48,7 @@ class RequesButton extends StatelessWidget {
         child: Center(
           child: Text(
             StringsManager.request,
-            style: StylesManager.textStyleBold24
-                .copyWith(color: ColorsManager.balck),
+            style: StylesManager.textStyleMedium20,
           ),
         ),
       ),

@@ -18,6 +18,7 @@ abstract class ColorsManager {
   static const Color darkGrey = Color.fromARGB(255, 92, 93, 94);
   static const Color lightGoold = Color.fromARGB(255, 114, 88, 30);
   static const Color meduimGrey = Color(0xff909090);
+  static const Color greenGrey= Color(0xffF2F2F2);
 
 //?
 

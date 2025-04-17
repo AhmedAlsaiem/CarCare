@@ -3,10 +3,12 @@ class EndPoint {
   static String baseUrl = "https://carcareapp.runasp.net/api/";
   //User and technical end points
   static String acount = "account/";
+  static String serviceRequest = "ServiceRequest/";
+
   static String login = "${acount}login";
   static String registerUser = "${acount}register/user";
   static String registerTechnical = "${acount}register/Technical";
-  static String getCurrentUser = "${acount}GetCurrentUser";
+  static String getCurrentUser = "${acount}GetCurrentUserByRole";
   static String getCurrentTechnical = "${acount}GetCurrentTechnical";
   static String changePassword = "${acount}Change-Password";
   static String getRefreshToken = "${acount}Get-Refresh-Token";
@@ -16,9 +18,14 @@ class EndPoint {
   static String resetPassword = "${acount}ResetPasswordEmail";
   static String confirmationCodeEmail = "${acount}ConfirmationCodeEmail";
   static String confirmEmail = "${acount}ConfirmEmail";
-  static String updateUser = "${acount}UpdateUser";
+  static String updateUser = "${acount}UpdateAppUser";
   static String updateTechical = "${acount}UpdateTech";
   static String getAllServices = "ServiceTypes/GetAll";
+  static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
+      "${serviceRequest}GetAvailableTechincals?";
+  static String getAllTechinicalOrderedByDistanceEndPoint =
+      "${serviceRequest}GetNearestTechincals?";
+
   //car end points
   static String car = "Vehicle/";
   static String dashBoard = "DashBoard/";
@@ -62,4 +69,6 @@ class ApiKey {
   static String vinNumber = "viN_Number";
   static String plateNumber = "plateNumber";
   static String userId = "userId";
+  static String distance = "distance";
+  static String nameOfService = "serviceName";
 }

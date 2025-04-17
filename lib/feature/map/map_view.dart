@@ -5,7 +5,6 @@ import 'package:latlong2/latlong.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
 import 'package:splash_app/feature/map/model/service_location.dart';
-import 'package:splash_app/feature/map/presentation/widgets/current_location.dart';
 import 'package:splash_app/feature/map/presentation/widgets/fetch_nearby_service.dart';
 import 'package:splash_app/feature/map/presentation/widgets/list_view.dart';
 import 'package:splash_app/feature/map/presentation/widgets/looding_indicator.dart';
@@ -30,7 +29,7 @@ class _MapViewState extends State<MapView> {
 
   final MapService _mapService = MapService();
   final FeatchService _featchService = FeatchService();
-  final CurrentLocation _locationService = CurrentLocation();
+  // final CurrentLocation _locationService = CurrentLocation();
   final RouteService _routeService = RouteService();
 
   @override
@@ -47,7 +46,7 @@ class _MapViewState extends State<MapView> {
     });
 
     try {
-      userLocation = await _locationService.getCurrentLocation();
+      // userLocation = await _locationService.getCurrentLocation();
 
       // userLocation = const LatLng(30.0444, 31.2357);
       if (userLocation == null) {
@@ -72,7 +71,7 @@ class _MapViewState extends State<MapView> {
       });
     }
   }
-  
+
   void _onLocationSelected(LatLng destination) async {
     setState(() {
       selectedRestaurantLocation = destination;

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/network/app_router.dart';

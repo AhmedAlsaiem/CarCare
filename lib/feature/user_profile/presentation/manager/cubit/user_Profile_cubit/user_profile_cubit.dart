@@ -34,7 +34,7 @@ class UserProfileCubit extends Cubit<UserProfileState> {
             emit(UserProfileFailedState(errorMassage: errorModel.errorMessage)),
         (userModel) {
       user = userModel;
-      return emit(UserProfileSucessState(user: userModel));
+      emit(UserProfileSucessState(user: userModel));
     });
   }
 

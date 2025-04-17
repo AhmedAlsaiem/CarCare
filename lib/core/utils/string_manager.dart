@@ -28,6 +28,7 @@ abstract class StringsManager {
   static const String done = 'Done';
   static const String inProgress = 'In Progress';
   static const String pending = 'pending';
+  static const String title = 'select';
 
   static const String orderStatus = 'Order Status';
   static const String rate = 'Rate';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/functions/change_theme.dart';
-import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
@@ -24,7 +23,7 @@ class CustomOrderItem extends StatelessWidget {
             Radius.circular(AppSize.s12),
           ),
         ),
-        height: context.screenHeight * 0.22,
+        height: 200,
         width: double.infinity,
         child: Column(
           children: [

@@ -47,9 +47,7 @@ class _FuelCarViewBodyState extends State<FuelCarViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //  appBar: AppBar(title: Text('Choose an Option')),
-      body: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
@@ -109,7 +107,7 @@ class _FuelCarViewBodyState extends State<FuelCarViewBody> {
             height: AppHeight.h30,
           )
         ],
-      ),
+      
     );
   }
 }
