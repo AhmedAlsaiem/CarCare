@@ -1,6 +1,8 @@
+
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:splash_app/technical/technical_home/domain/entity/order_entity.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/order_cubit/order_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/widget/filter_drop_down.dart';
 import 'package:splash_app/technical/technical_home/presentation/widget/order_list_in_all_orders.dart';
@@ -9,40 +11,119 @@ class AllOrdersViewBody extends StatefulWidget {
   const AllOrdersViewBody({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _AllOrdersViewBodyState createState() => _AllOrdersViewBodyState();
+  AllOrdersViewBodyState createState() => AllOrdersViewBodyState();
 }
 
-class _AllOrdersViewBodyState extends State<AllOrdersViewBody> {
+class AllOrdersViewBodyState extends State<AllOrdersViewBody> 
+    with AutomaticKeepAliveClientMixin {
+  // Filter state management
+  final _filterNotifier = ValueNotifier<String>("All");
+  final List<String> statusOptions = const [
+    "All",
+    "InProgress",
+    "Pending",
+    "Completed",
+    "Canceled",
+  ];
 
-  String _statusFilter = "All"; // Add this as a class variable
-List<String> statusOptions = ["All", "InProgress", "Pending", "Completed", "Canceled"];
+  // Widget keys and controllers
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey = 
+      GlobalKey<RefreshIndicatorState>();
+  Timer? _filterDebounce;
 
-List<OrderEntity> _applyFilter(List<OrderEntity> orders) {
-  // Filter by status
-  List<OrderEntity> filteredOrders = _statusFilter == "All"
-      ? List.from(orders)
-      : orders.where((order) => order.busnissStatus == _statusFilter).toList();
+  // BLoC instance
+  late final OrderCubit _cubit;
 
-  // Apply sorting
-  if (_statusFilter == "Distance") {
-    filteredOrders.sort((a, b) => a.distance.compareTo(b.distance));
-  } else if (_statusFilter == "Oldest") {
-    filteredOrders.sort((a, b) => a.createdOn.compareTo(b.createdOn));
-  }
-  
-  return filteredOrders;
-}
-  
+  // Memoized widgets
+  late final Widget _filterDropdown;
+  late final Widget _refreshIndicator;
+  late final Widget _filterCard;
 
   @override
+  bool get wantKeepAlive => true;
 
+  @override
   void initState() {
     super.initState();
-    BlocProvider.of<OrderCubit>(context).loadOrders();
+    _cubit = BlocProvider.of<OrderCubit>(context);
+    _initializeWidgets();
+    _cubit.loadOrders();
   }
-   @override
+
+  void _initializeWidgets() {
+    _filterDropdown = ValueListenableBuilder<String>(
+      valueListenable: _filterNotifier,
+      builder: (_, filter, __) {
+        return FilterDropdown(
+          selectedFilter: filter,
+          filterOptions: statusOptions,
+          onChanged: _handleFilterChange,
+        );
+      },
+    );
+
+    _refreshIndicator = RefreshIndicator(
+      color: ColorsManager.mainColor,
+      key: _refreshIndicatorKey,
+      onRefresh: _handleRefresh,
+      child: const OrderListInAllOrders(),
+    );
+
+    _filterCard = Card(
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      elevation: .5,
+      color: Colors.grey[50],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [_filterDropdown],
+      ),
+    );
+  }
+
+  void _handleFilterChange(String newValue) {
+    _filterNotifier.value = newValue;
+    _filterDebounce?.cancel();
+    _filterDebounce = Timer(const Duration(milliseconds: 300), () {
+      _loadOrdersBasedOnFilter(newValue);
+    });
+  }
+
+  Future<void> _loadOrdersBasedOnFilter([String? filter]) async {
+    final currentFilter = filter ?? _filterNotifier.value;
+    
+    switch (currentFilter) {
+      case "Completed":
+        await _cubit.getComplateOrder();
+        break;
+      case "Canceled":
+        await _cubit.getAllOrdersCancal();
+        break;
+      case "InProgress":
+        await _cubit.getOrderInProgress();
+        break;
+      case "Pending":
+        await _cubit.getAllrequestPinding();
+        break;
+      case "All":
+      default:
+        await _cubit.loadOrders();
+    }
+  }
+
+  Future<void> _handleRefresh() async {
+    await _loadOrdersBasedOnFilter();
+  }
+
+  @override
+  void dispose() {
+    _filterDebounce?.cancel();
+    _filterNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SafeArea(
       child: Column(
         children: [
@@ -50,33 +131,14 @@ List<OrderEntity> _applyFilter(List<OrderEntity> orders) {
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: SizedBox(
               height: 70,
-              child: Card(
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                elevation: .5,
-                color: Colors.grey[50],
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    FilterDropdown(
-                      selectedFilter: _statusFilter,
-                      filterOptions: statusOptions,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _statusFilter = newValue;
-                        });
-                      },
-                    ),
-     
-                  ],
-                ),
-              ),
+              child: _filterCard,
             ),
           ),
-         
-         Expanded(child: OrderListInAllOrders(applyFilter: _applyFilter)),
+          Expanded(
+            child: _refreshIndicator,
+          ),
         ],
       ),
     );
   }
 }
-

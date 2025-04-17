@@ -1,7 +1,7 @@
-// ignore_for_file: avoid_print
 
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/end_point.dart';
+import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/core/error/exception.dart';
 import 'package:splash_app/technical/technical_home/data/model/order_model.dart';
 import 'package:splash_app/technical/technical_home/data/model/tecnical_state_model.dart';
@@ -9,150 +9,100 @@ import 'package:splash_app/technical/technical_home/data/model/tecnical_state_mo
 abstract class BaseOrderRemoteDataSource {
   Future<List<OrderModel>> getAllPendingRequestsToTechnical();
   Future<List<OrderModel>> getAllOrders();
-  Future<List<OrderModel>> getComplateOrder();
-
+  Future<List<OrderModel>> getAllOrdersCancal();
+  Future<List<OrderModel>> getAllOrdersComplate();
+  Future<List<OrderModel>> getOrderInProgress();
 
   Future<TecnicalStateModel> setTecnicalActiveState();
   Future<TecnicalStateModel> setTecnicalInctiveState();
-  Future<TecnicalStateModel> accpetOrderState({required int id});
+  Future<TecnicalStateModel> acceptOrderState({required int id});
   Future<TecnicalStateModel> cancelOrderState({required int id});
-  Future<TecnicalStateModel> complateOrderState({required int id});
-
+  Future<TecnicalStateModel> completeOrderState({required int id});
 }
 
-class OderRemoteDataSourse extends BaseOrderRemoteDataSource {
-  ApiConsumer api;
-  OderRemoteDataSourse(this.api);
+class OrderRemoteDataSource implements BaseOrderRemoteDataSource {
+  final ApiConsumer _apiConsumer;
+  static const _defaultErrorMessage = 'Failed to process request';
 
-  @override
-  Future<List<OrderModel>> getAllPendingRequestsToTechnical() async {
-    List<OrderModel> orderModelList;
+  OrderRemoteDataSource(this._apiConsumer);
+
+  Future<List<OrderModel>> _fetchOrderList(String endpoint) async {
     try {
-      dynamic response =
-          await api.get(EndPoint.getAllPendingRequestsToTechnical);
+      final response = await _apiConsumer.get(endpoint);
 
-      if (response is List) {
-        orderModelList =
-            response.map((json) => OrderModel.fromJson(json)).toList();
-      } else {
-        throw ServerException(errModel: response);
+      if (response is! List) {
+        throw ServerException(
+            errModel: ErrorModel(
+          errorMessage: 'Invalid response format',
+          statusCode: 400
+        ));
       }
 
-      return orderModelList;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
+      return response
+          .map<OrderModel>((json) => OrderModel.fromJson(json))
+          .toList();
+    } on ServerException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(
+          errModel:
+              ErrorModel(errorMessage: _defaultErrorMessage, statusCode: 400));
     }
   }
-  @override
-  Future<List<OrderModel>> getAllOrders() async {
-    List<OrderModel> orderModelList;
+
+  Future<TecnicalStateModel> _processStateChange(
+    String endpoint, {
+    Map<String, dynamic>? data,
+  }) async {
     try {
-      dynamic response =
-          await api.get(EndPoint.getAllOrders );
-
-      if (response is List) {
-        orderModelList =
-            response.map((json) => OrderModel.fromJson(json)).toList();
-      } else {
-        throw ServerException(errModel: response);
-      }
-
-      return orderModelList;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
-    }
-  }
-  @override
-  Future<List<OrderModel>> getComplateOrder() async {
-    List<OrderModel> orderModelList;
-    try {
-      dynamic response =
-          await api.get(EndPoint.getcomplateOrder);
-
-      if (response is List) {
-        orderModelList =
-            response.map((json) => OrderModel.fromJson(json)).toList();
-      } else {
-        throw ServerException(errModel: response);
-      }
-
-      return orderModelList;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
+      final response = await _apiConsumer.put(endpoint, data: data);
+      return TecnicalStateModel.fromJson(response);
+    } on ServerException {
+      rethrow;
+    } catch (e) {
+      throw ServerException(
+          errModel:
+              ErrorModel(errorMessage: _defaultErrorMessage, statusCode: 400));
     }
   }
 
   @override
-  Future<TecnicalStateModel> setTecnicalActiveState() async {
-    TecnicalStateModel tecnicalStateModel;
-    try {
-      dynamic response = await api.put(EndPoint.techincalBeActive);
-      tecnicalStateModel = TecnicalStateModel.fromJson(response);
-      //  customShowSnackBar(context, (response.toString()));
-      print(response.toString());
-
-      return tecnicalStateModel;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
-    }
-  }
+  Future<List<OrderModel>> getAllPendingRequestsToTechnical() =>
+      _fetchOrderList(EndPoint.getAllPendingRequestsToTechnical);
 
   @override
-  Future<TecnicalStateModel> setTecnicalInctiveState() async {
-    TecnicalStateModel tecnicalStateModel;
-    try {
-      dynamic response = await api.put(EndPoint.techincalBeInActive);
-      tecnicalStateModel = TecnicalStateModel.fromJson(response);
-      print(response.toString());
-      //  customShowSnackBar(context, (response.toString()));
-
-      return tecnicalStateModel;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
-    }
-  }
+  Future<List<OrderModel>> getAllOrders() =>
+      _fetchOrderList(EndPoint.getAllOrders);
 
   @override
-  Future<TecnicalStateModel> accpetOrderState({required int id}) async {
-    TecnicalStateModel tecnicalStateModel;
-    try {
-      dynamic response = await api.put(EndPoint.acceptRequest+id.toString());
-      tecnicalStateModel = TecnicalStateModel.fromJson(response);
-      print(response.toString());
-      //  customShowSnackBar(context, (response.toString()));
-
-      return tecnicalStateModel;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
-    }
-  }
+  Future<List<OrderModel>> getAllOrdersCancal() =>
+      _fetchOrderList(EndPoint.getAllOrdersCancal);
 
   @override
-  Future<TecnicalStateModel> cancelOrderState({required int id}) async {
-    TecnicalStateModel tecnicalStateModel;
-    try {
-      dynamic response = await api.put(EndPoint.rejectRequest+id.toString());
-      tecnicalStateModel = TecnicalStateModel.fromJson(response);
-      print(response.toString());
-      //  customShowSnackBar(context, (response.toString()));
+  Future<List<OrderModel>> getAllOrdersComplate() =>
+      _fetchOrderList(EndPoint.getAllOrdersComplate);
 
-      return tecnicalStateModel;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
-    }
-  }
   @override
-  Future<TecnicalStateModel> complateOrderState({required int id}) async {
-    TecnicalStateModel tecnicalStateModel;
-    try {
-      dynamic response = await api.put(EndPoint.completeRequest+id.toString());
-      tecnicalStateModel = TecnicalStateModel.fromJson(response);
-      print(response.toString());
-      //  customShowSnackBar(context, (response.toString()));
+  Future<List<OrderModel>> getOrderInProgress() =>
+      _fetchOrderList(EndPoint.getAllOrdersInprojrass);
 
-      return tecnicalStateModel;
-    } on ServerException catch (e) {
-      throw ServerException(errModel: e.errModel);
-    }
-  }
+  @override
+  Future<TecnicalStateModel> setTecnicalActiveState() =>
+      _processStateChange(EndPoint.techincalBeActive);
+
+  @override
+  Future<TecnicalStateModel> setTecnicalInctiveState() =>
+      _processStateChange(EndPoint.techincalBeInActive);
+
+  @override
+  Future<TecnicalStateModel> acceptOrderState({required int id}) =>
+      _processStateChange('${EndPoint.acceptRequest}$id');
+
+  @override
+  Future<TecnicalStateModel> cancelOrderState({required int id}) =>
+      _processStateChange('${EndPoint.rejectRequest}$id');
+
+  @override
+  Future<TecnicalStateModel> completeOrderState({required int id}) =>
+      _processStateChange('${EndPoint.completeRequest}$id');
 }

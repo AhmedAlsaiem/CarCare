@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
 import 'package:splash_app/technical/technical_home/domain/entity/order_entity.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/order_cubit/order_cubit.dart';
@@ -27,7 +28,7 @@ class TechnicalHomeViewBodyState extends State<TechnicalHomeViewBody> {
     super.initState();
     // _loadSwitchState();
     switchValue = CacheHelper().getDatabool(key: ApiKey.teccniclSwitch) ?? true;
-       BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
+    BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
   }
 
   void setSwitchValue(bool value) {
@@ -96,7 +97,18 @@ class TechnicalHomeViewBodyState extends State<TechnicalHomeViewBody> {
               ),
             ),
           ),
-          Expanded(child: OrderList(applyFilter: _applyFilter)),
+          Expanded(
+            child: RefreshIndicator(
+              color: ColorsManager.mainColor,
+              onRefresh: () async {
+                await BlocProvider.of<OrderCubit>(context)
+                    .getAllrequestPinding();
+              },
+              child: OrderList(applyFilter: _applyFilter),
+            ),
+          ),
+
+          //Expanded(child: OrderList(applyFilter: _applyFilter)),
         ],
       ),
     );

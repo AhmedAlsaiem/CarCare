@@ -7,15 +7,35 @@ import 'package:splash_app/technical/technical_home/presentation/manger/order_cu
 import 'package:splash_app/technical/technical_home/presentation/widget/order.dart';
 import 'package:splash_app/technical/technical_home/presentation/widget/shamer_loading.dart';
 
-class OrderList extends StatelessWidget {
+class OrderList extends StatefulWidget {
   final List<OrderEntity> Function(List<OrderEntity>) applyFilter;
 
   const OrderList({super.key, required this.applyFilter});
 
   @override
+  State<OrderList> createState() => _OrderListState();
+}
+
+class _OrderListState extends State<OrderList> {
+  bool _mounted = true;
+
+  @override
+  void dispose() {
+    _mounted = false;
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener<OrderCubit, OrderState>(
+      listenWhen: (previous, current) {
+    // Only show error if it's new and not loading
+    return current is FaliureOrderState && 
+           previous is! FaliureOrderState &&
+           previous is! IsLoadingOrderState;
+  },
       listener: (context, state) {
+         if (!_mounted) return;
         if (state is FaliureOrderState) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             customShowSnackBar(context, state.errorMessage);
@@ -27,7 +47,7 @@ class OrderList extends StatelessWidget {
           if (state is IsLoadingOrderState) {
             return const ShimmerLoading();
           } else if (state is SuccessOrderState) {
-            List<OrderEntity> orders = applyFilter( state.orders);
+            List<OrderEntity> orders = widget.applyFilter( state.orders);
 
             if (orders.isEmpty) {
               return const Center(child: Text('No orders available.'));

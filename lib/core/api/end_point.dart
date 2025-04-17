@@ -38,6 +38,10 @@ class EndPoint {
   static String serviceReuest = "ServiceRequest/";
   static String getAllPendingRequestsToTechnical = "${serviceReuest}GetAllPendingRequestsToTechnical";
    static String getAllOrders = "${serviceReuest}GetAllRequestsToTechnical";
+   static String getAllOrdersComplate = "${serviceReuest}GetAllRequestsToTechnical?status=3";
+   static String getAllOrdersCancal = "${serviceReuest}GetAllRequestsToTechnical?status=4";
+   static String getAllOrdersInprojrass = "${serviceReuest}GetAllRequestsToTechnical?status=2";
+   static String getAllOrdersPending = "${serviceReuest}GetAllRequestsToTechnical?status=1";
   static String techincalBeActive = "${serviceReuest}TechincalBeActive";
   static String techincalBeInActive = "${serviceReuest}TechincalBeInActive";
   static String acceptRequest = "${serviceReuest}AcceptRequest/";

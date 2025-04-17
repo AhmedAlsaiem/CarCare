@@ -9,7 +9,10 @@ import 'package:splash_app/technical/technical_home/presentation/manger/order_cu
 import 'package:splash_app/technical/technical_home/presentation/widget/order_details_in_all_orders.dart';
 
 class OrdersInAllOrders extends StatefulWidget {
-  const OrdersInAllOrders({super.key, required this.orders});
+  const OrdersInAllOrders({
+    super.key,
+    required this.orders,
+  });
 
   final List<OrderEntity> orders;
 
@@ -53,6 +56,7 @@ class _OrdersInAllOrdersState extends State<OrdersInAllOrders> {
         }
 
         return ListView.builder(
+          physics: const AlwaysScrollableScrollPhysics(),
           controller: _scrollController,
           itemCount: orders.length + (isLoadingMore ? 1 : 0),
           itemBuilder: (context, index) {

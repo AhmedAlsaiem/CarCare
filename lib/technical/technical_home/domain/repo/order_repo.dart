@@ -8,6 +8,8 @@ abstract class OrderRepo {
   Future<Either<ErrorModel,List<OrderEntity> >> getAllRequestPanding();
   Future<Either<ErrorModel,List<OrderEntity> >> getAllOrders();
   Future<Either<ErrorModel,List<OrderEntity> >> getComplateOrder();
+  Future<Either<ErrorModel,List<OrderEntity> >> getAllOrdersCancal();
+  Future<Either<ErrorModel,List<OrderEntity> >> getOrderInProgress();
 
 
   Future<Either<ErrorModel,TecnicalStateEntity >> setTechnicalActive();

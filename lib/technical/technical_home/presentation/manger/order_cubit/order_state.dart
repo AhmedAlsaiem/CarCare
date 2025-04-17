@@ -6,19 +6,18 @@ class OrderState {
   OrderState({this.isLoadingMore = false});
 }
 
-
 class IsLoadingOrderState extends OrderState {
- bool isfirstLoad;
+  bool isfirstLoad;
   IsLoadingOrderState({this.isfirstLoad = false});
 }
 
 class SuccessOrderState extends OrderState {
   final List<OrderEntity> orders; // Store list of orders
   final String? successMessage;
-  
 
-  SuccessOrderState(this.orders, {this.successMessage, bool isLoadingMore = false}) 
-    : super(isLoadingMore: isLoadingMore);
+  SuccessOrderState(this.orders,
+      {this.successMessage, bool isLoadingMore = false})
+      : super(isLoadingMore: isLoadingMore);
 }
 
 class FaliureOrderState extends OrderState {

@@ -5,11 +5,12 @@ import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/tecnical_state/tecniacl_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/widget/accept_or_cancal_button.dart';
 
-class OrederDetailsInComplateOrder extends StatelessWidget {
-  const OrederDetailsInComplateOrder({
+class OrederDetailsInInprogressOrder extends StatelessWidget {
+  const OrederDetailsInInprogressOrder({
     required this.name,
     required this.distance,
     required this.date,
@@ -102,6 +103,7 @@ class OrederDetailsInComplateOrder extends StatelessWidget {
                 onpressed: () {
                   BlocProvider.of<TecniaclCubit>(context)
                       .complateOrder(orderId: id, context: context);
+                  customShowSnackBar(context, 'complate Success');
                 },
               ),
             ],

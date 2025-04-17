@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/core/error/exception.dart';
@@ -8,119 +9,89 @@ import 'package:splash_app/technical/technical_home/domain/entity/order_entity.d
 import 'package:splash_app/technical/technical_home/domain/entity/tecnical_state.dart';
 import 'package:splash_app/technical/technical_home/domain/repo/order_repo.dart';
 
-class OrderRepoImplemntation extends OrderRepo {
-  BaseOrderRemoteDataSource baseOrderRemoteDataSource;
-  OrderRepoImplemntation({required this.baseOrderRemoteDataSource});
+class OrderRepoImplementation implements OrderRepo {
+  final BaseOrderRemoteDataSource _remoteDataSource;
+  static const _defaultErrorMessage = 'An unexpected error occurred';
 
-  @override
-  Future<Either<ErrorModel, List<OrderEntity>>> getAllRequestPanding() async {
+  OrderRepoImplementation({required BaseOrderRemoteDataSource remoteDataSource})
+      : _remoteDataSource = remoteDataSource;
+
+  Future<Either<ErrorModel, List<OrderEntity>>> _fetchOrderList(
+    Future<List<OrderModel>> Function() fetchFunction,
+  ) async {
     try {
-      List<OrderModel> orderModel =
-          await baseOrderRemoteDataSource.getAllPendingRequestsToTechnical();
-
-      return right(orderModel);
+      final orders = await fetchFunction();
+      return right(orders);
     } on ServerException catch (e) {
+      return left(_mapExceptionToError(e));
+    } catch (e) {
       return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
+        statusCode: 500,
+        errorMessage: _defaultErrorMessage,
+      ));
     }
   }
-  @override
-  Future<Either<ErrorModel, List<OrderEntity>>> getAllOrders() async {
+
+  Future<Either<ErrorModel, TecnicalStateEntity>> _processStateChange(
+    Future<TecnicalStateModel> Function() changeFunction,
+  ) async {
     try {
-      List<OrderModel> orderModel =
-          await baseOrderRemoteDataSource.getAllOrders();
-
-      return right(orderModel);
+      final state = await changeFunction();
+      return right(state);
     } on ServerException catch (e) {
+      return left(_mapExceptionToError(e));
+    } catch (e) {
       return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
+        statusCode: 500,
+        errorMessage: _defaultErrorMessage,
+      ));
     }
   }
-  @override
-  Future<Either<ErrorModel, List<OrderEntity>>> getComplateOrder() async {
-    try {
-      List<OrderModel> orderModel =
-          await baseOrderRemoteDataSource.getComplateOrder();
 
-      return right(orderModel);
-    } on ServerException catch (e) {
-      return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
-    }
+  ErrorModel _mapExceptionToError(ServerException exception) {
+    return ErrorModel(
+      statusCode: exception.errModel.statusCode,
+      errorMessage: exception.errModel.errorMessage,
+    );
   }
 
   @override
-  Future<Either<ErrorModel, TecnicalStateEntity>> setTechnicalActive() async {
-    try {
-      TecnicalStateModel tecnicalStateModel =
-          await baseOrderRemoteDataSource.setTecnicalActiveState();
+  Future<Either<ErrorModel, List<OrderEntity>>> getAllRequestPanding() =>
+      _fetchOrderList(_remoteDataSource.getAllPendingRequestsToTechnical);
 
-      return right(tecnicalStateModel);
-    } on ServerException catch (e) {
-      return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
-    }
-  }
   @override
-  Future<Either<ErrorModel, TecnicalStateEntity>> setTechnicalInctive() async {
-    try {
-      TecnicalStateModel tecnicalStateModel =
-          await baseOrderRemoteDataSource.setTecnicalInctiveState();
+  Future<Either<ErrorModel, List<OrderEntity>>> getAllOrders() =>
+      _fetchOrderList(_remoteDataSource.getAllOrders);
 
-      return right(tecnicalStateModel);
-    } on ServerException catch (e) {
-      return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
-    }
-  }
-  
   @override
-  Future<Either<ErrorModel, TecnicalStateEntity>> acceptOrder({required int id}) async{
-   try {
-      TecnicalStateModel tecnicalStateModel =
-          await baseOrderRemoteDataSource.accpetOrderState(id: id);
+  Future<Either<ErrorModel, List<OrderEntity>>> getComplateOrder() =>
+      _fetchOrderList(_remoteDataSource.getAllOrdersComplate);
 
-      return right(tecnicalStateModel);
-    } on ServerException catch (e) {
-      return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
-    }
-  }
-  
   @override
-  Future<Either<ErrorModel, TecnicalStateEntity>> cancelOrder(
-      {required int id}
-  ) async{
-      try {
-      TecnicalStateModel tecnicalStateModel =
-          await baseOrderRemoteDataSource.cancelOrderState(id: id);
+  Future<Either<ErrorModel, List<OrderEntity>>> getOrderInProgress() =>
+      _fetchOrderList(_remoteDataSource.getOrderInProgress);
 
-      return right(tecnicalStateModel);
-    } on ServerException catch (e) {
-      return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
-    }
-  }
   @override
-  Future<Either<ErrorModel, TecnicalStateEntity>> complateOrder(
-      {required int id}
-  ) async{
-      try {
-      TecnicalStateModel tecnicalStateModel =
-          await baseOrderRemoteDataSource.complateOrderState(id: id);
+  Future<Either<ErrorModel, List<OrderEntity>>> getAllOrdersCancal() =>
+      _fetchOrderList(_remoteDataSource.getAllOrdersCancal);
 
-      return right(tecnicalStateModel);
-    } on ServerException catch (e) {
-      return left(ErrorModel(
-          statusCode: e.errModel.statusCode,
-          errorMessage: e.errModel.errorMessage));
-    }
-  }
+  @override
+  Future<Either<ErrorModel, TecnicalStateEntity>> setTechnicalActive() =>
+      _processStateChange(_remoteDataSource.setTecnicalActiveState);
+
+  @override
+  Future<Either<ErrorModel, TecnicalStateEntity>> setTechnicalInctive() =>
+      _processStateChange(_remoteDataSource.setTecnicalInctiveState);
+
+  @override
+  Future<Either<ErrorModel, TecnicalStateEntity>> acceptOrder({required int id}) =>
+      _processStateChange(() => _remoteDataSource.acceptOrderState(id: id));
+
+  @override
+  Future<Either<ErrorModel, TecnicalStateEntity>> cancelOrder({required int id}) =>
+      _processStateChange(() => _remoteDataSource.cancelOrderState(id: id));
+
+  @override
+  Future<Either<ErrorModel, TecnicalStateEntity>> complateOrder({required int id}) =>
+      _processStateChange(() => _remoteDataSource.completeOrderState(id: id));
 }

@@ -199,7 +199,7 @@ class AppRouter {
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'parking',
+            nameOfServce: 'Car Wash',
           ),
         );
 

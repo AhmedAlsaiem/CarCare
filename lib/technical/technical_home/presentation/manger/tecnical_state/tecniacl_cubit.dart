@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +33,7 @@ class TecniaclCubit extends Cubit<TecnicalState> {
     });
   }
 
-void setTecnicalInActive() async {
+  void setTecnicalInActive() async {
     OrderRepo orderRepo = triggerRepoOrder();
     emit(IsLoadingTecnicalState());
 
@@ -48,29 +47,33 @@ void setTecnicalInActive() async {
         },
       );
     });
-
   }
-void acceptOrder({required int orderId, required BuildContext context, required VoidCallback onOrderAccepted}) async {
 
+  void acceptOrder(
+      {required int orderId,
+      required BuildContext context,
+      required VoidCallback onOrderAccepted}) async {
     OrderRepo orderRepo = triggerRepoOrder();
     emit(IsLoadingTecnicalState());
 
-    await AcceptOrderUseCase(orderRepo).excute(id:orderId ).then((result) {
+    await AcceptOrderUseCase(orderRepo).excute(id: orderId).then((result) {
       result.fold(
         (errorModel) {
           emit(FaliureTecnicalState(errorMessage: errorModel.errorMessage));
         },
         (tecnicalmodel) {
           emit(SuccessTecnicalState(tecnicalmodel, successMessage: 'Success'));
-            BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
-             onOrderAccepted(); 
+          BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
+          onOrderAccepted();
         },
       );
     });
-
   }
-void cancalOrder({required int orderId, required BuildContext context, required VoidCallback onOrderCancled}) async {
 
+  void cancalOrder(
+      {required int orderId,
+      required BuildContext context,
+      required VoidCallback onOrderCancled}) async {
     OrderRepo orderRepo = triggerRepoOrder();
     emit(IsLoadingTecnicalState());
 
@@ -81,16 +84,15 @@ void cancalOrder({required int orderId, required BuildContext context, required 
         },
         (tecnicalmodel) {
           emit(SuccessTecnicalState(tecnicalmodel, successMessage: 'Success'));
-           BlocProvider.of<OrderCubit>(context).getAllrequestPinding(); 
-           onOrderCancled();
-
+          BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
+          onOrderCancled();
         },
       );
     });
-
   }
-void complateOrder({required int orderId, required BuildContext context}) async {
 
+  void complateOrder(
+      {required int orderId, required BuildContext context}) async {
     OrderRepo orderRepo = triggerRepoOrder();
     emit(IsLoadingTecnicalState());
 
@@ -101,20 +103,18 @@ void complateOrder({required int orderId, required BuildContext context}) async 
         },
         (tecnicalmodel) {
           emit(SuccessTecnicalState(tecnicalmodel, successMessage: 'Success'));
-           BlocProvider.of<OrderCubit>(context).getComplateOrder(); 
+          BlocProvider.of<OrderCubit>(context).getOrderInProgress();
         },
       );
     });
-
   }
-
 
   OrderRepo triggerRepoOrder() {
     ApiConsumer api = DioConsumer(dio: Dio());
-    OderRemoteDataSourse oderRemoteDataSourse = OderRemoteDataSourse(api);
+    OrderRemoteDataSource oderRemoteDataSourse = OrderRemoteDataSource(api);
 
     OrderRepo orderRepo =
-        OrderRepoImplemntation(baseOrderRemoteDataSource: oderRemoteDataSourse);
+        OrderRepoImplementation(remoteDataSource: oderRemoteDataSourse);
 
     return orderRepo;
   }
