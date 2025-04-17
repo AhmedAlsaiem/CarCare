@@ -28,7 +28,6 @@ class CustomtechincalItem extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: context.screenWidth * 0.12,
-                // backgroundColor: ColorsManager.white,
                 backgroundImage: const AssetImage(
                   AssetsManager.userBatteries,
                 ),
@@ -86,7 +85,7 @@ class CustomtechincalItem extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'Select',
-                  style: StylesManager.textStyleRegular10.copyWith(
+                  style: StylesManager.textStyleRegular14.copyWith(
                     color: ColorsManager.white,
                   ),
                 ),
@@ -97,4 +96,22 @@ class CustomtechincalItem extends StatelessWidget {
       ),
     );
   }
-}
+}/*
+
+service id true
+service price ture
+techinical id true
+type of winch ture
+user latitude true
+user langtude true
+
+
+
+
+
+
+
+
+
+
+*/ 

@@ -21,10 +21,6 @@ class EndPoint {
   static String updateUser = "${acount}UpdateAppUser";
   static String updateTechical = "${acount}UpdateTech";
   static String getAllServices = "ServiceTypes/GetAll";
-  static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
-      "${serviceRequest}GetAvailableTechincals?";
-  static String getAllTechinicalOrderedByDistanceEndPoint =
-      "${serviceRequest}GetNearestTechincals?";
 
   //car end points
   static String car = "Vehicle/";
@@ -34,6 +30,23 @@ class EndPoint {
   static String getCarById = "${dashBoard}Get-Vehicle/";
   static String getAllCarsForSpecificUser =
       "${car}Get-All-Vehicle-For-SpecificUser";
+
+//service request end points
+  static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
+      "${serviceRequest}GetAvailableTechincals?";
+  static String getAllTechinicalOrderedByDistanceEndPoint =
+      "${serviceRequest}GetNearestTechincals?";
+  static String createRequestManually =
+      "${serviceRequest}CreateRequestManually";
+  static String createRequestAutomatic =
+      "${serviceRequest}CreateRequestAutomatic";
+  static String getRequest = "${serviceRequest}GetRequest/";
+  static String getAllRequestesForUser = "${serviceRequest}GetAllRequests";
+  static String updateTechinicalInRequest =
+      "${serviceRequest}Update-Technical-in-Request?";
+  static String deleteOrCancleForUser =
+      "${serviceRequest}DeleteRequestForUser/";
+  static String cheeckStatus = "${serviceRequest}CheckStatus/";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
@@ -71,4 +84,25 @@ class ApiKey {
   static String userId = "userId";
   static String distance = "distance";
   static String nameOfService = "serviceName";
+  //service request api key
+  static String serviceTypeId = "serviceTypeId";
+  static String techId = "techId";
+  static String typeOfWinch = "typeOfWinch";
+  static String userLatitude = "userLatitude";
+  static String userLongitude = "userLongitude";
+  static String servicePrice = "servicePrice";
+  static String techName = "techName";
+  static String techJop = "techJop";
+  static String bettaryType = "bettaryType";
+  static String typeOfFuel = "typeOfFuel";
+  static String typeOfOil = "typeOfOil";
+  static String tireSize = "tireSize";
+  static String serviceQuantity = "serviceQuantity";
+  static String userName = "userName";
+  static String busnissStatus = "busnissStatus";
+  static String paymentStatus = "paymentStatus";
+  static String createdBy = "createdBy";
+  static String createdOn = "createdOn";
+  static String paymentIntentId = "paymentIntentId";
+  static String clientSecret = "clientSecret";
 }
