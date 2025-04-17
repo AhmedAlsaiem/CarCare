@@ -19,33 +19,33 @@ class ServiceRequestEntity extends Equatable {
   final String busnissStatus;
   final String paymentsSatus;
   final String createdOn;
-  final String createdBt;
+  final String createdBy;
   final String paymentIntentId;
   final String clientSecret;
 
-  const ServiceRequestEntity(
-    this.id,
-    this.techId,
-    this.techJop,
-    this.distance,
-    this.serviceTypeId,
-    this.bettaryYpe,
-    this.typeOfFuel,
-    this.typeOfOil,
-    this.tireSize,
-    this.typeOfWinch,
-    this.serviceQuantity,
-    this.servicePrice,
-    this.userId,
-    this.userLatitude,
-    this.userLongitiude,
-    this.busnissStatus,
-    this.paymentsSatus,
-    this.createdOn,
-    this.createdBt,
-    this.paymentIntentId,
-    this.clientSecret,
-  );
+  const ServiceRequestEntity({
+    required this.id,
+    required this.techId,
+    required this.techJop,
+    required this.distance,
+    required this.serviceTypeId,
+    required this.bettaryYpe,
+    required this.typeOfFuel,
+    required this.typeOfOil,
+    required this.tireSize,
+    required this.typeOfWinch,
+    required this.serviceQuantity,
+    required this.servicePrice,
+    required this.userId,
+    required this.userLatitude,
+    required this.userLongitiude,
+    required this.busnissStatus,
+    required this.paymentsSatus,
+    required this.createdOn,
+    required this.createdBy,
+    required this.paymentIntentId,
+    required this.clientSecret,
+  });
 
   @override
   List<Object?> get props => [
@@ -67,7 +67,7 @@ class ServiceRequestEntity extends Equatable {
         busnissStatus,
         paymentsSatus,
         createdOn,
-        createdBt,
+        createdBy,
         paymentIntentId,
         clientSecret,
       ];
