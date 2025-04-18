@@ -159,4 +159,9 @@ abstract class StylesManager {
     fontSize: FontSize.s32,
     color: ColorsManager.white,
   );
+  static TextStyle textStylewmedium20maincolor = TextStyle(
+    fontWeight: AppFontWieght.medium,
+    fontSize: FontSize.s20,
+    color: ColorsManager.mainColor,
+  );
 }

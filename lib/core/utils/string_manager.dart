@@ -25,6 +25,8 @@ abstract class StringsManager {
   static const String myCar = 'Cars';
   static const String myOrder = 'Orders';
   static const String done = 'Done';
+  static const String accepted = 'Accepted';
+  static const String yourOrders = 'Your Orders';
   static const String inProgress = 'In Progress';
   static const String pending = 'pending';
 

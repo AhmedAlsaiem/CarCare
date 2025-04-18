@@ -11,6 +11,9 @@ import 'package:shared_preferences/shared_preferences.dart';
   String? getDataString({required String key}) {
     return sharedPreferences.getString(key);
   }
+  bool? getDatabool({required String key}) {
+    return sharedPreferences.getBool(key);
+  }
 
 //! this method to put data in local database using key
 

@@ -1,9 +1,11 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
+import 'package:splash_app/feature/map/map_view.dart';
 
 class ParkingCarView extends StatelessWidget {
   const ParkingCarView({super.key});
@@ -23,7 +25,7 @@ class ParkingCarView extends StatelessWidget {
           iconTheme: const IconThemeData(
               size: AppSize.s34, color: ColorsManager.balck),
         ),
-        body:const  RecomndationView(),
+        body:const MapView(nameOfServce: 'Parking'),
       ),
     );
   }

@@ -21,6 +21,7 @@ abstract class AssetsManager {
   static const String userFuel = 'assets/images/user_fuel.png';
   static const String userWinch = 'assets/images/user_winch.png';
   static const String userBatteries = 'assets/images/batter_profile.png';
+  static const String accept2 = 'assets/images/accep2.svg';
 
   ///atic const String mechanic = 'assets/images/777png';
 
@@ -42,6 +43,11 @@ abstract class AssetsManager {
   static const String rateIcon = 'assets/icon/rate_icon.svg';
   static const String logoutIcon = 'assets/icon/logout.svg';
   static const String profile = 'assets/icon/profile.svg';
+  static const String accepted = 'assets/images/accepted.svg';
+  static const String accept = 'assets/images/accept.svg';
+  static const String sttting1 = 'assets/images/setting1.svg';
+  static const String message = 'assets/images/message1.svg';
+
 //! Assets Icons
   // static const String deleteIcon = '';
 }
