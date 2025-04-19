@@ -38,10 +38,10 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
             selectedValue = newValue!;
             if (newValue == 'Distance') {
               BlocProvider.of<GetAllTechincalCubit>(context)
-                  .getAlltechinicalOrderedByDistance(serviceId: 5);
+                  .getAlltechinicalOrderedByDistance();
             } else {
               BlocProvider.of<GetAllTechincalCubit>(context)
-                  .getAlltechinicalOrderedByDistanceAndRate(serviceId: 5);
+                  .getAlltechinicalOrderedByDistanceAndRate();
             }
           });
         },

@@ -1,41 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
-import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
 
+import '../../manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'choise_amount.dart';
+import 'custom_radio_list_tile_list_view_builder.dart';
 import 'request_button.dart';
 
-class OilCarViewBody extends StatefulWidget {
-  const OilCarViewBody({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _OilCarViewBodyState createState() => _OilCarViewBodyState();
-}
-
-class _OilCarViewBodyState extends State<OilCarViewBody> {
-  String? selectedOption;
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<ServiceRequestManualCubit>(context).createRequestForOil(
-        serviceTypeId: 5,
-        techId: "25f5bfc2-a1f8-482f-bc15-3a5df77584c7",
-        typeOfOil: 'EngineOil',
-        userLatitude: 42.32,
-        userLongitude: 323.25,
-        servicePrice: 199);
-    print('Ahmed ');
-  }
+class OilCarViewBody extends StatelessWidget {
+  OilCarViewBody({super.key});
 
   final List<Map<String, String>> options = [
     {
-      'title': ' Engine Oil',
+      'title': 'Engine Oil',
       'description': '  The primary type of oil used in cars.',
       'price': '1000'
     },
@@ -68,50 +51,26 @@ class _OilCarViewBodyState extends State<OilCarViewBody> {
           padding: EdgeInsets.only(
               right: Appwidth.w20, top: AppHeight.h12, left: Appwidth.w12),
           child: Text(
-            // padd: EdgeInsets.all(20),
-            StringsManager.chooseheoiltype,
+            StringsManager.choosehewinchtype,
             style: StylesManager.textStyleBold20black,
           ),
         ),
-        Expanded(
-          child: ListView(
-            children: options.map((option) {
-              return RadioListTile<String>(
-                activeColor: ColorsManager.mainColor,
-                title: Text(
-                  option['title']!,
-                  style: TextStyle(
-                    color: selectedOption == option['title']
-                        ? ColorsManager.mainColor
-                        : ColorsManager.balck,
-                    fontWeight: selectedOption == option['title']
-                        ? FontWeight.bold
-                        : FontWeight.normal,
-                  ),
-                ),
-                secondary: Text(
-                  '${option['price']!} EGP',
-                ),
-                subtitle: Text(
-                  option['description']!,
-                ), // Add description here
-                value: option['title']!,
-                groupValue: selectedOption,
-                onChanged: (value) {
-                  setState(() {
-                    selectedOption = value;
-                  });
-                },
-              );
-            }).toList(),
-          ),
+        CustomRadioListtileListViewBuilder(
+          options: options,
+          selectedOption: "Engine Oil",
         ),
         const ChoiseAmount(),
         SizedBox(
           height: context.screenHeight * .2,
         ),
         RequesButton(
-          selectedOption: selectedOption ?? ' ',
+          onTap: () {
+            context.read<ServiceRequestManualCubit>().serviceId = 5;
+
+            context.read<GetAllTechincalCubit>().serviceId = 5;
+            NavigatorManager.pushName(
+                context: context, route: AppRoutes.selectTechincalView);
+          },
         ),
         SizedBox(
           height: AppHeight.h30,

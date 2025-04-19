@@ -12,7 +12,7 @@ class FuelCarView extends StatelessWidget {
     return Scaffold(      backgroundColor: ColorsManager.white,
 
       appBar: customPaidServiceAppBar(title: StringsManager.fuelType),
-      body: const FuelCarViewBody(),
+      body:  FuelCarViewBody(),
     );
   }
 }

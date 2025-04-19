@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screenutil_module/main.dart';
-import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
-import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
@@ -10,32 +8,14 @@ import 'package:splash_app/core/utils/styles_manager.dart';
 
 class RequesButton extends StatelessWidget {
   const RequesButton({
-    required this.selectedOption,
+    required this.onTap,
     super.key,
   });
-
-  final String selectedOption;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        if (selectedOption != ' ') {
-          NavigatorManager.pushName(
-              context: context, route: AppRoutes.selectTechincalView);
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-                backgroundColor: ColorsManager.mainColor,
-                content: Text('You selected: $selectedOption')),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                backgroundColor: ColorsManager.mainColor,
-                content: Text(StringsManager.youshouldchoiseanyopation)),
-          );
-        }
-      },
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: Appwidth.w24),
         height: AppHeight.h60,

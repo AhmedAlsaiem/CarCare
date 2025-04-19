@@ -17,7 +17,7 @@ class _SelectTechincalViewBodyState extends State<SelectTechincalViewBody> {
   void initState() {
     super.initState();
     BlocProvider.of<GetAllTechincalCubit>(context)
-        .getAlltechinicalOrderedByDistanceAndRate(serviceId: 5);
+        .getAlltechinicalOrderedByDistanceAndRate();
   }
 
   @override

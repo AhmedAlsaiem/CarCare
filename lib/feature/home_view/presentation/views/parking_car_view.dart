@@ -23,7 +23,7 @@ class ParkingCarView extends StatelessWidget {
           iconTheme: const IconThemeData(
               size: AppSize.s34, color: ColorsManager.balck),
         ),
-        body: const MecanicalViewBody(),
+        body:  MecanicalViewBody(),
       ),
     );
   }

@@ -100,7 +100,9 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
             height: context.screenHeight * .2,
           ),
           RequesButton(
-            selectedOption: selectedOption ?? ' ',
+            onTap: () {
+              
+            },
           ),
           SizedBox(
             height: AppHeight.h30,

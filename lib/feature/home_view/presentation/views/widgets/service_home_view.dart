@@ -4,7 +4,6 @@ import 'package:splash_app/feature/authentaction/domain/entity/service_entities/
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_state.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/service_item.dart';
-
 import '../../../../../core/functions/roution_functions/handle_all_service_routing.dart';
 import 'custom_service_shimmer.dart';
 

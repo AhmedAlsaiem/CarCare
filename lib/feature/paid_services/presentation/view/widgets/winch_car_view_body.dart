@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'package:splash_app/feature/paid_services/presentation/view/widgets/custom_radio_list_tile_list_view_builder.dart';
 
 import 'request_button.dart';
@@ -26,11 +31,22 @@ class WinchCarViewBody extends StatelessWidget {
             style: StylesManager.textStyleBold20black,
           ),
         ),
-        const CustomRadioListtileListViewBuilder(),
+        CustomRadioListtileListViewBuilder(
+          options: options,
+          selectedOption: "Electric",
+        ),
         SizedBox(
           height: context.screenHeight * .2,
         ),
-        const RequesButton(selectedOption: 'selectedOption'),
+        RequesButton(
+          onTap: () {
+            context.read<GetAllTechincalCubit>().serviceId = 1;
+            context.read<ServiceRequestManualCubit>().serviceId = 1;
+
+            NavigatorManager.pushName(
+                context: context, route: AppRoutes.selectTechincalView);
+          },
+        ),
         SizedBox(
           height: AppHeight.h30,
         )
@@ -39,3 +55,15 @@ class WinchCarViewBody extends StatelessWidget {
   }
 }
 
+final List<Map<String, String>> options = [
+  {
+    'title': ' Electric',
+    'description': ' Common for smaller vehicles and occasional',
+    'price': '500'
+  },
+  {
+    'title': ' Hydraulic',
+    'description': ' Better for heavy-duty',
+    'price': '1000'
+  },
+];

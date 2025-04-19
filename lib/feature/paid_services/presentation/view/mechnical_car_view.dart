@@ -9,10 +9,10 @@ class MechnicalCarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      backgroundColor: ColorsManager.white,
-
+    return Scaffold(
+      backgroundColor: ColorsManager.white,
       appBar: customPaidServiceAppBar(title: StringsManager.winchtype),
-      body: const MecanicalViewBody(),
+      body: MecanicalViewBody(),
     );
   }
 }

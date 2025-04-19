@@ -12,7 +12,7 @@ class CustomRadioListTile extends StatelessWidget {
     required this.onchange,
   });
   final ValueChanged<String?>? onchange;
-  final String? selectedOption;
+  final String selectedOption;
   final String title;
   final String subtitle;
   final String price;
@@ -42,6 +42,7 @@ class CustomRadioListTile extends StatelessWidget {
       value: title,
       groupValue: selectedOption,
       onChanged: onchange,
+      dense: true,
     );
   }
 }

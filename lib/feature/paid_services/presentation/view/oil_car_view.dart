@@ -12,7 +12,7 @@ class OilCarView extends StatelessWidget {
     return Scaffold(      backgroundColor: ColorsManager.white,
 
       appBar:customPaidServiceAppBar(title: StringsManager.oilType),
-      body: const OilCarViewBody(),
+      body:  OilCarViewBody(),
     );
   }
 }

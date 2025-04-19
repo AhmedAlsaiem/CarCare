@@ -73,5 +73,5 @@ String handleApiEndPoint({
   required double userLatidude,
   required double userLangtude,
 }) {
-  return 'serviceId=$id&UserLatitude=$userLatidude&UserLongitude=$userLangtude';
+  return 'serviceId=$id&userlongitude=$userLangtude&2userLatidude=$userLatidude';
 }

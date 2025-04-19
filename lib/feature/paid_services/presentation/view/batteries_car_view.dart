@@ -12,7 +12,7 @@ class BatteriesCarView extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsManager.white,
       appBar: customPaidServiceAppBar(title: StringsManager.batteriesType),
-      body: const BatteriesCarViewBody(),
+      body: BatteriesCarViewBody(),
     );
   }
 }

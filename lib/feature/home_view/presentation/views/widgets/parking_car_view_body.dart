@@ -58,7 +58,7 @@ class _ParkingCarViewBodyState extends State<ParkingCarViewBody> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MecanicalViewBody()));
+                          builder: (context) =>  MecanicalViewBody()));
                 }
               },
               child: Container(

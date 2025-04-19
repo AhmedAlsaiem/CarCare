@@ -19,7 +19,6 @@ import 'package:splash_app/feature/home_view/presentation/views/parking_car_view
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'package:splash_app/feature/paid_services/presentation/view/select_techinacl_view.dart';
-import 'package:splash_app/feature/paid_services/presentation/view/widgets/mecanical_view_body.dart';
 import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/map/map_view.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
@@ -140,6 +139,7 @@ class AppRouter {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 MultiBlocProvider(
                   providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
                     BlocProvider(
                         create: (context) => ServiceRequestManualCubit()),
                   ],
@@ -150,6 +150,7 @@ class AppRouter {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 MultiBlocProvider(
                   providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
                     BlocProvider(
                         create: (context) => ServiceRequestManualCubit()),
                   ],
@@ -160,6 +161,7 @@ class AppRouter {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 MultiBlocProvider(
                   providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
                     BlocProvider(
                         create: (context) => ServiceRequestManualCubit()),
                   ],
@@ -170,6 +172,7 @@ class AppRouter {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 MultiBlocProvider(
                   providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
                     BlocProvider(
                         create: (context) => ServiceRequestManualCubit()),
                   ],
@@ -180,6 +183,7 @@ class AppRouter {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 MultiBlocProvider(
                   providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
                     BlocProvider(
                         create: (context) => ServiceRequestManualCubit()),
                   ],
@@ -201,6 +205,7 @@ class AppRouter {
               MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => ServiceRequestManualCubit()),
+              BlocProvider(create: (context) => GetAllTechincalCubit()),
             ],
             child: const MechnicalCarView(),
           ),
@@ -208,7 +213,7 @@ class AppRouter {
       case AppRoutes.recomendation:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const MecanicalViewBody(),
+              const MechnicalCarView(),
         );
       case AppRoutes.ratingView:
         return pageRouteBuilderMethod(
@@ -279,6 +284,7 @@ abstract class AppRoutes {
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
   static const String selectTechincalView = '/selectTechinicalView';
+
   static const String mapView = '/mapView';
   static const String userPofileView = '/userProfileView';
 }

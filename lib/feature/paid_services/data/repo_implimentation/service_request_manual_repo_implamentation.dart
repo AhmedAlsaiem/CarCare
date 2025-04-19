@@ -41,9 +41,21 @@ class ServiceRequestManualRepoImplamentation extends ServiceRequestManualRepo {
       required double userLatitude,
       required double userLongitude,
       required double servicePrice,
-      required int serviceQuantity}) {
-    // TODO: implement createRequestForFuel
-    throw UnimplementedError();
+      required int serviceQuantity}) async {
+    try {
+      var response = await dataSource.createRequestForFuel(
+        serviceTypeId: serviceTypeId,
+        techId: techId,
+        typeOfFuel: typeOfFuel,
+        userLatitude: userLatitude,
+        userLongitude: userLongitude,
+        servicePrice: servicePrice,
+        serviceQuantity: serviceQuantity,
+      );
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel);
+    }
   }
 
   @override
