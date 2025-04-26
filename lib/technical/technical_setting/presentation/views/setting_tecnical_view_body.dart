@@ -115,22 +115,21 @@ class _SettingTecnicalViewBodyState extends State<SettingTecnicalViewBody> {
               title: 'Logout',
               desc: 'Are you sure you want to logout?',
               snackbarText: 'Logged out successfully!',
-
               onConfirm: () {
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      backgroundColor: ColorsManager.mainColor,
-      content: Text('Logged out successfully!'),
-    ),
-  );
-  
-  Navigator.pop(context); // Close the dialog first
-  NavigatorManager.pushWithReplacement(
-    context: context,
-    route: AppRoutes.loginView,
-    rootNavigator: true,
-  );
-},
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    backgroundColor: ColorsManager.mainColor,
+                    content: Text('Logged out successfully!'),
+                  ),
+                );
+
+                Navigator.pop(context); // Close the dialog first
+                NavigatorManager.pushWithReplacement(
+                  context: context,
+                  route: AppRoutes.loginView,
+                  rootNavigator: true,
+                );
+              },
             );
           },
         ),

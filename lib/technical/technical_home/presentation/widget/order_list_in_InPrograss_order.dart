@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
@@ -56,7 +57,7 @@ class _OrderListInInprogressOrderState extends State<OrderListInInprogressOrder>
             }
             return OrderInInprogressOrder(orders: orders);
           } else if (state is FaliureOrderState) {
-            return const Center(child: Text('Error loading data.'));
+            return const Center(child: Text('No data...'));
           } else {
             return const Center(child: Text('Waiting for  data...'));
           }

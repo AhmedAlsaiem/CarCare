@@ -270,6 +270,7 @@ class AppRouter {
             child: const MessageView(),
           ),
         );
+
       case AppRoutes.updateProfile:
         return MaterialPageRoute(
             builder: (_) => MultiBlocProvider(
