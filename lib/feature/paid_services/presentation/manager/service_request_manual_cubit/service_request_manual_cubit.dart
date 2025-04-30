@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/dio_api.dart';
 import 'package:splash_app/feature/paid_services/data/datasource/service_request_manual_remote_data_source.dart';
+import 'package:splash_app/feature/paid_services/domain/enties/service_request_entity.dart';
 import 'package:splash_app/feature/paid_services/domain/repo/service_request_manual_repo.dart';
 
 import '../../../data/repo_implimentation/service_request_manual_repo_implamentation.dart';
@@ -11,11 +12,14 @@ import 'service_request_manual_state.dart';
 class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
   ServiceRequestManualRepo repo = makecontractbetweenaracticatureLayers();
   ServiceRequestManualCubit() : super(ServiceRequestManualInatialState());
-
+  static ServiceRequestEntity? requestEntity;
   static int _serviceId = 0;
   set serviceId(int id) {
     _serviceId = id;
   }
+
+  // ignore: unnecessary_getters_setters
+  int get serviceId => _serviceId;
 
   static int _serviceQuantity = 1;
   set serviceQuantity(int serviceQuantity) {
@@ -49,9 +53,11 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
     response.fold(
         (errorModel) => emit(
               ServiceRequestManualFailedState(error: errorModel),
-            ),
-        (requestModel) => emit(ServiceRequestManualSucessState(
-            serviceRequestModel: requestModel)));
+            ), (requestModel) {
+      requestEntity = requestModel;
+
+      emit(ServiceRequestManualSucessState(serviceRequestModel: requestModel));
+    });
   }
 
   void createRequestForOil() async {
@@ -67,9 +73,9 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
         (errorModel) => emit(
               ServiceRequestManualFailedState(error: errorModel),
             ), (requestModel) {
-      emit(
-        ServiceRequestManualSucessState(serviceRequestModel: requestModel),
-      );
+      requestEntity = requestModel;
+
+      emit(ServiceRequestManualSucessState(serviceRequestModel: requestModel));
     });
   }
 
@@ -87,9 +93,9 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
         (errorModel) => emit(
               ServiceRequestManualFailedState(error: errorModel),
             ), (requestModel) {
-      emit(
-        ServiceRequestManualSucessState(serviceRequestModel: requestModel),
-      );
+      requestEntity = requestModel;
+
+      emit(ServiceRequestManualSucessState(serviceRequestModel: requestModel));
     });
   }
 
@@ -108,9 +114,10 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
         (errorModel) => emit(
               ServiceRequestManualFailedState(error: errorModel),
             ), (requestModel) {
-      emit(
-        ServiceRequestManualSucessState(serviceRequestModel: requestModel),
-      );
+      requestEntity = requestModel;
+
+      emit(ServiceRequestManualUpdateSucessState(
+          serviceRequestModel: requestModel));
     });
   }
 
@@ -129,9 +136,9 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
         (errorModel) => emit(
               ServiceRequestManualFailedState(error: errorModel),
             ), (requestModel) {
-      emit(
-        ServiceRequestManualSucessState(serviceRequestModel: requestModel),
-      );
+      requestEntity = requestModel;
+
+      emit(ServiceRequestManualSucessState(serviceRequestModel: requestModel));
     });
   }
 
@@ -148,9 +155,9 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
         (errorModel) => emit(
               ServiceRequestManualFailedState(error: errorModel),
             ), (requestModel) {
-      emit(
-        ServiceRequestManualSucessState(serviceRequestModel: requestModel),
-      );
+      requestEntity = requestModel;
+
+      emit(ServiceRequestManualSucessState(serviceRequestModel: requestModel));
     });
   }
 
@@ -170,6 +177,7 @@ class ServiceRequestManualCubit extends Cubit<ServiceRequestManualState> {
         break;
       case 5:
         createRequestForOil();
+      case 6:
         break;
       default:
     }

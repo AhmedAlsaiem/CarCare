@@ -11,6 +11,10 @@ class ServiceRequestManualSucessState extends ServiceRequestManualState {
  final ServiceRequestEntity serviceRequestModel;
 
   ServiceRequestManualSucessState({required this.serviceRequestModel});
+}class ServiceRequestManualUpdateSucessState extends ServiceRequestManualState {
+ final ServiceRequestEntity serviceRequestModel;
+
+  ServiceRequestManualUpdateSucessState({required this.serviceRequestModel});
 }
 
 class ServiceRequestManualFailedState extends ServiceRequestManualState {

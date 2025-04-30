@@ -24,9 +24,11 @@ class ServiceRequestModel extends ServiceRequestEntity {
     required super.createdBy,
     required super.paymentIntentId,
     required super.clientSecret,
+    required super.techName,
   });
   factory ServiceRequestModel.formJson(Map<String, dynamic> jsonData) {
     return ServiceRequestModel(
+      techName: jsonData[ApiKey.techName],
       id: jsonData[ApiKey.id],
       techId: jsonData[ApiKey.techId],
       techJop: jsonData[ApiKey.techJop],

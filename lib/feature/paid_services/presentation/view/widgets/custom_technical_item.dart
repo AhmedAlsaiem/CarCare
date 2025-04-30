@@ -1,12 +1,9 @@
 import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
 import 'package:splash_app/feature/paid_services/domain/enties/get_techincal_entity.dart';
-import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart'
-    show ServiceRequestManualCubit;
-
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/custom_select_techinical_item_button.dart';
 import '../../../../../core/utils/app_size.dart';
 import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/styles_manager.dart';
@@ -78,33 +75,17 @@ class CustomtechincalItem extends StatelessWidget {
                 ),
               ),
               SizedBox(width: context.screenWidth * 0.05),
-              TextButton(
-                onPressed: () {
-                  context.read<ServiceRequestManualCubit>().techId =
-                      techincal.id;
-                  BlocProvider.of<ServiceRequestManualCubit>(context)
-                      .handleAllRequestManualFunctions();
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: ColorsManager.mainColor,
-                  shape: ContinuousRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text(
-                  'Select',
-                  style: StylesManager.textStyleRegular14.copyWith(
-                    color: ColorsManager.white,
-                  ),
-                ),
-              )
+              CustomSelectTechinicalItemButton(techincal: techincal)
             ],
           ),
         ),
       ),
     );
   }
-}/*
+}
+
+
+/*
 
 service id true
 service price ture

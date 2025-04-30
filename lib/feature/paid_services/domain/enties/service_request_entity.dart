@@ -14,6 +14,8 @@ class ServiceRequestEntity extends Equatable {
   final int serviceQuantity;
   final double servicePrice;
   final String userId;
+  final String techName;
+
   final double userLatitude;
   final double userLongitiude;
   final String busnissStatus;
@@ -45,6 +47,7 @@ class ServiceRequestEntity extends Equatable {
     required this.createdBy,
     required this.paymentIntentId,
     required this.clientSecret,
+    required this.techName,
   });
 
   @override
@@ -70,5 +73,6 @@ class ServiceRequestEntity extends Equatable {
         createdBy,
         paymentIntentId,
         clientSecret,
+        techName,
       ];
 }

@@ -187,10 +187,11 @@ class ServiceRequestManualRemoteDataSource
       required String orderId}) async {
     try {
       dynamic response = await api.put(
-          "${EndPoint.createRequestManually}//RequestId=$orderId&serviceTypeId=$serviceTypeId&TechnicalId=$techId");
+          "${EndPoint.updateTechinicalInRequest}RequestId=$orderId&ServiceId=$serviceTypeId&TechnicalId=$techId");
       return ServiceRequestModel.formJson(response);
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
     }
   }
 }
+// https://carcareapp.runasp.net/api/ServiceRequest/CreateRequestManually/RequestId=350&serviceTypeId=1&TechnicalId=a02af056-56b5-4552-ae37-7b0669f99308

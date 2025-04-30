@@ -14,6 +14,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_ve
 import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/service_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
+import 'package:splash_app/feature/checkout/presentation/views/order_details_view.dart';
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
@@ -238,6 +239,10 @@ class AppRouter {
             nameOfServce: 'parking',
           ),
         );
+      case AppRoutes.cheeckOut:
+        return pageRouteBuilderMethod(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const OrderDetailView());
       case AppRoutes.selectTechincalView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -287,4 +292,5 @@ abstract class AppRoutes {
 
   static const String mapView = '/mapView';
   static const String userPofileView = '/userProfileView';
+  static const String cheeckOut = '/cheeckOut';
 }
