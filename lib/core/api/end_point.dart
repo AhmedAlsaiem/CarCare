@@ -57,6 +57,8 @@ class EndPoint {
   static String getTecnicalPrfile = "Account/GetCurrentUserByRole";
   static String udateProfile = "account/UpdateAppUser";
   static String getMessages = "Contact/GetAllMessages";
+  static String setLocation = "account/Update-Technical-Location";
+
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
@@ -147,4 +149,7 @@ class ApiKey {
   static String lastModifiedOn = "lastModifiedOn";
   static String userIds = 'userId';
   static String fullNames = "fullName";
+  static String userLocationId = "id";
+  static String techLatitudeloc = 'techLatitude';
+  static String techLongitudeloc = "techLongitude";
 }

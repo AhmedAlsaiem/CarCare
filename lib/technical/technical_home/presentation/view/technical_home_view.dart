@@ -30,6 +30,7 @@ class _TechnicalHomeViewState extends State<TechnicalHomeView> {
     GlobalKey<NavigatorState>(),
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return PersistentTabView(

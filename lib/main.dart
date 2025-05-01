@@ -9,6 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await CacheHelper().init();
+  //final localAuthService = LocalAuthService();
   runApp(
     DevicePreview(
       enabled: false,
@@ -16,3 +17,5 @@ void main() async {
     ),
   );
 }
+
+ 

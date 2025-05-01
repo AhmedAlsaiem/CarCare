@@ -1,9 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:splash_app/core/utils/color_manager.dart';
-
 import 'package:splash_app/feature/map/model/service_location.dart';
 import 'package:splash_app/feature/map/presentation/widgets/fetch_nearby_service.dart';
 import 'package:splash_app/feature/map/presentation/widgets/list_view.dart';
@@ -11,6 +8,7 @@ import 'package:splash_app/feature/map/presentation/widgets/looding_indicator.da
 import 'package:splash_app/feature/map/presentation/widgets/map_layer.dart';
 import 'package:splash_app/feature/map/presentation/widgets/map_servce.dart';
 import 'package:splash_app/feature/map/presentation/widgets/route_and_time.dart';
+import 'package:splash_app/feature/my_car/presebtation/widgets/custom_my_car_app_bar.dart';
 
 class MapView extends StatefulWidget {
   const MapView({super.key, required this.nameOfServce});
@@ -21,12 +19,12 @@ class MapView extends StatefulWidget {
 }
 
 class _MapViewState extends State<MapView> {
+  //variable
   List<ServiceLocation> restaurants = [];
   bool isLoading = true;
   String errorMessage = '';
   LatLng? userLocation;
   LatLng? selectedRestaurantLocation;
-
   final MapService _mapService = MapService();
   final FeatchService _featchService = FeatchService();
   final RouteService _routeService = RouteService();
@@ -43,11 +41,9 @@ class _MapViewState extends State<MapView> {
       isLoading = true;
       errorMessage = '';
     });
-
     try {
-      //userLocation = await _locationService.getCurrentLocation();
-
-       userLocation = const LatLng(30.0444, 31.2357);
+      //userLocation = await CurrentLocation().getCurrentLocation();
+     userLocation = const LatLng(30.0444, 31.2357);
       if (userLocation == null) {
         throw Exception('Unable to fetch user location.');
       }
@@ -70,7 +66,7 @@ class _MapViewState extends State<MapView> {
       });
     }
   }
-  
+
   void _onLocationSelected(LatLng destination) async {
     setState(() {
       selectedRestaurantLocation = destination;
@@ -92,10 +88,11 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorsManager.white,
-        title: Text('Nearby ${widget.nameOfServce}'),
-      ),
+      appBar: customMyCarAppBar(title: 'Nearby ${widget.nameOfServce}'),
+      // appBar: AppBar(
+      //   backgroundColor: ColorsManager.white,
+      //   title: Text('Nearby ${widget.nameOfServce}'),
+      // ),
       body: LoadingAndErrorHandler(
         isLoading: isLoading,
         errorMessage: errorMessage,

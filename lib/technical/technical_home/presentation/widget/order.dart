@@ -92,6 +92,9 @@ class _OrdersState extends State<Orders> {
                   typeOfoil: orders[index].typeOfOil,
                   winchType: orders[index].typeOfWinch,
                   id: orders[index].id,
+                  latitude: orders[index].userLatitude,
+                  longitude: orders[index].userLongitude,
+
                 ),
               ),
             );
