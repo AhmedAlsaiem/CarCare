@@ -9,6 +9,7 @@ import 'package:splash_app/feature/authentaction/presentation/view/custom_show_s
 import 'package:splash_app/technical/technical_home/presentation/manger/tecnical_state/tecniacl_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/view/technical_home_view_body.dart';
 import 'package:splash_app/technical/technical_home/presentation/widget/accept_or_cancal_button.dart';
+import 'package:splash_app/technical/technical_home/presentation/widget/map_view_for_user_body.dart';
 
 class OrderDetails extends StatefulWidget {
   const OrderDetails({
@@ -22,6 +23,9 @@ class OrderDetails extends StatefulWidget {
     required this.typeOfoil,
     required this.winchType,
     required this.id,
+    required this.latitude,
+    required this.longitude,
+
     super.key,
   });
 
@@ -29,6 +33,9 @@ class OrderDetails extends StatefulWidget {
   final double distance;
   final String date;
   final double price;
+  final double latitude;
+  final double longitude;
+
   final int id;
   final String typeOfFuel;
   final String typeOfoil;
@@ -50,44 +57,59 @@ class _OrderDetailsState extends State<OrderDetails> {
 
     return Column(
       children: [
-        Container(
-          //   color:  ColorsManager.red,
-          //  height:160,
-          height: AppHeight.h122,
-          width: context.screenWidth,
-          decoration: BoxDecoration(
-            color: ColorsManager.orderColor,
-            borderRadius: BorderRadius.circular(AppSize.s12),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '  ${widget.name}',
-                maxLines: 1,
-                style: StylesManager.textStylewmedium20maincolor,
-              ),
-              Text('  ${widget.distance.toStringAsFixed(1)} km ',
-                  style: StylesManager.textStylewmedium20maincolor
-                  //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
-                  ),
-              Text('  $formattedDate', // Updated date format
-                  style: StylesManager.textStylewmedium20maincolor
-                  //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
-                  ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        GestureDetector(
+          onTap: () {
+         //  Navigator.pop(context); 
+
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => MapViewForUserBody(latitude:widget.latitude ,longitude:widget.longitude ,)));
+     Navigator.of(context, rootNavigator: true).push(
+    MaterialPageRoute(
+      builder: (context) => MapViewForUserBody(
+        latitude: widget.latitude,
+        longitude: widget.longitude,
+      ),
+    ),
+  );
+          },
+          child: Container(
+            //   color:  ColorsManager.red,
+            //  height:160,
+            height: AppHeight.h122,
+            width: context.screenWidth,
+            decoration: BoxDecoration(
+              color: ColorsManager.orderColor,
+              borderRadius: BorderRadius.circular(AppSize.s12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Text(
-                  '  ${widget.batteryType}${widget.typeOfoil}${widget.tiresize}${widget.typeOfFuel}${widget.winchType}  ',
+                  '  ${widget.name}',
                   maxLines: 1,
                   style: StylesManager.textStylewmedium20maincolor,
                 ),
-                Text(
-                  '  ${(widget.price * .8).toStringAsFixed(2)} EGP ',
-                  style: StylesManager.textStylewmedium20maincolor
-                      .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
-                ),
-              ]),
-            ],
+                Text('  ${widget.distance.toStringAsFixed(1)} km ',
+                    style: StylesManager.textStylewmedium20maincolor
+                    //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
+                Text('  $formattedDate', // Updated date format
+                    style: StylesManager.textStylewmedium20maincolor
+                    //   .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                  Text(
+                    '  ${widget.batteryType}${widget.typeOfoil}${widget.tiresize}${widget.typeOfFuel}${widget.winchType}  ',
+                    maxLines: 1,
+                    style: StylesManager.textStylewmedium20maincolor,
+                  ),
+                  Text(
+                    '  ${(widget.price * .8).toStringAsFixed(2)} EGP ',
+                    style: StylesManager.textStylewmedium20maincolor
+                        .copyWith(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
+                ]),
+              ],
+            ),
           ),
         ),
         SizedBox(height: AppHeight.h10),

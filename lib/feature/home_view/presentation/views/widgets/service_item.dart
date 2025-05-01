@@ -33,6 +33,13 @@ class ServiceItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 10),
+                  // Image.asset(
+                  //   color: ColorsManager.darkgreen,
+                  //   'assets/images/battery.png',
+                  //   height: AppSize.s64,
+                  //   width: AppSize.s64,
+                  //   fit: BoxFit.fill,
+                  // ),
                   Image.network(
                     color: ColorsManager.darkgreen,
                     service.imageUrl,

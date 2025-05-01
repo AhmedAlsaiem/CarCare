@@ -40,9 +40,11 @@ import 'package:splash_app/feature/feadback_app/presentation/views/new_feadback.
 import 'package:splash_app/feature/feadback_app/presentation/views/update_feadback.dart';
 import 'package:splash_app/technical/message/presentation/manger/message_cubit.dart';
 import 'package:splash_app/technical/message/presentation/views/message_view.dart';
+import 'package:splash_app/technical/technical_home/presentation/manger/location_cubit/location_cubit.dart';
 
 import 'package:splash_app/technical/technical_home/presentation/manger/order_cubit/order_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/tecnical_state/tecniacl_cubit.dart';
+import 'package:splash_app/technical/technical_home/presentation/view/map_view_for_useer.dart';
 import 'package:splash_app/technical/technical_home/presentation/view/technical_home_view.dart';
 import 'package:splash_app/technical/technical_setting/presentation/manger/tecnical_profile/tecnical_profile_cubit.dart';
 import 'package:splash_app/technical/technical_setting/presentation/manger/update_profile/update_profile_cubit.dart';
@@ -195,14 +197,46 @@ class AppRouter {
           pageBuilder: (context, animation, secondaryAnimation) =>
               const RatingView(),
         );
-      case AppRoutes.mapView:
+      case AppRoutes.mapViewWashing:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'Car Wash',
+            nameOfServce: 'car_wash',
           ),
         );
-
+      case AppRoutes.mapViewPareking:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const MapView(
+            nameOfServce: 'parking',
+          ),
+        );
+      case AppRoutes.mapViewFuel:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const MapView(
+            nameOfServce: 'fuel',
+          ),
+        );
+      case AppRoutes.mapViewMachnical:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const MapView(
+            nameOfServce: 'car_repair',
+          ),
+        );
+      case AppRoutes.mapViewForUser:
+        return MaterialPageRoute(builder: (_) =>  const MapViewForUseer());
+// case AppRoutes.mapViewForUser:
+//       // Access arguments from settings, not from context
+//       final args = settings.arguments as Map<String, dynamic>?;
+      
+//       return MaterialPageRoute(
+//         builder: (context) => MapViewForUserBody(
+//           latitude: args?['latitude'] ?? 0.0,
+//           longitude: args?['longitude'] ?? 0.0,
+//         ),
+//       );
       case AppRoutes.feadbackView:
         return MaterialPageRoute(
           builder: (_) => const FeadbackView(),
@@ -298,6 +332,9 @@ class AppRouter {
                       create: (context) => TecniaclCubit(),
                     ),
                     BlocProvider(
+                      create: (context) => LocationCubit(),
+                    ),
+                    BlocProvider(
                       create: (context) => BottomNavigationIndeCubit(),
                     ),
                   ],
@@ -343,7 +380,10 @@ abstract class AppRoutes {
 
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
-  static const String mapView = '/mapView';
+  static const String mapViewMachnical = '/mapViewMachnical';
+  static const String mapViewPareking = '/mapViewPareking';
+  static const String mapViewWashing = '/mapViewWashing';
+  static const String mapViewFuel = '/mapViewFuel';
   static const String feadbackView = '/feadbackView';
 
   static const String newFeadback = '/newFeadback';
@@ -355,4 +395,5 @@ abstract class AppRoutes {
   static const String profileTechnicalView = '/profileTechnicalView';
   static const String updateProfile = '/updateProfile';
   static const String messagetecnical = '/messagetecnical';
+  static const String mapViewForUser = '/mapViewForUser';
 }

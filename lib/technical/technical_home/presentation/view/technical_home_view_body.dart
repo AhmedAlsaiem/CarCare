@@ -1,10 +1,15 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
+import 'package:splash_app/feature/map/presentation/widgets/current_location.dart';
 import 'package:splash_app/technical/technical_home/domain/entity/order_entity.dart';
+import 'package:splash_app/technical/technical_home/presentation/manger/location_cubit/location_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/order_cubit/order_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/tecnical_state/tecniacl_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/widget/filter_drop_down.dart';
@@ -22,14 +27,35 @@ class TechnicalHomeViewBodyState extends State<TechnicalHomeViewBody> {
   String _selectedFilter = "Filter";
   List<String> filterOptions = ["Filter", "Distance", "Oldest"];
   bool switchValue = true; // Default to true
-
+  LatLng? tecLocation;
   @override
-  void initState() {
-    super.initState();
-    // _loadSwitchState();
-    switchValue = CacheHelper().getDatabool(key: ApiKey.teccniclSwitch) ?? true;
-    BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
-  }
+
+
+@override
+void initState() {
+  super.initState();
+  BlocProvider.of<OrderCubit>(context).getAllrequestPinding();
+  _loadSwitchState();
+
+  _initializeData();
+}
+
+Future<void> _initializeData() async {
+  tecLocation = await CurrentLocation().getCurrentLocation();
+  print("######${tecLocation!.latitude}");
+  print(tecLocation!.longitude);
+
+  BlocProvider.of<LocationCubit>(context).setLocation(
+    id: "25f5bfc2-a1f8-482f-bc15-3a5df77584c7",
+   //id: CacheHelper().getDataString(key: ApiKey.userId)!,
+    latitude: tecLocation!.latitude,
+    longitude: tecLocation!.longitude,
+  );
+}
+
+void _loadSwitchState() {
+  switchValue = CacheHelper().getDatabool(key: ApiKey.teccniclSwitch) ?? true;
+}
 
   void setSwitchValue(bool value) {
     setState(() {
