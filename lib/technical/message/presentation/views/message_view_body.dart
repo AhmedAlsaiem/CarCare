@@ -58,4 +58,3 @@ class _MessageViewBodyState extends State<MessageViewBody> {
     );
   }
 }
-
