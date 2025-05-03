@@ -1,20 +1,30 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/functions/handle_business_logic/check_status_for_minutes.dart';
-import 'package:splash_app/core/widgets/custom_text_button.dart';
 import 'package:splash_app/feature/checkout/presentation/views/widgets/cart_info_item.dart';
 import 'package:splash_app/feature/checkout/presentation/views/widgets/total_price_widget.dart';
 import 'package:splash_app/feature/paid_services/domain/enties/service_request_entity.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 
-class OrderDetailViewBody extends StatelessWidget {
+import '../../../../../core/functions/handle_business_logic/cheeck_status_for_automatic.dart';
+
+class OrderDetailViewBody extends StatefulWidget {
   const OrderDetailViewBody({super.key});
 
   @override
+  State<OrderDetailViewBody> createState() => _OrderDetailViewBodyState();
+}
+
+class _OrderDetailViewBodyState extends State<OrderDetailViewBody> {
+  bool value = true;
+
+  @override
   Widget build(BuildContext context) {
-    ServiceRequestEntity? requestModel =
-        ServiceRequestManualCubit.requestEntity;
+    value == true ? handleAllRequestsManualAndAutomatic(context) : null;
+    value = false;
+    ServiceRequestEntity? requestModel = ServiceRequestCubit.requestEntity;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -22,7 +32,7 @@ class OrderDetailViewBody extends StatelessWidget {
         children: [
           Image.asset('assets/images/car_order _detail_image.png'),
           OrderInfoItem(
-            title: 'service name',
+            title: 'service Id',
             value: requestModel!.id.toString(),
           ),
           const SizedBox(
@@ -85,17 +95,25 @@ class OrderDetailViewBody extends StatelessWidget {
             height: 16,
           ),
           const Expanded(child: SizedBox()),
-          CustomButton(
-            bottonName: 'payment',
-            onPressed: () async {
-              await checkStatusFor5Minutes(context);
-            },
-          ),
+          // CustomButton(
+          //   bottonName: 'payment',
+          //   onPressed: () async {
+
+          //   },
+          // ),
           const SizedBox(
             height: 12,
           ),
         ],
       ),
     );
+  }
+}
+
+void handleAllRequestsManualAndAutomatic(BuildContext context) async {
+  if (BlocProvider.of<ServiceRequestCubit>(context).orderType == 1) {
+    await checkStatusForAutomaticMinutes(context);
+  } else {
+    await checkStatusFor5Minutes(context);
   }
 }

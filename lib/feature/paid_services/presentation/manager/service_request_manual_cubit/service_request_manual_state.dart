@@ -1,24 +1,32 @@
 import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/feature/paid_services/domain/enties/service_request_entity.dart';
 
-abstract class ServiceRequestManualState {}
+abstract class ServiceRequestState {}
 
-class ServiceRequestManualInatialState extends ServiceRequestManualState {}
+class ServiceRequestInatialState extends ServiceRequestState {}
 
-class ServiceRequestManualIsLoadinState extends ServiceRequestManualState {}
+class ServiceRequestIsLoadinState extends ServiceRequestState {}
 
-class ServiceRequestManualSucessState extends ServiceRequestManualState {
- final ServiceRequestEntity serviceRequestModel;
+class ServiceRequestManualSucessState extends ServiceRequestState {
+  final ServiceRequestEntity serviceRequestModel;
 
   ServiceRequestManualSucessState({required this.serviceRequestModel});
-}class ServiceRequestManualUpdateSucessState extends ServiceRequestManualState {
- final ServiceRequestEntity serviceRequestModel;
-
-  ServiceRequestManualUpdateSucessState({required this.serviceRequestModel});
 }
 
-class ServiceRequestManualFailedState extends ServiceRequestManualState {
+class ServiceRequestUpdateSucessState extends ServiceRequestState {
+  final ServiceRequestEntity serviceRequestModel;
+
+  ServiceRequestUpdateSucessState({required this.serviceRequestModel});
+}
+
+class ServiceRequestSucessState extends ServiceRequestState {
+  final String successMessage;
+
+  ServiceRequestSucessState({required this.successMessage});
+}
+
+class ServiceRequestFailedState extends ServiceRequestState {
   final ErrorModel error;
 
-  ServiceRequestManualFailedState({required this.error});
+  ServiceRequestFailedState({required this.error});
 }

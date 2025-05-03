@@ -14,21 +14,17 @@ class CustomSelectTechinicalItemButton extends StatelessWidget {
   final GetTechincalEntity techincal;
   @override
   Widget build(BuildContext context) {
-
     return TextButton(
         onPressed: () {
-          if (ServiceRequestManualCubit.requestEntity == null) {
-            context.read<ServiceRequestManualCubit>().techId = techincal.id;
-            BlocProvider.of<ServiceRequestManualCubit>(context)
-                .handleAllRequestManualFunctions();
+          if (ServiceRequestCubit.requestEntity == null) {
+            context.read<ServiceRequestCubit>().techId = techincal.id;
+            BlocProvider.of<ServiceRequestCubit>(context)
+                .handleAllRequestManualFunctions(requestType: 0);
           } else {
-            context.read<ServiceRequestManualCubit>().techId = techincal.id;
-            BlocProvider.of<ServiceRequestManualCubit>(context).updateTechincal(
-                orderId:
-                    ServiceRequestManualCubit.requestEntity!.id.toString());
-            print(
-                'Ahmed Update Techincal Succeffly bbbbbbbbbbbrrrrrrrr very good');
-          }
+            context.read<ServiceRequestCubit>().techId = techincal.id;
+            BlocProvider.of<ServiceRequestCubit>(context).updateTechincal(
+                orderId: ServiceRequestCubit.requestEntity!.id.toString());
+        }
         },
         style: TextButton.styleFrom(
           backgroundColor: ColorsManager.mainColor,

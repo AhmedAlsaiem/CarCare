@@ -8,9 +8,13 @@ abstract class StringsManager {
   static const String verifyYourAcount = 'Verify Your Acount';
   static const String error = 'please try again';
   static const String signUp = 'SignUp';
+  static const String complated = 'Completed';
+
   static const String yes = 'Yes';
   static const String cancle = 'Cancle';
+  static const String cancled = 'Canceled';
   static const String deleteCar = 'Delete Car';
+  static const String updateTechincal = 'Update Techincal';
   static const String areYouSureYouWantToDeleteCar =
       'Are you sure you want to Delete Car';
   static const String deleteSuccessfully = 'Delete Car Successfully!';
@@ -26,8 +30,8 @@ abstract class StringsManager {
   static const String myCar = 'Cars';
   static const String myOrder = 'Orders';
   static const String done = 'Done';
-  static const String inProgress = 'In Progress';
-  static const String pending = 'pending';
+  static const String inProgress = 'InProgress';
+  static const String pending = 'Pending';
   static const String title = 'select';
 
   static const String orderStatus = 'Order Status';
@@ -36,7 +40,8 @@ abstract class StringsManager {
   static const String wThis = 'this';
   static const String enterNetConnection =
       'there are  an error in internat connection';
-
+  static const String techinicalNotAceptOrder =
+      'techinical not accept your order do you wont to update your order';
   static const String appState = 'userState';
   static const String star = '*****';
   static const String verificationCode = 'Verification Code ';

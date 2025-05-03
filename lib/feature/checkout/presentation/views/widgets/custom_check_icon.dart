@@ -10,13 +10,14 @@ class CustomCheckIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CircleAvatar(
       radius: 50,
-      backgroundColor: Color(0xFFD9D9D9),
+      backgroundColor: ColorsManager.white,
       child: CircleAvatar(
         radius: 40,
-        backgroundColor:ColorsManager.mainColor,
+        backgroundColor: ColorsManager.babyBlue,
         child: Icon(
           Icons.check,
           size: 50,
+          color: ColorsManager.white,
         ),
       ),
     );

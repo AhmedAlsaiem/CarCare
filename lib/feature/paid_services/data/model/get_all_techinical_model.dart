@@ -14,7 +14,7 @@ class GetAllTechinicalModel extends GetTechincalEntity {
   });
   factory GetAllTechinicalModel.fromJson(Map<String, dynamic> jsonData) {
     return GetAllTechinicalModel(
-      nationalId: jsonData[ApiKey.nationalId],
+      nationalId: jsonData[ApiKey.nationalId]??'',
       name: jsonData[ApiKey.fullName],
       serviceName: jsonData[ApiKey.nameOfService],
       type: jsonData[ApiKey.type],

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
-import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/custom_buttom_sheet.dart';
 
 import '../../manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'choise_amount.dart';
@@ -65,12 +64,11 @@ class OilCarViewBody extends StatelessWidget {
         ),
         RequesButton(
           onTap: () {
-            context.read<ServiceRequestManualCubit>().serviceId = 5;
+            context.read<ServiceRequestCubit>().serviceId = 5;
 
             context.read<GetAllTechincalCubit>().serviceId = 5;
-            NavigatorManager.pushName(
-                context: context, route: AppRoutes.selectTechincalView);
-          },
+                     cusomBottomSheet(context1: context);
+  },
         ),
         SizedBox(
           height: AppHeight.h30,

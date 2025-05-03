@@ -40,7 +40,7 @@ class EndPoint {
       "${serviceRequest}CreateRequestManually";
   static String createRequestAutomatic =
       "${serviceRequest}CreateRequestAutomatic";
-  static String getRequest = "${serviceRequest}GetRequest/";
+  static String getRequestDetails = "${serviceRequest}GetRequest/";
   static String getAllRequestesForUser = "${serviceRequest}GetAllRequests";
   static String updateTechinicalInRequest =
       "${serviceRequest}Update-Technical-in-Request?";

@@ -46,6 +46,9 @@ abstract class AssetsManager {
   static const String editProfile = 'assets/icon/edit.svg';
   static const String emailIcon = 'assets/icon/email_icon.svg';
   static const String passwordIcon = 'assets/icon/password_icon.svg';
+  static const String moreCircle = 'assets/icon/More_Circle.svg';
+  static const String categoryCircle = 'assets/icon/Category.svg';
+
 //! Assets Icons
   // static const String deleteIcon = '';
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/checkout/presentation/views/widgets/card_info_widget.dart' show CardInfoWidget;
+import 'package:splash_app/feature/checkout/presentation/views/widgets/card_info_widget.dart'
+    show CardInfoWidget;
 import 'package:splash_app/feature/checkout/presentation/views/widgets/payment_info_item.dart';
 import 'package:splash_app/feature/checkout/presentation/views/widgets/total_price_widget.dart';
 
@@ -79,16 +82,22 @@ class ThankYouCard extends StatelessWidget {
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
-                          width: 1.50, color: Color(0xFF34A853)),
+                          width: 1.50, color: ColorsManager.deepCerulean),
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  child: Center(
-                    child: Text(
-                      'PAID',
-                      textAlign: TextAlign.center,
-                      style: StylesManager.style24
-                          .copyWith(color: ColorsManager.mainColor),
+                  child: GestureDetector(
+                    onTap: () {
+                      NavigatorManager.pushWithReplacement(
+                          context: context, route: AppRoutes.homeView);
+                    },
+                    child: Center(
+                      child: Text(
+                        'PAID',
+                        textAlign: TextAlign.center,
+                        style: StylesManager.style24
+                            .copyWith(color: ColorsManager.mainColor),
+                      ),
                     ),
                   ),
                 )

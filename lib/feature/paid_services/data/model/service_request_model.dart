@@ -42,8 +42,10 @@ class ServiceRequestModel extends ServiceRequestEntity {
       serviceQuantity: jsonData[ApiKey.serviceQuantity],
       servicePrice: jsonData[ApiKey.servicePrice],
       userId: jsonData[ApiKey.userId],
-      userLatitude: jsonData[ApiKey.userLatitude],
-      userLongitiude: jsonData[ApiKey.userLongitude],
+      userLatitude:
+          double.parse(jsonData[ApiKey.userLatitude].toStringAsFixed(6)),
+      userLongitiude:
+          double.parse(jsonData[ApiKey.userLongitude].toStringAsFixed(6)),
       busnissStatus: jsonData[ApiKey.busnissStatus],
       paymentsSatus: jsonData[ApiKey.paymentStatus],
       createdOn: jsonData[ApiKey.createdOn],

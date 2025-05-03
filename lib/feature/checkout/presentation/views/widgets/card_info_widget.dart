@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
 
 class CardInfoWidget extends StatelessWidget {
   const CardInfoWidget({
@@ -23,23 +24,13 @@ class CardInfoWidget extends StatelessWidget {
           const SizedBox(
             width: 23,
           ),
-          Text.rich(
+          const Text.rich(
             TextSpan(
               children: [
-                const TextSpan(
-                  text: 'Credit Card',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
-                  ),
-                ),
                 TextSpan(
-                  text: 'Mastercard **78',
+                  text: 'Mastercard ',
                   style: TextStyle(
-                    color: Colors.black.withOpacity(0.699999988079071),
+                    color: ColorsManager.black,
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,

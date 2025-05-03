@@ -1,6 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/network/app_router.dart';
+import 'package:splash_app/core/utils/color_manager.dart';
+import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/add_car/domain/entities/car_entity.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_state.dart';
@@ -25,24 +28,57 @@ class _CustomCarListViewState extends State<CustomCarListView> {
   Widget build(BuildContext context) {
     List<CarEntity> carList = [];
 
-    return BlocBuilder<CarCubit, CarState>(
-      builder: (context, state) {
-        if (state is SuccessCarState) {
-          carList = BlocProvider.of<CarCubit>(context).userCarList;
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              return MyCarItem(
-                car: carList[index],
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        BlocBuilder<CarCubit, CarState>(
+          builder: (context, state) {
+            if (state is SuccessCarState) {
+              carList = BlocProvider.of<CarCubit>(context).userCarList;
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  return MyCarItem(
+                    car: carList[index],
+                  );
+                },
+                itemCount: carList.length,
               );
-            },
-            itemCount: carList.length,
-          );
-        } else if (state is IsLoadingCarState) {
-          return const CustomCarItemSkeltonizerLoading();
-        } else {
-          return Container();
-        }
-      },
+            } else if (state is IsLoadingCarState) {
+              return const CustomCarItemSkeltonizerLoading();
+            } else {
+              return Container();
+            }
+          },
+        ),
+        GestureDetector(
+          onTap: () {
+            NavigatorManager.pushName(
+                context: context, route: AppRoutes.addcar);
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+                color: ColorsManager.mainColor,
+              ),
+              height: 50,
+              width: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '+ add',
+                    textAlign: TextAlign.center,
+                    style: StylesManager.textStyleBold17
+                        .copyWith(color: ColorsManager.white),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

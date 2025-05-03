@@ -16,10 +16,9 @@ class PaymentCubit extends Cubit<PaymentState> {
     emit(PaymentLoading());
 
     var data = await checkoutRepo.makePayment(
-        clientScret: ServiceRequestManualCubit.requestEntity!.clientSecret);
+        clientScret: ServiceRequestCubit.requestEntity!.clientSecret);
 
     data.fold((l) {
-      print(l.errorMessage);
       emit(PaymentFailure(l.errorMessage));
     }, (r) {
       emit(

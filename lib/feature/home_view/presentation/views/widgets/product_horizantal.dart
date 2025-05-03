@@ -28,17 +28,13 @@ class ProductHorizantal extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: Appwidth.w10),
         child: Card(
           elevation: 2,
-          // color: ColorsManager.mainColor,
-          //color: ColorsManager.grey.withValues(alpha: (0.3 * 255),),
           color: ColorsManager.white.withValues(
             alpha: (0.1 * 255),
           ),
-
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSize.s16)),
           child: SizedBox(
             height: context.screenHeight * .15,
-            // width: context.screenWidth * 0.82,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -47,7 +43,6 @@ class ProductHorizantal extends StatelessWidget {
                     padding: const EdgeInsets.all(AppSize.s16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      //   mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           child: Text(
@@ -71,8 +66,6 @@ class ProductHorizantal extends StatelessWidget {
                   width: context.screenWidth * 0.3,
                   child: Image.asset(
                     pathImage,
-                    // width: 100,
-                    // height: 100.0, // Adjust image size as needed
                     fit: BoxFit.cover,
                   ),
                 ),

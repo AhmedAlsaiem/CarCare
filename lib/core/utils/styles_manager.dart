@@ -18,6 +18,11 @@ abstract class StylesManager {
     color: ColorsManager.blueGrey,
     fontWeight: AppFontWieght.medium,
   );
+  static TextStyle textStyleMedium16 = TextStyle(
+    fontSize: FontSize.s16,
+    color: ColorsManager.blueGrey,
+    fontWeight: AppFontWieght.medium,
+  );
   static TextStyle textStyleMedium20 = TextStyle(
     fontSize: FontSize.s20,
     color: ColorsManager.white,

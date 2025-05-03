@@ -118,7 +118,8 @@ class AppRouter {
               MultiBlocProvider(providers: [
             BlocProvider(create: (context) => BottomNavigationIndeCubit()),
             BlocProvider(create: (context) => GetAllServicesCubit()),
-            BlocProvider(create: (context) => CarCubit())
+            BlocProvider(create: (context) => CarCubit()),
+            BlocProvider(create: (context) => ServiceRequestCubit())
           ], child: const HomeView()),
         );
       case AppRoutes.serviceTypeView:
@@ -141,8 +142,7 @@ class AppRouter {
                 MultiBlocProvider(
                   providers: [
                     BlocProvider(create: (context) => GetAllTechincalCubit()),
-                    BlocProvider(
-                        create: (context) => ServiceRequestManualCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
                   ],
                   child: const TireCarView(),
                 ));
@@ -152,8 +152,7 @@ class AppRouter {
                 MultiBlocProvider(
                   providers: [
                     BlocProvider(create: (context) => GetAllTechincalCubit()),
-                    BlocProvider(
-                        create: (context) => ServiceRequestManualCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
                   ],
                   child: const FuelCarView(),
                 ));
@@ -163,8 +162,7 @@ class AppRouter {
                 MultiBlocProvider(
                   providers: [
                     BlocProvider(create: (context) => GetAllTechincalCubit()),
-                    BlocProvider(
-                        create: (context) => ServiceRequestManualCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
                   ],
                   child: const BatteriesCarView(),
                 ));
@@ -174,8 +172,7 @@ class AppRouter {
                 MultiBlocProvider(
                   providers: [
                     BlocProvider(create: (context) => GetAllTechincalCubit()),
-                    BlocProvider(
-                        create: (context) => ServiceRequestManualCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
                   ],
                   child: const WinchCarView(),
                 ));
@@ -185,8 +182,7 @@ class AppRouter {
                 MultiBlocProvider(
                   providers: [
                     BlocProvider(create: (context) => GetAllTechincalCubit()),
-                    BlocProvider(
-                        create: (context) => ServiceRequestManualCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
                   ],
                   child: const OilCarView(),
                 ));
@@ -205,7 +201,7 @@ class AppRouter {
           pageBuilder: (context, animation, secondaryAnimation) =>
               MultiBlocProvider(
             providers: [
-              BlocProvider(create: (context) => ServiceRequestManualCubit()),
+              BlocProvider(create: (context) => ServiceRequestCubit()),
               BlocProvider(create: (context) => GetAllTechincalCubit()),
             ],
             child: const MechnicalCarView(),
@@ -242,14 +238,17 @@ class AppRouter {
       case AppRoutes.cheeckOut:
         return pageRouteBuilderMethod(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const OrderDetailView());
+                BlocProvider(
+                  create: (context) => ServiceRequestCubit(),
+                  child: const OrderDetailView(),
+                ));
       case AppRoutes.selectTechincalView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => GetAllTechincalCubit()),
-              BlocProvider(create: (context) => ServiceRequestManualCubit()),
+              BlocProvider(create: (context) => ServiceRequestCubit()),
             ],
             child: const SelectTechinaclView(),
           ),

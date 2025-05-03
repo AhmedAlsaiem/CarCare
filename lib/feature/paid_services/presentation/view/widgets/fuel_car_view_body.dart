@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/helper/extentions.dart';
-import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/custom_buttom_sheet.dart';
 import '../../manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'choise_amount.dart';
 import 'custom_radio_list_tile_list_view_builder.dart';
@@ -51,7 +50,7 @@ class FuelCarViewBody extends StatelessWidget {
         ),
         CustomRadioListtileListViewBuilder(
           options: options,
-          selectedOption: "Regular benzine",
+          selectedOption: "p80",
         ),
         const ChoiseAmount(),
         SizedBox(
@@ -59,12 +58,11 @@ class FuelCarViewBody extends StatelessWidget {
         ),
         RequesButton(
           onTap: () {
-            context.read<ServiceRequestManualCubit>().serviceId = 3;
+            context.read<ServiceRequestCubit>().serviceId = 3;
 
             context.read<GetAllTechincalCubit>().serviceId = 3;
-            NavigatorManager.pushName(
-                context: context, route: AppRoutes.selectTechincalView);
-          },
+                               cusomBottomSheet(context1: context);
+  },
         ),
         SizedBox(
           height: AppHeight.h30,

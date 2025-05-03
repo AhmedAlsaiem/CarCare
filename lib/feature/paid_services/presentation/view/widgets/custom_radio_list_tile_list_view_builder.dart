@@ -28,16 +28,15 @@ class _CustomRadioListtileListViewBuilderState
               onchange: (value) {
                 if (selectedOption == null) {
                   selectedOption = value;
-                  context.read<ServiceRequestManualCubit>().typeOfService =
+                  context.read<ServiceRequestCubit>().typeOfService =
                       selectedOption!;
                 } else if (value == widget.options[index]['title']!) {
                   selectedOption = value!;
-                  context.read<ServiceRequestManualCubit>().typeOfService =
+                  context.read<ServiceRequestCubit>().typeOfService =
                       selectedOption!;
-                  context.read<ServiceRequestManualCubit>().price =
+                  context.read<ServiceRequestCubit>().price =
                       double.parse(widget.options[index]['price']!);
 
-                  print('selected value $selectedOption');
                 }
                 setState(() {});
               },

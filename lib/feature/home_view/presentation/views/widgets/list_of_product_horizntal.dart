@@ -20,7 +20,49 @@ class _ProductOfHorizntalAndInductorState
     extends State<ProductOfHorizntalAndInductor> {
   int currentIndex = 0; // Track the current index of the carousel
 
-  final List<ProductHorizantal> items = [
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: context.screenHeight * .17,
+          child: CarouselSlider(
+            items: items.map((item) => item).toList(),
+            options: CarouselOptions(
+              height: AppHeight.h400,
+              scrollPhysics: const BouncingScrollPhysics(),
+              viewportFraction: .85,
+              initialPage: 0,
+              padEnds: false,
+              enableInfiniteScroll: false,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  // Update the current index on page change
+                  if (index == 5) {
+                    index = 0;
+                  }
+                  currentIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
+        SizedBox(height: AppHeight.h16),
+        IndicatorHome(items: items, currentIndex: currentIndex)
+      ],
+    );
+  }
+}
+final List<ProductHorizantal> items = [
    
     const ProductHorizantal(
       title: StringsManager.package,
@@ -67,44 +109,3 @@ class _ProductOfHorizntalAndInductorState
 
     ),
   ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: context.screenHeight * .17,
-          child: CarouselSlider(
-            items: items.map((item) => item).toList(),
-            options: CarouselOptions(
-              height: AppHeight.h400,
-              scrollPhysics: const BouncingScrollPhysics(),
-              viewportFraction: .85,
-              initialPage: 0,
-              padEnds: false,
-              enableInfiniteScroll: false,
-              reverse: false,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 3),
-              autoPlayAnimationDuration: const Duration(milliseconds: 800),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enlargeCenterPage: true,
-              scrollDirection: Axis.horizontal,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  // Update the current index on page change
-                  if (index == 5) {
-                    index = 0;
-                  }
-                  currentIndex = index;
-                });
-              },
-            ),
-          ),
-        ),
-        SizedBox(height: AppHeight.h16),
-        IndicatorHome(items: items, currentIndex: currentIndex)
-      ],
-    );
-  }
-}
