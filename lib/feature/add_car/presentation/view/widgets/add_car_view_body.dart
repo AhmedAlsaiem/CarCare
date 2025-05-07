@@ -29,6 +29,7 @@ class AddCarViewBody extends StatelessWidget {
             key: _formKey,
             child: Column(
               children: [
+                
                 const EnterInfoCar(),
                 const CarVin(),
                 EgyptianCarPlateWithFocus(globalKey: _formKey),
