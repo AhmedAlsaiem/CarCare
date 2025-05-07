@@ -25,6 +25,13 @@ class CarCubit extends Cubit<CarState> {
   TextEditingController plateN2 = TextEditingController();
   TextEditingController plateN3 = TextEditingController();
   TextEditingController plateChar = TextEditingController();
+
+
+  // void setCarInfo({required String brand, required String carColor, required String plate}) {
+  //   model.text = brand;
+  //   color.text = carColor;
+  //   year.text = ''; // You can infer year from plate or leave empty
+  // }
   CarRepo repo = CarRepoImplimentation(
       carBaseRemoteDataSource:
           CarRemoteDatasource(api: DioConsumer(dio: Dio())));
