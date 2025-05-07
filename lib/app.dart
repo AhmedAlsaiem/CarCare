@@ -13,7 +13,7 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: false,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.addcar,
+        initialRoute: AppRoutes.loginView,
         onGenerateRoute: AppRouter.generateRoute,
       //   darkTheme:ThemeData(
       //     brightness: Brightness.values[0],
