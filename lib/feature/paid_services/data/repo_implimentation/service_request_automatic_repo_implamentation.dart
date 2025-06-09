@@ -143,9 +143,9 @@ class ServiceRequestAutomaticRepoImplamentation
 
   @override
   Future<Either<ErrorModel, List<ServiceRequestEntity>>>
-      getAllOrderDetailsForSpecificUser() async {
+      getAllOrderDetailsForSpecificUser({required String index}) async {
     try {
-      var response = await dataSource.getAllOrderDetailsForSpecificUser();
+      var response = await dataSource.getAllOrderDetailsForSpecificUser( index: index);
       return Right(response);
     } on ServerException catch (e) {
       return Left(e.errModel);

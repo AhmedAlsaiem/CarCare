@@ -4,7 +4,7 @@ import 'package:splash_app/feature/checkout/data/models/ephemeral_key_model/ephe
 import 'package:splash_app/feature/checkout/data/models/payment_intent_input_model.dart';
 import 'package:splash_app/feature/checkout/data/models/payment_intent_model/payment_intent_model.dart' show PaymentIntentModel;
 
-import 'ٍstripe_api_service.dart';
+import 'stripe_api_service.dart';
 
 class StripeService {
   final ApiService apiService = ApiService();

@@ -8,8 +8,8 @@ class BatteriesAutomaticRequestUsecase {
   BatteriesAutomaticRequestUsecase({required this.repo});
     Future<Either<ErrorModel, List<ServiceRequestEntity>>>
 excute({
-    required int id,
+    required int id,required String index
   }) {
-    return repo.getAllOrderDetailsForSpecificUser();
+    return repo.getAllOrderDetailsForSpecificUser(index: index);
   }
 }

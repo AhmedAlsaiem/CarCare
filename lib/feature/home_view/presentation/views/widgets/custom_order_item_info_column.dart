@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/functions/convet_time_from_string_to_date_function.dart';
 import 'package:splash_app/core/helper/extentions.dart';
@@ -34,7 +33,7 @@ class CustomOrderItemInfoColumn extends StatelessWidget {
             ),
           ),
         ),
-      const  SizedBox(height: 3),
+        const SizedBox(height: 3),
         Text(
           order.bettaryYpe +
               order.typeOfFuel +
@@ -45,7 +44,7 @@ class CustomOrderItemInfoColumn extends StatelessWidget {
             color: ColorsManager.balck,
           ),
         ),
-      const  SizedBox(height: 3),
+        const SizedBox(height: 3),
         Text(
           parseCustomDateTime(order.createdOn),
           style: StylesManager.textStyleRegular16grey.copyWith(

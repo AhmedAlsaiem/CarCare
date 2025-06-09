@@ -238,6 +238,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  cuberto_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: cuberto_bottom_bar
+      sha256: c597b608ab4512a97004d813499fd0d69d04aca2957061ddcff5f498c29db6d0
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -914,6 +922,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  persistent_bottom_nav_bar:
+    dependency: "direct main"
+    description:
+      name: persistent_bottom_nav_bar
+      sha256: "6aa9b97ced1abd92c90cedd1997d34ea0b35c3ded762ac6063baccc299b0c4c5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.2.1"
   petitparser:
     dependency: transitive
     description:

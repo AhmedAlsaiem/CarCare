@@ -26,7 +26,7 @@ class ListTileWidget extends StatelessWidget {
           child: ListTile(
             leading: CustomSvgButtonNavigationBarIcon(
               color: ColorsManager.mainColor,
-              imagePath: icon,
+              imagePath: icon, size: 30,
             ),
             title: Text(
               title,

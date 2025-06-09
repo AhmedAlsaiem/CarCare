@@ -46,9 +46,11 @@ class SwitchListTileWidget extends StatelessWidget {
             leading: value
                 ? CustomSvgButtonNavigationBarIcon(
                     color: ColorsManager.mainColor,
-                    imagePath:activeIcon,
+                    size: 30,
+                    imagePath: activeIcon,
                   )
                 : CustomSvgButtonNavigationBarIcon(
+                    size: 30,
                     color: ColorsManager.mainColor,
                     imagePath: inactiveIcon,
                   ),

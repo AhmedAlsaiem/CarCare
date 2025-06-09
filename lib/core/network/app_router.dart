@@ -15,6 +15,8 @@ import 'package:splash_app/feature/authentaction/presentation/view/service_provi
 import 'package:splash_app/feature/authentaction/presentation/view/service_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/checkout/presentation/views/order_details_view.dart';
+import 'package:splash_app/feature/contact/presentation/manager/contact_cubit/contact_cubit.dart';
+import 'package:splash_app/feature/contact/presentation/views/contact_view.dart';
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
 import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
@@ -119,7 +121,8 @@ class AppRouter {
             BlocProvider(create: (context) => BottomNavigationIndeCubit()),
             BlocProvider(create: (context) => GetAllServicesCubit()),
             BlocProvider(create: (context) => CarCubit()),
-            BlocProvider(create: (context) => ServiceRequestCubit())
+            BlocProvider(create: (context) => ServiceRequestCubit()),
+            BlocProvider(create: (context) => ContactCubit()),
           ], child: const HomeView()),
         );
       case AppRoutes.serviceTypeView:
@@ -253,10 +256,20 @@ class AppRouter {
             child: const SelectTechinaclView(),
           ),
         );
+      case AppRoutes.contactView:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ContactCubit()),
+            ],
+            child: const ContactView(),
+          ),
+        );
       default:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const Scaffold(),
+            const  Scaffold(),
         );
     }
   }
@@ -288,7 +301,7 @@ abstract class AppRoutes {
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
   static const String selectTechincalView = '/selectTechinicalView';
-
+  static const String contactView = '/contactView';
   static const String mapView = '/mapView';
   static const String userPofileView = '/userProfileView';
   static const String cheeckOut = '/cheeckOut';

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/assets_manager.dart';
@@ -106,6 +108,7 @@ class _SettingViewBodyState extends State<SettingViewBody> {
                   desc: 'Are you sure you want to logout?',
                   snackbarText: 'Logged out successfully!',
                   onConfirm: () {
+                    CacheHelper.sharedPreferences.remove(ApiKey.token);
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         backgroundColor: ColorsManager.mainColor,

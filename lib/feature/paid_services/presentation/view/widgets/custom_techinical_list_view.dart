@@ -37,7 +37,7 @@ class CustomTechnicalItemListView extends StatelessWidget {
             child: BlocBuilder<GetAllTechincalCubit, GetAllTechincalState>(
                 builder: (context, state) {
               if (state is GetAllTechinicalSucessState) {
-                return state.techinicalList.isEmpty
+                return state.techinicalList.isNotEmpty
                     ? Padding(
                         padding:
                             const EdgeInsets.symmetric(horizontal: AppSize.s16),

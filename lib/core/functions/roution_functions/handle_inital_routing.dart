@@ -18,7 +18,7 @@ String initalRoute() {
     }
   } else if (appState == null) {
     return AppRoutes.onboardingView;
-  } else {
+  }else {
     return AppRoutes.loginView;
   }
 }

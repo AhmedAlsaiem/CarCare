@@ -23,7 +23,6 @@
 //     return Future.error(
 //         "Location permission is permanently denied. Please change it in settings.");
 //   }
-
 //   return await Geolocator.getCurrentPosition(
 //     desiredAccuracy: LocationAccuracy.high,
 //   );

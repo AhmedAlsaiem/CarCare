@@ -3,13 +3,55 @@ import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/helper/cache_helper.dart';
 
 class ApiInterceptor extends Interceptor {
+  final Dio dio;
+
+  ApiInterceptor({required this.dio});
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers['Authorization'] = CacheHelper()
-                .getData(key: ApiKey.token) !=
-            null
-        ? 'Bearer ${CacheHelper().getData(key: ApiKey.token)}'
-        : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ByaW1hcnlzaWQiOiI4MjU5N2U2YS0wNzFjLTRmNDEtYTQ5YS1jN2JlYzg0ZDA0NWYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IjAxMDAwNDA1NzI2IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibWFobW91ZHNoYWJhbmtrMDExQGdtYWlsLmNvbSIsIlR5cGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiVXNlciIsImV4cCI6MTc0NjIzNTkzMywiaXNzIjoiQ2FyQ2FyZUlkZW50aXR5IiwiYXVkIjoiQ2FyQ2FyZVVzZXJzIn0.k20YLFsWJAHMTF7pSXCUJuyiOJHXHnljV9DWy5mEpyE';
+    final token = CacheHelper().getData(key: ApiKey.token);
+    token!=null? options.headers['Authorization'] = 'Bearer $token':null;
     super.onRequest(options, handler);
+  }
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
+    final token = CacheHelper().getData(key: ApiKey.token);
+
+    if (err.response?.statusCode == 401) {
+      final refreshToken = CacheHelper().getData(key: ApiKey.refreshToken);
+      if (refreshToken == null) {
+        handler.reject(err);
+
+        return;
+      }
+
+      try {
+        final response = await dio.post(
+          EndPoint.getRefreshToken,
+          data: {
+            "refreshToken": refreshToken,
+            "token": token,
+          },
+        );
+
+        final newToken = response.data['token'];
+        final newRefreshToken = response.data['refreshToken'];
+        CacheHelper().saveData(key: ApiKey.token, value: newToken);
+        CacheHelper()
+            .saveData(key: ApiKey.refreshToken, value: newRefreshToken);
+        final options = err.requestOptions;
+        options.headers['Authorization'] = 'Bearer $newToken';
+        final cloneReq = await dio.fetch(options);
+
+        return handler.resolve(cloneReq);
+      } catch (e) {
+        CacheHelper().removeData(key: ApiKey.token);
+        CacheHelper().removeData(key: ApiKey.refreshToken);
+        return handler.reject(err);
+      }
+    }
+
+    return handler.reject(err);
   }
 }

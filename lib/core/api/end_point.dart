@@ -1,22 +1,22 @@
 class EndPoint {
   //! user authentication End Point
   static String baseUrl = "https://carcareapp.runasp.net/api/";
-  //User and technical end points
+  //User and technical Authentication End points
   static String acount = "account/";
   static String serviceRequest = "ServiceRequest/";
 
   static String login = "${acount}login";
-  static String registerUser = "${acount}register/user";
-  static String registerTechnical = "${acount}register/Technical";
+  static String registerUser = "${acount}register";
+  static String registerTechnical = "${acount}register";
   static String getCurrentUser = "${acount}GetCurrentUserByRole";
   static String getCurrentTechnical = "${acount}GetCurrentTechnical";
   static String changePassword = "${acount}Change-Password";
   static String getRefreshToken = "${acount}Get-Refresh-Token";
   static String revokeRefreshToken = "${acount}Revoke-Refresh-Token";
-  static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
+ static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
   static String verfiyCodeEmail = "${acount}VerfiyCodeEmail";
   static String resetPassword = "${acount}ResetPasswordEmail";
-  static String confirmationCodeEmail = "${acount}ConfirmationCodeEmail";
+  static String sendCodeByEmail = "${acount}SendCodeByEmail";
   static String confirmEmail = "${acount}ConfirmEmail";
   static String updateUser = "${acount}UpdateAppUser";
   static String updateTechical = "${acount}UpdateTech";
@@ -47,7 +47,7 @@ class EndPoint {
   static String deleteOrCancleForUser =
       "${serviceRequest}DeleteRequestForUser/";
   static String cheeckStatus = "${serviceRequest}CheckStatus/";
-
+  static String getAllContacts = "Contact/GetAllMessages";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
@@ -67,6 +67,7 @@ class ApiKey {
   static String id = "id";
   static String fullName = "fullName";
   static String type = "type";
+  static String fristCare = "fristCare";
   static String message = "message";
   static String password = "password";
   static String newPassword = "newPassword";
@@ -105,4 +106,7 @@ class ApiKey {
   static String createdOn = "createdOn";
   static String paymentIntentId = "paymentIntentId";
   static String clientSecret = "clientSecret";
+  static String lastModifiedBy = "lastModifiedBy";
+  static String messageFor = "messageFor";
+  static String lastModifiedOn = "lastModifiedOn";
 }

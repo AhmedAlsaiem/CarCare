@@ -50,7 +50,7 @@ class UserProfileCubit extends Cubit<UserProfileState> {
         await UpdateCurrentUserProfileUseCase(userProfileRepo: repo).excute(
       email: getCurrentText(editEmailController, user!.email),
       userName: getCurrentText(editUserNameController, user!.userName),
-      phoneNumber: user!.phoneNumber,
+      phoneNumber: getCurrentText(editPhoneNumberController, user!.phoneNumber),
     );
 
     response.fold(

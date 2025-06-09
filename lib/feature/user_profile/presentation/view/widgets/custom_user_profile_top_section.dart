@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/helper/extentions.dart';
@@ -37,6 +36,7 @@ class CustomUserProfiletopSection extends StatelessWidget {
                 radius: 20,
                 backgroundColor: ColorsManager.babyBlue,
                 child: CustomSvgButtonNavigationBarIcon(
+                    size: 30,
                     imagePath: AssetsManager.cameraIcon,
                     color: ColorsManager.mainColor),
               ),

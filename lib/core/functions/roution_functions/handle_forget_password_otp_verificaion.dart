@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/functions/navigation.dart';
 import 'package:splash_app/core/network/app_router.dart';
+import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart' show UserCubit;
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_state.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_circular_progress_indector.dart';
@@ -13,7 +15,7 @@ void handleForgetPassowrdOtpVerification(
   } else if (state is FaliureUserState) {
     customShowSnackBar(context, state.errorMessage);
   } else if (state is SuccessUserState) {
-    //  BlocProvider.of<UserCubit>(context).resetPassword();
+   //  BlocProvider.of<UserCubit>(context).resetPassword();
     customShowSnackBar(context, state.successMessage!);
 
     NavigatorManager.pushWithReplacement(

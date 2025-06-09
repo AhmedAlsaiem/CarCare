@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/dio_api.dart';
 import 'package:splash_app/feature/paid_services/data/datasource/service_request_automatic_remote_data_source.dart';
@@ -54,7 +55,9 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
   set price(double price) {
     _price = price;
   }
+ //Position location=await getCurrentMobileLocations();
 
+   TextEditingController controller=TextEditingController();
   Future<void> createRequestForWinch() async {
     emit(ServiceRequestIsLoadinState());
     dynamic response = await repo.createRequestForWinch(
@@ -283,16 +286,28 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
     });
   }
 
+  List<ServiceRequestEntity> orderList = [];
+
+  int index = 1;
   Future<List<ServiceRequestEntity>> getAllOrdersForSepcificUser() async {
-    List<ServiceRequestEntity> orderList = [];
     emit(ServiceRequestIsLoadinState());
-    dynamic response = await repoAutomatic.getAllOrderDetailsForSpecificUser();
+    dynamic response = await repoAutomatic.getAllOrderDetailsForSpecificUser(
+        index: index.toString());
     response.fold((errorModel) {
       emit(ServiceRequestFailedState(error: errorModel));
     }, (requestModelList) {
-      emit(ServiceRequestSucessState(successMessage: 'sucess'));
-      orderList.addAll(requestModelList);
+      if (requestModelList.length >= 10) {
+        index++;
+        orderList.addAll(requestModelList);
+        emit(GetAllOrdersSucessState(orderList: requestModelList));
+      } else {
+        orderList.addAll(requestModelList);
+        emit(GetAllOrdersSucessState(orderList: requestModelList));
+        orderList.clear();
+        index = 1;
+      }
     });
+
     return orderList;
   }
 

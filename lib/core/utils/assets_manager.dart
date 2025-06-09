@@ -30,7 +30,12 @@ abstract class AssetsManager {
   static const String userIcon = 'assets/images/user.png';
   static const String technicalIcon = 'assets/images/service_provider.png';
   static const String homIcon = 'assets/icon/home.svg';
+  static const String homIcon1 = 'assets/icon/home1.svg';
+
   static const String mycarsIcon = 'assets/icon/car.svg';
+  static const String mycars1Icon = 'assets/icon/car1.svg';
+  static const String settingsIcon1 = 'assets/icon/settings1.svg';
+
   static const String settingsIcon = 'assets/icon/settings_icon.svg';
   static const String ordersIcon = 'assets/icon/order.svg';
   static const String notificationOnIcon = 'assets/icon/notification_on.svg';
@@ -48,7 +53,9 @@ abstract class AssetsManager {
   static const String passwordIcon = 'assets/icon/password_icon.svg';
   static const String moreCircle = 'assets/icon/More_Circle.svg';
   static const String categoryCircle = 'assets/icon/Category.svg';
+  static const String messageIcon = 'assets/icon/message.svg';
 
 //! Assets Icons
   // static const String deleteIcon = '';
 }
+//assets/icon/message.svg

@@ -21,6 +21,7 @@ class CustomOrderListView extends StatefulWidget {
 
 class _CustomOrderListViewState extends State<CustomOrderListView> {
   List<ServiceRequestEntity> ordersList = [];
+  int lastIndex = 0;
   @override
   void initState() {
     requestAllOrders();
@@ -28,38 +29,62 @@ class _CustomOrderListViewState extends State<CustomOrderListView> {
   }
 
   Future<void> requestAllOrders() async {
+    context.read<ServiceRequestCubit>().index = 1;
+    context.read<ServiceRequestCubit>().orderList.clear();
+
     ordersList.addAll(await BlocProvider.of<ServiceRequestCubit>(context)
         .getAllOrdersForSepcificUser());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ServiceRequestCubit, ServiceRequestState>(
-      builder: (context, state) {
-        if (state is ServiceRequestSucessState) {
-          return Padding(
-            padding: const EdgeInsets.only(
-              top: AppSize.s30,
-              left: AppSize.s16,
-              right: AppSize.s16,
-            ),
-            child: CustomorderListViewBuilder(ordersList: ordersList),
-          );
-        } else if (state is ServiceRequestIsLoadinState) {
-          return const CustomCarItemSkeltonizerLoading();
-        } else if (state is ServiceRequestFailedState) {
-          return Center(
-            child: Text(
-              state.error.errorMessage,
-              style: StylesManager.textStyleRegular14.copyWith(
-                color: ColorsManager.balck,
-              ),
-            ),
-          );
-        } else {
-          return Container();
-        }
-      },
+    return RefreshIndicator(
+      color: ColorsManager.mainColor,
+      onRefresh: requestAllOrders,
+      child: NotificationListener(
+        onNotification: (ScrollNotification scrollInfo) {
+          if (scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
+            if (lastIndex == 0) {
+              lastIndex = ordersList.length;
+            } else {
+              lastIndex = context.read<ServiceRequestCubit>().orderList.length;
+            }
+            context.read<ServiceRequestCubit>().getAllOrdersForSepcificUser();
+          }
+          return true;
+        },
+        child: BlocBuilder<ServiceRequestCubit, ServiceRequestState>(
+          builder: (context, state) {
+            if (state is GetAllOrdersSucessState) {
+              print('^^^^^^^^^^^^^^6ff ${state.orderList.length}');
+              return Padding(
+                padding: const EdgeInsets.only(
+                  top: AppSize.s20,
+                  left: AppSize.s16,
+                  right: AppSize.s16,
+                ),
+                child: CustomorderListViewBuilder(
+                  ordersList: state.orderList,
+                  lastIndex: lastIndex,
+                ),
+              );
+            } else if (state is ServiceRequestIsLoadinState) {
+              return const CustomCarItemSkeltonizerLoading();
+            } else if (state is ServiceRequestFailedState) {
+              return Center(
+                child: Text(
+                  state.error.errorMessage,
+                  style: StylesManager.textStyleRegular14.copyWith(
+                    color: ColorsManager.balck,
+                  ),
+                ),
+              );
+            } else {
+              return Container();
+            }
+          },
+        ),
+      ),
     );
   }
 }

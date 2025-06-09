@@ -64,6 +64,8 @@ dependencies:
   custom_rating_bar: ^3.0.0
   flutter_stripe: ^11.5.0
   flutter_credit_card: ^4.1.0
+  cuberto_bottom_bar: ^3.1.0
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   build_runner: ^2.0.0

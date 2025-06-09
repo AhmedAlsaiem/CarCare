@@ -30,3 +30,9 @@ class ServiceRequestFailedState extends ServiceRequestState {
 
   ServiceRequestFailedState({required this.error});
 }
+
+class GetAllOrdersSucessState extends ServiceRequestState {
+  final List<ServiceRequestEntity> orderList;
+
+  GetAllOrdersSucessState({required this.orderList});
+}

@@ -76,7 +76,6 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.phoneNumber: phoneNumber,
         ApiKey.type: 1,
       });
-
       user = UserModel.fromJson(response);
       saveUserData(acount: user);
       return user;
@@ -92,6 +91,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   Future<UserModel> login(
       {required String phoneNumber, required String password}) async {
     UserModel user;
+
     try {
       dynamic response = await api.post(EndPoint.login, data: {
         ApiKey.password: password,
@@ -125,7 +125,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   Future<ResponseModel> confirmationCode({required String email}) async {
     ResponseModel apiResponse;
     try {
-      dynamic response = await api.post(EndPoint.confirmationCodeEmail, data: {
+      dynamic response = await api.post(EndPoint.sendCodeByEmail, data: {
         ApiKey.email: email,
       });
       apiResponse = ResponseModel.fromJson(response);
@@ -192,15 +192,16 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
   }
 
   @override
-  Future<UserModel> getCurrentUser() async{
- UserModel user;
+  Future<UserModel> getCurrentUser() async {
+    UserModel user;
     try {
       dynamic response = await api.get(EndPoint.getCurrentUser);
       user = UserModel.fromJson(response);
       return user;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
-    }  }
+    }
+  }
 
   @override
   Future<void> getRefreskToken(

@@ -37,6 +37,7 @@ class OtpverifactionCodeSection extends StatelessWidget {
               CustomButton(
                   onPressed: () {
                     BlocProvider.of<UserCubit>(context).confirmEmail();
+                    print('object');
                   },
                   bottonName: StringsManager.submmit),
             ],

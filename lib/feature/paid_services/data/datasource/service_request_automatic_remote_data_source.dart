@@ -45,7 +45,8 @@ abstract class BaseServiceRequestAutomaticRemoteDataSource {
   Future<ServiceRequestModel> getOrderDetails({
     required int id,
   });
-  Future<List<ServiceRequestModel>> getAllOrderDetailsForSpecificUser();
+  Future<List<ServiceRequestModel>> getAllOrderDetailsForSpecificUser(
+      {required String index});
   Future<String> deleteOrder({required int id});
   Future<String> getOrderStatus({required int id});
 }
@@ -193,10 +194,12 @@ class ServiceRequestAutomaticRemoteDataSource
   }
 
   @override
-  Future<List<ServiceRequestModel>> getAllOrderDetailsForSpecificUser() async {
+  Future<List<ServiceRequestModel>> getAllOrderDetailsForSpecificUser(
+      {required String index}) async {
     try {
-      dynamic response = await api.get(EndPoint.getAllRequestesForUser);
-      List<ServiceRequestModel> ordersList = (response as List)
+      dynamic response = await api.get(
+          '${EndPoint.getAllRequestesForUser}?pageSize=10&pageIndex=$index');
+      List<ServiceRequestModel> ordersList = (response['data'] as List)
           .map((item) => ServiceRequestModel.formJson(item))
           .toList();
 
@@ -220,8 +223,7 @@ class ServiceRequestAutomaticRemoteDataSource
   @override
   Future<String> getOrderStatus({required int id}) async {
     try {
-      dynamic response =
-          await api.get(EndPoint.cheeckStatus + id.toString());
+      dynamic response = await api.get(EndPoint.cheeckStatus + id.toString());
       return response['status'];
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);

@@ -51,7 +51,7 @@ abstract class ServiceRequestAutomaticRepo {
     required int id,
   });
   Future<Either<ErrorModel, List<ServiceRequestEntity>>>
-      getAllOrderDetailsForSpecificUser();
+      getAllOrderDetailsForSpecificUser({required String index});
   Future<Either<ErrorModel, String>> deleteOrder({required int id});
   Future<Either<ErrorModel, String>> getOrderStatus({required int id});
 }

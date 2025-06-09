@@ -3,7 +3,7 @@
 <plist version="1.0">
 	<dict>
 		<key>FLTEnableImpeller</key>
-		<false />
+		<false/>
 		<key>NSLocationWhenInUseUsageDescription</key>
 		<string>We need your location to provide better services.</string>
 		<key>NSLocationAlwaysUsageDescription</key>
