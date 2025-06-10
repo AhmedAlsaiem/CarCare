@@ -37,7 +37,7 @@ class EgyptianCarPlateWithFocusState extends State<EgyptianCarPlateWithFocus> {
       child: Card(
         color: ColorsManager.lightGrey,
         margin: EdgeInsets.only(
-            left: Appwidth.w22, right: Appwidth.w22.w, top: Appwidth.w16),
+            left:16, right:16, top: Appwidth.w16),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s12),
         ),
@@ -128,7 +128,7 @@ class EgyptianCarPlateWithFocusState extends State<EgyptianCarPlateWithFocus> {
                             focusNode: _focusNodes[3],
                             nextFocusNode: _focusNodes[3],
                             keyboardType: TextInputType.text,
-                            fieldWidth: AppSize.s140,
+                            fieldWidth: AppSize.s130,
                           ),
                         ],
                       ),

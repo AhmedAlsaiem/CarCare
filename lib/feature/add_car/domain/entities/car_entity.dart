@@ -7,6 +7,8 @@ class CarEntity extends Equatable {
   final int year;
   final String vinNumber;
   final String plateNumber;
+  
+ 
 
   const CarEntity({
     required this.model,

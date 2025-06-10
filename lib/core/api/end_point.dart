@@ -31,7 +31,38 @@ class EndPoint {
   static String getAllCarsForSpecificUser =
       "${car}Get-All-Vehicle-For-SpecificUser";
 
-//service request end points
+  static String feadback = "FeedBack/";
+  static String creatFeadback = "${feadback}CreateFeedBack";
+  //static String getFeedBack = "${feadback}GetFeedBack/";
+  static String getFeedBack = "${feadback}GetFeedBackThatUserAdd";
+  static String getappFeedBack = "${feadback}GetAvarageRating";
+
+  static String updateFeedBack = "${feadback}UpdateFeedBack/";
+  static String serviceReuest = "ServiceRequest/";
+  static String getAllPendingRequestsToTechnical =
+      "${serviceReuest}GetAllPendingRequestsToTechnical";
+  static String getAllOrders = "${serviceReuest}GetAllRequestsToTechnical";
+  static String getAllOrdersComplate =
+      "${serviceReuest}GetAllRequestsToTechnical?status=3";
+  static String getAllOrdersCancal =
+      "${serviceReuest}GetAllRequestsToTechnical?status=4";
+  static String getAllOrdersInprojrass =
+      "${serviceReuest}GetAllRequestsToTechnical?status=2";
+  static String getAllOrdersPending =
+      "${serviceReuest}GetAllRequestsToTechnical?status=1";
+  static String techincalBeActive = "${serviceReuest}TechincalBeActive";
+  static String techincalBeInActive = "${serviceReuest}TechincalBeInActive";
+  static String acceptRequest = "${serviceReuest}AcceptRequest/";
+  static String rejectRequest = "${serviceReuest}RejectRequest/";
+  static String completeRequest = "${serviceReuest}CompleteRequest/";
+  static String getcomplateOrder =
+      "${serviceReuest}GetAllRequestsToTechnical?status=2";
+  static String getTecnicalPrfile = "Account/GetCurrentUserByRole";
+  static String udateProfile = "account/UpdateAppUser";
+  static String getMessages = "Contact/GetAllMessages";
+  static String setLocation = "account/Update-Technical-Location";
+
+
   static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
       "${serviceRequest}GetAvailableTechincals?";
   static String getAllTechinicalOrderedByDistanceEndPoint =
@@ -83,6 +114,14 @@ class ApiKey {
   static String vinNumber = "viN_Number";
   static String plateNumber = "plateNumber";
   static String userId = "userId";
+  static String rating = "rating";
+  static String comment = "comment";
+  static String orderId = "id";
+  static String techId = "techId";
+  static String techName = "techName";
+  static String techJop = "techJop";
+  static String distance = "distance";
+  static String serviceTypeId = "serviceTypeId";
   static String distance = "distance";
   static String nameOfService = "serviceName";
   //service request api key
@@ -98,6 +137,13 @@ class ApiKey {
   static String typeOfFuel = "typeOfFuel";
   static String typeOfOil = "typeOfOil";
   static String tireSize = "tireSize";
+  static String typeOfWinch = "typeOfWinch";
+  static String serviceQuantity = "serviceQuantity";
+  static String servicePrice = "servicePrice";
+  static String userIdorder = "userId";
+  static String userName = "userName";
+  static String userLatitude = "userLatitude";
+  static String userLongitude = "userLongitude";
   static String serviceQuantity = "serviceQuantity";
   static String userName = "userName";
   static String busnissStatus = "busnissStatus";
@@ -106,6 +152,39 @@ class ApiKey {
   static String createdOn = "createdOn";
   static String paymentIntentId = "paymentIntentId";
   static String clientSecret = "clientSecret";
+  static String nationalIdTecnical = "nationalId";
+  static String serviceNameTecnical = "serviceName";
+  static String techLatitude = "techLatitude";
+  static String profit = "profit";
+  static String techLongitude = "techLongitude";
+  static String techRate = "techRate";
+  static String completedRequestes = "completedRequestes";
+  static String idTecnical = "id";
+  static String fullNameTecnical = "fullName";
+  static String phoneNumberTecnical = "phoneNumber";
+  static String emailTecnical = "email";
+  static String typeTecnical = 'type';
+  static String tokenTecnical = 'token';
+  static String refreshTokenTecnical = 'refreshToken';
+  static String refreshTokenExpirationDateTecnical =
+      'refreshTokenExpirationDate';
+  static String fullNameUpdate = 'FullName';
+  static String phoneNumberUpdate = 'phoneNumber';
+  static String emailUpdate = 'email';
+  static String idUpdate = 'nationalId';
+  static String teccniclSwitch = 'teccniclSwitch';
+  static String feadbackid = "feadbackid";
+  static String messageId = 'id';
+  static String messages = 'message';
+  static String createdBys = 'createdBy';
+  static String createdOns = 'createdOn';
+  static String lastModifiedBy = 'lastModifiedBy';
+  static String lastModifiedOn = "lastModifiedOn";
+  static String userIds = 'userId';
+  static String fullNames = "fullName";
+  static String userLocationId = "id";
+  static String techLatitudeloc = 'techLatitude';
+  static String techLongitudeloc = "techLongitude";
   static String lastModifiedBy = "lastModifiedBy";
   static String messageFor = "messageFor";
   static String lastModifiedOn = "lastModifiedOn";

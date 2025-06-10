@@ -5,7 +5,7 @@ abstract class ColorsManager {
   static const Color balck = Color(0xff000000);
   static const Color white = Color(0xffffffff);
   static const Color mainColor = Color(0xff0B4261);
-  // static const Color mainColor = Color(0xff2352a1);
+   //static const Color mainColor = Color(0xff2352a1);
   static const Color secondaryColor = Color.fromARGB(255, 37, 65, 114);
   static const Color darkBlue = Color(0xff0c2d48);
   static const Color blue = Color(0xff2e8bc0);
@@ -18,6 +18,8 @@ abstract class ColorsManager {
   static const Color darkGrey = Color.fromARGB(255, 92, 93, 94);
   static const Color lightGoold = Color.fromARGB(255, 114, 88, 30);
   static const Color meduimGrey = Color(0xff909090);
+  static const Color cancalColor = Color(0xffA0A0A0);
+  static const Color orderColor = Color(0xffF0EFEF);
   static const Color greenGrey= Color(0xffF2F2F2);
 
 //?

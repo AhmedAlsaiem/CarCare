@@ -180,6 +180,10 @@ abstract class StylesManager {
     fontSize: FontSize.s32,
     color: ColorsManager.white,
   );
+  static TextStyle textStylewmedium20maincolor = TextStyle(
+    fontWeight: AppFontWieght.medium,
+    fontSize: FontSize.s20,
+    color: ColorsManager.mainColor,
   static const TextStyle style25 = TextStyle(
     color: Colors.black,
     fontSize: 25,

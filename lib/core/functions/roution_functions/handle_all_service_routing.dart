@@ -37,25 +37,25 @@ List<void Function()?> handleAllServiceRouting(BuildContext context) {
     () {
       NavigatorManager.pushName(
         context: context,
-        route: AppRoutes.mechanicCarView,
+        route: AppRoutes.mapViewMachnical,
       );
     },
     () {
       NavigatorManager.pushName(
         context: context,
-        route: AppRoutes.mapView,
+        route: AppRoutes.mapViewPareking,
       );
     },
     () {
       NavigatorManager.pushName(
         context: context,
-        route: AppRoutes.mapView,
+        route: AppRoutes.mapViewWashing,
       );
     },
     () {
       NavigatorManager.pushName(
         context: context,
-        route: AppRoutes.mapView,
+        route: AppRoutes.mapViewFuel,
       );
     },
   ];

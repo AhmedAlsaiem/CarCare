@@ -1,3 +1,6 @@
+// ignore: file_names
+
+
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
@@ -31,7 +34,7 @@ class ListTileWidget extends StatelessWidget {
             title: Text(
               title,
               style: StylesManager.textStyleBold17
-                  .copyWith(color: ColorsManager.black),
+                  .copyWith(color: ColorsManager.mainColor),
             ),
             onTap: onTap,
           ),

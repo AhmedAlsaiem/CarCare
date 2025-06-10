@@ -43,8 +43,10 @@ class MapService {
                 height: 40.0,
                 point: userLocation,
                 child: const Icon(
+                  size: 40,
                   Icons.location_on,
-                  color: Colors.blue,
+                //  color: Colormanger.mainColor, // User location marker color.,
+                  color: Colors.red,
                 ),
               ),
             ...restaurants.map(
