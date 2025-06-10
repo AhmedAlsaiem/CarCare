@@ -1,5 +1,4 @@
 import 'package:splash_app/core/api/end_point.dart';
-import 'package:splash_app/core/functions/correct_service_image_url.dart';
 import 'package:splash_app/feature/authentaction/domain/entity/service_entities/service_entitiy.dart';
 
 class ServiceModel extends ServiceEntitiy {
@@ -14,7 +13,7 @@ class ServiceModel extends ServiceEntitiy {
       serviceId: jsonData[ApiKey.id],
       title: jsonData[ApiKey.serviceName],
       subTitle: jsonData[ApiKey.serviceDescription],
-      imageUrl: correctServiceImageUrl(imageUrl: jsonData[ApiKey.imageUrl]),
+      imageUrl: jsonData[ApiKey.imageUrl],
     );
   }
 }

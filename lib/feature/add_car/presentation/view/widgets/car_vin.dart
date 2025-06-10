@@ -18,7 +18,7 @@ class CarVin extends StatelessWidget {
     return Card(
       color: ColorsManager.white.withValues(),
       margin: EdgeInsets.only(
-          left: Appwidth.w22, right: Appwidth.w22, top: Appwidth.w16),
+          left: Appwidth.w16.w, right: Appwidth.w16.w, top: Appwidth.w16),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppSize.s12.r),
       ),
@@ -37,7 +37,7 @@ class CarVin extends StatelessWidget {
               style: StylesManager.textStyleRegular14grey
                   .copyWith(color: ColorsManager.balck.withAlpha(100)),
             ),
-             TextFormDetails(
+            TextFormDetails(
               controller: context.read<CarCubit>().vinNumber,
               labalText: StringsManager.modelVinlabel,
               hintText: StringsManager.modelVinHint,

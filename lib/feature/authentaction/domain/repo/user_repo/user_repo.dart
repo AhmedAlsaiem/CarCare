@@ -43,7 +43,7 @@ abstract class UserRepo {
     required String email,
     required String newPassword,
   });
-  Future<void> confirmationCode({
+    Future<Either<ErrorModel,ResponseModel>> confirmationCode({
     required String email,
   });
   Future<Either<ErrorModel, UserEntity>> updateUser({

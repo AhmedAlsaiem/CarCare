@@ -27,6 +27,7 @@ class _MapViewState extends State<MapView> {
   LatLng? selectedRestaurantLocation;
   final MapService _mapService = MapService();
   final FeatchService _featchService = FeatchService();
+
   final RouteService _routeService = RouteService();
 
   @override
@@ -44,6 +45,7 @@ class _MapViewState extends State<MapView> {
     try {
       //userLocation = await CurrentLocation().getCurrentLocation();
      userLocation = const LatLng(30.0444, 31.2357);
+
       if (userLocation == null) {
         throw Exception('Unable to fetch user location.');
       }

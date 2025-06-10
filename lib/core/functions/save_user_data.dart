@@ -6,6 +6,7 @@ import '../helper/cache_helper.dart';
 
 void saveUserData({required UserModel acount}) {
   CacheHelper().saveData(key: ApiKey.token, value: acount.token);
+  CacheHelper().saveData(key: ApiKey.refreshToken, value: acount.refreshToken);
   CacheHelper().saveData(key: ApiKey.email, value: acount.email);
   CacheHelper().saveData(key: ApiKey.type, value: acount.type);
   CacheHelper().saveData(key: ApiKey.phoneNumber, value: acount.phoneNumber);

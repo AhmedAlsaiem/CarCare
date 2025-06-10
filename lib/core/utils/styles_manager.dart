@@ -18,6 +18,11 @@ abstract class StylesManager {
     color: ColorsManager.blueGrey,
     fontWeight: AppFontWieght.medium,
   );
+  static TextStyle textStyleMedium16 = TextStyle(
+    fontSize: FontSize.s16,
+    color: ColorsManager.blueGrey,
+    fontWeight: AppFontWieght.medium,
+  );
   static TextStyle textStyleMedium20 = TextStyle(
     fontSize: FontSize.s20,
     color: ColorsManager.white,
@@ -31,6 +36,11 @@ abstract class StylesManager {
   static TextStyle textStyleSemiBold18 = TextStyle(
     fontWeight: AppFontWieght.semiBold,
     fontSize: FontSize.s16,
+    color: ColorsManager.mainColor,
+  );
+  static TextStyle textStyleSemiBold20 = TextStyle(
+    fontWeight: AppFontWieght.semiBold,
+    fontSize: FontSize.s20,
     color: ColorsManager.mainColor,
   );
 
@@ -93,7 +103,8 @@ abstract class StylesManager {
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s15,
     color: ColorsManager.balck,
-  );static TextStyle textStyleBold12 = TextStyle(
+  );
+  static TextStyle textStyleBold12 = TextStyle(
     fontWeight: AppFontWieght.bold,
     fontSize: FontSize.s12,
     color: ColorsManager.balck,
@@ -126,6 +137,16 @@ abstract class StylesManager {
   static TextStyle textStyleRegular14 = TextStyle(
     fontWeight: AppFontWieght.regular,
     fontSize: FontSize.s14,
+    color: ColorsManager.white,
+  );
+  static TextStyle textStyleRegular12 = TextStyle(
+    fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s12,
+    color: ColorsManager.white,
+  );
+  static TextStyle textStyleRegular10 = TextStyle(
+    fontWeight: AppFontWieght.regular,
+    fontSize: FontSize.s10,
     color: ColorsManager.white,
   );
   static TextStyle textStyleRegular14grey = TextStyle(
@@ -163,5 +184,50 @@ abstract class StylesManager {
     fontWeight: AppFontWieght.medium,
     fontSize: FontSize.s20,
     color: ColorsManager.mainColor,
+  static const TextStyle style25 = TextStyle(
+    color: Colors.black,
+    fontSize: 25,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+    height: 0,
+  );
+
+  static const TextStyle style18 = TextStyle(
+    color: Colors.black,
+    fontSize: 18,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w400,
+    height: 0,
+  );
+
+  static const TextStyle styleBold18 = TextStyle(
+    color: Colors.black,
+    fontSize: 18,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+    height: 0,
+  );
+  static const TextStyle style24 = TextStyle(
+    color: Colors.black,
+    fontSize: 24,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+    height: 0,
+  );
+
+  static TextStyle style20 = TextStyle(
+    color: Colors.black.withAlpha(3),
+    fontSize: 20,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w400,
+    height: 0,
+  );
+
+  static const TextStyle style22 = TextStyle(
+    color: Colors.black,
+    fontSize: 22,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+    height: 0,
   );
 }

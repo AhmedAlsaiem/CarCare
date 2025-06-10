@@ -5,7 +5,7 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 
-import 'request_button.dart';
+import '../../../../paid_services/presentation/view/widgets/request_button.dart';
 
 
 class WashingCarViewBody extends StatefulWidget {
@@ -100,7 +100,9 @@ class _WashingCarViewBodyState extends State<WashingCarViewBody> {
             height: context.screenHeight * .2,
           ),
           RequesButton(
-            selectedOption: selectedOption ?? ' ',
+            onTap: () {
+              
+            },
           ),
           SizedBox(
             height: AppHeight.h30,

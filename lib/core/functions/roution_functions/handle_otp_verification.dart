@@ -5,7 +5,6 @@ import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit
 import 'package:splash_app/feature/authentaction/presentation/view/custom_show_snack_bar.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_circular_progress_indector.dart';
 
-
 void handleOtpVerification(
     UserState state, BuildContext context, String? type) {
   if (state is IsLoadingUserState) {
@@ -15,14 +14,11 @@ void handleOtpVerification(
   } else if (state is SuccessUserState) {
     customShowSnackBar(context, state.successMessage!);
 
-    if (type == 'User') {
-      NavigatorManager.pushName(context: context, route: AppRoutes.addcar);
-    } else if (type == 'Technical') {
+    NavigatorManager.pushWithReplacement(
+        context: context, route: AppRoutes.loginView);
 
-      NavigatorManager.pushWithReplacement(
-          context: context, route: AppRoutes.serviceProviderHomeView);
-    } else {
-      customShowSnackBar(context, state.successMessage!);
-    }
+    NavigatorManager.pushWithReplacement(
+        context: context, route: AppRoutes.loginView);
+    customShowSnackBar(context, state.successMessage!);
   }
 }

@@ -6,6 +6,7 @@ import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/map/map_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/mecanical_view_body.dart';
 
 class ParkingCarView extends StatelessWidget {
   const ParkingCarView({super.key});
@@ -26,6 +27,7 @@ class ParkingCarView extends StatelessWidget {
               size: AppSize.s34, color: ColorsManager.balck),
         ),
         body:const MapView(nameOfServce: 'Parking'),
+        body:  MecanicalViewBody(),
       ),
     );
   }

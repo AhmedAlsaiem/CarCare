@@ -6,10 +6,12 @@ import 'package:splash_app/core/utils/string_manager.dart';
 
 Future<String> initalRoute(BuildContext context) async {
   bool? appState = CacheHelper().getData(key: StringsManager.appState);
-  String? token = CacheHelper().getDataString(key: ApiKey.token);
-  String? type = CacheHelper().getDataString(key: ApiKey.type);
-  String? verify =
-      CacheHelper().getDataString(key: StringsManager.verifyYourAcount);
+  String? token = CacheHelper().getData(key: ApiKey.token);
+
+  String? type = CacheHelper().getData(key: ApiKey.type);
+
+  dynamic verify =
+      CacheHelper().getData(key: StringsManager.verifyYourAcount);
 
   if (appState == true && token != null || verify != null) {
     if (type == StringsManager.technical) {

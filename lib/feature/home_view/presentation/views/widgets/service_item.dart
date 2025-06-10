@@ -41,8 +41,8 @@ class ServiceItem extends StatelessWidget {
                   //   fit: BoxFit.fill,
                   // ),
                   Image.network(
-                    color: ColorsManager.darkgreen,
                     service.imageUrl,
+                    color: ColorsManager.darkgreen,
                     height: AppSize.s64,
                     width: AppSize.s64,
                     fit: BoxFit.fill,

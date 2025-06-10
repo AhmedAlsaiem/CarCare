@@ -12,13 +12,12 @@ import 'package:splash_app/feature/authentaction/presentation/view/widgets/custo
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/custom_text_button.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/widgets/user_signup_text_form_field_section.dart';
 
-
-// ignore: must_be_immutable
 class UserSignUPViewBody extends StatelessWidget {
-  UserSignUPViewBody({super.key});
-  GlobalKey<FormState> formKey = GlobalKey();
+  const UserSignUPViewBody({super.key});
   @override
   Widget build(BuildContext context) {
+    GlobalKey<FormState> formKey = GlobalKey();
+
     return BlocConsumer<UserCubit, UserState>(
       listener: (context, state) {
         signUpHandleState(state, context);

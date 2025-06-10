@@ -11,6 +11,7 @@ import firebase_messaging
 import flutter_local_notifications
 import geolocator_apple
 import local_auth_darwin
+
 import location
 import rive_common
 import shared_preferences_foundation

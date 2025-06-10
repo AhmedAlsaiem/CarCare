@@ -15,12 +15,13 @@ void showConfirmationDialog({
     dialogType: DialogType.warning,
     animType: AnimType.scale,
     title: title,
+    btnCancelColor: ColorsManager.mainColor,
     desc: desc,
     btnCancelOnPress: () {},
     btnOkOnPress: onConfirm,
     btnCancelText: StringsManager.cancle,
     btnOkText: StringsManager.yes,
     barrierColor: Colors.grey.withAlpha(50),
-    btnOkColor: ColorsManager.mainColor,
+    btnOkColor: const Color.fromARGB(255, 203, 34, 21),
   ).show();
 }

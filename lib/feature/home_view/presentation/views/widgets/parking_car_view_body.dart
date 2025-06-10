@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/helper/extentions.dart';
 
@@ -7,7 +5,7 @@ import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/widgets/mecanical_view_body.dart';
 
 import 'text_form_in_parking_view.dart';
 
@@ -31,7 +29,7 @@ class _ParkingCarViewBodyState extends State<ParkingCarViewBody> {
               const EdgeInsets.all(16.0), // Add padding for better spacing.
           children: [
             const TextformFieldInParkingView(
-              title:StringsManager.lengthofcar,
+              title: StringsManager.lengthofcar,
             ),
             const SizedBox(
               height: 20,
@@ -43,7 +41,7 @@ class _ParkingCarViewBodyState extends State<ParkingCarViewBody> {
               height: 20,
             ),
             const TextformFieldInParkingView(
-              title:StringsManager.howtime,
+              title: StringsManager.howtime,
             ),
             SizedBox(
               height: context.screenHeight * .42,
@@ -60,7 +58,7 @@ class _ParkingCarViewBodyState extends State<ParkingCarViewBody> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const RecomndationView()));
+                          builder: (context) =>  MecanicalViewBody()));
                 }
               },
               child: Container(

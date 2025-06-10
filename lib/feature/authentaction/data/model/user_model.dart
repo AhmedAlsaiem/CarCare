@@ -12,11 +12,11 @@ class UserModel extends UserEntity {
     required super.type,
     required super.id,
   });
-  factory UserModel.fromJson(Map<String, dynamic> jsonData) {
+  factory UserModel.fromJson(dynamic jsonData) {
     return UserModel(
       token: jsonData[ApiKey.token],
-      refreshTokenExpirationDate: jsonData[ApiKey.refreshTokenExpirationDate],
-      refreshToken: jsonData[ApiKey.refreshToken],
+      refreshTokenExpirationDate: jsonData[ApiKey.refreshTokenExpirationDate]??'',
+      refreshToken: jsonData[ApiKey.refreshToken]??'',
       phoneNumber: jsonData[ApiKey.phoneNumber],
       email: jsonData[ApiKey.email],
       userName: jsonData[ApiKey.fullName],

@@ -6,31 +6,35 @@ import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/add_car/presentation/manager/cubit/car_cubit.dart';
 import 'package:splash_app/feature/add_car/presentation/view/add_car.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/get_all_services_cubit/get_all_services_cubit.dart';
-import 'package:splash_app/feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
 import 'package:splash_app/feature/authentaction/presentation/manager/user_cubit/user_cubit.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/forget_password_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/login_view.dart';
-import 'package:splash_app/feature/authentaction/presentation/view/choose_acount_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/otp_acount_verification.dart';
+import 'package:splash_app/feature/authentaction/presentation/view/service_provider_sign_up_view.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/service_type.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/user_signup.dart';
 import 'package:splash_app/feature/authentaction/presentation/view/verify_acount.dart';
 import 'package:splash_app/feature/feadback_app/presentation/manger/get_app_feadback/get_app_feadback_cubit.dart';
 import 'package:splash_app/feature/home_view/presentation/views/home_view.dart';
+import 'package:splash_app/feature/checkout/presentation/views/order_details_view.dart';
+import 'package:splash_app/feature/contact/presentation/manager/contact_cubit/contact_cubit.dart';
+import 'package:splash_app/feature/contact/presentation/views/contact_view.dart';
 import 'package:splash_app/feature/home_view/presentation/manager/cubits/bottom_navigation_bar_cubit.dart';
+import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/get_techinical_cubit/get_all_techincal_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/select_techinacl_view.dart';
+import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
 import 'package:splash_app/feature/map/map_view.dart';
 import 'package:splash_app/feature/onboarding/presentation/view/onboarding_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/batteries_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/fuel_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/mechnical_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/oil_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/tire_car_view.dart';
+import 'package:splash_app/feature/paid_services/presentation/view/winch_car_view.dart';
 import 'package:splash_app/feature/service_provider_home/presentation/view/service_provider_home_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/batteries_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/fuel_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/mechnical_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/oil_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/parking_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/recomndation_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/tire_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/washing_car_view.dart';
-import 'package:splash_app/feature/home_view/presentation/views/winch_car_view.dart';
 import 'package:splash_app/feature/setting/presentation/views/rating_view.dart';
 import 'package:splash_app/feature/feadback_app/presentation/manger/create_feadback_cubit/create_feadback_cubit.dart';
 import 'package:splash_app/feature/feadback_app/presentation/views/feadback_view.dart';
@@ -41,7 +45,6 @@ import 'package:splash_app/feature/feadback_app/presentation/views/update_feadba
 import 'package:splash_app/technical/message/presentation/manger/message_cubit.dart';
 import 'package:splash_app/technical/message/presentation/views/message_view.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/location_cubit/location_cubit.dart';
-
 import 'package:splash_app/technical/technical_home/presentation/manger/order_cubit/order_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/manger/tecnical_state/tecniacl_cubit.dart';
 import 'package:splash_app/technical/technical_home/presentation/view/map_view_for_useer.dart';
@@ -50,6 +53,12 @@ import 'package:splash_app/technical/technical_setting/presentation/manger/tecni
 import 'package:splash_app/technical/technical_setting/presentation/manger/update_profile/update_profile_cubit.dart';
 import 'package:splash_app/technical/technical_setting/presentation/views/profile_tecnical_view.dart';
 import 'package:splash_app/technical/technical_setting/presentation/views/update_profile_view.dart';
+import 'package:splash_app/feature/user_profile/presentation/manager/cubit/change_profile_ListTile_to_text_form_field_cubit.dart/change_profile_field_cubit.dart';
+import 'package:splash_app/feature/user_profile/presentation/manager/cubit/user_Profile_cubit/user_profile_cubit.dart';
+import 'package:splash_app/feature/user_profile/presentation/view/user_profile_view.dart';
+import '../../feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
+import '../../feature/authentaction/presentation/view/verify_acount.dart';
+import '../../feature/home_view/presentation/views/home_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -130,7 +139,9 @@ class AppRouter {
               MultiBlocProvider(providers: [
             BlocProvider(create: (context) => BottomNavigationIndeCubit()),
             BlocProvider(create: (context) => GetAllServicesCubit()),
-            BlocProvider(create: (context) => CarCubit())
+            BlocProvider(create: (context) => CarCubit()),
+            BlocProvider(create: (context) => ServiceRequestCubit()),
+            BlocProvider(create: (context) => ContactCubit()),
           ], child: const HomeView()),
         );
       case AppRoutes.serviceTypeView:
@@ -149,29 +160,54 @@ class AppRouter {
         );
       case AppRoutes.tireCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const TireCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
+                  ],
+                  child: const TireCarView(),
+                ));
       case AppRoutes.fuelCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const FuelCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
+                  ],
+                  child: const FuelCarView(),
+                ));
       case AppRoutes.batteriesCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const BatteriesCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
+                  ],
+                  child: const BatteriesCarView(),
+                ));
       case AppRoutes.wichCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const WinchCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
+                  ],
+                  child: const WinchCarView(),
+                ));
       case AppRoutes.oilCarView:
         return pageRouteBuilderMethod(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              const OilCarView(),
-        );
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => GetAllTechincalCubit()),
+                    BlocProvider(create: (context) => ServiceRequestCubit()),
+                  ],
+                  child: const OilCarView(),
+                ));
       case AppRoutes.washingCarView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -185,12 +221,18 @@ class AppRouter {
       case AppRoutes.mechanicCarView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const MechnicalCarView(),
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ServiceRequestCubit()),
+              BlocProvider(create: (context) => GetAllTechincalCubit()),
+            ],
+            child: const MechnicalCarView(),
+          ),
         );
       case AppRoutes.recomendation:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const RecomndationView(),
+              const MechnicalCarView(),
         );
       case AppRoutes.ratingView:
         return pageRouteBuilderMethod(
@@ -205,6 +247,18 @@ class AppRouter {
           ),
         );
       case AppRoutes.mapViewPareking:
+      case AppRoutes.userPofileView:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ChangeProfileFieldCubit()),
+              BlocProvider(create: (context) => UserProfileCubit()),
+            ],
+            child: const UserProfileView(),
+          ),
+        );
+      case AppRoutes.mapView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
@@ -341,10 +395,38 @@ class AppRouter {
                   child: const TechnicalHomeView(),
                 ));
 
+      case AppRoutes.cheeckOut:
+        return pageRouteBuilderMethod(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                BlocProvider(
+                  create: (context) => ServiceRequestCubit(),
+                  child: const OrderDetailView(),
+                ));
+      case AppRoutes.selectTechincalView:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => GetAllTechincalCubit()),
+              BlocProvider(create: (context) => ServiceRequestCubit()),
+            ],
+            child: const SelectTechinaclView(),
+          ),
+        );
+      case AppRoutes.contactView:
+        return pageRouteBuilderMethod(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => ContactCubit()),
+            ],
+            child: const ContactView(),
+          ),
+        );
       default:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const Scaffold(),
+            const  Scaffold(),
         );
     }
   }
@@ -353,21 +435,17 @@ class AppRouter {
 abstract class AppRoutes {
   static const String onboardingView = '/';
   static const String homeView = '/homeView';
-
   static const String addcar = '/addcar';
   static const String loginView = '/loginView';
   static const String ratingView = '/ratingView';
   static const String setting = '/setting';
-
   static const String userSginUpView = '/userSignUpView';
   static const String serviceProviderSignUpView = '/adminSignUPView';
   static const String chooseAcountType = '/chooseAcountType';
   static const String forGetPassword = '/forGetPassword';
   static const String otpAcoutVerification = '/otpAcountVerification';
-
   static const String serviceTypeView = '/serviceTypeView';
   static const String serviceProviderHomeView = '/serviceProviderHomeView';
-
   static const String verifyAcount = '/verifyAcount';
   static const String tireCarView = '/tireCarView';
   static const String fuelCarView = '/fuelCarView';
@@ -377,7 +455,6 @@ abstract class AppRoutes {
   static const String washingCarView = '/washingCarView';
   static const String parkingCarView = '/parkingCarView';
   static const String mechanicCarView = '/mechanicCarView';
-
   static const String recomendation = '/recomendation';
   static const String currentLocation = '/currentLocation';
   static const String mapViewMachnical = '/mapViewMachnical';
@@ -396,4 +473,9 @@ abstract class AppRoutes {
   static const String updateProfile = '/updateProfile';
   static const String messagetecnical = '/messagetecnical';
   static const String mapViewForUser = '/mapViewForUser';
+  static const String selectTechincalView = '/selectTechinicalView';
+  static const String contactView = '/contactView';
+  static const String mapView = '/mapView';
+  static const String userPofileView = '/userProfileView';
+  static const String cheeckOut = '/cheeckOut';
 }

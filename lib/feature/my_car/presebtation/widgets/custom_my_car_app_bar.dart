@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/utils/app_size.dart';
+
+import 'package:splash_app/core/utils/color_manager.dart';
+import 'package:splash_app/core/utils/styles_manager.dart';
 
 AppBar customMyCarAppBar({required String title}) {
   return AppBar(
-    leading: Container(),
-    toolbarHeight: AppSize.s64,
-    backgroundColor: const Color.fromARGB(255, 11, 66, 97),
+    toolbarHeight: 130,
+    leading: const Text(''),
+    backgroundColor: ColorsManager.mainColor,
     title: Text(
       
       title,

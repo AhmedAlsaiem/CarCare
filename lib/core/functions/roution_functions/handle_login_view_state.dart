@@ -10,18 +10,28 @@ import 'package:splash_app/feature/authentaction/presentation/view/widgets/custo
 
 void loginViewhandleState(UserState state, BuildContext context) {
   String? type = CacheHelper().getDataString(key: ApiKey.type);
+  String? fristCar = CacheHelper().getDataString(key: ApiKey.fristCare);
 
   if (state is IsLoadingUserState) {
     const CustomCircularProgressIndicator();
   } else if (state is FaliureUserState) {
+    if (state.errorMessage == 'Email is not Confirmed') {
+      NavigatorManager.pushWithReplacement(
+          context: context, route: AppRoutes.otpAcoutVerification);
+    }
     customShowSnackBar(context, state.errorMessage);
   } else if (state is SuccessUserState) {
     if (type == StringsManager.technical) {
       NavigatorManager.pushWithReplacement(
           context: context, route: AppRoutes.technicalHomeView);
     } else {
-      NavigatorManager.pushWithReplacement(
-          context: context, route: AppRoutes.homeView);
+      if (fristCar == null) {
+        NavigatorManager.pushWithReplacement(
+            context: context, route: AppRoutes.addcar);
+      } else {
+        NavigatorManager.pushWithReplacement(
+            context: context, route: AppRoutes.homeView);
+      }
     }
   }
 }

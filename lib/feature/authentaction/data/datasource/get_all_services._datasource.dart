@@ -1,5 +1,6 @@
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/end_point.dart';
+import 'package:splash_app/core/error/error_model.dart';
 import 'package:splash_app/core/error/exception.dart';
 import 'package:splash_app/feature/authentaction/data/model/service_model.dart';
 
@@ -23,7 +24,9 @@ class GetAllServicesRemoteDataSource
       return services;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);
+    } catch (e) {
+      throw ServerException(
+          errModel: ErrorModel(statusCode: 400, errorMessage: e.toString()));
     }
-
   }
 }

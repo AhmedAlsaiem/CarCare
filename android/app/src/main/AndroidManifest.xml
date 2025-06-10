@@ -1,65 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Permissions -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!-- Biometric permissions -->
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
-    <!-- Fingerprint is deprecated in API 28+, but kept for backward compatibility -->
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <application
-        android:name="${applicationName}"
-        android:label="CarCare"
-        android:icon="@mipmap/launcher_icon"
-        android:requestLegacyExternalStorage="true"
-        android:usesCleartextTraffic="true"> <!-- Add if needed for HTTP traffic -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-            android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize">
-            
-            <meta-data
-                android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme"/>
-                
+    <application android:label="CarCare" android:name="${applicationName}" android:icon="@mipmap/launcher_icon">
+        <activity android:name=".MainActivity" android:exported="true" android:launchMode="singleTop" android:taskAffinity="" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="io.flutter.embedding.android.NormalTheme" android:resource="@style/NormalTheme" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <!-- Flutter required meta-data -->
-        <meta-data
-            android:name="flutterEmbedding"
-            android:value="2"/>
-        
-        <!-- Maps API Key (keep only one valid key) -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_CORRECT_API_KEY_HERE"/> <!-- Replace with your actual key -->
-
-        <!-- Firebase Cloud Messaging -->
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
+        <meta-data android:name="flutterEmbedding" android:value="2" />
+        <meta-data android:name="com.google.android.gms.maps.loggingEnabled" android:value="false" />
+        <meta-data android:name="io.flutter.embedding.android.GraphicsMode" android:value="opengl" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AlzaSyzkrtGz9wUg9cs3t3OHPkDmxdXNQbUvwMR"/>
     </application>
 
-    <!-- Required for text processing -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>

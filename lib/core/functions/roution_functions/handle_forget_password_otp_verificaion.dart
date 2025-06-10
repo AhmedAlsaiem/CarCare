@@ -13,7 +13,7 @@ void handleForgetPassowrdOtpVerification(
   } else if (state is FaliureUserState) {
     customShowSnackBar(context, state.errorMessage);
   } else if (state is SuccessUserState) {
-    //  BlocProvider.of<UserCubit>(context).resetPassword();
+   //  BlocProvider.of<UserCubit>(context).resetPassword();
     customShowSnackBar(context, state.successMessage!);
 
     NavigatorManager.pushWithReplacement(

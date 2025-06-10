@@ -12,7 +12,7 @@ import 'package:splash_app/feature/authentaction/data/datasource/user_remote_dat
 import 'package:splash_app/feature/authentaction/data/repo_implimentation/user_repo_implementation.dart';
 import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/confirm_email_usecase.dart';
-import 'package:splash_app/feature/authentaction/domain/usecases/forget_password_usecase.dart';
+import 'package:splash_app/feature/authentaction/domain/usecases/confirmation_code_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/login_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/reset_password_usecases.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/signup_usecase.dart';
@@ -56,7 +56,7 @@ class UserCubit extends Cubit<UserState> {
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (userModel) {
-      return emit(SuccessUserState(StringsManager.verifyYourAcount));
+      emit(SuccessUserState(StringsManager.verifyYourAcount));
     });
   }
 
@@ -75,44 +75,58 @@ class UserCubit extends Cubit<UserState> {
 
   void verfiyEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
-    int restCode = convertStringNumbersToOneIntNumber(
-      n1: otpFrogetPassword1.text,
-      n2: otpFrogetPassword2.text,
-      n3: otpFrogetPassword3.text,
-      n4: otpFrogetPassword4.text,
-    );
+    int restCode = 1111;
+    if (verifcationCodeKey.currentState!.validate()) {
+      restCode = convertStringNumbersToOneIntNumber(
+        n1: otpFrogetPassword1.text,
+        n2: otpFrogetPassword2.text,
+        n3: otpFrogetPassword3.text,
+        n4: otpFrogetPassword4.text,
+      );
+    }
+    final String password = CacheHelper().getData(key: ApiKey.password);
+
     UserRepo repo = triggerRepo();
     emit(IsLoadingUserState());
-    dynamic response = await VerfiyCodeUsecase(repo)
-        .excute(email: email!, resetCode: restCode);
+    dynamic response = await VerfiyCodeUsecase(repo).excute(
+        email: email!,
+        resetCode: convertStringNumbersToOneIntNumber(
+          n1: otpFrogetPassword1.text,
+          n2: otpFrogetPassword2.text,
+          n3: otpFrogetPassword3.text,
+          n4: otpFrogetPassword4.text,
+        ));
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (responseModel) async {
-      await ResetPasswordUsecases(repo: repo).excute(
-          newPassword: forgetPasswrdNewPassword.text,
-          email: forgetPasswrdEmail.text);
+      await ResetPasswordUsecases(repo: repo)
+          .excute(newPassword: password, email: email);
 
       return emit(SuccessUserState(responseModel.masseage));
     });
   }
-
-//update all data
   void confirmEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     CacheHelper()
         .saveData(key: ApiKey.confimationCode, value: ApiKey.confimationCode);
 
-    int confirmactionCode = convertStringNumbersToOneIntNumber(
-      n1: otpSignUp1.text,
-      n2: otpSignUp2.text,
-      n3: otpSignUp3.text,
-      n4: otpSignUp4.text,
-    );
+    // int confirmactionCode = convertStringNumbersToOneIntNumber(
+    //   n1: otpSignUp1.text,
+    //   n2: otpSignUp2.text,
+    //   n3: otpSignUp3.text,
+    //   n4: otpSignUp4.text,
+    //  );
     UserRepo repo = triggerRepo();
     emit(IsLoadingUserState());
-    dynamic response = await ConfirmEmailUsecase(repo)
-        .excute(email: email!, confirmationCode: confirmactionCode);
+    dynamic response = await ConfirmEmailUsecase(repo).excute(
+        email: email!,
+        confirmationCode: convertStringNumbersToOneIntNumber(
+          n1: otpSignUp1.text,
+          n2: otpSignUp2.text,
+          n3: otpSignUp3.text,
+          n4: otpSignUp4.text,
+        ));
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
@@ -125,16 +139,34 @@ class UserCubit extends Cubit<UserState> {
     emit(IsLoadingUserState());
     UserRepo repo = triggerRepo();
     CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
+    CacheHelper()
+        .saveData(key: ApiKey.password, value: forgetPasswrdNewPassword.text);
 
-    dynamic response = await ForgetPasswordUsecase(repo).excute(
+    dynamic response = await ConfirmationCodeUsecase(repo).excute(
       email: forgetPasswrdEmail.text,
     );
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
         (responseModel) {
-      CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
+      return emit(SuccessUserState(StringsManager.verifyYourAcount));
+    });
+  }
 
+  void resetPassword() async {
+    emit(IsLoadingUserState());
+    UserRepo repo = triggerRepo();
+    CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
+
+    dynamic response = await ResetPasswordUsecases(repo: repo).excute(
+      email: forgetPasswrdEmail.text,
+      newPassword: forgetPasswrdNewPassword.text,
+    );
+    response.fold(
+        (errorModel) =>
+            emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
+        (responseModel) {
+      CacheHelper().saveData(key: ApiKey.email, value: forgetPasswrdEmail.text);
       return emit(SuccessUserState(StringsManager.verifyYourAcount));
     });
   }

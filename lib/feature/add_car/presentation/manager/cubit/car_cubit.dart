@@ -65,7 +65,7 @@ class CarCubit extends Cubit<CarState> {
             emit(FaliureCarState(errorMessage: errorModel.errorMessage)),
         (carList) {
       userCarList.addAll(carList);
-      return emit(SuccessCarState('sucess'));
+      return emit(SuccessGetCarState(carList));
     });
   }
 

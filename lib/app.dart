@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screenutil_module/main.dart';
+import 'package:splash_app/core/functions/roution_functions/handle_inital_routing.dart';
 import 'package:splash_app/core/functions/theme_data.dart';
 import 'package:splash_app/core/network/app_router.dart';
 
@@ -13,7 +14,8 @@ class CarCareApp extends StatelessWidget {
       minTextAdapt: false,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.loginView,
+
+        initialRoute: initalRoute(),
         onGenerateRoute: AppRouter.generateRoute,
       //   darkTheme:ThemeData(
       //     brightness: Brightness.values[0],

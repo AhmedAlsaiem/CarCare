@@ -9,7 +9,7 @@ class UserSignUPView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(),
-      body: UserSignUPViewBody(),
+      body: const UserSignUPViewBody(),
     );
   }
 }

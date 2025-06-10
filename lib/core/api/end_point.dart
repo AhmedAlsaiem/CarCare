@@ -1,24 +1,27 @@
 class EndPoint {
   //! user authentication End Point
   static String baseUrl = "https://carcareapp.runasp.net/api/";
-  //User and technical end points
+  //User and technical Authentication End points
   static String acount = "account/";
+  static String serviceRequest = "ServiceRequest/";
+
   static String login = "${acount}login";
-  static String registerUser = "${acount}register/user";
-  static String registerTechnical = "${acount}register/Technical";
-  static String getCurrentUser = "${acount}GetCurrentUser";
+  static String registerUser = "${acount}register";
+  static String registerTechnical = "${acount}register";
+  static String getCurrentUser = "${acount}GetCurrentUserByRole";
   static String getCurrentTechnical = "${acount}GetCurrentTechnical";
   static String changePassword = "${acount}Change-Password";
   static String getRefreshToken = "${acount}Get-Refresh-Token";
   static String revokeRefreshToken = "${acount}Revoke-Refresh-Token";
-  static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
+ static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
   static String verfiyCodeEmail = "${acount}VerfiyCodeEmail";
   static String resetPassword = "${acount}ResetPasswordEmail";
-  static String confirmationCodeEmail = "${acount}ConfirmationCodeEmail";
+  static String sendCodeByEmail = "${acount}SendCodeByEmail";
   static String confirmEmail = "${acount}ConfirmEmail";
-  static String updateUser = "${acount}UpdateUser";
+  static String updateUser = "${acount}UpdateAppUser";
   static String updateTechical = "${acount}UpdateTech";
   static String getAllServices = "ServiceTypes/GetAll";
+
   //car end points
   static String car = "Vehicle/";
   static String dashBoard = "DashBoard/";
@@ -60,6 +63,22 @@ class EndPoint {
   static String setLocation = "account/Update-Technical-Location";
 
 
+  static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
+      "${serviceRequest}GetAvailableTechincals?";
+  static String getAllTechinicalOrderedByDistanceEndPoint =
+      "${serviceRequest}GetNearestTechincals?";
+  static String createRequestManually =
+      "${serviceRequest}CreateRequestManually";
+  static String createRequestAutomatic =
+      "${serviceRequest}CreateRequestAutomatic";
+  static String getRequestDetails = "${serviceRequest}GetRequest/";
+  static String getAllRequestesForUser = "${serviceRequest}GetAllRequests";
+  static String updateTechinicalInRequest =
+      "${serviceRequest}Update-Technical-in-Request?";
+  static String deleteOrCancleForUser =
+      "${serviceRequest}DeleteRequestForUser/";
+  static String cheeckStatus = "${serviceRequest}CheckStatus/";
+  static String getAllContacts = "Contact/GetAllMessages";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
@@ -79,6 +98,7 @@ class ApiKey {
   static String id = "id";
   static String fullName = "fullName";
   static String type = "type";
+  static String fristCare = "fristCare";
   static String message = "message";
   static String password = "password";
   static String newPassword = "newPassword";
@@ -102,6 +122,17 @@ class ApiKey {
   static String techJop = "techJop";
   static String distance = "distance";
   static String serviceTypeId = "serviceTypeId";
+  static String distance = "distance";
+  static String nameOfService = "serviceName";
+  //service request api key
+  static String serviceTypeId = "serviceTypeId";
+  static String techId = "techId";
+  static String typeOfWinch = "typeOfWinch";
+  static String userLatitude = "userLatitude";
+  static String userLongitude = "userLongitude";
+  static String servicePrice = "servicePrice";
+  static String techName = "techName";
+  static String techJop = "techJop";
   static String bettaryType = "bettaryType";
   static String typeOfFuel = "typeOfFuel";
   static String typeOfOil = "typeOfOil";
@@ -113,6 +144,8 @@ class ApiKey {
   static String userName = "userName";
   static String userLatitude = "userLatitude";
   static String userLongitude = "userLongitude";
+  static String serviceQuantity = "serviceQuantity";
+  static String userName = "userName";
   static String busnissStatus = "busnissStatus";
   static String paymentStatus = "paymentStatus";
   static String createdBy = "createdBy";
@@ -152,4 +185,7 @@ class ApiKey {
   static String userLocationId = "id";
   static String techLatitudeloc = 'techLatitude';
   static String techLongitudeloc = "techLongitude";
+  static String lastModifiedBy = "lastModifiedBy";
+  static String messageFor = "messageFor";
+  static String lastModifiedOn = "lastModifiedOn";
 }

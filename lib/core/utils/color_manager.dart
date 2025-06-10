@@ -20,6 +20,7 @@ abstract class ColorsManager {
   static const Color meduimGrey = Color(0xff909090);
   static const Color cancalColor = Color(0xffA0A0A0);
   static const Color orderColor = Color(0xffF0EFEF);
+  static const Color greenGrey= Color(0xffF2F2F2);
 
 //?
 
@@ -40,3 +41,7 @@ abstract class ColorsManager {
   static const Color deepCerulean = Color(0xff0788A4);
   static const Color froridaOrange = Color(0xffFDC983);
 }
+//pinding
+//inprogress
+//cancled
+//complated

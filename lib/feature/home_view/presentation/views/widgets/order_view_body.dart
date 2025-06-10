@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/app_size.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/core/utils/string_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/widgets/custom_order_item.dart';
+import 'package:splash_app/feature/home_view/presentation/views/widgets/custom_order_list_view.dart';
 
 class OrdersViewBody extends StatelessWidget {
   const OrdersViewBody({super.key});
@@ -21,35 +20,8 @@ class OrdersViewBody extends StatelessWidget {
             topRight: Radius.circular(AppSize.s30),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: AppSize.s30,
-            left: AppSize.s16,
-            right: AppSize.s16,
-          ),
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return CustomOrderItem(value: testList[index]);
-            },
-            itemCount: testList.length,
-          ),
-        ),
+        child: const CustomOrderListView(),
       ),
     );
   }
 }
-
-List<String> testList = [
-  StringsManager.done,
-  StringsManager.inProgress,
-  StringsManager.pending,
-  StringsManager.done,
-  StringsManager.inProgress,
-  StringsManager.pending,
-  StringsManager.done,
-  StringsManager.inProgress,
-  StringsManager.pending,
-  StringsManager.done,
-  StringsManager.inProgress,
-  StringsManager.pending,
-];
