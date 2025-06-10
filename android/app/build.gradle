@@ -9,7 +9,7 @@ plugins {
 ext.kotlin_version = '1.9.23'
 
 android {
-    namespace = "com.example.carcare_app"
+    namespace = "com.example.splash_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -24,13 +24,16 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.carcare_app"
+        applicationId = "com.example.splash_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 23
-        targetSdk = flutter.targetSdkVersion
+        // minSdk = flutter.minSdkVersion
+         minSdkVersion 21  // Minimum for biometric support
+        targetSdkVersion 33
+        // targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        multiDexEnabled true
     }
 
     buildTypes {

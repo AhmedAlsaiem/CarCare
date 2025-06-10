@@ -48,6 +48,8 @@ abstract class AppSize {
   static const double s110 = 110.0;
   static const double s150 = 150.0;
   static const double s140 = 140.0;
+  static const double s130 = 130.0;
+
   static const double s160 = 160.0;
   static const double s200 = 200.0;
   static const double s300 = 300.0;
@@ -85,9 +87,15 @@ abstract class AppHeight {
   static double h74 = 74.0.h;
 
   static double h80 = 80.0.h;
+  static double h122 = 122.0.h;
+  static double h190 = 190.0.h;
+
+
   static double h400 = 400.0.h;
   static double h300 = 300.0.h;
   static double h200 = 200.0.h;
+  static double h250 = 250.0.h;
+
 }
 
 abstract class Appwidth {

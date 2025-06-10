@@ -13,4 +13,6 @@ abstract class CarRepo {
   Future<Either<ErrorModel, void>> deleteCare({required int id});
   Future<Either<ErrorModel, CarEntity>> getCarById({required int id});
   Future<Either<ErrorModel, List<CarEntity>>> getCarforSpecificUser();
+
+
 }

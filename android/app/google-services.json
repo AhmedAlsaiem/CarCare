@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015604565553",
+    "project_id": "carcare-45d31",
+    "storage_bucket": "carcare-45d31.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015604565553:android:dde9def7652f785fb4e710",
+        "android_client_info": {
+          "package_name": "com.example.carcare_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9Ar1aVNfTrpvfqtRXCL8HW5I1cpFtKD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

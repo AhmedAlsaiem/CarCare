@@ -1,3 +1,4 @@
+
 import 'package:splash_app/core/api/api_consumer.dart';
 import 'package:splash_app/core/api/end_point.dart';
 import 'package:splash_app/core/error/exception.dart';
@@ -14,6 +15,8 @@ abstract class CarBaseRemoteDataSource {
   Future<void> deleteCare({required int id});
   Future<CarModel> getCarById({required int id});
   Future<List<CarModel>> getCarforSpecificUser();
+ 
+  
 }
 
 class CarRemoteDatasource extends CarBaseRemoteDataSource {
@@ -72,4 +75,5 @@ class CarRemoteDatasource extends CarBaseRemoteDataSource {
       throw ServerException(errModel: e.errModel);
     }
   }
+  
 }
