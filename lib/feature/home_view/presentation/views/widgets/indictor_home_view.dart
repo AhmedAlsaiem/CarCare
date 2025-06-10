@@ -12,7 +12,7 @@ class IndicatorHome extends StatelessWidget {
   });
 
   final List<ProductHorizantal> items;
-  final int currentIndex;
+  final double currentIndex;
 
   @override
   Widget build(BuildContext context) {

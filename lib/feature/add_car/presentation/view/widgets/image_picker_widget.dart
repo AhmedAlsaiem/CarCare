@@ -35,13 +35,13 @@
 //             ElevatedButton.icon(
 //               onPressed: () => onPickImage(ImageSource.gallery),
 //               icon: const Icon(Icons.photo, color: ColorsManager.mainColor),
-//               label: const Text('Gallery', 
+//               label: const Text('Gallery',
 //                   style: TextStyle(color: ColorsManager.mainColor)),
 //             ),
 //             ElevatedButton.icon(
 //               onPressed: () => onPickImage(ImageSource.camera),
 //               icon: const Icon(Icons.camera_alt, color: ColorsManager.mainColor),
-//               label: const Text('Camera', 
+//               label: const Text('Camera',
 //                   style: TextStyle(color: ColorsManager.mainColor)),
 //             ),
 //           ],
@@ -50,7 +50,6 @@
 //     );
 //   }
 // }
-
 
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -62,6 +61,7 @@ class ImagePickerWidget extends StatelessWidget {
   final File? imageFile;
   final double borderRadius;
 
+  // ignore: prefer_const_constructors_in_immutables
   const ImagePickerWidget({
     Key? key,
     required this.onPickImage,
@@ -80,12 +80,14 @@ class ImagePickerWidget extends StatelessWidget {
             border: Border.all(color: Colors.grey), // Optional border
             borderRadius: BorderRadius.circular(borderRadius),
           ),
-          child: ClipRRect( // This clips the image with rounded corners
+          child: ClipRRect(
+            // This clips the image with rounded corners
             borderRadius: BorderRadius.circular(borderRadius),
             child: imageFile != null
                 ? Image.file(
-                    imageFile!, 
-                    fit: BoxFit.cover, // Changed from 'fill' to 'cover' for better aspect ratio
+                    imageFile!,
+                    fit: BoxFit
+                        .cover, // Changed from 'fill' to 'cover' for better aspect ratio
                   )
                 : const Center(
                     child: Text(
@@ -102,13 +104,14 @@ class ImagePickerWidget extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: () => onPickImage(ImageSource.gallery),
               icon: const Icon(Icons.photo, color: ColorsManager.mainColor),
-              label: const Text('Gallery', 
+              label: const Text('Gallery',
                   style: TextStyle(color: ColorsManager.mainColor)),
             ),
             ElevatedButton.icon(
               onPressed: () => onPickImage(ImageSource.camera),
-              icon: const Icon(Icons.camera_alt, color: ColorsManager.mainColor),
-              label: const Text('Camera', 
+              icon:
+                  const Icon(Icons.camera_alt, color: ColorsManager.mainColor),
+              label: const Text('Camera',
                   style: TextStyle(color: ColorsManager.mainColor)),
             ),
           ],

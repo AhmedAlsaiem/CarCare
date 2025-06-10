@@ -103,7 +103,7 @@ class _ProductOfHorizntalAndInductorState
           ),
         ),
         SizedBox(height: AppHeight.h16),
-        IndicatorHome(items: items, currentIndex: currentIndex)
+        IndicatorHome(items: items, currentIndex: currentIndex.toDouble())
       ],
     );
   }
