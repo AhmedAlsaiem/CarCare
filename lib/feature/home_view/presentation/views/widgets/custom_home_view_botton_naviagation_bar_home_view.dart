@@ -7,7 +7,7 @@ import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/custom_svg_button_navigation_bar_item.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/home_view_body.dart';
 import '../../manager/cubits/bottom_navigation_bar_cubit.dart';
-
+//ahmed
 BlocBuilder<BottomNavigationIndeCubit, int> customBottonNavigationBar(
     PageController pageController, int index, BuildContext cotext1) {
   return BlocBuilder<BottomNavigationIndeCubit, int>(
