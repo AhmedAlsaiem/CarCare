@@ -56,7 +56,6 @@ class _CustomOrderListViewState extends State<CustomOrderListView> {
         child: BlocBuilder<ServiceRequestCubit, ServiceRequestState>(
           builder: (context, state) {
             if (state is GetAllOrdersSucessState) {
-              print('^^^^^^^^^^^^^^6ff ${state.orderList.length}');
               return Padding(
                 padding: const EdgeInsets.only(
                   top: AppSize.s20,

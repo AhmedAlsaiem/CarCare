@@ -13,7 +13,6 @@ import 'package:splash_app/feature/authentaction/data/repo_implimentation/user_r
 import 'package:splash_app/feature/authentaction/domain/repo/user_repo/user_repo.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/confirm_email_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/confirmation_code_usecase.dart';
-import 'package:splash_app/feature/authentaction/domain/usecases/forget_password_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/login_usecase.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/reset_password_usecases.dart';
 import 'package:splash_app/feature/authentaction/domain/usecases/signup_usecase.dart';
@@ -107,8 +106,6 @@ class UserCubit extends Cubit<UserState> {
       return emit(SuccessUserState(responseModel.masseage));
     });
   }
-
-//update all data
   void confirmEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     CacheHelper()
@@ -130,7 +127,6 @@ class UserCubit extends Cubit<UserState> {
           n3: otpSignUp3.text,
           n4: otpSignUp4.text,
         ));
-    print('ahmed');
     response.fold(
         (errorModel) =>
             emit(FaliureUserState(errorMessage: errorModel.errorMessage)),

@@ -5,10 +5,12 @@ import 'package:splash_app/core/utils/string_manager.dart';
 
 String initalRoute() {
   bool? appState = CacheHelper().getData(key: StringsManager.appState);
-  String? token = CacheHelper().getDataString(key: ApiKey.token);
-  String? type = CacheHelper().getDataString(key: ApiKey.type);
-  String? verify =
-      CacheHelper().getDataString(key: StringsManager.verifyYourAcount);
+  String? token = CacheHelper().getData(key: ApiKey.token);
+
+  String? type = CacheHelper().getData(key: ApiKey.type);
+
+  dynamic verify =
+      CacheHelper().getData(key: StringsManager.verifyYourAcount);
 
   if (appState == true && token != null || verify != null) {
     if (type == StringsManager.technical) {
@@ -18,7 +20,7 @@ String initalRoute() {
     }
   } else if (appState == null) {
     return AppRoutes.onboardingView;
-  }else {
+  } else {
     return AppRoutes.loginView;
   }
 }

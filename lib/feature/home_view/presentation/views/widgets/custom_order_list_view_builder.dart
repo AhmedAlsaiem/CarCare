@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/helper/extentions.dart';
-import 'package:splash_app/core/utils/app_size.dart';
-import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/core/utils/styles_manager.dart';
-import 'package:splash_app/feature/home_view/presentation/views/widgets/custom_order_item.dart';
+import 'package:splash_app/core/functions/filter_order_by_current_period.dart';
+import 'package:splash_app/core/functions/handle_filter_types.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/order_filter_item.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/order_list_view_builder.dart';
 import 'package:splash_app/feature/paid_services/domain/enties/service_request_entity.dart';
@@ -71,61 +68,12 @@ class _CustomorderListViewBuilderState
             ),
           ],
         ),
-        SizedBox(
-          height: 15,
-        ),
+        const SizedBox(height: 15),
         OrderListViewBuilder(
             ordersList: filterOrdersByCurrentPeriod(
                 filterType: handleFilterTyps(index: currentIndex),
                 orders: widget.ordersList)),
       ],
     );
-  }
-}
-
-List<ServiceRequestEntity> filterOrdersByCurrentPeriod({
-  required List<ServiceRequestEntity> orders,
-  required String filterType, // "week", "month", or "year"
-}) {
-  final now = DateTime.now();
-
-  // لو الفلتر مش معروف، رجّع الـ orders زي ما هي
-  if (!['week', 'month', 'year'].contains(filterType.toLowerCase())) {
-    return orders;
-  }
-
-  return orders.where((order) {
-    final DateTime orderDate = DateTime.parse(order.createdOn);
-
-    switch (filterType.toLowerCase()) {
-      case 'week':
-        final nowStartOfWeek = now.subtract(Duration(days: now.weekday - 1));
-        final nowEndOfWeek = nowStartOfWeek.add(Duration(days: 6));
-        return orderDate
-                .isAfter(nowStartOfWeek.subtract(Duration(seconds: 1))) &&
-            orderDate.isBefore(nowEndOfWeek.add(Duration(days: 1)));
-      case 'month':
-        return orderDate.year == now.year && orderDate.month == now.month;
-      case 'year':
-        return orderDate.year == now.year;
-      default:
-        return false; // مش هيتنفذ أصلاً بسبب الشرط اللي فوق
-    }
-  }).toList();
-}
-
-String handleFilterTyps({required int index}) {
-  switch (index) {
-    case 1:
-      return 'all';
-    case 2:
-      return 'week';
-    case 3:
-      return 'month';
-    case 4:
-      return 'year';
-
-    default:
-      return '';
   }
 }
