@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_app/core/utils/color_manager.dart';
 
-class RatingBar extends StatefulWidget {
+class RatingsBar extends StatefulWidget {
   final double rating;
   final int totalStars;
   final double starSize;
@@ -9,7 +9,7 @@ class RatingBar extends StatefulWidget {
   final Color emptyColor;
   final Duration animationDuration;
 
-  const RatingBar({
+  const RatingsBar({
     super.key,
     required this.rating,
     this.totalStars = 5,
@@ -20,10 +20,11 @@ class RatingBar extends StatefulWidget {
   });
 
   @override
-  State<RatingBar> createState() => _RatingBarState();
+  State<RatingsBar> createState() => _RatingsBarState();
 }
 
-class _RatingBarState extends State<RatingBar> with SingleTickerProviderStateMixin {
+class _RatingsBarState extends State<RatingsBar>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late List<Animation<Offset>> _slideAnimations;
 

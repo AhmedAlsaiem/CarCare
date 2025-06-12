@@ -5,7 +5,6 @@ import 'package:splash_app/core/utils/styles_manager.dart';
 import 'package:splash_app/feature/feadback_app/domain/entity/feadback_entities.dart';
 import 'package:splash_app/feature/feadback_app/presentation/widget/rating_bar_animation.dart';
 
-
 class FeedbackContent extends StatelessWidget {
   final FeadbackEntities feadback;
 
@@ -28,7 +27,7 @@ class FeedbackContent extends StatelessWidget {
               'Your comment = ${feadback.comment}',
               style: StylesManager.textStyleBold20black,
             ),
-            RatingBar(
+            RatingsBar(
               rating: feadback.rating,
               filledColor: ColorsManager.mainColor,
               emptyColor: ColorsManager.grey,
