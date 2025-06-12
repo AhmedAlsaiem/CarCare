@@ -17,8 +17,6 @@ void handleOtpVerification(
     NavigatorManager.pushWithReplacement(
         context: context, route: AppRoutes.loginView);
 
-    NavigatorManager.pushWithReplacement(
-        context: context, route: AppRoutes.loginView);
     customShowSnackBar(context, state.successMessage!);
   }
 }

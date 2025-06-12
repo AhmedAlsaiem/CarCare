@@ -24,10 +24,10 @@ class _RatingViewState extends State<RatingView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Column(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
           children: [
             Stack(
               children: [
@@ -69,7 +69,7 @@ class _RatingViewState extends State<RatingView> {
                       ),
                       Text(
                         'Google play',
-                        style: StylesManager.textStyleBold24,
+                        style: StylesManager.textStyleBold20,
                       )
                     ],
                   ),
@@ -81,7 +81,7 @@ class _RatingViewState extends State<RatingView> {
             ),
             Text(
               'Your opinion matters to us!',
-              style: StylesManager.textStyleBold24
+              style: StylesManager.textStyleSemiBold18
                   .copyWith(color: ColorsManager.mainColor),
               textAlign: TextAlign.center,
             ),
@@ -104,8 +104,7 @@ class _RatingViewState extends State<RatingView> {
                   child: Icon(
                     index < _rating ? Icons.star : Icons.star_border,
                     size: 40,
-                    color:
-                        index < _rating ? ColorsManager.mainColor : Colors.grey,
+                    color: index < _rating ? Colors.orangeAccent : Colors.grey,
                   ),
                 );
               }),
@@ -113,7 +112,7 @@ class _RatingViewState extends State<RatingView> {
             SizedBox(height: AppHeight.h40),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue, // Background color
+                backgroundColor: ColorsManager.mainColor, // Background color
                 foregroundColor: Colors.white, // Text color
                 minimumSize: const Size(300, 60), // Width and height
                 shape: RoundedRectangleBorder(

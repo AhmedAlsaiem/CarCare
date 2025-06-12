@@ -15,8 +15,8 @@ class ServiceProviderModel extends ServiceProviderEntity {
   factory ServiceProviderModel.fromJson(Map<String, dynamic> jsonData) {
     return ServiceProviderModel(
         token: jsonData[ApiKey.token],
-        refreshToken: jsonData[ApiKey.refreshToken],
-        refreshTokenExpirationDate: jsonData[ApiKey.refreshTokenExpirationDate],
+        refreshToken: '',
+        refreshTokenExpirationDate:'',
         phoneNumber: jsonData[ApiKey.phoneNumber],
         email: jsonData[ApiKey.email],
         userName: jsonData[ApiKey.fullName],

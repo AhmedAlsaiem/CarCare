@@ -14,7 +14,6 @@ import 'package:splash_app/feature/authentaction/presentation/manager/service_pr
 
 class ServiceProviderCubit extends Cubit<ServiceProviderState> {
   ServiceProviderCubit() : super(ServiceProviderState());
-  
 
 //? controllers
   TextEditingController signUpPhoneNumber = TextEditingController();
@@ -35,12 +34,12 @@ class ServiceProviderCubit extends Cubit<ServiceProviderState> {
         phoneNumber: signUpPhoneNumber.text);
     respone.fold(
         (errorModel) => emit(
-            FaliureServiceProviderState(errorMessage: errorModel.errorMessage)),
-            
+            FaliureServiceProviderState(errorMessage: errorModel.errorMessage,errorData: errorModel.errordata)),
         (userModel) {
       return emit(SuccessServiceProviderState(StringsManager.verifyYourAcount));
     });
   }
+//            emit(FaliureUserState(errorMessage: errorModel.errorMessage+errorModel.errordata)),
 
 //! this code for trigger repos and contract between layers
   ServiceProviderRepo triggerRepo() {

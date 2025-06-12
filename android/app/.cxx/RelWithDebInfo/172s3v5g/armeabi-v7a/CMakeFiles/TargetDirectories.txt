@@ -1,0 +1,2 @@
+D:/moapplication_learn/graduation_project/v1/CarCare/android/app/.cxx/RelWithDebInfo/172s3v5g/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/moapplication_learn/graduation_project/v1/CarCare/android/app/.cxx/RelWithDebInfo/172s3v5g/armeabi-v7a/CMakeFiles/rebuild_cache.dir

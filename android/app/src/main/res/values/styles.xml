@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
-    <!-- <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar"> -->
     <style name="LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
-    <!-- Theme applied to the Android Window while the process is starting -->
-    <style name="LaunchTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Show a splash screen on the activity. Automatically removed when
              the Flutter engine draws its first frame -->
         <item name="android:windowBackground">@drawable/launch_background</item>
@@ -14,6 +10,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
+
     <!-- Theme applied to the Android Window as soon as the process has started.
          Determines color of the window while Flutter UI initializes -->
     <style name="NormalTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">

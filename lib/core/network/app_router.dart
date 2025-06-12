@@ -57,8 +57,6 @@ import 'package:splash_app/feature/user_profile/presentation/manager/cubit/chang
 import 'package:splash_app/feature/user_profile/presentation/manager/cubit/user_Profile_cubit/user_profile_cubit.dart';
 import 'package:splash_app/feature/user_profile/presentation/view/user_profile_view.dart';
 import '../../feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
-import '../../feature/authentaction/presentation/view/verify_acount.dart';
-import '../../feature/home_view/presentation/views/home_view.dart';
 
 class AppRouter {
   bool? appState =
@@ -243,10 +241,9 @@ class AppRouter {
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'car_wash',
+            nameOfServce: 'Car Wash',
           ),
         );
-      case AppRoutes.mapViewPareking:
       case AppRoutes.userPofileView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -258,51 +255,34 @@ class AppRouter {
             child: const UserProfileView(),
           ),
         );
-      case AppRoutes.mapView:
+      case AppRoutes.mapViewPareking:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'parking',
+            nameOfServce: 'Parking',
           ),
         );
       case AppRoutes.mapViewFuel:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'fuel',
+            nameOfServce: 'Fuel',
           ),
         );
       case AppRoutes.mapViewMachnical:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'car_repair',
+            nameOfServce: 'Car Repair',
           ),
         );
       case AppRoutes.mapViewForUser:
-        return MaterialPageRoute(builder: (_) =>  const MapViewForUseer());
-// case AppRoutes.mapViewForUser:
-//       // Access arguments from settings, not from context
-//       final args = settings.arguments as Map<String, dynamic>?;
-      
-//       return MaterialPageRoute(
-//         builder: (context) => MapViewForUserBody(
-//           latitude: args?['latitude'] ?? 0.0,
-//           longitude: args?['longitude'] ?? 0.0,
-//         ),
-//       );
+        return MaterialPageRoute(builder: (_) => const MapViewForUseer());
+
       case AppRoutes.feadbackView:
         return MaterialPageRoute(
           builder: (_) => const FeadbackView(),
         );
-      // case AppRoutes.profileTechnicalView:
-      //   return MaterialPageRoute(
-      //     builder: (_) BlocProvider(
-      //       create: (context) => TecnicalProfileCubit(),
-      //       child: => ProfileTecnicalView(),
-      //     ),
-      //   );
-
       case AppRoutes.newFeadback:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -426,7 +406,7 @@ class AppRouter {
       default:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-            const  Scaffold(),
+              const Scaffold(),
         );
     }
   }
@@ -462,7 +442,6 @@ abstract class AppRoutes {
   static const String mapViewWashing = '/mapViewWashing';
   static const String mapViewFuel = '/mapViewFuel';
   static const String feadbackView = '/feadbackView';
-
   static const String newFeadback = '/newFeadback';
   static const String myFeadback = '/myFeadback';
   static const String updateFeadback = '/updateFeadback';

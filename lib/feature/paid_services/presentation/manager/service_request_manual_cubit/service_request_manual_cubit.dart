@@ -55,17 +55,17 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
   set price(double price) {
     _price = price;
   }
- //Position location=await getCurrentMobileLocations();
+  //Position location=await getCurrentMobileLocations();
 
-   TextEditingController controller=TextEditingController();
+  TextEditingController controller = TextEditingController();
   Future<void> createRequestForWinch() async {
     emit(ServiceRequestIsLoadinState());
     dynamic response = await repo.createRequestForWinch(
         serviceTypeId: _serviceId,
         techId: _techId,
         typeOfWinch: _typeOfService,
-        userLatitude: 42.2,
-        userLongitude: 323.2,
+        userLatitude: 30.0444,
+        userLongitude: 31.2357,
         servicePrice: _price);
     response.fold(
         (errorModel) => emit(
@@ -83,8 +83,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
         serviceTypeId: _serviceId,
         techId: _techId,
         typeOfOil: _typeOfService,
-        userLatitude: 42.2,
-        userLongitude: 323.2,
+        userLatitude: 30.0444,
+        userLongitude: 31.2357,
         servicePrice: _price);
     response.fold(
         (errorModel) => emit(
@@ -102,9 +102,9 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
         serviceTypeId: _serviceId,
         techId: _techId,
         tireSize: _typeOfService,
-        userLatitude: 42.2,
+        userLatitude: 30.0444,
         serviceQuantity: _serviceQuantity,
-        userLongitude: 323.2,
+        userLongitude: 31.2357,
         servicePrice: _price);
     response.fold(
         (errorModel) => emit(
@@ -122,8 +122,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
       serviceTypeId: _serviceId,
       techId: _techId,
       typeOfBattery: _typeOfService,
-      userLatitude: 42.2,
-      userLongitude: 323.2,
+      userLatitude: 30.0444,
+      userLongitude: 31.2357,
       servicePrice: _price,
       serviceQuantity: _serviceQuantity,
     );
@@ -143,8 +143,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
       serviceTypeId: _serviceId,
       techId: _techId,
       typeOfFuel: _typeOfService,
-      userLatitude: 42.2,
-      userLongitude: 323.2,
+      userLatitude: 30.0444,
+      userLongitude: 31.2357,
       servicePrice: _price,
       serviceQuantity: _serviceQuantity,
     );
@@ -183,8 +183,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
     dynamic response = await repoAutomatic.createRequestAutoMaticForWinch(
         serviceTypeId: _serviceId,
         typeOfWinch: _typeOfService,
-        userLatitude: 42.2,
-        userLongitude: 323.2,
+        userLatitude: 30.0444,
+        userLongitude: 31.2357,
         servicePrice: _price);
     response.fold(
         (errorModel) => emit(
@@ -201,8 +201,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
     dynamic response = await repoAutomatic.createRequestAutomaticForOil(
         serviceTypeId: _serviceId,
         typeOfOil: _typeOfService,
-        userLatitude: 42.2,
-        userLongitude: 323.2,
+        userLatitude: 30.0444,
+        userLongitude: 31.2357,
         servicePrice: _price);
     response.fold(
         (errorModel) => emit(
@@ -219,9 +219,9 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
     dynamic response = await repoAutomatic.createRequestAutomaticForTire(
         serviceTypeId: _serviceId,
         tireSize: _typeOfService,
-        userLatitude: 42.2,
+        userLatitude: 30.0444,
         serviceQuantity: _serviceQuantity,
-        userLongitude: 323.2,
+        userLongitude: 31.2357,
         servicePrice: _price);
     response.fold(
         (errorModel) => emit(
@@ -238,8 +238,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
     dynamic response = await repoAutomatic.createRequestAutomaticForBatteries(
       serviceTypeId: _serviceId,
       typeOfBattery: _typeOfService,
-      userLatitude: 42.2,
-      userLongitude: 323.2,
+      userLatitude: 30.0444,
+      userLongitude: 31.2357,
       servicePrice: _price,
       serviceQuantity: _serviceQuantity,
     );
@@ -258,8 +258,8 @@ class ServiceRequestCubit extends Cubit<ServiceRequestState> {
     dynamic response = await repoAutomatic.createRequestAutomaticForFuel(
       serviceTypeId: _serviceId,
       typeOfFuel: _typeOfService,
-      userLatitude: 42.2,
-      userLongitude: 323.2,
+      userLatitude: 30.0444,
+      userLongitude: 31.2357,
       servicePrice: _price,
       serviceQuantity: _serviceQuantity,
     );

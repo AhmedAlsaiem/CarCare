@@ -13,7 +13,7 @@ class EndPoint {
   static String changePassword = "${acount}Change-Password";
   static String getRefreshToken = "${acount}Get-Refresh-Token";
   static String revokeRefreshToken = "${acount}Revoke-Refresh-Token";
- static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
+  static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
   static String verfiyCodeEmail = "${acount}VerfiyCodeEmail";
   static String resetPassword = "${acount}ResetPasswordEmail";
   static String sendCodeByEmail = "${acount}SendCodeByEmail";
@@ -62,7 +62,6 @@ class EndPoint {
   static String getMessages = "Contact/GetAllMessages";
   static String setLocation = "account/Update-Technical-Location";
 
-
   static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
       "${serviceRequest}GetAvailableTechincals?";
   static String getAllTechinicalOrderedByDistanceEndPoint =
@@ -85,6 +84,7 @@ class EndPoint {
 }
 
 class ApiKey {
+  static String error = "errors";
   static String data = "data";
   static String status = "status";
   static String statusCode = "statusCode";
@@ -122,29 +122,18 @@ class ApiKey {
   static String techJop = "techJop";
   static String distance = "distance";
   static String serviceTypeId = "serviceTypeId";
-  static String distance = "distance";
   static String nameOfService = "serviceName";
   //service request api key
-  static String serviceTypeId = "serviceTypeId";
-  static String techId = "techId";
   static String typeOfWinch = "typeOfWinch";
   static String userLatitude = "userLatitude";
   static String userLongitude = "userLongitude";
   static String servicePrice = "servicePrice";
-  static String techName = "techName";
-  static String techJop = "techJop";
   static String bettaryType = "bettaryType";
   static String typeOfFuel = "typeOfFuel";
   static String typeOfOil = "typeOfOil";
   static String tireSize = "tireSize";
-  static String typeOfWinch = "typeOfWinch";
   static String serviceQuantity = "serviceQuantity";
-  static String servicePrice = "servicePrice";
   static String userIdorder = "userId";
-  static String userName = "userName";
-  static String userLatitude = "userLatitude";
-  static String userLongitude = "userLongitude";
-  static String serviceQuantity = "serviceQuantity";
   static String userName = "userName";
   static String busnissStatus = "busnissStatus";
   static String paymentStatus = "paymentStatus";
@@ -185,7 +174,5 @@ class ApiKey {
   static String userLocationId = "id";
   static String techLatitudeloc = 'techLatitude';
   static String techLongitudeloc = "techLongitude";
-  static String lastModifiedBy = "lastModifiedBy";
   static String messageFor = "messageFor";
-  static String lastModifiedOn = "lastModifiedOn";
 }

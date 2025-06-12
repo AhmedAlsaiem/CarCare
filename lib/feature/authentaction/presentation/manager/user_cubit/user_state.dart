@@ -9,6 +9,6 @@ class SuccessUserState extends UserState {
 
 class FaliureUserState extends UserState {
   final String errorMessage;
-
-  FaliureUserState({required this.errorMessage});
+  String? errordata;
+  FaliureUserState({required this.errorMessage, this.errordata});
 }

@@ -46,7 +46,7 @@ class _GetAppFeadbackBodyState extends State<GetAppFeadbackBody> {
               );
             } else if (state is SuccessGetAppFeadbackState) {
               final feadback = state.getappFeadBackEntities;
-      
+
               return Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: Appwidth.w10),
@@ -58,7 +58,7 @@ class _GetAppFeadbackBodyState extends State<GetAppFeadbackBody> {
                         'App Rate = ${feadback.rateing.toStringAsFixed(3)}',
                         style: StylesManager.textStyleBold20black,
                       ),
-                      RatingBar(
+                      RatingsBar(
                         rating: feadback.rateing,
                         filledColor: ColorsManager.mainColor,
                         emptyColor: ColorsManager.grey,

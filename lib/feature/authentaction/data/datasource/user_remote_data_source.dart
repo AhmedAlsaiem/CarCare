@@ -80,10 +80,12 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
       saveUserData(acount: user);
       return user;
     } on ServerException catch (e) {
-      throw ServerException(
+throw ServerException(
           errModel: ErrorModel(
-              statusCode: e.errModel.statusCode,
-              errorMessage: e.errModel.errorMessage));
+        statusCode: e.errModel.statusCode,
+        errorMessage: e.errModel.errorMessage,
+        errordata: e.errModel.errordata,
+      ));
     }
   }
 
@@ -98,7 +100,7 @@ class UserRemoteDataSource extends BaseUserRemoteDataSource {
         ApiKey.phoneNumber: phoneNumber,
       });
       user = UserModel.fromJson(response);
-      saveUserData(acount: user);
+      saveUserLoginData(acount: user);
       return user;
     } on ServerException catch (e) {
       throw ServerException(errModel: e.errModel);

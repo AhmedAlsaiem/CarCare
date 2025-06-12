@@ -15,6 +15,6 @@ void signUpHandleState(UserState state, BuildContext context) {
       NavigatorManager.pushName(
           context: context, route: AppRoutes.otpAcoutVerification);
     } else if (state is FaliureUserState) {
-      customShowSnackBar(context, state.errorMessage);
+      customShowSnackBar(context, state.errorMessage+state.errordata.toString());
     }
   }

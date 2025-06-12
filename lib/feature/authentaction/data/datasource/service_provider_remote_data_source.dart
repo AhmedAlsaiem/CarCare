@@ -46,10 +46,11 @@ class ServiceProviderRemoteDataSource
       saveServiceProviderData(acount: serviceProvider);
       return serviceProvider;
     } on ServerException catch (e) {
-      throw ServerException(
+         throw ServerException(
         errModel: ErrorModel(
           statusCode: e.errModel.statusCode,
           errorMessage: e.errModel.errorMessage,
+          errordata: e.errModel.errordata,
         ),
       );
     }

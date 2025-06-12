@@ -9,6 +9,6 @@ class SuccessServiceProviderState extends ServiceProviderState {
 
 class FaliureServiceProviderState extends ServiceProviderState {
   final String errorMessage;
-
-  FaliureServiceProviderState({required this.errorMessage});
+  String? errorData;
+  FaliureServiceProviderState({required this.errorMessage, this.errorData});
 }

@@ -121,8 +121,10 @@ class UserRepoImplementation extends UserRepo {
     } on ServerException catch (e) {
       return left(
         ErrorModel(
-            statusCode: e.errModel.statusCode,
-            errorMessage: e.errModel.errorMessage),
+          statusCode: e.errModel.statusCode,
+          errorMessage: e.errModel.errorMessage,
+          errordata: e.errModel.errordata,
+        ),
       );
     }
   }

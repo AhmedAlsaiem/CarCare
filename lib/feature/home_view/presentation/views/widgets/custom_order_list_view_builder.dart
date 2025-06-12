@@ -63,6 +63,8 @@ class _CustomorderListViewBuilderState
               currentIndex: currentIndex,
               onTap: () {
                 currentIndex = 4;
+                print(currentIndex);
+                print('ahmed');
                 setState(() {});
               },
             ),

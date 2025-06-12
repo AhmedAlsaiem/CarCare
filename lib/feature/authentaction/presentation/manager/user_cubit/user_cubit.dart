@@ -53,9 +53,10 @@ class UserCubit extends Cubit<UserState> {
         type: 1,
         phoneNumber: signUpPhoneNumber.text);
     respone.fold(
-        (errorModel) =>
-            emit(FaliureUserState(errorMessage: errorModel.errorMessage)),
-        (userModel) {
+        (errorModel) => emit(FaliureUserState(
+              errorMessage: errorModel.errorMessage,
+              errordata: errorModel.errordata,
+            )), (userModel) {
       emit(SuccessUserState(StringsManager.verifyYourAcount));
     });
   }
@@ -106,6 +107,7 @@ class UserCubit extends Cubit<UserState> {
       return emit(SuccessUserState(responseModel.masseage));
     });
   }
+
   void confirmEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     CacheHelper()
