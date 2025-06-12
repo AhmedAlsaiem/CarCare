@@ -27,7 +27,11 @@ class ServicePoviderRepoImplemationtion extends ServiceProviderRepo {
               password: password);
       return right(response);
     } on ServerException catch (e) {
-      return left(e.errModel);
+    
+      return left(ErrorModel(
+          statusCode: e.errModel.statusCode,
+          errorMessage: e.errModel.errorMessage,
+          errordata: e.errModel.errordata));
     }
   }
 }

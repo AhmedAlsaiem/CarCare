@@ -241,10 +241,9 @@ class AppRouter {
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'car_wash',
+            nameOfServce: 'Car Wash',
           ),
         );
-      case AppRoutes.mapViewPareking:
       case AppRoutes.userPofileView:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
@@ -256,51 +255,34 @@ class AppRouter {
             child: const UserProfileView(),
           ),
         );
-      case AppRoutes.mapView:
+      case AppRoutes.mapViewPareking:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'parking',
+            nameOfServce: 'Parking',
           ),
         );
       case AppRoutes.mapViewFuel:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'fuel',
+            nameOfServce: 'Fuel',
           ),
         );
       case AppRoutes.mapViewMachnical:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'car_repair',
+            nameOfServce: 'Car Repair',
           ),
         );
       case AppRoutes.mapViewForUser:
-        return MaterialPageRoute(builder: (_) =>  const MapViewForUseer());
-// case AppRoutes.mapViewForUser:
-//       // Access arguments from settings, not from context
-//       final args = settings.arguments as Map<String, dynamic>?;
-      
-//       return MaterialPageRoute(
-//         builder: (context) => MapViewForUserBody(
-//           latitude: args?['latitude'] ?? 0.0,
-//           longitude: args?['longitude'] ?? 0.0,
-//         ),
-//       );
+        return MaterialPageRoute(builder: (_) => const MapViewForUseer());
+
       case AppRoutes.feadbackView:
         return MaterialPageRoute(
           builder: (_) => const FeadbackView(),
         );
-      // case AppRoutes.profileTechnicalView:
-      //   return MaterialPageRoute(
-      //     builder: (_) BlocProvider(
-      //       create: (context) => TecnicalProfileCubit(),
-      //       child: => ProfileTecnicalView(),
-      //     ),
-      //   );
-
       case AppRoutes.newFeadback:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -424,7 +406,7 @@ class AppRouter {
       default:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
-            const  Scaffold(),
+              const Scaffold(),
         );
     }
   }
@@ -460,7 +442,6 @@ abstract class AppRoutes {
   static const String mapViewWashing = '/mapViewWashing';
   static const String mapViewFuel = '/mapViewFuel';
   static const String feadbackView = '/feadbackView';
-
   static const String newFeadback = '/newFeadback';
   static const String myFeadback = '/myFeadback';
   static const String updateFeadback = '/updateFeadback';

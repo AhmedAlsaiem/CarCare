@@ -13,7 +13,7 @@ class EndPoint {
   static String changePassword = "${acount}Change-Password";
   static String getRefreshToken = "${acount}Get-Refresh-Token";
   static String revokeRefreshToken = "${acount}Revoke-Refresh-Token";
- static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
+  static String forgetPasswordEmail = "${acount}ForgetPasswordEmail";
   static String verfiyCodeEmail = "${acount}VerfiyCodeEmail";
   static String resetPassword = "${acount}ResetPasswordEmail";
   static String sendCodeByEmail = "${acount}SendCodeByEmail";
@@ -62,7 +62,6 @@ class EndPoint {
   static String getMessages = "Contact/GetAllMessages";
   static String setLocation = "account/Update-Technical-Location";
 
-
   static String getAllTechinicalOrderedByDistanceAndRateEndPoint =
       "${serviceRequest}GetAvailableTechincals?";
   static String getAllTechinicalOrderedByDistanceEndPoint =
@@ -85,6 +84,7 @@ class EndPoint {
 }
 
 class ApiKey {
+  static String error = "errors";
   static String data = "data";
   static String status = "status";
   static String statusCode = "statusCode";

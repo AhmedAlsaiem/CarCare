@@ -44,7 +44,7 @@ class _MapViewState extends State<MapView> {
     });
     try {
       //userLocation = await CurrentLocation().getCurrentLocation();
-     userLocation = const LatLng(30.0444, 31.2357);
+      userLocation = const LatLng(30.0444, 31.2357);
 
       if (userLocation == null) {
         throw Exception('Unable to fetch user location.');
@@ -90,7 +90,10 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customMyCarAppBar(title: 'Nearby ${widget.nameOfServce}'),
+      appBar: mapViewAppBar(
+        title: 'Nearby ${widget.nameOfServce}',
+        context: context,
+      ),
       // appBar: AppBar(
       //   backgroundColor: ColorsManager.white,
       //   title: Text('Nearby ${widget.nameOfServce}'),
