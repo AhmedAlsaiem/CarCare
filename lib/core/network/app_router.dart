@@ -57,8 +57,6 @@ import 'package:splash_app/feature/user_profile/presentation/manager/cubit/chang
 import 'package:splash_app/feature/user_profile/presentation/manager/cubit/user_Profile_cubit/user_profile_cubit.dart';
 import 'package:splash_app/feature/user_profile/presentation/view/user_profile_view.dart';
 import '../../feature/authentaction/presentation/manager/service_provider_cubit/service_provider_cubit.dart';
-import '../../feature/authentaction/presentation/view/verify_acount.dart';
-import '../../feature/home_view/presentation/views/home_view.dart';
 
 class AppRouter {
   bool? appState =

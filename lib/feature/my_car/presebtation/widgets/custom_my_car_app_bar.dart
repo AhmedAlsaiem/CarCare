@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:splash_app/core/utils/color_manager.dart';
-import 'package:splash_app/core/utils/styles_manager.dart';
 
 AppBar customMyCarAppBar({required String title}) {
   return AppBar(

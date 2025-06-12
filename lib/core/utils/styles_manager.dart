@@ -184,6 +184,7 @@ abstract class StylesManager {
     fontWeight: AppFontWieght.medium,
     fontSize: FontSize.s20,
     color: ColorsManager.mainColor,
+  );
   static const TextStyle style25 = TextStyle(
     color: Colors.black,
     fontSize: 25,

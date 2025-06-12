@@ -4,7 +4,7 @@ import 'package:splash_app/core/helper/cache_helper.dart';
 import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 
-Future<String> initalRoute(BuildContext context) async {
+String? initalRoute(BuildContext context)  {
   bool? appState = CacheHelper().getData(key: StringsManager.appState);
   String? token = CacheHelper().getData(key: ApiKey.token);
 
@@ -15,17 +15,7 @@ Future<String> initalRoute(BuildContext context) async {
 
   if (appState == true && token != null || verify != null) {
     if (type == StringsManager.technical) {
-      //   BlocBuilder<LocationCubit, LocationState>(builder: (context, state) {
-//         if (state is IsLoadingLocationState) {
-//           const CustomCircularProgressIndicator();
-//         }else if(state is FaliureLocationState){
-//           customShowSnackBar(context, state.errorMessage);
-//         }else if(state is SuccessLocationState){
-//               tecLocation=  await CurrentLocation().getCurrentLocation();
-//         BlocProvider.of<LocationCubit>(context).setLocation(id: CacheHelper().getDataString(key: ApiKey.userId)!, latitude: tecLocation!.latitude, longitude: tecLocation.longitude);
-//         }
-// return SizedBox();
-//       });
+
 
 
       return AppRoutes.technicalHomeView;
