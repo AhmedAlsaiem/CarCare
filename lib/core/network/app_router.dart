@@ -241,7 +241,7 @@ class AppRouter {
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'Car Wash',
+            nameOfServce: 'car_wash',
           ),
         );
       case AppRoutes.userPofileView:
@@ -259,21 +259,21 @@ class AppRouter {
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'Parking',
+            nameOfServce: 'parking',
           ),
         );
       case AppRoutes.mapViewFuel:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'Fuel',
+            nameOfServce: 'fuel',
           ),
         );
       case AppRoutes.mapViewMachnical:
         return pageRouteBuilderMethod(
           pageBuilder: (context, animation, secondaryAnimation) =>
               const MapView(
-            nameOfServce: 'Car Repair',
+            nameOfServce: 'car_repair',
           ),
         );
       case AppRoutes.mapViewForUser:

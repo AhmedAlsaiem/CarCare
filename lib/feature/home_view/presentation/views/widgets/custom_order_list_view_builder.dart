@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:splash_app/core/functions/filter_order_by_current_period.dart';
-import 'package:splash_app/core/functions/handle_filter_types.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/order_filter_item.dart';
 import 'package:splash_app/feature/home_view/presentation/views/widgets/order_list_view_builder.dart';
 import 'package:splash_app/feature/paid_services/domain/enties/service_request_entity.dart';
@@ -40,7 +38,7 @@ class _CustomorderListViewBuilderState
               },
             ),
             CustomOrderFilterItems(
-              title: ' Day',
+              title: ' Week',
               index: 2,
               currentIndex: currentIndex,
               onTap: () {
@@ -77,5 +75,56 @@ class _CustomorderListViewBuilderState
                 orders: widget.ordersList)),
       ],
     );
+  }
+}
+
+List<ServiceRequestEntity> filterOrdersByCurrentPeriod({
+  required List<ServiceRequestEntity> orders,
+  required String filterType,
+}) {
+  final now = DateTime.now();
+
+  if (!['week', 'month', 'year'].contains(filterType.toLowerCase())) {
+    return orders;
+  }
+
+  return orders.where((order) {
+    final DateTime orderDate = DateTime.parse(order.createdOn);
+
+    switch (filterType.toLowerCase()) {
+      case '':
+        final nowStartOfWeek = now.subtract(Duration(days: now.weekday - 1));
+        print('week');
+        final nowEndOfWeek = nowStartOfWeek.add(const Duration(days: 6));
+        return orderDate
+                .isAfter(nowStartOfWeek.subtract(const Duration(seconds: 1))) &&
+            orderDate.isBefore(nowEndOfWeek.add(const Duration(days: 1)));
+      case 'month':
+        print('month');
+
+        return orderDate.year == now.year && orderDate.month == now.month;
+      case 'year':
+        print('year');
+
+        return orderDate.year == now.year;
+      default:
+        return false;
+    }
+  }).toList();
+}
+
+String handleFilterTyps({required int index}) {
+  switch (index) {
+    case 1:
+      return 'all';
+    case 2:
+      return 'week';
+    case 3:
+      return 'month';
+    case 4:
+      return 'year';
+
+    default:
+      return '';
   }
 }

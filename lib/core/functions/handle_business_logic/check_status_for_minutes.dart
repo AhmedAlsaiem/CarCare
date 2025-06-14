@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:splash_app/core/functions/navigation.dart';
+import 'package:splash_app/core/network/app_router.dart';
 import 'package:splash_app/core/utils/string_manager.dart';
 import 'package:splash_app/feature/checkout/data/repos/checkout_repo_impl.dart';
 import 'package:splash_app/feature/checkout/presentation/views/widgets/show_confirmation_order_dialog.dart';
@@ -33,6 +34,8 @@ Future<void> checkStatusFor5Minutes(BuildContext context) async {
         },
         onCancle: () {
           ServiceRequestCubit().deletePendingOrder(id: id);
+          NavigatorManager.pushWithReplacement(
+              context: context, route: AppRoutes.homeView);
         },
       );
       return;
@@ -49,8 +52,7 @@ Future<void> checkStatusFor5Minutes(BuildContext context) async {
             );
           });
       return;
-    } else if (status == StringsManager.pending) {
-    }
+    } else if (status == StringsManager.pending) {}
     if (endFunction == true) {
       return;
     }

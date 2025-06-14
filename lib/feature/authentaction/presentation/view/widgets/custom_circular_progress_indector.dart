@@ -18,3 +18,18 @@ class CustomCircularProgressIndicator extends StatelessWidget {
     );
   }
 }
+class CustomCircularProgressIndicatorForOrder extends StatelessWidget {
+  const CustomCircularProgressIndicatorForOrder({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: SpinKitFadingCircle(
+        color: ColorsManager.darkgreen,
+        size: AppSize.s30,
+      ),
+    );
+  }
+}
