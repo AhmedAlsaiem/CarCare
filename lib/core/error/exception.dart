@@ -32,8 +32,6 @@ void handleDioExceptions(DioException e) {
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
         case 400:
-          print(
-              'AAAAAAAAAAAAAAAAHHHHHHHHHHHHHAAAAAAAAAAAAAHHHHHHH${e.response!.data}'); // Bad request
           throw ServerException(
               errModel: ErrorModel.fromJson(e.response!.data));
         case 401: //unauthorized

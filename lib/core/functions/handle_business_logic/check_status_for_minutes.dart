@@ -33,9 +33,9 @@ Future<void> checkStatusFor5Minutes(BuildContext context) async {
           NavigatorManager.pop(context: context);
         },
         onCancle: () {
-          ServiceRequestCubit().deletePendingOrder(id: id);
           NavigatorManager.pushWithReplacement(
               context: context, route: AppRoutes.homeView);
+          ServiceRequestCubit().deletePendingOrder(id: id);
         },
       );
       return;
@@ -68,6 +68,8 @@ Future<void> checkStatusFor5Minutes(BuildContext context) async {
     },
     onCancle: () {
       ServiceRequestCubit().deletePendingOrder(id: id);
+      NavigatorManager.pushWithReplacement(
+          context: context, route: AppRoutes.homeView);
     },
   );
 }

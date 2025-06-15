@@ -35,6 +35,7 @@ class CustomContactItem extends StatelessWidget {
                     .copyWith(color: ColorsManager.black),
               ),
             ),
+       const     SizedBox(height: 5),
             Row(
               children: [
                 const CircleAvatar(

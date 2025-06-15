@@ -61,8 +61,6 @@ class _CustomorderListViewBuilderState
               currentIndex: currentIndex,
               onTap: () {
                 currentIndex = 4;
-                print(currentIndex);
-                print('ahmed');
                 setState(() {});
               },
             ),
@@ -100,11 +98,9 @@ List<ServiceRequestEntity> filterOrdersByCurrentPeriod({
                 .isAfter(nowStartOfWeek.subtract(const Duration(seconds: 1))) &&
             orderDate.isBefore(nowEndOfWeek.add(const Duration(days: 1)));
       case 'month':
-        print('month');
 
         return orderDate.year == now.year && orderDate.month == now.month;
       case 'year':
-        print('year');
 
         return orderDate.year == now.year;
       default:

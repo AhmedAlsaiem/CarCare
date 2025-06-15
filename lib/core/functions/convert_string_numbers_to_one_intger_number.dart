@@ -5,7 +5,6 @@ int convertStringNumbersToOneIntNumber({
   required String n4,
 }) {
   int stringToInt({required String number}) {
-    print('ggggggggggggooooooooooooolllllllll$number');
     if (number.isNotEmpty) {
       return int.parse(number);
     } else {

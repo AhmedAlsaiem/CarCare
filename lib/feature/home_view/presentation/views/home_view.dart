@@ -5,6 +5,7 @@ import 'package:splash_app/feature/home_view/presentation/views/widgets/home_vie
 import 'package:splash_app/feature/home_view/presentation/views/widgets/order_view_body.dart';
 import 'package:splash_app/feature/my_car/presebtation/view/my_car_view_body.dart';
 import 'package:splash_app/feature/my_car/presebtation/widgets/custom_my_car_app_bar.dart';
+import 'package:splash_app/feature/paid_services/presentation/manager/service_request_manual_cubit/service_request_manual_cubit.dart';
 import 'package:splash_app/feature/setting/presentation/widgets/setting_view_body.dart';
 import '../manager/cubits/bottom_navigation_bar_cubit.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
@@ -16,6 +17,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationIndeCubit, int>(
       builder: (context, currentIndex) {
+        ServiceRequestCubit.requestEntity = null;
         return Scaffold(
           appBar: currentIndex != 0
               ? customMyCarAppBar(title: homeViewsTitle[currentIndex])

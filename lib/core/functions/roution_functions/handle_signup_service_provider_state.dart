@@ -14,7 +14,6 @@ void serviceProviderHandleState(
     NavigatorManager.pushWithReplacement(
         context: context, route: AppRoutes.otpAcoutVerification);
   } else if (state is FaliureServiceProviderState) {
-    print(' asdaaaaaaaaaaaaaaaaaaaaaaaaaaaa${state.errorData.toString()}');
 
     customShowSnackBar(
         context, state.errorMessage + state.errorData.toString());

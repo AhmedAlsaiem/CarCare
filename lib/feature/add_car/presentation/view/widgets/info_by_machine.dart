@@ -63,10 +63,8 @@ class _InfoByMachineState extends State<InfoByMachine> {
       });
 
       widget.onDetectionComplete?.call(response);
-    } on SocketException catch (a) {
+    } on SocketException   {
       setState(() {
-        print('Ahmed');
-        print(a);
         _connectionStatus = 'Network error: Check connection';
       });
     } on TimeoutException {
