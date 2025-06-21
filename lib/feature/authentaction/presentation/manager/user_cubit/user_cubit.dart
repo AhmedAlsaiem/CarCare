@@ -77,6 +77,7 @@ class UserCubit extends Cubit<UserState> {
   void verfiyEmail() async {
     String? email = CacheHelper().getDataString(key: ApiKey.email);
     int restCode = 1111;
+    print(restCode);
     if (verifcationCodeKey.currentState!.validate()) {
       restCode = convertStringNumbersToOneIntNumber(
         n1: otpFrogetPassword1.text,
